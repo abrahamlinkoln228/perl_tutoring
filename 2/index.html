@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .alert-primary {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .table td, .table th{
+            padding: 0%;
+            margin: 0%;
+            padding-left: 5px;
+        }
+
+        .btn-group-lg > .btn, .btn-lg{
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .custom {
+            margin: 2px;
+            padding: 4px;
+        }
+
+        .control {
+            margin: 3px;
+            padding: 0px;
+        }
+
+        .custom-top{
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        #label-one{
+            position: absolute;
+            top: 315px;
+            bottom: 0;
+            left: 20px;
+            width: 100%;
+            transition: 0.2s;
+            background-color: white;
+            height:20px ;
+            width:100px ;
+            padding-left: 10px;
+            }
+
+        .row {
+            height: 100px;
+            margin-top: 5px;
+        }
+
+        .rowsh{
+            padding: 20px;
+        }
+        
+        .inbox{
+            position: absolute;
+            height: 100px;
+            width: 45px;
+            top: 0px;
+            padding: 0px;
+            margin: 0px;
+            background-color: violet;
+            z-index: -2;
+        }
+
+        .col {
+            padding-left: 0%;
+        }
+
+        .inbox2{
+            
+        }
+
+        .default{
+            margin: 0%;
+            padding: 0%;
+            
+        }
+
+    </style>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+      <div class="border border-dark custom">
+    <div class="alert alert-primary text-center" role="alert">
+        Доп. інформація по свічу 
+      </div>
+    <table class="table">
+        <!--
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+          </tr>
+        </thead>
+        -->
+        <tbody>
+          <tr>
+            <th class="border border-info" scope="row">1</th>
+            <td class="border border-info"> Mark</td>
+
+          </tr>
+          <tr>
+            <th class="border border-info"scope="row">2</th>
+            <td class="border border-info">Jacob</td>
+
+          </tr>
+          <tr>
+            <th class="border border-info" scope="row">3</th>
+            <td class="border border-info" >Larry</td>
+
+          </tr>
+          <tr>
+            <th class="border border-info" scope="row">4</th>
+            <td class="border border-info" >Larry</td>
+
+          </tr>
+          <tr>
+            <th class="border border-info" scope="row">5</th>
+            <td class="border border-info">Larry</td>
+
+          </tr>
+          <tr>
+            <th class="border border-info" scope="row">6</th>
+            <td class="border border-info">Larry</td>
+
+          </tr>
+          <tr>
+            <th class="border border-info" scope="row">7
+            </th>
+            <td class="border border-info">Larry</td>
+
+          </tr>
+          <tr>
+            <th class="border border-info" scope="row">8</th>
+            <td class="border border-info" >Larry</td>
+
+          </tr>
+          <tr>
+            <th class="border border-info" scope="row">9</th>
+            <td class="border border-info" >Larry</td>
+
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary btn-lg btn-block">Редагувати свіч</button>
+      <label id="label-one" for="custom-top-id">Управління</label>
+      <div id="custom-top-id" class="border border-dark custom-top">
+        <div class="control border border-dark"><a href="">Доп контент</a></div>
+        <div class="control border border-dark"><a href="">Доп контент</a></div>
+        <div class="control border border-dark"><a href="">Доп контент</a></div>
+        <div class="control border border-dark"><a href="">Доп контент</a></div>
+        <div class="control border border-dark"><a href="">Доп контент</a></div>
+        <div class="control border border-dark"><a href="">Доп контент</a></div>
+      </div>
+      <div class="alert alert-primary text-center" role="alert">
+        Доп. інформація по свічу 
+      </div>
+      <div class="alert alert-primary text-center" role="alert">
+        Доп. інформація по свічу 
+      </div>
+      <div class="rowsh ">
+      <div class="row">
+        <div class="col border border-dark">
+            
+            <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 1</label>
+
+        </div>
+        <div class="col border border-dark">
+            <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 2</label>
+            
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 3</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 4</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 5</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 6</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 7</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 8</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 9</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 10</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 11</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 12</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 13</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 14</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 15</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 16</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 17</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 18</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 19</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 20</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 21</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 22</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 23</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 24</label>
+        </div>
+        <div class="col border border-dark">
+                        <p class="default text-center">Тестюк Філімон Тестовский (хххх) (хххх)</p>
+            <p class="default text-center">Народного Ополченія 2г</p>
+            <p class="default text-center">1000 мегабіт</p>
+            <p class="default text-center">Вкл</p>
+            <label class="inbox">Порт 25</label>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script>
+        $('selector').css('cursor', 'pointer'); // 'default' to revert
+$(document).click(function() {
+  console.log(event.target.innerText);
+  var text = prompt("Заміна тексту  ", ""+event.target.innerText+"" );
+  event.target.innerText = text;
+});
+    </script>
+  </body>
+</html>
