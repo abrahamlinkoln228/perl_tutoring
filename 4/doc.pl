@@ -45,7 +45,8 @@ sub pod2html {
 #  print DES "Content-Type: text/html\n\n";
   print DES $htm_s;
   while(<SRC>){
-    print DES $_;	
+    print DES $_;
+    print DES "<br>";	
   }
   print DES $htm_e;
 
