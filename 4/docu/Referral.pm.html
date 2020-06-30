@@ -1,0 +1,111 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Referral SQL
+
+  [1mnew($db, $admin, $CONF)[0m
+      Arguments:
+        $db    - ref to DB
+        $admin - current Web session admin
+        $CONF  - ref to %conf
+
+      Returns:
+        object
+
+  [1msettings_get()[0m
+      Arguments:
+        $attr
+          PARAM - specify name of the only param you want to get
+
+      Returns:
+        list
+
+  [1mmax_level_set($all_params)[0m
+      Arguments:
+        $all_params - arr_ref,  list of new parameters
+
+      Returns:
+        1;
+
+      #TODO: When there will be a lot of params, check if need to change
+
+  [1msettings_define($attr)[0m
+      Defines unexistent configuration variables
+
+      Arguments:
+        $attr - hash_ref
+          ALREADY_DEFINED - list
+
+      Returns:
+        1
+
+  [1mlist($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+
+  [1minfo($uid, $attr)[0m
+      Arguments:
+        $uid   - uid of user
+        $attr - hash_ref
+
+      Returns:
+
+  [1madd($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+
+  [1mdel($id)[0m
+      Arguments:
+
+
+      Returns:
+
+  [1mchange($attr)[0m
+      Arguments:
+
+
+      Returns:
+
+  [1mget_user_info($uid)[0m
+      Arguments:
+        $uid - Users ID
+
+      Returns:
+        hash_ref
+          UID => 'FIO ( ID )'
+
+  [1mget_referrers_list() - get all users who are referrers[0m
+      Arguments:
+
+
+      Returns:
+        list of all users who are referrers
+
+  [1mtransform_to_hash($list, $attr)[0m
+      Transforms arr_ref of hash_ref to one hash_ref
+
+      Arguments:
+        $list - DB list, arr_ref of hash_ref
+        $attr
+          NAME_KEY
+          VAL_KEY
+
+      Returns:
+        hash_ref
+
+
+	
+	</body>
+	</html>
+  

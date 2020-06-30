@@ -1,0 +1,64 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+     DHCP server managment and user control
+
+  [1mroutes_list($attr)[0m
+  [1mnetwork_add($attr)[0m
+  [1mnetwork_del($id)[0m
+  [1mnetwork_change($attr)[0m
+  [1mnetwork_info($id)[0m
+  [1mnetworks_list($attr)[0m
+  [1mhosts_list($attr) - List of active DHCP hosts[0m
+  [1mhost_add($attr)[0m
+  [1mhost_del($attr)[0m
+  [1mhost_check($attr) - Get host network and dubling parameters[0m
+      Arguments:
+        $attr
+          NETWORK
+          MAC
+          IP
+          UID
+
+      Returns:
+        $self
+
+  [1mhost_info($id, $attr) - Host full info[0m
+  [1mhost_change($attr)[0m
+  [1mroute_add($attr)[0m
+  [1mroute_del()[0m
+  [1mroute_change($attr)[0m
+  [1mroute_info($id)[0m
+  [1mleases_update($attr)[0m
+  [1mleases_list($attr)[0m
+  [1mleases_update($attr) - Delete from leases[0m
+      Arguments:
+        $attr
+          ENDED
+          NAS_ID
+          UID
+          MAC
+
+      Results:
+        Object
+
+  [1mlog_add($attr) - Add log info to db[0m
+      Arguments:
+
+      Result:
+        Object
+
+  [1mlog_del($attr)[0m
+  [1mlog_list($attr)[0m
+
+	
+	</body>
+	</html>
+  

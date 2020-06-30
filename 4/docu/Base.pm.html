@@ -1,0 +1,441 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+    Abills::Base - Base functions
+
+[1mSYNOPSIS[0m
+        use Abills::Base;
+
+        convert();
+
+  [1mnull() Null function[0m
+      Return:
+        true
+
+  [1mcfg2hash($cfg, $attr) Convert cft str to hash[0m
+      Arguments:
+        $cfg
+          format:
+            key:value;key:value;key:value;
+        $attr
+
+      Results:
+
+  [1min_array($value, $array) - Check value in array[0m
+      Arguments:
+
+        $value   - Search value
+        $array   - Array ref
+
+      Returns:
+
+        true or false
+
+      Examples:
+
+        my $ret = in_array(10, \@array);
+
+  [1mconvert($text, $attr) - Converter text[0m
+       Attributes:
+         $text     - Text for convertation
+         $attr     - Params
+           text2html - convert text to HTML
+           html2text -
+           txt2translit - text to translit
+           json      - Convert \n to \n
+
+           Transpation
+             win2koi
+             koi2win
+             win2iso
+             iso2win
+             win2dos
+             dos2win
+
+      Returns:
+
+        converted text
+
+      Examples:
+         convert($text, $attr)
+
+      Formating text
+
+        convert($text, { text2html => 1, SHOW_URL => 1 });
+
+  [1mtxt2translit($text) - convert to translit[0m
+  [1mwin2utf8($text)[0m
+      http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1251.TXT
+
+  [1mutf82win($text)[0m
+       http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1251.TXT
+       http://www.utf8-chartable.de/unicode-utf8-table.pl
+
+  [1mcp8662utf8($text)[0m
+      Arguments:
+
+
+      Returns:
+
+  [1mutf82cp866($text)[0m
+      Arguments:
+
+
+      Returns:
+
+  [1mparse_arguments(\@ARGV) - Parse comand line arguments[0m
+      Arguments:
+
+        @ARGV   - Command line arguments
+
+      Returns:
+
+        return HASH_REF of values
+
+      Examples:
+
+        my $argv = parse_arguments(\@ARGV);
+
+  [1msendmail($from, $to_addresses, $subject, $message, $charset, $priority, $attr) - Send mail message[0m
+      Arguments:
+
+        $from          - Sender e-mail
+        $to_addresses  - Receipt e-mail
+        $subject       - Subject
+        $message       - Message
+        $charset       - Charset
+        $priority      - Priority
+
+        $attr          - Attributes
+          ATTACHMENTS    - ARRAY of attachments
+          SENDMAIL_PATH  - path to sendmail program (Default: /usr/sbin/sendmail)
+          MAIL_HEADER    - Custom mail header
+          TEST           - Test mode. Only show email body
+          CONTENT_TYPE   - Content Type
+          ACTIONS        - Make actions fields
+          ID             - Message ID
+
+      Returns:
+        0 - true
+        1 - error
+        2 - reciever email not specified
+
+      Examples:
+
+        sendmail("$conf{ADMIN_MAIL}", "user@email", "Subject", "Message text",
+              "$conf{MAIL_CHARSET}", "2 (High)");
+
+  [1mshow_log($uid, $type, $attr) - Log parser[0m
+      Attributes:
+        $uid
+        $type
+        $attr
+          PAGE_ROWS
+          PG
+          DATE
+          LOG_TYPE
+
+  [1mmk_unique_value($size, $attr) - Make unique value[0m
+      Arguments:
+        $size  - Size of result string
+        $attr
+          SYMBOLS     -
+          EXTRA_RULES - '$chars:$case' (0 - num, 1 - special, 2 - both):(0 - lower, 1 - upper, 2 - both)
+
+      Results:
+        $value - Uniques string
+
+  [1mint2ip($int) Convert integer value to ip[0m
+  [1mip2int($ip) - Convert ip to int[0m
+  [1mtime2sec($time, $attr) - Time to second[0m
+      Returns:
+        $sec;
+
+  [1msec2time($value, $attr) - Seconds to date format[0m
+      Convert seconds to date format
+
+      Arguments:
+        $value - number, seconds for conversion
+        $attr
+          format - return in 'HH:MM:SS' format
+          str    - return in '+D HH:MM:SS' format
+
+      Returns:
+        array - ($seconds, $minutes, $hours, $days)
+        if $attr see 'Arguments'
+
+  [1msec2date($secnum) - Convert second to date[0m
+      Arguments:
+        $secnum - Unixtime
+
+      Returns:
+        "$year-$mon-$mday $hour:$min:$sec"
+
+  [1mint2byte($val, $attr) - Convert Integer to byte definision[0m
+      $KBYTE_SIZE - Size of kilobyte (Standart 1024)
+
+  [1mint2ml($sum, $attr) integet to money in litteral format[0m
+      Arguments:
+        $sum
+        $attr
+
+      Returns:
+        $literal_sum
+
+  [1mdecode_base64()[0m
+  [1mencode_base64()[0m
+  [1mcheck_time() - time check function. Make start time point[0m
+  [1mgen_time($begin_time) - Show generation time[0m
+      Arguments:
+        $begin_time  - Start time point
+        $attr
+          TIME_ONLY
+
+      Returns:
+        generation time
+
+  [1mclearquotes($text, $attr) - For clearing quotes[0m
+  [1mtpl_parse($string, \%HASH_REF, $attr); - Parse tpl[0m
+      Arguments:
+        $string   - parse string
+        $HASH_REF - Hash_ref of parameters
+        $attr     - Extra attributes
+          SET_ENV - Set enviropment values
+
+      Return:
+        result string
+
+  [1mcmd($cmd, \%HASH_REF); - Execute shell command[0m
+    command execute in backgroud mode without output
+
+      Arguments:
+
+        $cmd     - command for execute
+        $attr    - Extra params
+          PARAMS          - Parameters for command line (HASH_REF)
+            [PARAM_NAME => PARAM_VALUE] convert to PARAM_NAME="PARAM_VALUE"
+          SHOW_RESULT     - show output of execution
+          timeout         - Time for command execute (Default: 5 sec.)
+          RESULT_ARRAY    - Return result as ARRAY_REF
+          ARGV            - Add ARGV for program
+          DEBUG           - Debug mode
+
+          $ENV{CMD_EMULATE_MODE}
+             /usr/abills/var/log/cmd.log
+
+      Returns:
+
+        return command result string
+
+      Examples:
+
+        my $result = cmd("/usr/abills/misc/extended.sh %LOGIN% %IP%", { PARAMS => { LOGIN => text } });
+
+        run as:
+
+        /usr/abills/misc/extended.sh test
+
+
+        my $result = cmd("/usr/abills/misc/extended.sh", { ARGV => 1, PARAMS => { LOGIN => text } });
+
+        run as:
+
+        /usr/abills/misc/extended.sh LOGIN="test"
+
+  [1mssh_cmd($cmd, $attr) - Make ssh command[0m
+      Arguments:
+
+        $cmd     - command for execute
+          extra cmd "sleep 10"
+        $attr    - Extra params
+          NAS_MNG_IP_PORT  - Server IP:PORT
+          BASE_DIR         - Base dir for certificate BASE_DIR/Certs/id_dsa
+          NAS_MNG_USER     - ssh login (Default: abills_admin)
+          SSH_CMD          - ssh command (Default: /usr/bin/ssh -p $nas_port -o StrictHostKeyChecking=no -i $base_dir/Certs/id_dsa.$nas_admin)
+          SSH_KEY          - (optional) custom certificate file
+          DEBUG            - Debug mode
+
+      Returns:
+
+        return array_ref
+
+      Examples:
+
+        my $result = ssh_cmd('ls', { NAS_MNG_IP_PORT => '192.168.0.12:22' });
+
+        make
+
+        /usr/bin/ssh -p 22 -o StrictHostKeyChecking=no -i /usr/abills/Certs/id_dsa.abills_admin abills_admin@192.168.0.12 '$cmd'
+
+  [1mdate_diff($from_date, $to_date) - period in days from date1 to date2[0m
+      Arguments:
+
+        $from_date - From date
+        $to_date   - To date
+
+      Returns:
+
+        integer of date
+
+      Examples:
+
+        my $days = date_diff('2015-10-31', '2015-12-01');
+
+  [1mdate_format($date, $format, $attr) - convert date to other date format[0m
+      Arguments:
+
+        $date     - Input date YYYY-MM-DD
+        $format   - Output format (Use POSIX conver format)
+        $attr     -  Extra atributes
+
+      Returns:
+
+        string of date
+
+      Examples:
+
+        date_format('2015-10-31 08:01:15', "%m.%d.%y");
+
+        result 31.10.2015
+
+        date_format('2015-10-31 08:01:15', "%H-%m-%S");
+
+        result 08-01-15
+
+  [1m_bp($attr) - Break points for debugging[0m
+      Show file name,line number of point and input value
+
+      Arguments:
+        $explanation - Describe of value or hash_ref(legacy)
+          HEADER     - show html header (Content-Type)
+          SHOW       - Show input. Auto detect: string, array_ref, hash_ref, obj
+          EXIT       - Exit programs
+          BREAK_LINE - Break line symbols
+        $value       - Value of any type STRING, ARR_REF, HASH_REF
+        $attr        - hash_ref
+          HEADER         - print HTTP content-type header
+          EXIT           - Exit program (!!!)
+          BREAK_LINE     - Break line symbols
+          TO_WEB_CONSOLE - print to browser debug console via JavaScript
+          TO_CONSOLE     - print without HTML formatting
+          SORT           - Sort hash keys
+
+      Returns:
+        1
+
+      Example:
+        my $hash = { id1 => 'value1' };
+
+        Show with explanation of value
+          _bp( 'Simple hash', $hash, $attr ) if ($attr->{DEBUG});
+          _bp("Simple hash", $hash);
+
+        Show value in browser console
+          _bp("Simple hash", $hash, { TO_WEB_CONSOLE => 1 });
+
+        No HTML formatting
+          _bp("Simple hash", $hash, { TO_CONSOLE => 1 });
+
+        Legacy:
+          _bp({ SHOW => 'Some text' });
+
+  [1murlencode($text) URL encode function[0m
+      Arguments:
+        $text   - Text string
+
+      Returns:
+        Encoding string
+
+  [1murldecode($text) URL decode function
+  Arguments:
+    $text   - Text string[0m
+      Returns:
+        decoding string
+
+  [1mstartup_files($attr) - Get deamon startup information and other params of system[0m
+    Analise file /usr/abills/Abills/programs and return hash_ref of params
+
+      Atributes:
+        $attr
+          TPL_DIR
+
+      Returns:
+        hash_ref
+
+  [1mdays_in_month($attr)[0m
+      Arguments:
+        $attr
+          DATE
+
+      Returns:
+        $day_in_month
+
+      Examples:
+
+        days_in_month({ DATE => '2016-11' });
+
+        days_in_month({ DATE => '2016-11-01' });
+
+  [1mnext_month($attr)[0m
+      Arguments:
+        $attr
+          DATE      - Curdate
+          END       - End off month
+          PERIOD    - Month period
+
+      Return:
+        $next_month
+
+      Examples:
+        next_month({ DATE => '2016-03-12' });
+
+  [1mshow_hash($hash)[0m
+      Arguments:
+        $hash_ref
+        $attr
+          DELIMITER
+          OUTPUT2RETURN
+
+      Results:
+        True or false
+
+  [1mload_pmodule($modulename, $attr); - Load perl module[0m
+      Arguments:
+        $modulename   - Perl module name
+        $attr
+          IMPORT      - Function for import
+          HEADER      - Add Content-Type header
+          SHOW_RETURN - Result to return
+
+      Returns:
+        TRUE - Not loaded
+        FALSE - Loaded
+
+      Examples:
+
+        load_pmodule('Simple::XML');
+
+  [1mdate_inc($date)[0m
+      Arguments:
+        $date - '2016-01-24'
+
+      Returns:
+       string - date incremented by one day
+
+       0 if incorrect date;
+
+[1mAUTHOR[0m
+    ~AsmodeuS~ (http://abills.net.ua/)
+
+
+	
+	</body>
+	</html>
+  

@@ -1,0 +1,47 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+       QR code generator
+
+  [1mqr_make($url, $attr)[0m
+      Arguments:
+        $url - base url for QRCode
+        $attr - hash_ref
+          PARAMS      - hash to stringified and appended to base url
+          IMG_RETURN  - REturn img OBJ with html
+
+  [1m_generate_img($params, $attr) - generate HTML <img> that points to same func[0m
+      Arguments:
+        $params
+        $attr - hash_ref
+
+      Returns:
+        HTML code for <img>
+
+  [1m_print_image($params, $attr) - output QRCode image[0m
+      Arguments:
+        $params - params for url
+        $text - link
+
+      Returns:
+        1
+
+  [1m_parse_params($attr) - stringify params ( %FORM ) hash[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        string
+
+
+	
+	</body>
+	</html>
+  

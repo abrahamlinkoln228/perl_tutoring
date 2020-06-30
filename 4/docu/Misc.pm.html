@@ -1,0 +1,490 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Abills::Misc - ABillS misc functions
+
+  [1mload_pmodule($modulename, $attr); - Load perl module[0m
+      Arguments:
+        $modulename   - Perl module name
+        $attr
+          IMPORT      - Function for import
+          HEADER      - Add Content-Type header
+          SHOW_RETURN - Result to return
+
+      Returns:
+        TRUE - Not loaded
+        FALSE - Loaded
+
+      Examples:
+
+        load_pmodule('Simple::XML');
+
+  [1mload_module($modulename, $attr); - Load ABillS modules[0m
+      Arguments:
+        $modulename   - Perl module name
+        $attr         - Use $html
+          IMPORT      - Make import
+          LANG_ONLY   - Load language only
+          HEADER      - Add Content-Type header
+          SHOW_RETURN - Result to return
+          language    - Language (Default: english)
+          RELOAD      - Reload module
+
+      Returns:
+        TRUE or FALSE
+
+  [1mform_purchase_module($attr); - Load commercial modules[0m
+      Arguments:
+        $attr
+          MODULE          - Module name
+          REQUIRE_VERSION - Required version
+          HEADER          - Add Content-Type header
+          SHOW_RETURN     - Result to return
+          DEBUG           - Debug mode
+
+  [1m_error_show($modulename, $attr); - show functions errors[0m
+      Arguments:
+        $modulename - Module object
+        $attr       -
+          MODULE_NAME  - Module name
+          ID_PREFIX
+          MESSAGE
+          ERROR_IDS
+          ID           - Error number
+          SILENT_MODE  - Skip showin sql query for sql request
+          RIZE_ERROR   -
+
+      Returns:
+        TRUE - Error
+        FALSE
+    Iptv/Trinity_tv.pm
+
+  [1m_function($index, $attr); - Exec function by index[0m
+      Arguments:
+        $index         - Function index
+        $attr
+          IF_EXIST     - Run only if exists function
+          ALL          - Show full log for errors
+          DEBUG        - Debug mode
+
+  [1mcross_modules_call($function_sufix, $attr); - Calls function for all registration modules if function exist[0m
+      Arguments:
+        $function_sufix - Function sufix
+        $attr           - Extra attributes
+          SILENT       - silent mode without output (Default: enable)
+          SKIP_MODULES - Skip modules
+          timeout      - Max timeout for function execute
+          DEBUG        - Debug mode
+          USER_INFO    - User information hash
+          HTML         - $html object
+
+      Return:
+        return all modules return hash
+
+      Example:
+
+        cross_modules_call('_payments_maked', {
+            USER_INFO    => $user,
+            SUM          => $sum,
+            PAYMENT_ID   => $payments->{PAYMENT_ID},
+            SKIP_MODULES => 'Paysys,Sqlcmd'
+        });
+
+  [1mget_function_index($function_name, $attr) - Get function index[0m
+      Arguments:
+        $function_name   - Function name
+        $attr
+          ARGS   - Extra arguments
+            empty - show only with empty argv
+
+      Returns:
+        function index
+
+  [1mget_period_dates($attr) - Get period  intervals[0m
+      Arguments:
+        $attr
+          TYPE              0 - day, 1 - month
+          START_DATE
+          ACCOUNT_ACTIVATE
+          PERIOD_ALIGNMENT
+
+      Returns:
+        Return string of period
+
+  [1mfees_dsc_former($attr) - Make fees describe[0m
+      Arguments:
+        $attr
+          SERVICE_NAME       - Service name
+          TEMPLATE_KEY_NAME  - name for %conf key (DV_FEES_DSC)
+
+  [1mservice_get_month_fee($Service, $attr) - Make month feee[0m
+      Arguments:
+        $Service - Module object
+        $attr
+          SERVICE_NAME - Service name
+          DATE         - date of fees
+          SHEDULER     - execute from sheduler
+          EXT_DESCRIBE - Extra decribe
+          QUITE        - Quite mode
+          DEBUG
+
+        Extra config option:
+
+         $conf{DV_CURDATE_ACTIVATE}=1; - Activate non payment service by cur date
+
+      Returns:
+        total_sum
+          Hash of results
+             [ ACTIVATE  => 0 ]
+             [ MONTH_FEE => 0 ]
+
+  [1msearch_link($val, $attr); - forming search link[0m
+      Arguments:
+        $val  - Function name
+        $attr -
+          PARAMS
+          VALUES
+          LINK_NAME
+
+      Returns:
+        Link
+
+  [1mresult_row_former($attr); - forming result from array_hash[0m
+      Arguments:
+        $attr
+          table - table object
+          ROWS  - array_array
+          ROW_COLORS - ref Array color
+
+      Examples:
+
+  [1mresult_former($attr) - Make result table from different source[0m
+      Arguments:
+        $attr
+          DEFAULT_FIELDS  - Default fields
+          HIDDEN_FIELDS   - Requested but not showed in HTML table ('FIELD1,FIELD2')
+          INPUT_DATA      - DB object
+          FUNCTION        - object list function name
+          LIST            - get input data from list (array_hash)
+          BASE_FIELDS     - count of default field for list ( Show first %BASE_FIELDS% $search_columns fields )
+
+          DATAHASH        - get input data from json parsed hash
+          BASE_PREFIX     - Base prefix for data hash
+
+          FUNCTION_FIELDS - function field forming
+             change  - change field
+             payment - payment field
+             status  - status field
+             del     - del field
+          STATUS_VALS - Value for status fields (status,disable)
+          EXT_TITLES  - Translations for table header ( Necessary for column selection modal window)
+            [ object_name => 'translation' ]
+          SKIP_USER_TITLE - don\'t show user titles in gum menu
+
+          MAKE_ROWS   - Show result table
+          MODULE      - Module name for user link
+          FILTER_COLS - Use function filter for field
+            filter_function:params:params:...
+          SELECT_VALUE- Select value for field
+          MULTISELECT - multiselect column ( Will add checkbox for every row string 'id:line_key_for_value_name:form_id' )
+            [ id => value ]
+
+          SKIP_PAGES  - Not show table pages
+          TABLE       - Table information (HASH)
+            caption
+            cols_align
+            qs
+            pages
+            ID
+            EXPORT
+            MENU
+          TOTAL         - Show table with totals
+                          Multi total
+                          $val_id:$name;$val_id:$name
+          SHOW_MORE_THEN- Show table when rows more then SHOW_MORE_THEN
+
+          MAP         - Make map tab
+          MAP_FIELDS  - Map fields
+          MAP_ICON    - Icons for map points
+
+          CHARTS      - Make charts. Coma separated column names to make chart from
+          CHARTS_XTEXT- Charts x axis text
+          OUTPUT2RETURN - Output to return
+
+      Returns:
+        ($table, $list)
+        $table   - Table object
+        $list    - result array list
+
+      Examples:
+        http://abills.net.ua/wiki/doku.php/abills:docs:development:modules:ru#result_former
+
+  [1mtable_function_fields($function_fields, $line, $attr) - Make function fields[0m
+      Attributes:
+        $function_fields - Function fields name (array_ref)
+          form_payments
+          stats
+          change
+          cpmpany_id
+          ex_info
+          del
+        $line            - array_ref of list result
+        $attr            - Extra attributes
+          TABLE          - Table object hash_ref
+          MODULE         - Module name
+
+      Result:
+        Arrya_ref of cols
+
+  [1mdirname($path)[0m
+  [1mload_pmodule($file, $attr); - Make external operations[0m
+      Arguments:
+        $file     - File for executions
+        $attr     - Extra arguments
+
+      Returns:
+        1 - Susccess
+        0 - Error
+
+  [1mget_fees_types($attr)[0m
+       Arguments:
+         $attr
+
+       Returns:
+         \%FEES_METHODS
+
+  [1mget_payment_methods($attr)[0m
+      Arguments:
+        $attr
+          EXTRA_METHODS = Coma separated string
+
+      Returns:
+        \%PAYMENTS_METHODS
+
+  [1mcheck_ip($require_ip, $ips) - Check ip[0m
+      Arguments:
+        $require_ip - Required IP
+        $ips        - IP list commas separated
+
+      Results:
+        TRUE or FALSE
+
+      Examples:
+        10.10.1.2,10.20.0.0/20
+
+  [1m_translate($text) - translate string[0m
+      Arguments:
+        $text   - text for translate
+      Returns:
+          translated string
+
+  [1m_translate_list($list, @name_keys)[0m
+      Arguments:
+        $list      - list of vars to translate
+        @name_keys - array of hash keys to translate. default : (name)
+
+      Returns:
+        translated list
+
+  [1msnmp_get($attr); - Set SNMP value[0m
+      Arguments:
+        $attr
+          SNMP_COMMUNITY
+          OID             - oid
+          WALK            - walk mode
+          SILENT          - DOn't generate exception
+          TIMEOUT         - Request timeout (Default: 2)
+          SKIP_TIMEOUT    -
+          VERSION         - SNMP version (1 default or v2c)
+          DEBUG
+
+      Returns:
+          result string
+          ot result array for WALK mode
+
+  [1msnmp_set($attr); - Set SNMP value[0m
+      Arguments:
+        $attr
+          SNMP_COMMUNITY  - {community_name}@{ip_address}[:port]
+          TIMEOUT         - Timeout
+          OID             - array ( OID, type, value, OID, type, value, ...)
+          DEBUG
+
+  [1mget_oui_info($mac); - Get MAC information
+  Arguments:
+    $mac - mac[0m
+      Returns:
+        vendor string
+
+  [1mhost_diagnostic($ip, $attr); - Diagnostic host activity[0m
+      Diagnostic methods:
+        ping (Default)
+      Arguments:
+        IP      - IP address of host
+        QUITE   - Quite mode
+        TIMEOUT - Timeout
+        $attr   -
+      Return:
+        Active or disable  (TRUE or FALSE)
+
+  [1mfile_op($attr) File operations[0m
+      Secure file operation function, with warnings
+
+      Arguments:
+
+        FILENAME   - Filename
+        PATH       - File folder (Default path $conf{TPL_DIR})
+        WRITE      - Enable write mode (Default: 0 - read mode)
+        CREATE     - Create file if not exists skip if exists
+        CONTENT    - file content for writing
+        SKIP_CHECK - Skip checking file exist for read mode
+        ROWS       - After reading return array of rows for text file only
+
+      Returns:
+        File content for reading
+        TRUE OR FALSE for wrinting
+
+      Examples:
+
+    open image file and print content
+
+        print file_op({
+          FILENAME => "$conf{TPL_DIR}/if_image/image_file.jpg",
+          PATH     => "$conf{TPL_DIR}/if_image"
+        });
+
+  [1mupload_file($file, $attr) - Upload file to server[0m
+      Attributes:
+        $file      - HTML file field object
+        $attr      - Attributes
+           PREFIX                   - Upload folder (Defauls: $conf{TPL_DIR})
+           SAFE_FILENAME_CHARACTERS - Check file symbols
+           FILE_NAME                - Filename for saving
+           EXTENTIONS               - Allow extensions (String - comma separated)
+           REWRITE                  - Allow rewrite file
+
+      Retursn:
+        TRUE or FALSE
+
+      Examples:
+        upload_file($FORM{FILENAME});
+
+  [1msel_groups($attr) - show select user group[0m
+      Attributes:
+        $attr
+          GID
+          HASH_RESULT     - Return results as hash
+          SKIP_MUULTISEL  - Skip multiselect
+
+      Returns:
+        GID select form
+
+  [1msel_status($attr) - show select user group
+  Attributes:
+    $attr
+      STATUS       - Status ID
+      HASH_RESULT  - Return results as hash
+      NAME         - Select element name
+      COLORS       - Status colors
+      ALL          - Show all item[0m
+      Returns:
+        GID select form
+
+  [1maddress_list_tree_menu($attr) - get collapsible tree menu to choose address[0m
+      Arguments:
+        $attr
+          STREETS - if given will not display BUILD level
+          NAME    - Name for a first level. Default is $lang{ADDRESS}
+          OUTPUT2RETURN
+
+      Returns:
+        if $attr->{OUTPUT2RETURN} returns HTML code for menu
+        else returns 1
+
+      Example:
+        address_list_tree_menu({ STREETS=> 1 });
+
+  [1mimport_show($attr) - Show import date[0m
+      Arguments:
+        $attr
+          DATA  - Import data aray_of_hash
+          COLS_NAMES
+
+      Returns:
+        True or False
+
+  [1mimport_former() - Multi address form[0m
+      Arguments:
+        UPLOAD_FILE
+        IMPORT_DELIMITER
+        IMPORT_FIELDS
+        IMPORT_TYPE
+           CSV
+           XML
+           JSON
+        UPLOAD_PRE
+        ENCODE
+
+      Results:
+        \@import_data_hash
+
+  [1mmk_menu($menu) - Multi address form[0m
+      Arguments:
+        $menu
+        $attr
+          USER_FUNCTION_LIST
+          CUSTOM
+
+      Results:
+
+  [1mcustom_menu($attr)[0m
+  [1mget_version();[0m
+      get billing version
+
+  [1msystem_info();[0m
+  [1m_get_files_in($directory_path, $filter)[0m
+      Arguments:
+         $directory_path
+         $attr
+           FILTER - regexp
+           WITH_DIRS
+           FULL_PATH
+           RECURSIVE - get all files in underlying folders too
+   
+      Returns:
+        array_ref
+
+  [1mmd5_of($file)[0m
+  [1m_stats_for_file($file)[0m
+      Arguments:
+        $file - path to file
+
+      Returns:
+        hash_ref
+         file    - name of file with stats
+         dev     - number of filesystem
+         ino     - inode number
+         mode    - file mode  (type and permissions)
+         nlink   - number of (hard) links to the file
+         uid     - numeric user ID of file's owner
+         gid     - numeric group ID of file's owner
+         rdev    - the device identifier (special files only)
+         size    - total size of file, in bytes
+         atime   - last access time in seconds since the epoch
+         mtime   - last modify time in seconds since the epoch
+         ctime   - inode change time in seconds since the epoch (*)
+         blksize - preferred I/O size in bytes for interacting with the file (may vary from file to file)
+         blocks  - actual number of system-specific blocks allocated on disk (often, but not always, 512 bytes each)
+
+
+	
+	</body>
+	</html>
+  

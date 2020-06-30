@@ -1,0 +1,203 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+    Abills::mysql::main - DB manipulation functions
+
+  [1mconnect($dbhost, $dbname, $dbuser, $dbpasswd, $attr) - Connect to DB[0m
+      Arguments:
+        $dbhost,
+        $dbname,
+        $dbuser,
+        $dbpasswd,
+        $attr
+          CHARSET  - Default utf8
+          SQL_MODE - Default NO_ENGINE_SUBSTITUTION
+
+  [1mdisconnect()[0m
+  [1mdb_version() - Get DB version[0m
+      Returns:
+        $version
+
+  [1mquery2($query, $type, $attr) - Query maker[0m
+      Arguments:
+        $query   - SQL query
+        $type    - Type of query
+          undef - with fetch result like SELECT
+          do    - do query without fetch (INSERT, UPDATE, DELETE)
+
+        $attr   - Extra attributes
+          COLS_NAME   - Return Array of HASH_ref. Column name as hash key
+          COLS_UPPER  - Make hash key upper
+          INFO        - Return fields as objects parameters $self->{LOGIN}
+          LIST2HASH   - Return 2 field hash
+                KEY,VAL
+          MULTI_QUERY - Make multiquery (only for INSERT, UPDATE)
+          Bind        - Array or bind values for placeholders  [ 10, 12, 33 ]
+          DB_REF      - DB object. Using whem manage multi DB server
+          test        - Run function without excute query. if using $self->{debug} show query.
+
+        $self->{debug} - Show query
+        $self->{db}    - DB object
+
+      Returns:
+        $self->{list}          - array of array
+                               - array of hash (COLS_UPPER)
+
+        $self->{INSERT_ID}     - Insert id for autoincrement fields
+        $self->{TOTAL}         - Total rows in result (for query SELECT)
+        $self->{AFFECTED}      - Total added or changed fields
+        $self->{COL_NAMES_ARR} - Array_hash of column names
+
+        Error flags:
+          $self->{errno}      = 3;
+          $self->{sql_errno}  = $db->err;
+          $self->{sql_errstr} = $db->errstr;
+          $self->{errstr}
+
+      Examples:
+
+        Delete query
+
+          $self->query2("DELETE FROM users WHERE uid= ?;", 'do', { Bind => [ 100 ] });
+
+          Result:
+
+            $self->{AFFECTED}  - Total deleted rows
+
+
+        Show listing:
+
+          $self->query2("SELECT id AS login, uid FROM users LIMIT 10;", undef, { COLS_NAME => 1 });
+
+          Result:
+
+            $self->{TOTAL}  - Total rows
+            $self->{list}   - ARRAY of hash_refs
+
+        Make info atributes
+
+           $self->query2("SELECT id AS login, gid, credit FROM users WHERE uid = ? ;", undef, { INFO => 1, Bind => [ 100 ] });
+
+          Result:
+
+            $self->{LOGIN}
+            $self->{GID}
+            $self->{CREDIT}
+
+        LIST2HASH listing
+
+          $self->query2("SELECT id AS login, gid, credit FROM users WHERE uid = ? ;", undef, { LIST2HASH => 'login,gid' });
+
+          $self->{list_hash} - Hash ref
+
+  [1mquery_add($table, $values, $attr) - Insert to table constructor[0m
+      Arguments:
+        $table     - Table name,
+        $values    - hash of fields and values
+          [FIELD_NAME] => [value]
+        $attr      - extra params for delete query
+          REPLACE - change INSERT to REPLACE
+
+  [1mquery_del($table, $values, $extended_params) - Delete constructor[0m
+      Arguments:
+        $table            - Table name,
+        $values           - delete values
+        $extended_params  - extra params for delete query
+          [field_name] => [value]
+        $attr
+          CLEAR_TABLE  => Truncate table information
+
+  [1mget_data($params, $attr) - Input date into hash[0m
+  [1msearch_former($data_hash_ref, $search_params, $attr) - SQL search former[0m
+      Arguments:
+        $data          - Input data hash ref
+        $search_params - search params array
+           [field_id, where_filed_name, field_show_name, show_field (1 or 0) ],
+
+        $attr          - extra atributes
+          USERS_FIELDS      - Use main users params
+          USERS_FIELDS_PRE  - Use main users params before main result
+          USE_USER_PI       - Use users pi iformation params
+          SKIP_USERS_FIELDS - Skip users fields
+          WHERE             - add WHERE before search params
+
+  [1msearch_expr($self, $value, $type) - Search expration[0m
+      Arguments:
+        $value - search value
+        $type  - type of fields
+          IP -  IP Address
+            , - or
+            ; - and
+          INT - integer
+            , - or
+            ; - and
+          STR - string
+            , - or
+            ; - and
+          DATE - Date
+            , - or
+            ; - and
+        $field - field name
+        $attr  - extra add
+          EXT_FIELD
+
+  [1msearch_expr_users($attr) - Formed WHERE rules[0m
+      Arguments:
+
+        $attr
+          EXT_FIELDS     -
+          SUPPLEMENT
+          SKIP_GID
+          USE_USER_PI
+          CONTRACT_SUFIX
+          SKIP_USERS_FIELDS   - SKip user field search
+
+  [1mmk_ext_tables($attr) - Make ext tables for query[0m
+      Arguments:
+        $attr
+          JOIN_TABLES
+          EXTRA_PRE_JOIN
+          EXTRA_PRE_ONLY
+
+      Results:
+        Join tables string
+
+  [1mchanges2($attr) - Change values in table and make change log[0m
+      Arguments:
+        $attr  - Parmeters
+          CHANGE_PARAM - chenging param main ID (required)
+                         Multi hit ID,UID
+          SECOND_PARAM - Aditional parameter for change
+          TABLE        - changing table (required)
+          DATA         - Input data (hash_ref)
+          EXT_CHANGE_INFO - Extra change information (Extra describe)
+          FIELDS       - fields of table (hash_ref) old
+          OLD_INFO     - OLD infomation for compare
+          SKIP_LOG     - Skip Admin log
+          ACTION_ID    - Action ID
+
+      Returns:
+        $self Object
+
+      Examples:
+
+        $self->changes2(
+          {
+            CHANGE_PARAM => 'ID',
+            TABLE        => 'ring_rules',
+            DATA         => $attr
+          }
+        );
+
+
+	
+	</body>
+	</html>
+  

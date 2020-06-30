@@ -1,0 +1,75 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+        UNIFI API v4
+
+      VERSION: 0.16
+      REVISION: 2016-10-25
+
+
+      Useful links
+      https://github.com/malle-pietje/UniFi-API-browser/blob/master/phpapi/class.unifi.php
+
+  [1mget_api_list($api_path, [ params ]) - request list from Unifi[0m
+    $api_path - as defined in $OBJPATH
+
+  [1musers_list() - Get connected users[0m
+  [1musers_stats() - Get statistics for all users[0m
+      Arguments:
+        $filters - hash_ref of unifi-specific parameters
+          within - filter by time ( default: last 24 hours)
+
+      Returns:
+        list
+
+  [1mdevices_list() - Get device list[0m
+  [1mlogin($attr) - Device auth[0m
+  [1mlogout() - Log out from NAS[0m
+  [1mmk_request() - Make request to NAS[0m
+      Arguments:
+        $url             - Request url
+        $request_params  - Request params (Hash_ref)
+        $attr            - extra attr
+          DEBUG
+          METHOD         - string (Default: post)
+
+      Result:
+        TRUE or FALSE
+          $self->{errno}
+          $self->{errstr}
+
+  [1mauthorize($attr)[0m
+  [1mdeauthorize($attr) - Hangup user[0m
+      Arguments:
+        $attr
+          MAC
+
+      Returns:
+
+  [1mdisconnect($attr) -[0m
+      Arguments:
+        $attr
+           MAC
+
+  [1msys_info() - Sysinfo[0m
+  [1malarms() - Sysinfo[0m
+  [1mdaily_site() - Sysinfo[0m
+  [1mconvert_result($data_hash)[0m
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 3:
+        Unknown directive: =head
+
+
+	
+	</body>
+	</html>
+  

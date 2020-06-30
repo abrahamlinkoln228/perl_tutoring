@@ -1,0 +1,89 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+     huawei snmp monitoring and managment
+
+  [1m_huawei_get_ports($attr) - Get OLT ports[0m
+  [1m_huawei_onu_list($port_list, $attr) -[0m
+      Arguments:
+        $port_list
+        $attr
+
+      Results:
+
+  [1m_huawei_unregister($attr);[0m
+      Arguments:
+        $attr
+
+      Returns;
+        \@unregister
+
+  [1m_huawei($attr) - Snmp recovery[0m
+      Arguments:
+        $attr
+          TYPE
+
+      http://pastebin.com/wjj68SUX
+
+  [1m_huawei_onu_status();[0m
+  [1mdecode_port($dec) - Decode onu int[0m
+      Arguments:
+        $dec
+
+      Returns:
+        deparsing string
+
+  [1m_huawei_set_desc_port($attr) - Set Description to OLT ports[0m
+  [1m_huawei_get_service_ports($attr) - Get OLT service ports[0m
+      Arguments:
+        $attr
+          ONU_SNMP_ID
+
+  [1m_huawei_get_free_id($attr)[0m
+       Arguments:
+         $attr
+           OID                - oid
+           SNMP_COMMUNITY     - Port id
+           MAX_ID             - Maximal id (default 128)
+
+  [1m_huawei_convert_power($power);[0m
+  [1m_huawei_convert_olt_power();[0m
+  [1m_huawei_convert_desc();[0m
+  [1m_huawei_convert_temperature();[0m
+  [1m_huawei_convert_voltage();[0m
+  [1m_huawei_convert_distance();[0m
+  [1m_huawei_convert_duplex();[0m
+  [1m_huawei_convert_speed();[0m
+  [1m_huawei_convert_admin_state();[0m
+  [1m_huawei_convert_state($data);[0m
+  [1m_huawei_convert_eth_vlan();[0m
+  [1m_huawei_convert_cpu_usage();[0m
+  [1m_huawei_convert_info_temperature();[0m
+  [1m_huawei_convert_info_describe();[0m
+  [1m_huawei_get_fdb($attr) - GET FDB by telnet[0m
+      Arguments:
+        $attr
+
+      Results:
+
+  [1m_huawei_telnet_open($attr);[0m
+      Arguments:
+        $attr
+          NAS_INFO
+
+      Returns:
+        TRUE or FALSE
+
+  [1m_huawei_telnet_cmd($cmd);[0m
+
+	
+	</body>
+	</html>
+  

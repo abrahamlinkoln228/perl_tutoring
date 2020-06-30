@@ -1,0 +1,80 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Administrators manage functions
+
+  [1madmins_groups_list() - Admin groups list[0m
+  [1mget_permissions()[0m
+  [1mset_permissions($permissions) - Set admin permissions[0m
+      Arguments:
+        $permissions - hash of permits
+
+  [1minfo($aid, $attr) - Administrator information and auth function[0m
+      Arguments:
+        LOGIN          - Login for auth
+        PASSWORD       - Password for auth
+        SECRETKEY      - Secret key for password decode (default: $CONF->{secretkey})
+        API_KEY        - API key for auth
+        EXTERNAL_AUTH  - Use external auth
+        DOMAIN_ID      - Admin domian ID
+        IP             - Session IP
+
+      Returns:
+        admin object
+
+[1mlist($attr) - List admins[0m
+[1mchange($attr) - Change user info[0m
+[1madd() - Add admin[0m
+  [1mdel() - Delete admin[0m
+  [1maction_add($uid, $actions, $attr)[0m
+  [1maction_info($id)[0m
+  [1maction_del($id)[0m
+  [1maction_summary($attr)[0m
+  [1maction_list($attr) - Show admin users actions[0m
+  [1msystem_action_add($actions, $attr)[0m
+  [1msystem_action_list($attr)[0m
+  [1mpassword($password, $attr)[0m
+  [1monline($attr) - Online Administrators[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $online_users, $online_count
+
+  [1monline_info($attr) -  Online Administrators[0m
+  [1maccess_list($attr)[0m
+  [1maccess_add($attr)[0m
+  [1mfull_log_list($attr)[0m
+  [1mfull_log_add($attr)[0m
+  [1mfull_log_del($attr)[0m
+  [1mfull_log_info($id)[0m
+  [1mfull_log_change($attr)[0m
+  [1madmins_contacts_list($attr)[0m
+  [1madmins_contacts_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1madmins_contacts_info($id)[0m
+[1madmin_contacts_add() - Add contact  to admin[0m
+  [1madmin_contacts_del($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+       1
+
+
+	
+	</body>
+	</html>
+  

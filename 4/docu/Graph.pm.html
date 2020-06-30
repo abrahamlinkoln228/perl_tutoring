@@ -1,0 +1,40 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Equipment::Graph
+
+  [1madd_graph($attr)
+   Arguments:
+     $attr
+       NAS_ID  - Nas id
+       PORT    - Port id
+       TYPE    - Graph type: SPEED, SIGNAL, TEMPERATURE
+       STEP    - Step: 60, 300 (default 300)
+       DATA    - Data hash[0m
+  [1mget_graph_data($attr)[0m
+       Arguments:
+         $attr
+           NAS_ID   - Nas id
+           PORT     - Port id
+           TYPE     - Graph type: SPEED, SIGNAL, TEMPERATURE
+           DS_NAMES - Array data source names
+
+  [1mdel_graph_data($attr)[0m
+       Arguments:
+         $attr
+           NAS_ID   - Nas id
+           PORT     - Port id
+           TYPE     - Graph type: SPEED, SIGNAL, TEMPERATURE
+
+
+	
+	</body>
+	</html>
+  

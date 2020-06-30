@@ -1,0 +1,98 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Dv Stats functions
+        time
+        traffic
+
+  [1mdel($uid, $session_id, $nas_id, $session_start, $attr) - Del user statistic[0m
+  [1monline_update($attr) - Update online sessions[0m
+  [1monline_count($attr) - Count online sessions[0m
+  [1monline_add($attr) - Add online session[0m
+  [1monline($attr) - Make online (active sessions) list[0m
+      Arguments:
+        $attr
+          COUNT        - Count sessions
+          ZAPPED       - Show zapped count
+          STATUS_COUNT - Show status count
+          STATUS       - Show sessions with status
+          NAS_ERROR_SESSIONS - Show NAS error sessions
+          FILTER       - Filter fields
+          ALL          - SHow all sessions
+
+      Result:
+        hash_ref_array
+        OBJECT
+          dub_ports    - Duplicate ports
+          dub_logins   - Duplicate logins
+          dub_ips      - Duplicate ips
+          nas_sorted   - NAS sorted hash_ref_array
+
+  [1monline_del() - Del online session[0m
+  [1monline_info($attr) - Online session information[0m
+  [1mzap($nas_id, $nas_port_id, $acct_session_id, $attr) - Session zap[0m
+  [1msession_detail($attr) - Session detail information[0m
+  [1mdetail_list($attr)[0m
+  [1mdetail_sum($attr)[0m
+  [1mperiods_totals($attr) - Periods totals[0m
+      Arguments:
+        $attr
+          UID
+          UIDS
+
+      Results:
+        OBJECT
+
+  [1mprepaid_rest($attr) - Prepaid traffic rest[0m
+      Arguments:
+        $attr
+          UID
+          UIDS
+          INFO_ONLY - User information
+          FROM_DATE - From date
+          TO_DATE   - To date
+      Returns
+        List object
+
+  [1mlist($attr) - Show completed sessin list[0m
+      Arguments:
+        $attr
+          INTERVAL  - Show session for intervals
+          PERIOD    - Show sessions for period
+
+      Result:
+        hash_ref_array
+
+  [1mcalculation($attr) -  session calculation[0m
+      min max average
+
+      Arguments:
+        $attr
+
+      Returns:
+        $list
+
+  [1mlist_log_intervals($attr)[0m
+  [1mlog_rotate($attr) - Rotate dv logs[0m
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 1191:
+        Unknown directive: =head
+
+    Around line 1434:
+        Unknown directive: =head
+
+
+	
+	</body>
+	</html>
+  

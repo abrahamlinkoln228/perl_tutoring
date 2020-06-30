@@ -1,0 +1,58 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mNAME[0m
+      Payments Finance module
+
+  [1madd($user, $attr) - Add user payments[0m
+      Attributes:
+        $user   - User object
+        $attr   - Aextra attributes
+          CHECK_EXT_ID - Check ext id
+          ID
+            BILL_ID
+            DATE
+            DSC
+            IP
+            LAST_DEPOSIT
+            AID
+            REG_DATE
+            SUM
+
+      Return
+        Object
+
+  [1mdel($user, $id, $attr) - Delete payments[0m
+      Attributes:
+        $user  - User object
+        $id    - Payments ID
+        $attr  - Extra attributes
+
+      Returns:
+        Object
+
+  [1mlist($attr) - List of payments[0m
+      Attributes:
+        $attr   - Extra attributes
+
+      Returns:
+        Arrya_refs
+
+  [1mreport($attr) - Payments reports[0m
+  [1mreports_period_summary($attr) - Payments reports fot periods[0m
+  [1madd_payment_type($attr)[0m
+  [1mdel_payment_type($attr)[0m
+  [1mpayment_type_list($attr)[0m
+  [1mpayment_type_info($attr)[0m
+  [1mpayment_type_change($attr)[0m
+
+	
+	</body>
+	</html>
+  

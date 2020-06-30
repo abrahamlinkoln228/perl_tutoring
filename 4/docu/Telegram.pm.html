@@ -1,0 +1,52 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mnew($attr) - Create new Telegram object[0m
+      Arguments:
+        $attr
+          CONF
+
+      Returns:
+
+      Examples:
+        my $Telegram = Abills::Sender::Telegram->new( token => $conf{TELEGRAM_TOKEN} );
+
+  [1msend_message() - Send message to user with his chat_id or to channel with username(@<CHANNELNAME>)[0m
+      Arguments:
+        $attr:
+          TO_ADDRESS - Telegram ID
+          MESSAGE    - text of the message
+          PARSE_MODE - parse mode of the message. u can use 'markdown' or 'html' 
+          DEBUG      - debug mode
+  
+      Returns:
+
+      Examples:
+        $Telegram->send_message({
+          AID        => "235570079",
+          MESSAGE    => "testing",
+          PARSE_MODE => 'markdown',
+          DEBUG      => 1
+        });
+
+  [1mget_updates() -[0m
+      Arguments:
+        $attr:
+          OFFSET - Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates.
+          DEUBG  - debug mode
+      Returns:
+
+      Examples:
+        $result = $Telegram->get_updates( { OFFSET => $updateid + 1, DEBUG => 1 } )->{result};
+
+
+	
+	</body>
+	</html>
+  

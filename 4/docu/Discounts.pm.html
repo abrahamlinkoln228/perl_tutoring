@@ -1,0 +1,80 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Discounts - module for discounts
+
+[1mSYNOPSIS[0m
+      use Discounts;
+      my $Discounts = Discounts->new($db, $admin, \%conf);
+
+  [1mfunction new()[0m
+  [1madd_discount() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mfunction list_discount() - get list of all discounts[0m
+      Arguments:
+        $attr
+
+      Returns:
+        @list
+
+      Examples:
+        my @list = $Discounts->list_discount({ COLS_NAME => 1});
+
+  [1mfunction info_discount() - get information about discount[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        my $disc_info = $Discounts->info_discount({ ID => 1 });
+
+  [1mfunction change_discount() - change discount's information in datebase[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $Discounts->change_discount({
+          ID     => 1,
+          SIZE   => 10,
+          NAME   => 'TEST'
+        });
+
+  [1mfunction delete_discount() - delete discount[0m
+      Arguments:
+        $attr
+
+      Returns:
+
+      Examples:
+        $Discounts->delete_discount( {ID => 1} );
+
+  [1muser_discounts() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mdiscount_user_change($attr)[0m
+
+	
+	</body>
+	</html>
+  

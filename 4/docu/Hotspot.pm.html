@@ -1,0 +1,268 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mnew($db, $admin, \%conf) - constructor for Hotspot DB object[0m
+  [1mvisits_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1mvisits_count() - quick count[0m
+      Returns:
+        Count of elements in table
+
+  [1mvisits_info($id)[0m
+      Arguments:
+        $id - id for hotspot_visits
+
+      Returns:
+        hash_ref
+
+  [1mvisits_add($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1mvisits_del($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+       1
+
+  [1mvisits_change($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1mlogins_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1mlogins_info($id)[0m
+      Arguments:
+        $id - id for logins
+
+      Returns:
+        hash_ref
+
+  [1mlogins_info_for_session($session_id) - Searches login by visit id[0m
+      Arguments:
+        $session_id - session_id for logins as specified in hotspot_visits
+
+      Returns:
+        hash_ref
+
+  [1mlogins_add($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1mlogins_del($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+       1
+
+  [1mlogins_change($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1muser_agents_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1muser_agents_add($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1muser_agents_del($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+       1
+
+  [1moses_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1moses_info($id)[0m
+      Arguments:
+        $id - id for oses
+
+      Returns:
+        hash_ref
+
+  [1moses_add($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1moses_del($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+       1
+
+  [1moses_change($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1mbrowsers_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1mbrowsers_info($id)[0m
+      Arguments:
+        $id - id for browsers
+
+      Returns:
+        hash_ref
+
+  [1mbrowsers_add($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1mbrowsers_del($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+       1
+
+  [1mbrowsers_change($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1madverts_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1madverts_info($id)[0m
+      Arguments:
+        $id - id for adverts
+
+      Returns:
+        hash_ref
+
+  [1madverts_add($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1madverts_del($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+       1
+
+  [1madverts_change($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1madvert_shows_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1madvert_shows_info($id)[0m
+      Arguments:
+        $id - id for advert_shows
+
+      Returns:
+        hash_ref
+
+  [1madvert_shows_add($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1madvert_shows_del($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+       1
+
+  [1madvert_shows_change($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        1
+
+  [1madvert_shows_count($id, $attr) - get count of advert shows[0m
+      Arguments:
+        $id -
+
+      Returns:
+        number - count of shows
+
+  [1mrequest_random_ad($attr) - returns random ad url[0m
+      Returns:
+        string - url
+
+
+	
+	</body>
+	</html>
+  

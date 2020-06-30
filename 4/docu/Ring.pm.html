@@ -1,0 +1,148 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mRing[0m
+    Megogo - module for redial users
+
+[1mSynopsis[0m
+    use Ring;
+
+    my $Ring = Ring->new($db, $admin, \%conf);
+
+  [1mfunction new() - initialize Ring object[0m
+      Arguments:
+        $db    -
+        $admin -
+        %conf  -
+      Returns:
+        $self object
+
+      Examples:
+        $Ring = Ring->new($db, $admin, \%conf);
+
+  [1mfunction add_rule() - add rule to table ring_rule[0m
+      Arguments:
+        %$attr
+          $NAME    - rule's name;
+          $DATE    - date, when rule will turn on;
+          $COMMENT - comments for rule;
+      Returns:
+        $self object
+
+      Examples:
+        $Ring->add_rule({
+          NAME    => $FORM{NAME},
+          DATE    => $FORM{DATE},
+          COMMENT => $FORM{COMMENT}
+        });
+
+  [1mfunction del_rule() - delete rule's information from datebase[0m
+      Arguments:
+        $attr
+
+      Returns:
+
+      Examples:
+        $Ring->del_rule( {ID => 1} );
+
+  [1mfunction add_rule() - get info about the rule from table ring_rule[0m
+      Arguments:
+        %$attr
+          RULE_ID - identifier;
+      Returns:
+        $self object
+
+      Examples:
+        my $rule_info = $Ring->select_rule({ RULE_ID => 1});
+
+  [1mfunction change_rule() - change rule's information in datebase[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $Megogo->change_rule({
+          ID     => 1,
+          NAME   => 'test',
+        });
+        $Ring->change_rule({
+          %FORM
+        });
+
+  [1mfunction list_rule() - get list of rules[0m
+      Arguments:
+        %$attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $list = $Ring->list_rule( {} );
+
+  [1mfunction add_users() - add user to table ring_users_filters[0m
+      Arguments:
+        %$attr
+          UID     - user's identifier;
+          R_ID    - rule's identifier;
+          DATE    - date;
+          STATUS  - call status;
+      Returns:
+        $self object
+
+      Examples:
+        $Ring->add_rule({
+          UID   => 1,
+          R_ID  => 1
+        });
+
+  [1mfunction rule_users() - get list of users for rule[0m
+      Arguments:
+        %$attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $list = $Ring->rule_users( {COLS_NAME => 1} );
+
+  [1mfunction change_user() - change rule's information in datebase[0m
+      Arguments:
+        $attr
+          R_ID   - rule's identifier
+          UID    - user's identifier
+          STATUS - call status
+          DATE   - call date
+
+      Returns:
+        $self object
+
+      Examples:
+        $Ring->change_user({
+          R_ID => 1,
+          UID  => 1,
+          STATUS => 2,
+          DATE   => $DATE
+        });
+
+  [1mfunction del_user() - delete rule's information from datebase[0m
+      Arguments:
+        $attr
+
+      Returns:
+
+      Examples:
+        $Ring->del_user( {UID => 1} );
+
+
+	
+	</body>
+	</html>
+  

@@ -1,0 +1,49 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Ipn functions
+
+  [1mstats($attr) - Base stats[0m
+  [1mreports_users($attr)[0m
+      Arguments:
+        $attr
+          INTERVAL
+          FROM_DATE
+          TO_DATE
+          UID
+
+  [1mipn_log_rotate($attr) Delete information from detail table and log table[0m
+      Arguments:
+        $attr
+          PERIOD
+          DETAIL
+
+      Returns:
+        $self
+
+  [1muser_detail($attr)[0m
+  [1munknown_ips_del($attr)[0m
+  [1munknown_ips_list($attr)[0m
+  [1mtraffic_by_port_list($attr) - get traffic and ports[0m
+      Arguments:
+        $attr - hash_ref
+          UID
+          NAS_ID
+          S_TIME
+          F_TIME
+
+      Returns:
+        list
+
+
+	
+	</body>
+	</html>
+  

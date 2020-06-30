@@ -1,0 +1,94 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mequipment_pon_init($attr)[0m
+  [1mequipment_pon_get_ports($attr) - Show PON information[0m
+      Arguments:
+        $attr
+          SNMP_COMMUNITY
+          NAS_INFO
+
+      Returns:
+        TRUE or FALSE
+
+  [1m_get_snmp_oid($type, $attr) - Get oid tpl[0m
+      Arguments:
+        $type
+        $attr
+          BASE_DIR
+
+  [1mequipment_pon($attr) - Show PON information[0m
+      Arguments:
+        $attr
+          SNMP_COMMUNITY
+          NAS_INFO
+
+      Returns:
+        TRUE or FALSE
+
+  [1mequipment_unregister_onu($attr) - Show unregister OLN ONU[0m
+      Arguments:
+        $attr
+          NAS_INFO
+
+      Returns:
+        TRUE or FALSE
+
+  [1mequipment_pon_onu($attr) - Show PON ONU information[0m
+      Arguments:
+        $attr
+          NAS_INFO
+
+      Returns:
+        TRUE or FALSE
+
+  [1mpon_onu_state($id, $attr) - Get ONU info[0m
+      Arguments:
+        $id
+        $attr
+          SNMP_COMMUNITY
+          OUTPUT2RETURN
+          VENDOR_ID
+          snmp
+
+      Returns:
+
+  [1mpon_tx_alerts($tx) - Make pon tx alerts[0m
+      Arguments:
+        $tx  - Tx value
+
+       Excellent -20 - -25
+       Worth     -10 - -27
+       Very bed  -8  - -30
+
+      Returns:
+        $tx with color marks
+
+  [1mequipment_pon_ports($attr) - Show PON information[0m
+      Arguments:
+        $attr
+          SNMP_COMMUNITY
+          NAS_INFO
+
+      Returns:
+        TRUE or FALSE
+
+  [1mequipment_pon_onu_graph($attr) - show element graphics[0m
+      Arguments:
+        $attr
+          ONU_SNMP_ID
+          PON_TYPE
+          snmp
+
+  [1mpon_onu_convert_state($nas_type, $status, $pon_type)[0m
+
+	
+	</body>
+	</html>
+  

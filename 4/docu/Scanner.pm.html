@@ -1,0 +1,62 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mnew($db, $admin, $CONF)[0m
+      Arguments:
+        $db    - ref to DB
+        $admin - current Web session admin
+        $CONF  - ref to %conf
+
+      Returns:
+        object
+
+  [1mset_nmap_location($filename) - sets nmap location[0m
+      Arguments:
+        $filename - filename for nmap
+
+      Returns:
+        1
+
+  [1mset_target($target) - Sets target for this scan[0m
+      Arguments:
+        $target - corect ip range in CIDR notation
+
+      Returns:
+        boolean - 1
+
+  [1mset_timeout($ms) - sets timeout[0m
+      Arguments:
+        $ms - milliseconds
+
+      Returns:
+        1
+
+  [1mscan() - start_scan[0m
+      Runs nmap scan, parses results using Nmap::Parser, and returns parsed results
+
+      Returns:
+        hash_ref -
+          %IP_ADDRESS%
+            STATUS
+            ...
+
+  [1m_prepare_results($parser) - Collects results from Nmap::Parser to pure parl hash[0m
+      Arguments:
+        $parser - Nmap::Parser containing results
+
+      Returns:
+        hash_ref - 'up' hosts state with gathered information
+          IP_ADDRESS
+            hash_ref
+
+
+	
+	</body>
+	</html>
+  

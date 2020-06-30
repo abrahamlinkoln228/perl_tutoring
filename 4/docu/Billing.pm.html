@@ -1,0 +1,133 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+     Main billing functions
+
+  [1mtraffic_calculations() -
+  Arguments:
+    $RAD[0m
+      Returns:
+        Return TRAFFIC SUM
+
+  [1mget_traffic($attr) - Get traffic from some period[0m
+      Arguments:
+        UID     - user id
+        PERIOD  - start period
+        STATS_ONLY
+
+      Returns:
+        Return traffic recalculation by MB
+
+          TRAFFIC_OUT
+          TRAFFIC_IN
+          TRAFFIC_OUT_2
+          TRAFFIC_IN_2
+
+  [1mget_traffic_ipn($attr) - Get traffic from some period using IPN stats[0m
+      Arguments:
+        UID     - user id
+        PERIOD  - start period
+
+      Returns:
+         Return traffic recalculation by MB
+
+  [1msession_sum ($USER_NAME, $SESSION_START, $SESSION_DURATION, $RAD, $attr) - Calculate session sum[0m
+      Calculate session sum
+
+      Arguments:
+         $USER_NAME
+         $SESSION_START
+         $SESSION_DURATION
+         $RAD
+         $attr
+
+      Returns:
+        >= 0 - session sum
+        -1 Less than minimun session trafic and time
+        -2 Can\'t find user account
+        -3 SQL Error
+        -4 Company not found
+        -5 TP not found
+        -16 Not allow start period
+
+  [1mtime_intervals($TP_ID, $attr) - Get Time intervals[0m
+      Arguments:
+        $TP_ID
+        $attr
+
+      Returns:
+        \%time_periods, \%periods_time_tarif, \%periods_traf_tarif
+
+  [1msession_splitter($start, $duration, $day_begin, $day_of_week,
+                  $day_or_year, $intervals) - Split session to intervals[0m
+  [1mtime_calculation($attr) - Time calculation[0m
+  [1mget_timeinfo() - Get current time info[0m
+      Returns
+        Object
+          SESSION_START
+          DAY_BEGIN
+          DAY_OF_WEEK
+          DAY_OF_YEAR
+
+  [1mremaining_time($deposit, $attr) - Calculate remaining time[0m
+      Arguments:
+        $deposit - User deposit
+        $attr
+
+          TIME_INTERVALS
+          INTERVAL_TIME_TARIF
+          INTERVAL_TRAF_TARIF
+          SESSION_START
+          DAY_BEGIN
+          DAY_OF_WEEK
+          DAY_OF_YEAR
+          REDUCTION
+          POSTPAID
+          DEBUG
+
+      Returns:
+        -1 = access deny not allow day
+        -2 = access deny not allow hour
+        -3 = Too small deposit
+
+  [1mmk_session_log(\$acct_info) -  Make file lof if db not accessible[0m
+      Arguments:
+        $RAD - Radius pairs hash_ref
+
+  [1mexpression($UID, $expr, $attr) - Extretions formul[0m
+      Arguments:
+        $UID
+        $expr
+        $attr
+          START_PERIOD   -
+          STOP_PERIOD    -
+          UIDS           - For multuser operations
+          PERIOD_TRAFFIC - period traffic summary
+          RAD_ALIVE      - Alive pkg
+          IPN            - Use IPN traffic
+          debug          - Debug mode
+
+      Results:
+        %RESULT - Hash ref parameters
+          PRICE_IN
+          PRICE_OUT
+
+  [1mget_result($right, $attr) - get expresion result[0m
+       Arguments:
+         $right
+         $attr
+       Returns:
+         Hash_ref of results
+
+
+	
+	</body>
+	</html>
+  

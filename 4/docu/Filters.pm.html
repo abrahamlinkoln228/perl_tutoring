@@ -1,0 +1,87 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+    Abills::Filters - AbillS Filters function
+
+[1mSYNOPSIS[0m
+        use Abills::Filters;
+
+  [1m_expr($value, $expr_tpl) - Expration[0m
+      Filter expr
+
+      Arguments:
+        $value
+        $expr_tpl
+
+      Returns:
+        Return result string
+
+  [1m_utf8_encode($value, $attr) - Normilize utf string[0m
+      Attributes:
+        $value  - Valie for normalise
+        $attr
+
+      Returns:
+
+        return normilize string
+
+  [1m_mac_former($mac, $attr) - Convert any mac format to xx:xx:xx;xx:xx:xx[0m
+       Arguments:
+         $mac  - MAC string
+         $attr
+           BIN   - Convert fom binari string
+
+       Results:
+         MAC (hh:hh:hh:hh:hh:hh)
+
+  [1mbin2mac($bin_mac) - Convert binarry to MAC (xx:xx:xx:xx:xx:xx);[0m
+      Arguments:
+        $bin_mac  - Binnary mac
+
+      Results:
+        $mac  (xx:xx:xx:xx:xx:xx)
+
+  [1m_mac2dec($mac); - Convert MAC to dec mac[0m
+      xx:xx:xx:xx:xx:xx -> xxx.xxx.xxx.xxx.xxx.xxx
+
+      Arguments:
+        $mac
+
+      Results:
+        $dec_mac (xxx.xxx.xxx.xxx.xxx.xxx)
+
+  [1mdec2hex($dec_mac); - Convert DEC MAC to HEX mac[0m
+      xxx.xxx.xxx.xxx.xxx.xxx -> xx:xx:xx:xx:xx:xx
+
+      Arguments:
+        $dec_mac  - xxx.xxx.xxx.xxx.xxx.xxx
+
+      Results:
+        $hex_mac  - xx:xx:xx:xx:xx:xx
+
+  [1mbin2hex($bin); - Convert bit value to hex[0m
+      Arguments:
+        $bin
+
+      Return:
+        Upper Hex string
+
+  [1mhuman_exp($exp) - Expration human show[0m
+      Arguments:
+        $exp
+
+      Return:
+        human_read_string
+
+
+	
+	</body>
+	</html>
+  

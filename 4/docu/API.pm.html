@@ -1,0 +1,109 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Abills::Nas::Mikrotik::API
+
+      Forked from https://raw.githubusercontent.com/efaden/MikroTikPerl/
+
+      This module is not a part of ABillS
+
+  [1mVERSION[0m
+      VERSION 0.1
+
+  [1mAUTHOR[0m
+      Eric Faden (efaden@gmail.com)
+
+  [1mLICENSE[0m
+      Released Under Creative Commons License
+
+  [1mORIGINAL HEADER[0m
+      # MikroTik::API.pm
+      # Version 0.1
+      # By Eric Faden (efaden@gmail.com)
+
+      # Fork of MikroTik-Perl-API
+      # From https://github.com/ellocofray/mikrotik-perl-api
+
+      # Released Under Creative Commons License
+
+  [1mnew($db, $admin, $CONF)[0m
+      Arguments:
+        $db    - ref to DB
+        $admin - current Web session admin
+        $CONF  - ref to %conf
+
+      Returns:
+        object
+
+  [1mexecute($cmd, $attr) - Execute command in remote console[0m
+      Arguments:
+        $cmd - string  or array of strings
+        $attr - hash_ref
+          SAVE_TO         - filename to save output
+          SKIP_ERROR      - do not finish execution if error on one of commands
+
+
+      Returns:
+        1
+
+  [1mget_list($command, $attr)[0m
+      Arguments:
+        $command
+        $attr - hash_ref
+
+      Returns:
+        arr_ref
+
+  [1mcheck_access() - checks if mikrotik is accessible[0m
+      Returns:
+        boolean
+
+  [1mupload_key($attr) - Uploads key without password[0m
+      Arguments:
+        $attr - hash_ref
+          ADMIN_NAME    - admin to upload key for
+          SYSTEM_ADMIN  - current active admin
+          SYSTEM_PASSWD - current password
+
+      Returns:
+        1 - if success
+
+  [1mtalk()[0m
+  [1mraw_talk()[0m
+  [1mlogin($host, $username, $passwd, $port)[0m
+  [1mlogout()[0m
+  [1mget_by_key()[0m
+  [1mmtik_cmd()[0m
+  [1mmtik_query($cmd, \%attrs, \%queries)[0m
+  [1m_mtik_connect()[0m
+  [1m_write_word()[0m
+  [1m_write_sentence()[0m
+  [1m_write_len()[0m
+  [1m_read_byte()[0m
+  [1m_read_len()[0m
+  [1m_read_word()[0m
+  [1m_read_sentence()[0m
+  [1mLICENSE[0m
+      Attribution-NonCommercial-ShareAlike 4.0 International
+
+      https://github.com/horodchukanton/MikroTikPerl/blob/master/LICENSE
+
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 6:
+        Unknown directive: =SYNOPSYS
+
+
+	
+	</body>
+	</html>
+  

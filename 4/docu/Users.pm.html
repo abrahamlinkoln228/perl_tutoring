@@ -1,0 +1,133 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Users manage functions
+
+  [1mnew($db, $admin, $conf)[0m
+  [1minfo($uid, $attr) - Account general information[0m
+      Argumenst:
+        $uid
+        $attr
+
+      Returns:
+        Object
+
+  [1mpi_add($attr)[0m
+  [1mpi($attr) Personal inforamtion[0m
+      Arguments:
+        $attr
+          UID
+
+      Returns:
+        $self
+
+  [1mpi_change($attr) - Personal Info change[0m
+      Arguments:
+        $attr
+          UID   - Main id
+
+      Resturns:
+        $self
+
+  [1mgroups_list($attr) - List of groups[0m
+  [1mgroup_info($gid)[0m
+  [1mgroup_change($gid, $attr)[0m
+  [1mgroup_add($attr)[0m
+  [1mgroup_add($id)[0m
+  [1mlist($attr) - List users[0m
+      Arguments:
+        $attr
+
+      Returns
+        array_of_hash
+
+  [1madd($attr) - Add user function[0m
+  [1mchange($uid, $attr)[0m
+  [1mdel(attr) - Delete user info from all tables[0m
+  [1mnas_list() - list_allow nass[0m
+  [1mbruteforce_add($attr)[0m
+  [1mbruteforce_list($attr)[0m
+  [1mbruteforce_del() - clear bruterforce listing[0m
+  [1mweb_session_update($attr)
+  Attributes:
+    $attr
+      SID[0m
+  [1mweb_session_add($attr)  - Add web sessions user info[0m
+      Arguments:
+        $attr
+          UID
+          LOGIN
+          REMOTE_ADDR
+          SID
+          EXT_INFO
+
+      Returns:
+        Object
+
+  [1mweb_session_info($attr) - User information[0m
+      Argumnets:
+        $attr
+          SID
+          UID
+
+      Returns:
+        Object
+
+  [1mweb_sessions_list() - List of users web sessions[0m
+  [1mweb_session_del($attr) - Del user web sessions[0m
+      Arguments:
+        $attr
+          SID
+          ALL
+
+      Returns:
+        Object
+
+  [1minfo_field_attach_add($attr) - Info fields attach add[0m
+      Arguments:
+        $attr
+          COMPANY_PREFIX
+      Returns:
+        Object
+
+  [1minfo_field_add($attr) - Infofields add
+  Arguments:
+    $attr
+      FIELD_ID
+      FIELD_TYPE
+      COMPANY_ADD
+      CAN_BE_CHANGED_BY_USER
+      USERS_PORTAL[0m
+      Returns:
+        $self
+
+  [1minfo_field_del($attr)[0m
+      Arguments:
+        $attr
+          FIELD_ID
+          SECTION
+      Returns:
+        Object
+
+  [1minfo_list_add($attr)[0m
+  [1minfo_list_del($attr) - Info list del value[0m
+  [1minfo_lists_list($attr)[0m
+  [1minfo_list_info($id, $attr)[0m
+  [1minfo_list_change($id, $attr)[0m
+  [1mreport_users_summary($attr)[0m
+  [1mcontacts_migrate() - migrates contacts from old to new model[0m
+      Returns:
+        boolean - success flag
+
+
+	
+	</body>
+	</html>
+  

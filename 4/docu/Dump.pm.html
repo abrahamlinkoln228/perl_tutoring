@@ -1,0 +1,59 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mparse($file, $attr) -[0m
+      Arguments:
+        $file - filepath or directory
+        $attr - hash ref
+          CACHED - read from cached file. treats $file as Dumper structure
+    
+      Returns:
+        $parsed_info - hash_ref
+          table_name => {
+            columns => {
+              col1 => {
+                Type    => type1,
+                Null    => 'No',
+                Default => 'default'
+              }
+            },
+            ...
+            file => $file - file table was defined
+          },
+          ...
+
+  [1mparse_accumulate($files_list, $attr)[0m
+  [1mget_accumulated()[0m
+      Arguments:
+         $attr -
+           USE_CACHE - gives function hash_ref for tables defined in cache
+    
+      Returns:
+        \%table_info - information for tables in schema parsed earlier
+
+  [1mparse_statement($statement)[0m
+      Arguments:
+        $statement -
+    
+      Returns:
+        hash_ref
+
+  [1m_parse_columns($table) - parses SQL::Translator::Table to desired format[0m
+  [1mread_from_file($filepath, $attr)[0m
+  [1mset_debug()[0m
+  [1mrenew_translator() - clear cache[0m
+  [1m_print_debug_content($str) - prints with[0m
+  [1mget_file_content($filepath)[0m
+  [1mfilter_alter(\$content, \%alter_defined)[0m
+  [1mparse_field_definition($field)[0m
+
+	
+	</body>
+	</html>
+  

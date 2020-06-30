@@ -1,0 +1,108 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mnew($db, $admin, $CONF)[0m
+      Arguments:
+        $db    - ref to DB
+        $admin - current Web session admin
+        $CONF  - ref to %conf
+        $attr
+
+      Returns:
+        object
+
+  [1mis_connected() - check if connected to internal WebSocket server[0m
+  [1msend_message($attr)[0m
+      Arguments:
+        $attr -
+          UID|AID  - string, receiver ( TODO: '*' to send to all of this type)
+          MESSAGE  - string, text of message
+      
+          NON_SAFE - boolean, will use instant request (without confirmation)
+     
+          ASYNC    - coderef, asynchronous callback
+
+      Returns:
+        1 if sended;
+
+  [1mconnected_admins()[0m
+      Returns:
+        list - aids of connected admins
+
+  [1mhas_connected_admin($aid) - check if certain admin is present in connected sockets[0m
+      Arguments:
+        $aid - admin ID
+
+      Returns:
+        boolean - if connected
+
+  [1mcall($aid, $message) - send message and receive responce[0m
+      Arguments:
+        $aid     - Admin ID
+        $message - json
+          DATA
+
+      Returns:
+        hash - responce
+
+  [1mjson_request($attr) - simple alias to get perl structure as result[0m
+      Arguments:
+        $attr - hash_ref
+          MESSAGE - JSON string
+
+      Returns:
+        hash_ref - result
+        undef on timeout
+
+  [1m_request($attr) - Request types wrapper[0m
+      Arguments:
+        $attr -
+          NON_SAFE
+          ASYNC
+          RETURN_RESULT
+      
+      Returns:
+
+  [1m_asynchronous_request($attr) - will write to socket and run callback, when receive result[0m
+      Arguments:
+        $attr - hash_ref
+          MESSAGE  - text will be send to backend server
+          CALLBACK - function($result)
+            $result will be
+              string - if server responded with message
+              ''     - if server accepted message, but not responded nothing
+              undef  - if timeout
+
+      Returns:
+        undef
+
+  [1m_synchronous_request($attr)[0m
+      Arguments:
+        $attr - hash_ref
+          MESSAGE - text will be send to backend server
+
+      Returns:
+        string - if server responded with message
+        ''     - if server accepted message, but not responded nothing
+        undef  - if timeout
+
+  [1m_instant_request($attr) - will not wait for timeout, but no warranties for receive[0m
+      Arguments:
+        $attr - hash_ref
+          MESSAGE - text will be send to backend server
+
+      Returns:
+        1
+
+  [1msafe_json_decode($json_string)[0m
+
+	
+	</body>
+	</html>
+  

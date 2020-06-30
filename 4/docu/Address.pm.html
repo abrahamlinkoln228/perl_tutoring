@@ -1,0 +1,81 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Address manage functions
+
+  [1maddress_info($id) - Address register full address info[0m
+      Arguments:
+        $id  - Location id
+
+      Returns:
+        Address object
+          DISTRICT_ID
+          CITY
+          ADDRESS_DISTRICT
+          ADDRESS_STREET
+          ADDRESS_BUILD
+          STREET_ID
+          ZIP
+          COORDX
+
+  [1maddress_list($attr) - returns list of all builds in DB[0m
+      Arguments:
+        $attr - hash_ref, reserved for future
+
+      Returns:
+        Address_list
+          DISTRICT_ID
+          DISTRICT_NAME
+          STREET_ID
+          STREET_NAME
+          STREET_DISTRICT_ID
+          BUILD_ID
+          BUILD_NAME
+          BUILD_STREET_ID
+
+  [1maddress_parentness($in_array_func, $attr) - Build an parentness tree for districts->streets->builds[0m
+      We need to pass here an $in_array function to avoid using Base.pm
+
+      Arguments:
+        $in_array_func - refference for a in_array function
+        $attr - hash_ref
+          STREETS - boolean (do not make builds)
+
+
+
+      Returns:
+        $list - DB list of builds
+        $parentness_hash - districts->streets->builds ierarchy. You can read more doc in HTML::build_parentness_tree()
+
+  [1mdistrict_list($attr) - District list[0m
+  [1mdistrict_info($attr)[0m
+  [1mdistrict_change($attr)[0m
+  [1mdistrict_add($attr) - Add district[0m
+  [1mdistrict_del($id) - District name[0m
+  [1mstreet_list($attr) - Street list[0m
+  [1mstreet_info($attr)[0m
+  [1mstreet_change($attr)[0m
+  [1mstreet_add($attr)[0m
+  [1mstreet_del($id)[0m
+  [1mbuild_list($attr)[0m
+  [1mbuild_info($attr)[0m
+  [1mbuild_change($attr)[0m
+  [1mbuild_add($attr)[0m
+  [1mbuild_del($id)[0m
+  [1mlocation_media_list($attr)[0m
+  [1mlocation_media_info($attr)[0m
+  [1mlocation_media_change($attr)[0m
+  [1mlocation_media_add($attr)[0m
+  [1mlocation_media_del($id)[0m
+
+	
+	</body>
+	</html>
+  

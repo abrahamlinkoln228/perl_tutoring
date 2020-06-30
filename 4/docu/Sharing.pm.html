@@ -1,0 +1,172 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+     Sharing module DB functions
+
+  [1madd_file() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mfunction file_list() - get list of all files[0m
+      Arguments:
+        $attr
+
+      Returns:
+        @list
+
+      Examples:
+        my @list = $Sharing->file_list({ COLS_NAME => 1});
+
+  [1mfunction file_delete() - delete cashbox[0m
+      Arguments:
+        $attr
+
+      Returns:
+
+      Examples:
+        $Sharing->file_delete( {ID => 1} );
+
+  [1mfunction file_info() - get information about file[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        my $file_info = $Sharing->file_info({ ID => 1 });
+
+  [1mfunction file_change() - change file's information in datebase[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $Sharing->file_change({
+          ID     => 1,
+          NAME   => 'TEST'
+        });
+
+  [1madd_user() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1minfo_user() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mfunction change_user() - change rule's information in datebase[0m
+      Arguments:
+        $attr
+          R_ID   - rule's identifier
+          UID    - user's identifier
+          STATUS - call status
+          DATE   - call date
+
+      Returns:
+        $self object
+
+      Examples:
+        $Ring->change_user({
+          R_ID => 1,
+          UID  => 1,
+          STATUS => 2,
+          DATE   => $DATE
+        });
+
+  [1mfunction del_user() - delete user's information from datebase[0m
+      Arguments:
+        $attr
+          UID - user's UID;
+
+      Returns:
+        $self object
+      Examples:
+        $Sharing->del_user( {UID => 1, TP_ID => 2} );
+
+  [1msharing_log_add() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1msharing_log_list() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mgroup_add() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mfunction group_list() - get list of all files[0m
+      Arguments:
+        $attr
+
+      Returns:
+        @list
+
+      Examples:
+        my @list = $Sharing->group_list({ COLS_NAME => 1});
+
+  [1mfunction group_delete() - delete cashbox[0m
+      Arguments:
+        $attr
+
+      Returns:
+
+      Examples:
+        $Sharing->group_delete( {ID => 1} );
+
+  [1mfunction group_info() - get information about file[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        my $group_info = $Sharing->group_info({ ID => 1 });
+
+  [1mfunction group_change() - change file's information in datebase[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $Sharing->group_change({
+          ID     => 1,
+          NAME   => 'TEST'
+        });
+
+
+	
+	</body>
+	</html>
+  

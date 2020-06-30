@@ -1,0 +1,47 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      BDCOM
+
+  [1m_bdcom_get_ports($attr) - Get OLT slots and connect ONU[0m
+  [1m_bdcom_onu_list($attr)[0m
+      Arguments:
+        $attr
+          COLS       - ARRAY refs
+          INFO_OIDS  - Hash refs
+          NAS_ID
+          TIMEOUT
+
+  [1m_bdcom($attr)[0m
+      Parsms:
+        cur_tx   - current onu TX
+        onu_iden - ONU IDENT (MAC SErial or othe)
+
+  [1m_bdcom_mac_list()[0m
+  [1m_bdcom_onu_status()[0m
+  [1m_bdcom_set_desc_port($attr) - Set Description to OLT ports[0m
+  [1m_bdcom_convert_power();[0m
+  [1m_bdcom_convert_temperature();[0m
+  [1m_bdcom_convert_voltage();[0m
+  [1m_bdcom_convert_distance();[0m
+  [1m_bdcom_get_fdb($attr);[0m
+      Arguments:
+        SNMP_COMMUNITY => $attr->{SNMP_COMMUNITY},
+        NAS_INFO       => $attr->{NAS_INFO},
+        SNMP_TPL       => $attr->{SNMP_TPL},
+        FILTER         => $attr->{FILTER} || ''
+
+      Results:
+
+
+	
+	</body>
+	</html>
+  

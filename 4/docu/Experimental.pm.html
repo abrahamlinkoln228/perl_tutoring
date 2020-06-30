@@ -1,0 +1,77 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+        Abills::Experimental
+
+      Various function for symplifying and avoiding duplicates of code
+  
+      Uses %lang, $html
+
+  [1msort_array_to_hash($array_ref, $key_name)[0m
+      Arguments:
+        $array_ref - [ {}, {}, ...]
+        $key_name  -  key for grouping (unique)
+
+      Returns:
+        \%hash_ref
+
+  [1mshow_result($Module, $message) - shows error or success message[0m
+      Arguments:
+        $Module  - Module DB object
+        $message - message to show if no error
+
+      Returns:
+        boolean - 1 if success
+
+  [1mtranslate_list_value($list, @key_names) - translates values inside list by keys[0m
+      Arguments:
+        $list      - DB list
+        @key_names - array of strings. Default ('name')
+
+      Returns:
+        $list - same list with translated values
+
+  [1mis_array_ref($ref) - tests if refference is defined and is array refference[0m
+      Arguments:
+        $ref - reference to test
+
+      Returns:
+        boolean
+
+  [1mis_not_empty_array_ref($ref)[0m
+  [1marrays_array2table() - transforms arrays array to simple table[0m
+      Arguments:
+        $lines_array - array_ref
+          #0
+          [ 'caption', 'value' ],
+          #1
+          [ 'caption, 'value' ]
+        $attr - hash_ref
+    
+      Returns:
+        string - HTML
+
+  [1mcompare_hashes_deep(\%hash1, \%hash2) - deeply comparing two hashes[0m
+      Assuming values are scalars or hash ref
+
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 1:
+        Unknown directive: =NAME
+
+    Around line 5:
+        Unknown directive: =SYNOPSYS
+
+
+	
+	</body>
+	</html>
+  

@@ -1,0 +1,99 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+        Wordpress API v4
+
+  [1mnew($db, $admin, $CONF)[0m
+      Arguments:
+        $db    - ref to DB
+        $admin - current Web session admin
+        $CONF  - ref to %conf
+
+      Returns:
+        object
+
+  [1mposts_list(\%filters)[0m
+      Arguments:
+         \%filters - to look for (Optional)
+          string   post_type
+          string   post_status
+          int      number
+          int      offset
+          string   orderby
+          string   order
+
+      Returns:
+        array_ref
+
+  [1musers_list($filters)[0m
+      Arguments:
+         \%filters - to look for (Optional)
+           string role: Restrict results to only users of a particular role.
+           string who: If 'authors', then will return all non-subscriber users.
+           int number
+           int offset
+           string orderby
+           string order
+
+      Returns:
+        array_ref
+
+  [1mauthors_list()[0m
+      Arguments:
+        see users($filters)
+
+      Returns:
+        array_ref
+
+  [1moptions_list($filter)[0m
+      Arguments:
+        $filter -
+          array options: List of option names to retrieve. If omitted, all options will be retrieved.
+
+      Returns:
+        list - string desc
+               string value
+               bool   readonly
+
+  [1mset_options() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mget_themes() - get list of present colors[0m
+      Returns:
+        array_ref
+
+  [1mget_current_theme() - get current Bootswitch theme[0m
+  [1mget_custom_options($new_options) - updates custom options on Wordpress[0m
+      Returns:
+        hash_ref - all custom options
+
+  [1mupdate_custom_options($new_options) - updates custom options on Wordpress[0m
+      Arguments:
+        $new_options - hash_ref
+          option_name => option_value
+
+      Returns:
+        1
+
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 3:
+        Unknown directive: =head
+
+
+	
+	</body>
+	</html>
+  

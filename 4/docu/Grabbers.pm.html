@@ -1,0 +1,43 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Base info grabber
+
+  [1mequipment_test($attr)[0m
+      Arguments:
+        $attr
+          PORT_INFO
+          PORT_ID    - Port ID (Get stats for one port)
+          TIMEOUT
+          TEST_OID   - Array of oids
+          PORT_STATUS
+
+      Returns:
+        ports_info_hash_ref
+
+  [1mget_vlans($attr) - Get VLANs[0m
+      Arguments:
+        $attr
+          SNMP_TPL
+          NAS_INFO
+          VERSION
+
+      Returns:
+        Hash of vlans
+
+  [1mequipment_fdb_grab($attr) - Show FDB table[0m
+      Arguments:
+        $attr
+
+
+	
+	</body>
+	</html>
+  

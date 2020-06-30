@@ -1,0 +1,83 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mCallcenter[0m
+    Callcenter - moudle for polls
+
+[1mSynopsis[0m
+    use Callcenter;
+
+    my $Callcenter = Callcenter->new($db, $admin, \%conf);
+
+  [1mfunction new() - initialize Callcenter object[0m
+      Arguments:
+        $db    -
+        $admin -
+        %conf  -
+      Returns:
+        $self object
+
+      Examples:
+        $Callcenter = Callcenter->new($db, $admin, \%conf);
+
+  [1mcallcenter_add_cals() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mcallcenter_list_calls($attr) - return list of polls[0m
+      Arguments:
+        STATUS - call's status
+    
+      Returns:
+        $self object;
+
+      Examples:
+        all polls
+        my $tp_list = $Triplay->list_tp({COLS_NAME => 1});
+
+        polls with status eq 2
+        my $tp_list = $Triplay->list_tp({COLS_NAME => 1, STATUS => 2});
+
+  [1mcallcenter_change_calls($attr) - change calls status[0m
+      Arguments:
+    
+    
+      Returns:
+        $self object;
+
+      Examples:
+        $Poll->change_poll({  });
+
+  [1mcallcenter_info_calls($attr) -[0m
+      Arguments:
+        ID      - tp's ID
+    
+      Returns:
+
+      Examples:
+        $call_info = $Callcenter->callcenter_info_calls({COLS_NAME => 1, ID => 1});
+
+  [1mcallcenter_delete_calls($attr) - delete calls[0m
+      Arguments:
+        ID   - call's ID;
+    
+      Returns:
+        $self object;
+
+      Examples:
+        $Callcenter->callcenter_delete_calls({ID => $FORM{del}});
+
+
+	
+	</body>
+	</html>
+  

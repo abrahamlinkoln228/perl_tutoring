@@ -1,0 +1,35 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mrequest_token() get tokens[0m
+      Arguments:
+        nothing
+
+      Returns:
+        authorize url
+            token
+
+  [1mcheck_access($attr) - authorize via twitter function[0m
+      if args contains oauth_verifier, its mean user redirected after
+      authorisation on twitter. In this case function get and return user info.
+  
+      In other cases function return authorize link.
+
+  [1mget_info($twitter_user_id) - get user's info from t#witter[0m
+      argument:
+        twitter user's id
+  
+      returns:
+        user data
+
+
+	
+	</body>
+	</html>
+  

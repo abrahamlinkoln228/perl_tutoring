@@ -1,0 +1,183 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+     Message system
+     Help Desk SQL
+
+[1mmessages_new($attr) - Show new message[0m
+  [1mmessages_list($attr) -  Show message[0m
+      Arguments:
+
+      Returns:
+         array_hash_ref
+
+  [1mmessage_add($attr)[0m
+  [1mmessage_del($attr)[0m
+      Arguments:
+        $attr
+          UID
+          ID
+
+      Results:
+        $self
+
+  [1mmessage_info()[0m
+  [1mmessage_change($attr)[0m
+  [1mchapters_list($attr)[0m
+  [1mchapter_add($attr)[0m
+  [1mchapter_del($attr)[0m
+  [1mchapter_info($id, $attr)[0m
+  [1mchapter_change($attr)[0m
+  [1madmin_change($attr)[0m
+  [1mchapter_del($attr)[0m
+  [1mmessage_reply_del($attr)[0m
+  [1mmessages_list($attr)[0m
+  [1mattachment_add($attr) Add attachments[0m
+  [1mattachment_info($attr)[0m
+  [1mmessages_reports($attr)[0m
+  [1mdispatch_list($attr)[0m
+  [1mchapter_add($attr)[0m
+  [1mchapter_del[0m
+  [1mdispatch_info()[0m
+  [1mdispatch_change()[0m
+  [1mdispatch_admins_change[0m
+  [1mdispatch_admins_list($attr)[0m
+  [1munreg_requests_count($attr) - Count unreg message[0m
+  [1munreg_requests_list($attr) - Unreg request list[0m
+  [1munreg_requests_add($attr) - add admin message[0m
+  [1munreg_requests_info($id, $attr)[0m
+  [1munreg_requests_change($attr)[0m
+  [1msurvey_subjects_list($attr)[0m
+  [1msurvey_subjects_add($attr)[0m
+  [1msurvey_subject_del()[0m
+  [1msurvey_subjects_info($id)[0m
+  [1msurvey_answer_show($attr)[0m
+      Arguments:
+        REPLY_ID
+        SURVEY_ID
+        UID
+
+      Results:
+
+  [1msurvey_answer_add($attr)[0m
+  [1mmsg_watch_del($attr)[0m
+  [1mmsg_watch_list($attr)[0m
+  [1mstatus_add($attr) -[0m
+      Arguments:
+        $attr -
+
+      Returns:
+
+      Examples:
+
+  [1mstatus_list($attr) -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mstatus_del() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mstatus_info() -[0m
+      Arguments:
+    urns:
+
+      Examples:
+
+  [1mstatus_change() -[0m
+      Arguments:
+         -
+      Returns:
+
+      Examples:
+
+  [1mmsgs_delivery_add($attr) -[0m
+      Arguments:
+        $attr -
+
+      Returns:
+
+      Examples:
+
+  [1mmsgs_delivery_list($attr) -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mmsgs_delivery_del($attr) -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mmsgs_delivery_info($id) -[0m
+      Arguments:
+      $id
+
+      Returns:
+
+  [1mmsgs_delivery_change($attr) -[0m
+      Arguments:
+         $attr
+      Returns:
+
+      Examples:
+
+  [1mdelivery_user_list_add($attr)[0m
+      Arguments:
+        $attr
+      Returns:
+
+      Examples:
+
+  [1mdelivery_user_list($attr)[0m
+      Arguments:
+         $attr
+      Returns:
+
+      Examples:
+
+  [1mdelivery_user_list_del($attr)[0m
+      Arguments:
+         $attr
+      Returns:
+
+      Examples:
+
+  [1mdelivery_user_list_change($attr)[0m
+  [1mmsgs_report_actions($attr)[0m
+      Arguments:
+         $attr
+           $attr->{MSG_ID} - messege id
+      Returns:
+
+      Examples:
+
+  [1mmessages_reports($attr)
+  Arguments:
+     $attr
+       $attr->{FROM_DATE} - create date
+       $attr->{TO_DATE}  - create date
+  Returns:
+      $list[0m
+
+	
+	</body>
+	</html>
+  

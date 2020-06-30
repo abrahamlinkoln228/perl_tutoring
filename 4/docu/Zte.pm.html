@@ -1,0 +1,63 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      ZTE snmp monitoring and managment
+
+      VERSION: 0.02
+
+  [1m_zte_get_ports($attr) - Get OLT slots and connect ONU[0m
+  [1m_zte_onu_list($attr) -[0m
+  [1m_zte_onu_list2($attr) -[0m
+  [1m_zte($attr) - Snmp recovery[0m
+      Arguments:
+        $attr
+          EPON
+
+      Returns:
+        OID hash_ref
+
+  [1m_zte_onu_status();[0m
+      Arguments:
+        $attr
+          EPON - Show epon status describe
+
+      Returns:
+        Status hash_ref
+
+  [1m_zte_set_desc_port($attr) - Set Description to OLT ports[0m
+  [1mdecode_onu($dec) - Decode onu int[0m
+      Arguments:
+        $dec
+
+      Returns:
+        deparsing string
+
+  [1mencode_port($type, $self, $slot, $olt) - Decode port[0m
+      Arguments:
+        $dec
+
+      Returns:
+        deparsing string
+
+  [1m_zte_convert_power($power) - Convert power[0m
+  [1m_zte_convert_power();[0m
+  [1m_zte_convert_olt_power();[0m
+  [1m_zte_convert_description();[0m
+  [1m_zte_convert_epon_description();[0m
+  [1m_zte_convert_temperature();[0m
+  [1m_zte_convert_epon_temperature();[0m
+  [1m_zte_convert_epon_voltage();[0m
+  [1m_zte_convert_voltage();[0m
+  [1m_zte_convert_distance();[0m
+
+	
+	</body>
+	</html>
+  

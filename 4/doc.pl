@@ -28,26 +28,29 @@ sub pod2html {
   ';
 
   my $src = $_;
-  my $des = "/usr/abills/documentation/".$src.".html";
+  my $dir = '/var/www/html/work/structred/4/docu/';
 
-  my $dir = '/usr/abills/documentation/';
+  my $des = $dir.$src.".html";
+
 
   if ( !-d $dir ) {
     make_path $dir or die "Failed to create path: $directories";
-}
+  }
 
-  open(SRC,'<',$src) or die $!;
+  my $perldoc_out = `perldoc $src`;
 
+#  open(SRC,'<',$src) or die $!;
   open(DES,'>',$des) or die $!;
 
   print("copying content from $src to $des\n");
   print("\n");
 #  print DES "Content-Type: text/html\n\n";
   print DES $htm_s;
-  while(<SRC>){
-    print DES $_;
-    print DES "<br>";	
-  }
+#  while(<SRC>){
+#    print DES $_;
+#    print DES "<br>";	
+#  }
+  print DES $perldoc_out; 
   print DES $htm_e;
 
   # always close the filehandles

@@ -1,0 +1,139 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      NAS Server configuration and managing
+
+  [1mlist($attr)[0m
+  [1minfo($attr)[0m
+      Arguments:
+        NAS_ID
+        IP
+        CALLED_STATION_ID
+
+      Returns:
+        NAS_INFO
+
+  [1mchange($attr)[0m
+  [1madd($attr) - Add nas server[0m
+  [1mdel($id) ADel nas server[0m
+  [1mnas_ip_pools_list($attr)[0m
+  [1mnas_ip_pools_set($attr) NAS IP Pools[0m
+  [1mip_pools_info($id)[0m
+  [1mip_pools_change($attr) - NAS IP Pools change[0m
+  [1mip_pools_list($attr)[0m
+  [1mip_pools_add($attr)[0m
+  [1mip_pools_del()[0m
+  [1mnas_group_list($attr)[0m
+  [1mnas_group_info($attr);[0m
+  [1mnas_group_change($attr)[0m
+  [1mnas_group_add($attr)[0m
+  [1mnas_group_del()[0m
+  [1mfunction add_radtest_query() - add query to datebase[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $nas->add_radtest_query({
+          COMMENTS   => 'test',
+          RAD_QUERY  => 'User-Name=test',
+          DATETIME   => 'NOW()'
+        });
+
+        $nas->add_radtest_query({
+          %FORM
+        });
+
+  [1mfunction query_list() - queries list[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $query_list = $nas->query_list({COLS_NAME => 1});
+
+  [1mfunction del_query() - del query from datebase[0m
+      Arguments:
+        ID   - query identificator
+
+      Returns:
+        $self object
+
+      Examples:
+        $nas->del_query({ID => $FORM{query_del}});
+
+  [1mfunction query_info() - query info from datebase[0m
+      Arguments:
+        ID   - query identificator
+
+      Returns:
+        $self object
+
+      Examples:
+        $nas->query_info({ID => $FORM{query_info}});
+
+  [1mfunction add_radtest_query() - add query to datebase[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $nas->nas_cmd_add({
+          COMMENTS   => 'test',
+          RAD_QUERY  => 'User-Name=test',
+          DATETIME   => 'NOW()'
+        });
+
+        $nas->nas_cmd_add({
+          %FORM
+        });
+
+  [1mfunction nas_cmd_del() - del query from datebase[0m
+      Arguments:
+        ID   - query identificator
+
+      Returns:
+        $self object
+
+      Examples:
+        $nas->nas_cmd_del({ID => $FORM{del}});
+
+  [1mfunction nas_cmd_info() - query info from datebase[0m
+      Arguments:
+        ID   - query identificator
+
+      Returns:
+        $self object
+
+      Examples:
+        $nas->nas_cmd_info({ID => $FORM{ID}});
+
+  [1mfunction nas_cmd_list() - queries list[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $cmd_list = $Nas->nas_cmd_list({COLS_NAME => 1});
+
+  [1mnas_cmd_change($attr)[0m
+
+	
+	</body>
+	</html>
+  

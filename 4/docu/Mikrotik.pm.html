@@ -1,0 +1,133 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mnew() - Constructor[0m
+  [1mexecute($command) -[0m
+      Arguments:
+        $command -
+
+      Returns:
+        1 - if success
+
+  [1mhas_access()[0m
+  [1mgenerate_key($admin_name) - generates SSH key[0m
+      Arguments:
+        $admin_name - name for admin ( for key name )
+
+      Returns:
+        1 - if generated
+
+  [1mupload_key($attr) - uploads key for remote ssh management[0m
+      Arguments:
+        $attr - hash_ref
+          ADMIN_NAME    - admin to upload key for. Will be created if not exists
+          SYSTEM_ADMIN  - current active admin
+          SYSTEM_PASSWD - current password
+
+      Returns:
+        1 - if success
+
+  [1mget_error() - returns inner executor error[0m
+  [1mget_list($list_name, $attr) - forwarding request to executor[0m
+      Arguments:
+        $list_name - one of predefined commands
+
+      Returns:
+       list
+
+  [1minterfaces_list($filter)[0m
+      Arguments:
+        $filter - hash_ref
+
+      Returns:
+      list of interfaces (filtered if filter defined)
+
+  [1maddresses_list()[0m
+  [1madverts_list($attr) - get hotspot adverts for default user profile[0m
+  [1mleases_list() - returns leases from mikrotik[0m
+      Arguments:
+        $mikrotik - Mikrotik object
+
+      Returns:
+        list
+
+  [1mremove_leases($leases_ids_list, $attr)[0m
+      Arguments:
+        $leases_ids_list - array_ref of IDs to delete
+        $attr - hash_ref
+    
+      Returns:
+        boolean
+
+  [1madd_leases($leases_list, $attr)[0m
+      Arguments:
+        $leases_list - list of leases in DB format
+          [
+           {
+             tp_tp_id
+             network
+             mac
+             ip
+           }
+          ]
+        $attr
+          SKIP_DHCP_NAME - add lease for all DHCP servers
+          VERBOSE - be verbose
+          DEBUG
+
+      Returns:
+        1
+
+  [1mremove_all_generated_leases($nas, $attr)[0m
+      Arguments:
+        $nas - nases table line
+        $attr - hash_ref
+
+      Returns:
+       1 if success
+
+  [1mcheck_dhcp_servers($networks, $attr)[0m
+      Arguments:
+        $mikrotik - Mikrotik object
+        $networks - networks list from DB
+
+      Returns:
+        1
+
+  [1mconfigure_hotspot(\%arguments)[0m
+      Arguments:
+        $arguments - hash_ref
+          INTERFACE            - interface to apply hotspot firewall rules
+          DHCP_RANGE           - range of client addresses
+          ADDRESS              - local IP address for hotspot interface
+          NETWORK              - hotspot network
+          NETMASK              - hotspot network bits length
+          GATEWAY              - WAN interface gateway
+          DNS
+          DNS_NAME             - name that clients are redirected to
+          BILLING_IP_ADDRESS   - radius IP address
+          RADIUS_SECRET
+
+  [1mradius_add($host, $attr) - adds first radius server[0m
+      Arguments:
+        $host - ip address
+        $attr - hash_ref
+          RADIUS_SECRET - use special radius secret, instead of given in host params
+          COA           - port for listening COA requests (3799)
+          REPLACE       - if server exists, delete it and set with given params
+          SERVICES      - services to use with this radius (hotspot, ppp, dhcp)
+    
+      Returns:
+        1 - if success
+
+
+	
+	</body>
+	</html>
+  

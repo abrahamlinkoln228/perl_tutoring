@@ -1,0 +1,295 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Employees - module for Employees configuration
+
+[1mSYNOPSIS[0m
+      use Employees;
+      my $Employees = Employees->new($db, $admin, \%conf);
+
+  [1mfunction add_position() - add rule to table ring_rule[0m
+      Arguments:
+        %$attr
+          NAME             - position's name;
+          SUBORDINATION    - the higher postion;
+
+      Returns:
+        $self object
+
+      Examples:
+        $Employees->add_position({
+          NAME             => $FORM{NAME},
+          SUBORDINATION    => $FORM{SUBORDINATION},
+
+        });
+
+  [1mfunction del_position() - delete position from db
+  Arguments:
+    $attr[0m
+      Returns:
+
+      Examples:
+        $Employee->del_position( {ID => 1} );
+
+  [1mfunction position_list() - get articles list[0m
+      Arguments:
+        $attr
+          SUBORDINATION -
+      Returns:
+        @list
+
+      Examples:
+        my $list = $Employees->position_list({COLS_NAME=>1});
+
+  [1mfunction position_info() - get position info[0m
+      Arguments:
+        $attr
+          ID - position identifier
+      Returns:
+        $self object
+
+      Examples:
+        my $list = $Employees->position_info({ ID => 1 });
+
+  [1mfunction position_change() - get articles list[0m
+      Arguments:
+        $attr
+          ID            - position identifier;
+          POSITION      - position name;
+          SUBORDINATION - id of highier position;
+
+      Returns:
+        $self object
+
+      Examples:
+        my $list = $Employees->position_change({ ID       => 2,
+                                                 POSITION => "Admin",
+                                                 SUBORDINATION => 1 });
+
+  [1mfunction add_geo() - add rule to table ring_rule[0m
+      Arguments:
+        %$attr
+          NAME             - position's name;
+          SUBORDINATION    - the higher postion;
+
+      Returns:
+        $self object
+
+      Examples:
+        $Employees->add_geo({
+          STREET_ID          => 1,
+          EMPLOYEE_ID        => 2,
+
+        });
+
+  [1mfunction del_geo() - delete geolocation from db
+  Arguments:
+    $attr[0m
+      Returns:
+
+      Examples:
+        $Employee->del_geo( {EMPLOYEE_ID => 1} );
+
+  [1mfunction position_list() - get articles list[0m
+      Arguments:
+        $attr
+          SUBORDINATION -
+      Returns:
+        @list
+
+      Examples:
+        my $list = $Employees->position_list({COLS_NAME=>1});
+
+  [1mtime_sheet_add($attr)[0m
+  [1mfunction add_question() - add new question to table employees_profile_question[0m
+      Arguments:
+        %$attr
+          QUESTION    - Question what you add;
+          POSITION_ID - Position ID;
+          ID          - Question ID;
+
+      Returns:
+        $self object
+
+      Examples:
+        $Employees->add_geo({
+          QUESTION           => 'What your name?',
+          POSITION_ID        => $FORM{POSITION_ID}
+        });
+
+  [1mfunction del_question() - delete question from db
+  Arguments:
+    $attr[0m
+      Returns:
+
+      Examples:
+        $Employee->del_question( {ID => 1} );
+
+  [1mfunction questions_list() - get articles list[0m
+      Arguments:
+        $attr
+          ID - 
+      Returns:
+        @list
+
+      Examples:
+        my $list = $Employees->questions_list({COLS_NAME=>1});
+
+  [1mfunction question_change() -[0m
+      Arguments:
+        $attr
+          QUESTION    - Question what you add;
+          POSITION_ID - Position ID;
+          ID          - Question ID;
+
+      Returns:
+        $self object
+
+      Examples:
+        my $list = $Employees->question_change({ ID       => 2,
+                                                 QUESTION => "What?",
+                                                 POSITION_ID => 1 });
+
+  [1mfunction question_info() - get question_info[0m
+      Arguments:
+        $attr
+          ID - question identifier
+      Returns:
+        $self object
+
+      Examples:
+        my $list = $Employees->question_info({ ID => 1 });
+
+  [1mfunction add_profile() - add new question to table employees_profile_question[0m
+      Arguments:
+        %$attr
+          POSITION_ID    - Position ID;
+          FIO           - ;
+          DATE_OF_BIRTH -
+          EMAIL         -
+          PHONE         -
+
+      Returns:
+        $self object
+
+      Examples:
+        $Employees->add_profile({
+          POSITION_ID   - $FORM{P_ID};
+          FIO           - Brolaf Anna Anna;
+          DATE_OF_BIRTH -
+          EMAIL         - zila@gmail.com
+          PHONE         - 380876876
+        });
+
+  [1mfunction del_profile() - delete profile from db
+  Arguments:
+    $attr[0m
+      Returns:
+
+      Examples:
+        $Employee->del_profile( {ID => 1} );
+
+  [1mfunction change_profile() -[0m
+      Arguments:
+        $attr
+          POSITION_ID   - Position ID;
+          FIO           - 
+          DATE_OF_BIRTH -
+          EMAIL         - 
+          PHONE         - 
+
+      Returns:
+        $self object
+
+      Examples:
+        my $list = $Employees->change_profile({
+           POSITION_ID   - $FORM{P_ID};
+           FIO           - Brolaf Anna Anna;
+           DATE_OF_BIRTH -
+           EMAIL         - zila@gmail.com
+           PHONE         - 380876876
+
+  [1mfunction profile_list() - get articles list[0m
+      Arguments:
+        $attr
+          POSITION_ID   - Position ID;
+          FIO           - 
+          DATE_OF_BIRTH -
+          EMAIL         - 
+          PHONE         - 
+      Returns:
+        @list
+
+      Examples:
+        my $list = $Employees->profile_list({COLS_NAME=>1});
+
+  [1mfunction profile_info() - get position info[0m
+      Arguments:
+        $attr
+          ID - position identifier
+      Returns:
+        $self object
+
+      Examples:
+        my $list = $Employees->profile_info({ ID => 1 });
+
+  [1mfunction add_reply() - add new question to table employees_profile_question[0m
+      Arguments:
+        %$attr
+          QUESTION_ID - Question ID;
+          PROFILE_ID  -  Profile ID;
+          REPLY       - Question reply;
+
+      Returns:
+        $self object
+
+      Examples:
+        $Employees->add_reply({
+          QUESTION_ID           - ;
+          PROFILE_ID -
+          REPLY 
+        });
+
+  [1mfunction reply_list() - get articles list[0m
+      Arguments:
+        $attr
+          QUESTION_ID - Question ID;
+          PROFILE_ID  -  Profile ID;
+          REPLY       - Question reply;
+      Returns:
+        @list
+
+      Examples:
+        my $list = $Employees->reply_list({COLS_NAME=>1});
+
+  [1mrfid_log_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1mfunction rfid_log_add() - add rfid log entry
+  Arguments:
+    $attr[0m
+      Returns:
+       1
+
+  [1mfunction rfid_log_del() - delete rfid log entry
+  Arguments:
+    $attr[0m
+      Returns:
+       1
+
+
+	
+	</body>
+	</html>
+  

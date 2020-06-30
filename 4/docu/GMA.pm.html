@@ -1,0 +1,72 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+        https://developers.google.com/maps/documentation/geocoding/intro
+
+      https://developers.google.com/maps/documentation/geocoding/get-api-key
+
+  [1mnew($db, $admin, \%conf) - constructor for Google Maps Api[0m
+      Attributes:
+        $db, $admin, \%conf -
+
+      Returns:
+        object - new Google Maps Api instance
+
+  [1mget_unfilled_addresses()[0m
+      Returns:
+        list
+
+  [1mget_coords_for($build) - returns coordinates for build[0m
+      See Returns for details
+
+      Arguments:
+        $build - build hash
+          full_address - address name
+
+      Returns:
+        HASH
+          STATUS - Status of response. 1 is "OK"
+          COORDX - longitude
+          COORDY - latitude
+          formatted_address - Forrmatted address returned by Google API
+          requested_address - address as it was sended to Google API
+
+      Responce from Google API can contain multiple results. In this case returns:
+        HASH
+          STATUS - integer
+          requested_address - address as it was sended to Google API
+          formatted_address - Forrmatted address returned by Google API
+          COORDS [
+            COORDX, - longitude
+            COORDY  - latitude
+          ]
+
+  [1mget_address_for($latlng, $attr) - Returns address for coordinates (if it's ROOFTOP)[0m
+      Arguments:
+        $latlng - hash_ref
+          COORDX
+          COORDY
+         $attr -
+    
+      Returns:
+        hash_ref -
+         ADDRESS
+
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 3:
+        Unknown directive: =name
+
+
+	
+	</body>
+	</html>
+  

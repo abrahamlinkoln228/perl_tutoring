@@ -1,0 +1,104 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mNAME[0m
+     Events
+
+  [1mSYNOPSIS[0m
+       $Events->events_add( {
+          # Name for module
+            MODULE      => 'Test',
+          # Text
+            COMMENTS    => 'Generated',
+          # Link to see external info
+            EXTRA       => 'http://abills.net.ua',
+          # 1..5 Bigger is more important
+            PRIORITY_ID => 1,
+          } );
+
+  [1mAUTOLOAD[0m
+      Because all namings are standart, 'add', 'change', 'del', 'info' can be generated automatically.
+
+  [1mSYNOPSIS[0m
+      AUTOLOAD is called when undefined function was called in Package::Foo.
+      global $AUTOLOAD var is filled with full name of called undefined function (Package::Foo::some_function)
+  
+      Because in this module DB tables and columns are named same as template variables, in all logic for custom operations
+      the only thing that changes is table name.
+  
+      We can parse it from called function name and generate 'add', 'change', 'del', 'info' functions on the fly
+
+  [1mUSAGE[0m
+      You should use this function as usual, nothing changes in webinterface logic.
+      Info functions are working regarding to 'SHOW_ALL_COLUMNS' in table_list()
+  
+      Just call $Events->group_info($group_id)
+  
+      Arguments:
+        arguments are typical for operations, assuming we are working with ID column as primary key
+    
+      Returns:
+        returns same result as usual operation functions ( Generally nothing )
+
+  [1mnew($db, $admin, $CONF)[0m
+      Arguments:
+        $db    - ref to DB
+        $admin - current Web session admin
+        $CONF  - ref to %conf
+
+      Returns:
+        object
+
+  [1mevents_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1mstate_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1mprivacy_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1mpriority_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1mpriority_send_types_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+  [1mgroup_list($attr)[0m
+      Arguments:
+        $attr - hash_ref
+
+      Returns:
+        list
+
+
+	
+	</body>
+	</html>
+  

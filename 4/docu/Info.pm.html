@@ -1,0 +1,190 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+    Info - module for extra information about DB Objects
+
+    Supports * Comments (1.1) * Images (1.1) * Geolocation (1.2) * Documents
+    (1.3)
+
+[1mVERSION[0m
+      VERSION = 1.3
+
+[1mSYNOPSIS
+  By simply calling info_show_comments('table_name', object_id),
+  you will get a comments block with dynamic available adding and removing comments[0m
+[1mEXAMPLES[0m
+      Look in modules/Info/webinterface
+
+  [1mnew[0m
+    Instantiation of singleton db object
+
+  [1mget_comments ($type, $id)[0m
+     Main function to get comments for $type, $id
+       $type - The table name for object you want get comments for
+       $id   - id of object you want get comments for
+       $attr - hash reference of extra arguments
+
+     if $attr contains {COLS_NAME}
+      returns array of hashes representing comments for an object
+     else
+      returns array of arrays
+
+  [1mEXAMPLES
+  Get comments for Administrator with aid = 2
+    my $comments = $Info->get_comments('admins', 2, { COLS_NAME => 1 });[0m
+      Will return:
+        [
+          {
+            'id'         => 2,                        # Id of comment in `comments` table
+            'text'       => 'This guy is awesome',    # Text of comment
+            'date'       => '01.01.2016 01:02:59',    # DateTime when comment was leaved
+            'name'       => 'John'                    # Name of administrator who leaved comment
+          }
+        ]
+
+  [1madd_comment[0m
+     Main function to add comment for $type, $id
+       $attr - hash reference of extra arguments
+         OBJ_TYPE - The table name for object you want add comments for
+         ID   - id of object you want add comments for
+         TEXT - text of comment
+
+     Comment will always be added with current system datetime, and aid of current administrator
+
+  [1mdel_comment[0m
+     Main function to delete comment by $id
+       $attr - hash reference of extra arguments
+          -> COMMENT_ID   - id of comment you want to delete
+
+     Removes comment row with specified comment_id from `comments` and `info_info` tables
+
+  [1mget_comments ($type, $id)[0m
+     Main function to get comments for $type, $id
+       $type - The table name for object you want get comments for
+       $id   - id of object you want get comments for
+       $attr - hash reference of extra arguments
+
+     if $attr contains {COLS_NAME}
+      returns array of hashes representing comments for an object
+     else
+      returns array of arrays
+
+  [1mEXAMPLES
+  Get comments for Administrator with aid = 2
+    my $comments = $Info->get_comments('admins', 2, { COLS_NAME => 1 });[0m
+      Will return:
+        [
+          {
+            'id'         => 2,                        # Id of comment in `comments` table
+            'text'       => 'This guy is awesome',    # Text of comment
+            'date'       => '01.01.2016 01:02:59',    # DateTime when comment was leaved
+            'name'       => 'John'                    # Name of administrator who leaved comment
+          }
+        ]
+
+  [1mget_image_info($image_id, $attr)[0m
+  [1madd_comment[0m
+     Main function to add comment for $type, $id
+       $attr - hash reference of extra arguments
+          -> TYPE - The table name for object you want add comments for
+          -> ID   - id of object you want add comments for
+          -> TEXT - text of comment
+
+     Comment will always be added with current system datetime, and aid of current administrator
+
+  [1mdel_image[0m
+     Main function to delete image by $id
+       $attr - hash reference of extra arguments
+          IMAGE_ID   - id of image you want to delete
+
+     Removes image row with specified image_id from `info_media` and `info_info` tables
+
+  [1mget_locations ($type, $id)[0m
+     Main function to get locations for $type, $id
+       $type - The table name for object you want get locations for
+       $id   - id of object you want get locations for
+       $attr - hash reference of extra arguments
+
+     if $attr contains {COLS_NAME}
+      returns array of hashes representing locations for an object
+     else
+      returns array of arrays
+
+  [1mEXAMPLES
+  Get locations for Administrator with aid = 2
+    my $locations = $Info->get_locations('admins', 2, { COLS_NAME => 1 });[0m
+      Will return:
+        [
+          {
+            'id'         => 2,                        # Id of location in `locations` table
+            'text'       => 'This guy is awesome',    # Text of comment
+            'date'       => '01.01.2016 01:02:59',    # DateTime when location was leaved
+            'name'       => 'John'                    # Name of administrator who pinned location
+          }
+        ]
+
+  [1madd_location($obj_type, $obj_id, $attr)[0m
+  [1mdel_location[0m
+     Main function to delete location by $id
+       $attr - hash reference of extra arguments
+          LOCATION_ID   - id of location you want to delete
+
+     Removes location row with specified location_id from `info_locations` and `info_info` tables
+
+  [1mget_documents ($type, $id)[0m
+     Main function to get documents for $type, $id
+       $type - The table name for object you want get documents for
+       $id   - id of object you want get documents for
+       $attr - hash reference of extra arguments
+
+     if $attr contains {COLS_NAME}
+      returns array of hashes representing documents for an object
+     else
+      returns array of arrays
+
+  [1mEXAMPLES
+  Get documents for Administrator with aid = 2
+    my $documents = $Info->get_documents('admins', 2, { COLS_NAME => 1 });[0m
+      Will return:
+        [
+          {
+            'id'         => 2,                        # Id of comment in `documents` table
+            'text'       => 'This guy is awesome',    # Text of comment
+            'date'       => '01.01.2016 01:02:59',    # DateTime when comment was leaved
+            'name'       => 'John'                    # Name of administrator who leaved comment
+          }
+        ]
+
+  [1mget_document_info($document_id, $attr)[0m
+  [1madd_document($obj_type, $obj_id, $attr)[0m
+  [1mdel_document[0m
+     Main function to delete document by $id
+       $attr - hash reference of extra arguments
+          DOCUMENT_ID   - id of document you want to delete
+
+     Removes document row with specified document_id from `info_documents` and `info_info` tables
+
+  [1mdel_info abstraction of deleting Info module related information[0m
+     Main function to delete info entity by $id
+       $table - hash_ref with `info_*` table info
+       $attr - hash reference of extra arguments
+          OBJ_ID   - id of document you want to delete
+
+     Removes object row with specified object_id from `info_*` and `info_info` tables
+
+  [1m_get_info_info($table, $type_id, $attr) - generalization for DB Select[0m
+  [1m_get_info_list($obj_type, $id, $table, $attr)[0m
+  [1m_add_info($obj_type, $obj_id, $table, $attr)[0m
+  [1mget_error($errno, $errstr)[0m
+
+	
+	</body>
+	</html>
+  

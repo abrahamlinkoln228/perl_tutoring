@@ -1,0 +1,63 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Config
+
+  [1mconfig_list($attr) - Config option list[0m
+      Arguments:
+        $attr
+          PARAM
+          VALUE
+          DOMAIN_ID
+          CONF_ONLY - do not show total
+
+      Returns:
+        \@list
+
+  [1mconfig_info($attr) - Get config information[0m
+      Arguments:
+        $attr
+          PARAM
+          DOMAIN_ID
+
+  [1mconfig_change($param, $attr)[0m
+      Arguments:
+        $attr
+           WITHOUT_PARAM_CHANGE - Change without param
+
+  [1mconfig_add($attr)[0m
+      Arguments:
+        $attr - hash_ref
+          PARAM   -
+          VALUE   -
+          REPLACE -
+
+      Returns:
+        Conf instance
+
+  [1mconfig_del($id)[0m
+  [1madd() - Add config variables[0m
+  [1mdel($id) - Del config variables[0m
+  [1mchange($attr)[0m
+  [1minfo($attr)[0m
+  [1mlist($attr)[0m
+  [1mcheck_password($password) - checks for password security[0m
+      Arguments:
+        $password - string to check
+        $config_string - (optional) encoded password constraints
+    
+      Returns:
+        boolean
+
+
+	
+	</body>
+	</html>
+  

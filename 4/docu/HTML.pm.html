@@ -1,0 +1,825 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+    Abills::HTML - HTML visualisation functions with bootstrap support
+
+[1mSYNOPSIS[0m
+        use Abills::HTML;
+
+        $html = Abills::HTML->new(
+           {
+             CONF     => \%conf,
+             NO_PRINT => 0,
+             PATH     => $conf{WEB_IMG_SCRIPT_PATH} || '../',
+             CHARSET  => $conf{default_charset},
+           }
+        );
+
+        print $html->header();
+
+        print $html->button('User', "index=15&UID=123");
+
+  [1mnew($attr)[0m
+      $attr
+        NOPRINT
+        CONF
+
+  [1mform_parse() Parse html query input[0m
+      Return:
+        Output HASH
+
+  [1mform_input($name, $value, $attr) - Show form input[0m
+      Arguments:
+        $name
+        $value
+        $attr
+          EX_PARAMS
+          TYPE      - Input type (submit, hidden, checkbox)
+          STATE     - State for checkbox
+          FORM_ID   - Main form ID
+          SUCCESS   - Green button for submit input
+          ID        - custom id attr for element, uses $name otherwise
+
+      Returns:
+        html Input obj
+
+  [1mform_textarea($name, $value, $attr) - Show form textarea input[0m
+      Arguments:
+        $name
+        $value
+        $attr
+      Returns:
+
+  [1mform_main($name, $value, $attr) - Create input form container[0m
+      Arguments:
+
+        $attr
+          CONTENT    - Main content
+          HIDDEN     - Hidden fields hash_ref
+                  { index => 21 }
+          SUBMIT     - Submit elent hash_ref
+                  { submit => $lang{ADD} }
+          ID         - Form id
+          EXPORT_CONTENT - Export content
+          METHOD     - HTTP Method for submit
+          ENCTYPE
+          NAME
+          TARGET
+          class
+          OUTPUT2RETURN
+
+      Results:
+
+        output result string
+
+      Examples:
+
+  [1mform_select($name, $attr) - Create FORM select element[0m
+      Arguments:
+
+        $name        - Element name
+        $attr
+          SEL_ARRAY      - ARRAY_ref
+          ARRAY_NUM_ID   - treat array item position as id
+          SEL_HASH       - HASH_ref
+          SEL_LIST       - list of array_hash
+          SEL_KEY        - key for option name
+          SEL_VALUE      - key for option value
+          NO_ID          - Do not display hash key
+          SELECTED       - Selected value
+          POPUP_WINDOW   - Make popup window
+          FORM_ID        - Main form ID
+          ID             - Elemet ID
+          MAIN_MENU      - Main menu link for main function
+          MAIN_MENU_ARGV - Arguments for main menu
+          EXT_BUTTON     - Allow second button next to MAIN_MENU
+          STYLE          - Array of element style
+          SEL_OPTIONS    - Extra sel options HASH_REF { key => value, ... }
+          EXPORT_CONTENT - Export content
+          USE_COLORS     - Use color for hash value
+          EX_PARAMS      - Extra HTML attributes
+          NORMAL_WIDTH   - By default, all selects in .form-horizontal .form-group will have .form-group width,
+                           this options sets width to 100% (.form-control styles)
+          AUTOSUBMIT     - Submit form when selected ( $URL or 'form' )
+          OUTPUT2RETURN
+
+      Results:
+
+        output result string
+
+      Examples:
+
+  [1mform_window($name, $attr) - Show modal windows[0m
+      Arguments:
+        $name   - Windows name
+        $attr   - Extra elements
+
+      Returns:
+        $self->{WINDOW}
+
+  [1mset_cookies($name, $value, $expiration, $path, $attr) - Set cookies[0m
+      Arguments:
+
+        $name        - Cookie name
+        $value       - Cookie value
+        $expiration  - Cookie expire (Default: 24 hour)
+        $path        - web path
+        $attr        -
+          SKIP_SAVE    - Skip Save cookie
+          DOMAIN       - domain
+          SECURE       - secure world
+
+      Results:
+
+        print cookie
+
+  [1mget_cookies() - get cookie values and return hash of it[0m
+      Results:
+
+        return cookies (HASH_REF)
+
+      Examples:
+
+        my $cookies = $html->get_cookies();
+
+  [1mmenu($menu_items, $menu_args, $permissions, $attr) - Make menu[0m
+      Arguments:
+        $menu_items   - Menu items hash_ref
+        $menu_args    - Extra menu arguments
+        $permissions  - Admin permissions hash_ref
+        $attr         - Extra attrinbutes
+
+      Returns:
+        $menu_navigator, $menu_text
+
+  [1mmenu_right($menu_items, $menu_args, $permissions, $attr) - Make menu[0m
+      Arguments:
+        $menu_item_name    - Menu item name
+        $menu_item_id      - Menu item name
+        $menu_content      - Menu html code;
+        $attr    - Full html if item is apdded.
+          HTML        - Full html if item is added.
+          SKIN        - Skin menu.
+      Returns:
+        $right_menu_html
+
+  [1mmenu2($menu_items, $menu_args, $permissions, $attr) - User portal menu[0m
+  [1mmk_menu($menu, $menu_args, $attr) - Make user menu[0m
+      Arguments:
+        $menu         - Menu hash_ref
+        $menu_args    - Menu arguments
+        $attr
+          PARENT        - Parent element
+          EX_ARGS       - Extra arguments
+          FUNCTION_LIST - Functions list
+          SKIP_HREF     - Skip SKIP_HREF for dynamic reload
+
+      Returns:
+
+        formed menu
+
+  [1mheader() - header of main page[0m
+      Arguments:
+
+        $attr
+
+      Examples:
+
+        $html->header();
+
+  [1mtable() - Create table object[0m
+      Arguments:
+
+        $attr
+          caption     - table caption
+          width       - table width
+          title       - table title array ref
+          title_plain - plain table title array ref (without sort fields)
+          header      - header buttons (array of buttons)
+          border      - Table border
+          qs          - Extra query string for element
+          ID          - table ID
+          MENU        - ???
+          EXPORT      - show button for exporting table
+          IMPORT      - Show import form
+          NOT_RESPONSIVE
+          SHOW_COLS_HIDDEN - Hidden columns for gum fields
+          SKIP_TOP_PAGES - Skip top pages
+          HIDE_TABLE  - Hide tible to cut
+          SELECT_ALL  - Show select ID form
+           'form_name:field_name:show_name'
+          pages       - Show pages
+          SHOW_FULL_LIST - Show full list page
+          HAS_FUNCTION_FIELDS - boolean. Special CSS rules will be apllied to align last column to right
+
+      Returns:
+
+         Table object
+
+      Examples:
+
+        my $table = $html->table(
+        {
+          width      => '100%',
+          caption    => "Table caption",
+          title      => [ "$lang{LOGIN}", "$lang{FIO}", "$lang{PHONE}" ],
+          qs         => $pages_qs,
+          ID         => 'TABLE_ID',
+          export     => 1
+        }
+        );
+
+        $table->addrow('test', 'Ivan Pupkin', '39999999999');
+
+        $table->show();
+
+      Table with header buttons:
+
+        my @status_bar = (
+          "$lang{ALL}:index=$index&NOTE_STATUS=ALL",
+          "$lang{ACTIVE}:index=$index&NOTE_STATUS=0",
+          "$lang{CLOSED}:index=$index&NOTE_STATUS=1",
+          "$lang{INWORK}:index=$index&NOTE_STATUS=2"
+        );
+
+        my $table = $html->table(
+        {
+          width      => '100%',
+          caption    => $lang{NOTEPAD},
+          title      => [ $lang{DATE} . '/' . $lang{TIME}, $lang{ADDED}, $lang{STATUS}, $lang{SUBJECT}, '-', '-' ],
+          cols_align => [ 'left', 'right', 'right', 'right', 'center', 'center' ],
+          pages      => $Notepad->{TOTAL},
+          header     => $html->table_header(\@status_bar),
+          ID         => 'NOTEPAD_ID',
+          MENU       => "$lang{ADD}:index=$index&add_form=1&$pages_qs:add",
+          EXPORT     => 1
+          SELECT_ALL => 'users_list:UID:$lang{SELECT_ALL}'
+        }
+      );
+
+  [1maddrows(@row) - Add rows to table[0m
+      Arguments:
+        @row     - array of row elements
+
+      Results:
+        $self->{rows} - Formed row
+
+  [1maddtd(@row) - Add rows to table form td objects[0m
+      Arguments:
+        @row     - array of td elements
+
+      Returns:
+
+  [1mth($value, $attr) - Table TH element[0m
+      Arguments:
+        $value   - value
+        $attr    -
+
+  [1mtd($value, $attr) - Table TD element[0m
+      Arguments:
+        $value   - value
+        $attr    -
+          TH  - make  TH element
+
+  [1mtable_header($header_arr, $attr) - Table header function button[0m
+      Arguments
+       $header_arr   - array of elements
+       $attr         - Extra attributes
+         SHOW_ONLY
+
+      Returns:
+        $header      - Header
+
+  [1mtable_title($sort, $desc, $pg, $caption, $qs, $attr) - Show table column  titles with word derectives[0m
+      Arguments:
+       $sort      - sort column
+       $desc      - DESC / ASC
+       $pg        - page id
+       $caption   - array off caption
+       $qs        -
+
+      Returns:
+        $self->{table_title} - Table object
+
+  [1mtable_title($caption, $attr) - Show table column titles without sort element[0m
+      Arguments:
+       $caption   - array off caption
+       $attr      - Extra params
+
+      Returns:
+        $self->{table_title} - Table object
+
+  [1mshow($attr) - show table content[0m
+      Arguments:
+
+        $attr    -
+          EXPORT_CONTENT
+          OUTPUT2RETURN
+          NO_DEBUG_MARKERS
+
+      Examples:
+
+        $table->show();
+
+  [1mlink_former($text, $attr) - Format link[0m
+      Arguments:
+        $text   -  Text for format
+        $attr   -
+           SKIP_SPACE - Skip space format
+
+      Returns:
+        $text  -  Formated text
+
+  [1mimg($img, $name, $attr) - show image[0m
+      Arguments:
+        $img    - Img file
+        $name   - Img name
+        $attr   - Extra attr
+          EX_PARAMS - Extra_params
+          class
+
+      Returns:
+        Image object
+
+  [1mbutton($name, $params, $attr) - Create link element[0m
+      Arguments:
+        $name     - Link name
+        $params   - Link params (url)
+        $attr    -
+          class          - Add class for element
+          BUTTON         - Make link like button
+          ID             -
+          NO_LINK_FORMER -
+          JAVASCRIPT     -
+          GLOBAL_URL     - Global link
+          ex_params      -
+          MESSAGE        - Opens '#comments_add' modal to enter COMMENTS before submit
+          CONFIRM        - Opens '#comments_add' modal without COMMENTS
+          AJAX           - allow AJAX submit form. Will load result page as JSON, and if 'MESSAGE' found in result will show it.
+                           This attribute treated as boolean,
+                           but event with name "AJAX_SUBMIT.$attr->{AJAX}" will be triggered after submit
+                           Expects $params have 'qindex' or 'get_index'.
+          IMG            -
+          TITLE          -
+          SKIP_HREF      -
+          ICON           - Img class <i class=".."></i>
+          ADD_ICON       - Img class <i class=".."></i>. Instead of replacing button text will add icon to it
+
+
+      Returns:
+
+        String with element
+
+      Examples:
+
+        print $html->button('User', "index=15&UID=123", { class => 'btn btn-default' });
+
+  [1mmessage($type, $caption, $message, $attr) - Show message box[0m
+      Arguments:
+        $type     - Box type:
+           info
+           err
+           warn
+        $caption  - Box caption
+        $message  - Message
+        $attr
+          ID    - Message ID
+          EXTRA - Extra text
+          OUTPUT2RETURN
+
+      Examples:
+
+       $html->message('err', $lang{ERROR}, "$lang{ERR_ACCESS_DENY}");
+
+  [1mcolor_mark($text, $color) - Hightlight text[0m
+      Arguments:
+        $text    - Input text
+        $color   - Color or css style
+          code - Mark for code text
+
+      Returns:
+        Mark text
+
+      Examples:
+
+        print color_mark('hello world', 'bg-danger');
+
+  [1mpages($count, $argument, $attr) - Make pages and count total records[0m
+      Argumenst:
+        $count     - Show pages elemnts
+        $argument  - Arguments
+        $attr      - Extra atrtr
+
+      Returns:
+        Formed pages
+
+  [1mdate_fld2($base_name, $attr) - Make data field[0m
+      Arguments:
+        $base_name  - Field name
+        $attr       - Extra rguments
+          FORM_NAME  - Form name
+          DATE       - Date
+          TIME       - Time
+          NO_DEFAULT_DATE - Dont show default date. (by Default date cur date)
+          MONTHES    - Monthes names array of names
+          WEEK_DAYS  - Week days name
+          TABINDEX   - Form tab index
+          NEXT_DAY   - Show next day (Tommorow)
+
+      Returns:
+        data field element
+
+      Examples:
+        print $html->date_fld2('ACTIVATE', { FORM_NAME => 'users_list', WEEK_DAYS => \@WEEKDAYS, MONTHES => \@MONTHES, NO_DEFAULT_DATE => 1 }) ],
+
+  [1mlog_print($level, $text) - Print log[0m
+  [1mtpl_show($tpl, $variables_ref, $attr) - Show templates[0m
+      Arguments:
+
+        $tpl             - Template text
+        $variables_ref   - Variables hash_ref
+        $attr            - Extra atributes
+          EXPORT_CONTENT
+          SKIP_DEBUG_MARKERS - do not show "<!-- START: >" markers
+          OUTPUT2RETURN
+          SKIP_VARS
+          SKIP_QUOTE
+          ID
+
+      Examples:
+
+        print $html->tpl_show(templates('form_user'), { LOGIN => 'Pupkin' });
+
+  [1mtest() - test function[0m
+      Show input variables
+        %FORM     - Form
+        %COOKIES  - Cookies
+        %ENV      - Enviropment
+
+      Arguments:
+        $attr
+          HEADER  - show content type header
+
+      Result:
+        TRUE or FALSE
+
+      Examples:
+
+        $html->test();
+
+  [1mletters_list($attr); - Show letter pagination[0m
+      Arguments:
+        $attr
+          EXPR
+
+      Returns:
+        leter object
+
+  [1mmake_charts($attr) - Make different charts[0m
+       If given only one series and X_TEXT as YYYY-MM, will build columned compare chart
+
+       Arguments:
+         $attr
+           DATA    - Data hash
+             [object_name:value]
+                value - Array_ref of values
+
+           PERIOD  - Graphic period: week, year, month, hour, pie
+           TYPES   - Object type: LINE, COLUMN, AREA, SCATTER, PIE
+           X_TEXT  - Text for X
+           DEBUG   - Enable debug for function
+           SKIP_COMPARE - Skip compare mode
+           SINGLE_COMPARE -  Single cross year compare. Use column name
+
+       Result:
+         TRUE or FALSE
+
+  [1mmake_charts2($attr) - Make different charts[0m
+       If given only one series and X_TEXT as YYYY-MM, will build columned compare chart
+
+       Arguments:
+         $attr
+           DATA    - Data hash
+             [object_name:value]
+                value - Array_ref of values
+           TYPES    - Object type: LINE, COLUMN, AREA, SCATTER, PIE
+           X_TEXT   - Text for X
+           Y_TITLE  - Title for Y
+           GRAPH_ID - <div> id
+           TITLE    - Graph Title
+       Result:
+         TRUE or FALSE
+
+  [1mbr($attr) - Make HTML <br> element (Break line)[0m
+      Examples:
+
+       $html->br();
+
+  [1mli($item, $attr) - Make HTML <li> element (list item)[0m
+      Arguments:
+
+        $item     - Text
+        $attr     - $attr
+          class  - element class
+
+      Examples:
+
+       $html->li('list item');
+
+  [1mpre($message, $attr) - Make HTML <pre> element[0m
+      Arguments:
+
+        $text     - Text
+        $attr     - $attr
+
+      Examples:
+
+       $html->per('Preformated text');
+
+  [1mb($message, $attr) - Make HTML <b> element (bold text)[0m
+      Arguments:
+
+        $text     - Text
+        $attr     - $attr
+
+      Examples:
+
+       $html->b('BOLD text');
+
+  [1melement($name, $value, $attr) - Create HTML element[0m
+      Arguments:
+        $name      - Element name
+        $value     - value
+        $attr      - Extra params
+          class
+
+      Returns:
+        return result string
+
+      Examples:
+
+        $html->element('div', 'Hello word', { class => "btn btn-default" });
+
+  [1mbadge($text, $attr) - Make HTML badge[0m
+      Arguments:
+
+        $text     - Text
+        $attr     - $attr
+          TYPE    - bootstrap badge class
+
+      Examples:
+
+        $html->badge('Badge text');
+
+  [1mprogress_bar($attr) - Make progress bar[0m
+      Arguments:
+
+        $attr            - $attr
+          TOTAL          -
+          COMPLETE       -
+          TEXT           -
+          PERCENT_TYPE   - Progress bar with bage.If active you can use other arguments:
+          MAX            - Max value
+          ACTIVE         - Animation of progress bar
+          COLOR          - Dinamic color:
+                           1.ADAPTIVE- color is taken from precent of MAX ;
+                           1.MAX_COLOR- color is taken from precent of TOTAL;
+
+      Examples:
+
+        print $html->progress_bar({
+              TEXT     => 'Show memmory',
+              TOTAL    => 12,
+              COMPLETE => 16,
+              COLOR    => ADAPTIVE,
+              ACTIVE   => 1
+            });
+
+  [1mshort_info_panels_row($panels, $attr) - Nice looking element to show some simple information presented as number[0m
+      If you don't provide $panels->{LINK} it will not have a box-footer.
+      If you don't provide $panels->{SIZE} it will have 100% width.
+
+      Also you can provide $html->button element to $attr->{TEXT}.
+
+    ARGUMENTS: $panels - hash_ref or array_ref of hash_ref MANDATORY * ID -
+    unique value, used to apply CSS rules (can not start from a number) *
+    NUMBER - number * TEXT - text that describes number (Can be a link) * ICON
+    - an identifying part of glyphicon name (e.g for 'glyphicon
+    glyphicon-plus' it will be 'plus')
+
+       OPTIONAL
+        * SIZE   - size in columns if you are too lazy to form a template;
+        * LINK   - $html->button formed link element where user can see full information
+        * COLOR  - by default it will be got from AColorPalette, but you can pass here HEX, text, RGB or RGBA color
+        * TEXT_COLOR - text color (including icon)
+
+      $attr
+        * OUTPUT2RETURN
+
+    EXAMPLES:
+
+     $html->short_info_panels_row(
+       {
+         ID     => mk_unique_value(10),
+         NUMBER => 42,
+         ICON   => 'globe',
+         TEXT   => $html->button("The Answer", undef, { GLOBAL_URL => 'https://uk.wikipedia.org/wiki/%D0%92%D1%96%D0%B4%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D1%8C_%D0%BD%D0%B0_%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F_%D0%B6%D0%B8%D1%82%D1%82%D1%8F,_%D0%92%D1%81%D0%B5%D1%81%D0%B2%D1%96%D1%82%D1%83_%D1%96_%D0%B2%D0%B7%D0%B0%D0%B3%D0%B0%D0%BB%D1%96', OUTPUT2RETURN => 1 }),
+         COLOR  => 'purple',
+         SIZE   => 3
+       }
+     );
+
+     Row of panels with footer and returned result
+
+      my $panel = $html->short_info_panels_row(
+      [
+       {
+         ID     => mk_unique_value(10),
+         NUMBER => 42,
+         TEXT   => "The Answer",
+         ICON   => 'globe',
+         LINK   => $html->button("$lang{FULL}", undef, { GLOBAL_URL => 'https://uk.wikipedia.org/wiki/%D0%92%D1%96%D0%B4%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D1%8C_%D0%BD%D0%B0_%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F_%D0%B6%D0%B8%D1%82%D1%82%D1%8F,_%D0%92%D1%81%D0%B5%D1%81%D0%B2%D1%96%D1%82%D1%83_%D1%96_%D0%B2%D0%B7%D0%B0%D0%B3%D0%B0%D0%BB%D1%96', OUTPUT2RETURN => 1 }),
+         COLOR  => 'purple',
+         SIZE   => 3
+       },
+       {
+         ID     => mk_unique_value(10),
+         NUMBER => 42,
+         ICON   => 'globe',
+         TEXT   => $html->button("The Answer", undef, { GLOBAL_URL => 'https://uk.wikipedia.org/wiki/%D0%92%D1%96%D0%B4%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D1%8C_%D0%BD%D0%B0_%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F_%D0%B6%D0%B8%D1%82%D1%82%D1%8F,_%D0%92%D1%81%D0%B5%D1%81%D0%B2%D1%96%D1%82%D1%83_%D1%96_%D0%B2%D0%B7%D0%B0%D0%B3%D0%B0%D0%BB%D1%96', OUTPUT2RETURN => 1 }),
+         COLOR  => 'purple',
+         SIZE   => 3
+       }
+      ],
+       {
+         OUTPUT2RETURN =>1
+       }
+     );
+
+  [1mtree_menu($list, $name, $attr)[0m
+      Builds a collapsible tree menu from hashref that contains array_refs as values
+
+      Arguments:
+        $list - array_ref of hash_ref (list from DB with a COLS_NAME attr)
+        $name - Name for First level of menu
+        $attr
+          PARENT_KEY      - hash_key for an item's  parent id. Default to PARENT_ID
+          ID_KEY          - hash_key for an item's id key. Default to 'ID'
+
+          LABEL_KEY        - hash_key for an item's label key. Default to 'NAME'
+          VALUE_KEY       - hash_key for an item's value key. Default to 'ID'
+          ROOT_VALUE      - Value of root (highest ieararchy level parent). Default is '';
+
+          PARENTNESS_HASH - if  you need more complicated structure pass your own ierarchy for building menu
+          LEVEL_ID_KEYS    - arr_ref of ID_KEY  for a level
+          LEVEL_LABEL_KEYS - arr_ref of LABEL_KEY  for a level
+          LEVEL_VALUE_KEYS - arr_ref of VALUE_KEY for a level
+
+          LEVELS   - number of levels to display. Default is to count it automatically
+          CHECKBOX - boolean, will build a checkbox at last level
+          NAME     - string, name for a checkbox
+
+          COL_SIZE - width of menu. Default is 3 if LEVELS <= 6, and 6 otherwise
+
+      Returns:
+        HTML code for a menu
+
+      Example:
+
+       my $list = [
+
+        { ID => '1',  NAME => 'Level1_1', VALUE => '1' , PRENT_ID => '0'},
+        { ID => '2',  NAME => 'Level1_2', VALUE => '2' , PRENT_ID => '0'},
+        { ID => '3',  NAME => 'Level1_3', VALUE => '3' , PRENT_ID => '0'},
+        { ID => '4',  NAME => 'Level1_4', VALUE => '4' , PRENT_ID => '0'},
+
+        { ID => '5',  NAME => 'Level2_1', VALUE => '5' , PRENT_ID => '1'},
+        { ID => '6',  NAME => 'Level2_2', VALUE => '6' , PRENT_ID => '2'},
+        { ID => '7',  NAME => 'Level2_3', VALUE => '7' , PRENT_ID => '3'},
+        { ID => '8',  NAME => 'Level2_4', VALUE => '8' , PRENT_ID => '4'},
+
+        { ID => '10', NAME => 'Level3_1', VALUE => '10' , PRENT_ID => '8'},
+        { ID => '11', NAME => 'Level3_2', VALUE => '11' , PRENT_ID => '8'},
+        { ID => '12', NAME => 'Level3_3', VALUE => '12' , PRENT_ID => '8'},
+        { ID => '13', NAME => 'Level3_4', VALUE => '13' , PRENT_ID => '8'}
+
+      ];
+
+      print $html->tree_menu( $list, 'Menu', { PARENT_KEY => 'PRENT_ID', LABEL_KEY => 'NAME' } );
+
+  [1mbuild_parentness_tree($array, $attr) - build hash_ref that represents ieararchy for list (Parents and children);[0m
+      Arguments:
+        $array - DB list (array of hash_ref). To build parentness we need only PARENT_ID and ID, so you can pass oly this part
+        $attr
+          PARENT_KEY - hash_key for an item's  parent id. Default to P
+          ID_KEY     - hash_key for an item's id key. Default to 'ID'
+          ROOT_VALUE - Value of root (highest ieararchy level parent). Default is '';
+
+      Returns:
+        hash_ref that represents parentness
+
+      Example:
+        If given this:
+          my $list = [
+            { ID => 1, PARENT_ID = '0',  ... },
+            { ID => 2, PARENT_ID = 1,   ... },
+            { ID => 3, PARENT_ID = 2,   ... },
+            { ID => 4, PARENT_ID = 2,   ... },
+          ]
+
+        Will return this:
+          $result =
+          {
+          '1' =>
+            {
+              '2' =>
+              {
+                '3' => '',
+                '4' => ''
+              }
+            }
+          };
+
+  [1mfetch() - Fetch cache data[0m
+  [1mform_datepicker($name, $value, $attr) -[0m
+      Arguments:
+        $name, $value, $attr -
+
+      Returns:
+        html
+
+  [1mform_daterangepicker($attr) - Adapter to JavaScript Date Range Picker[0m
+      Arguments:
+        $attr
+          NAME      - string, if specified 'NAME1/NAME2', will return as two separate fields ($FORM{NAME1}, $FORM{NAME2}).
+          FORM_NAME - form id for input elements
+          WITH_TIME - will allow to choose time range
+
+      Returns:
+        html
+
+  [1mform_timepicker($name, $value, $attr)[0m
+      Arguments:
+        $name
+        $value
+        $attr
+          EX_PARAMS
+          FORM_ID   - Main form ID
+
+      Returns:
+        html
+
+  [1mform_datetimepicker($name, $value, $attr) - simple datetime chooser[0m
+      It consists of 3 elements: hidden input, and visible date and time inputs
+      When form submits date and time parts are concatenated and written to hidden input
+
+      Arguments:
+        $name
+        $value
+        $attr
+          EX_PARAMS
+          FORM_ID   - Main form ID
+
+      Returns:
+        html
+
+  [1mreminder($header, $message, $attr) - shows callout message at top of page[0m
+      Reminder is hidden, so later JS find and move it to the top of the page
+
+      Arguments:
+        $header  - string, header of callout block
+        $message - string, text for callout
+        $attr    - hash_ref
+          class         - string, color for reminder block, one of 'info', 'warning', 'danger'. default 'info'
+          VISIBLE       - do not hide callout block
+          OUTPUT2RETURN - return string instead of printing
+
+      Returns:
+        string - HTML
+
+  [1mredirect($url) - redirects user to given URL[0m
+      Arguments :
+        $url  - where user should be redirected
+        $attr - $hash_ref
+          MESSAGE      - string, will be icluded in message
+          MESSAGE_HTML - your custom html to show to user, MESSAGE is ignored
+          WAIT         - time given to user to read message (3 if not given, and MESSAGE|MESSAGE_HTML is present)
+  
+      Returns :
+        1, but you should normally avoid doing any operations after calling redirect()
+
+[1mAUTHOR[0m
+    ~AsmodeuS~ (http://abills.net.ua/)
+
+
+	
+	</body>
+	</html>
+  

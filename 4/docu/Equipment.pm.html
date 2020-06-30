@@ -1,0 +1,174 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Equipment managment system
+
+  [1mvendor_list($attr)[0m
+  [1mvendor_add($attr)[0m
+  [1mvendor_info($id, $attr) - Vendor info[0m
+  [1mvendor_change($attr)[0m
+  [1mvendor_del($id)[0m
+  [1mtype_list($attr)[0m
+  [1mtype_add($attr)[0m
+  [1mtype_change($attr)[0m
+  [1mtype_del($id)[0m
+  [1mtype_info($id, $attr)[0m
+  [1mmodel_list($attr)[0m
+  [1mmodel_add($attr)[0m
+  [1mmodel_change($attr)[0m
+  [1mmodel_del($id)[0m
+  [1mmodel_info($id, $attr) - Get model information[0m
+      Arguments:
+        $id
+        $attr
+
+      Returns:
+        Object
+
+  [1m_list($attr) - Equipment list[0m
+  [1m_add($attr)[0m
+  [1m_change($attr)[0m
+  [1m_del($id)[0m
+  [1m_info($id, $attr) - Equipment unit information[0m
+      Arguments:
+        $id
+        $attr
+
+      Returns:
+        Object
+
+  [1mport_list($attr)[0m
+  [1mport_add($attr)[0m
+  [1mport_change($attr)[0m
+  [1mport_del($id)[0m
+  [1mport_info($attr)[0m
+      Argumnets:
+        $attr
+          NAS_ID
+          PORT
+
+  [1mextra_port_update($attr)[0m
+      Arguments:
+        $attr
+          MODEL_ID          - Model ID to change ports
+          EXTRA_PORTS       - hash_ref  port numbers => type
+          EXTRA_PORT_ROWS  - hash_ref  port_number => row
+
+      Returns:
+
+  [1mextra_ports_list($id)[0m
+      Arguments:
+        $id - Id of model
+
+      Returns:
+        DB_LIST
+
+  [1mvlan_add($attr) - add vlan to db[0m
+      Arguments:
+    
+      Returns:
+
+      Example:
+        $Equipment->vlan_add({%FORM});
+
+  [1mvlan_change($attr) - change info about vlan[0m
+      Arguments:
+    
+      Returns:
+
+      Example:
+        $Equipment->vlan_change({ID => $FORM{id}, %FORM});
+
+  [1mvlan_del($attr) - delete vlan from db[0m
+      Arguments:
+    
+      Returns:
+
+      Example:
+        $Equipment->vlan_del({ID => $FORM{del}});
+
+  [1mvlan_info($attr) - get vlan info[0m
+      Arguments:
+    
+      Returns:
+
+      Example:
+        $vlan_info = $Equipment->vlan_info({ID => $FORM{chg}});
+
+  [1mvlan_list($attr) - get vlans list[0m
+      Arguments:
+    
+    
+      Returns:
+
+      Example:
+        $Equipment->vlan_list({COLS_NAME => 1});
+
+  [1mtraps_del($attr)[0m
+  [1mtrap_list($attr)[0m
+  [1mgraph_list($attr)[0m
+  [1mgraph_add($attr)[0m
+  [1mgraph_change($attr)[0m
+  [1mgraph_del($id)[0m
+  [1mgraph_info($id, $attr)[0m
+  [1mmac_log_list($attr)[0m
+  [1mmac_log_add($attr)[0m
+      Arguments:
+        $attr
+
+  [1mmac_notif_add($attr)[0m
+      Arguments:
+        $attr
+
+  [1mmac_log_del($attr)[0m
+  [1minfo_add($attr) - info_add[0m
+  [1minfo_del($attr)[0m
+  [1minfo_list($attr)[0m
+  [1minfo_port($attr)[0m
+  [1msnmp_tpl_add[0m
+  [1msnmp_tpl_list($attr)[0m
+  [1monu_list($attr)[0m
+  [1mtype_add($attr)[0m
+  [1mtype_change($attr)[0m
+  [1monu_del($id)[0m
+  [1monu_info($id, $attr)[0m
+  [1mpon_port_list($attr)[0m
+  [1mpon_port_add($attr)[0m
+  [1mpon_port_change($attr)[0m
+  [1mpon_port_del($id)[0m
+  [1mtype_info($id, $attr)[0m
+  [1mtrap_type_add($attr) -[0m
+      Arguments:
+        $attr -
+
+      Returns:
+
+      Examples:
+
+  [1mtrap_type_list($attr) -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mtrap_type_del() -[0m
+  [1mtrap_type_change() -[0m
+      Arguments:
+         -
+      Returns:
+
+      Examples:
+
+
+	
+	</body>
+	</html>
+  

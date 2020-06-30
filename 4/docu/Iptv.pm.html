@@ -1,0 +1,91 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Iptv module
+
+    Iptv db function
+
+[1mSYNOPSIS[0m
+      use Iptv;
+      $Iptv->new($db, $admin, \%conf);
+
+  [1muser_info($id, $attr) - User information[0m
+  [1muser_add($attr) - Add user[0m
+  [1muser_change($attr) - Change users[0m
+  [1muser_del(attr);[0m
+  [1muser_list($attr) - Users list[0m
+  [1muser_tp_channels_list($attr) User information[0m
+  [1mchannel_info($attr) - Channel info[0m
+  [1mchannel_defaults()[0m
+  [1mchannel_add($attr) - Channel add[0m
+  [1mchannel_change($attr) - Channel change[0m
+  [1mchannel_del($id, $attr) - Channel del[0m
+  [1mchannel_list($attr)[0m
+  [1muser_channels($attr) - Users channels[0m
+      Arguments:
+        $attr
+          IDS
+          ID
+          TP_ID
+
+      Results:
+        Objects
+
+  [1muser_channels_list($attr)[0m
+  [1mchannel_ti_change($attr)[0m
+  [1mchannel_ti_list()[0m
+  [1mreports_channels_use($attr)[0m
+  [1monline($attr)[0m
+  [1monline_add($attr)[0m
+  [1monline_update($attr)[0m
+  [1monline_del($attr)[0m
+  [1msubsribe_list($attr)[0m
+  [1msubscribe_add($attr)[0m
+  [1msubscribe_change()[0m
+  [1mscreens_list($attr) - list of tp screens[0m
+      Arguments:
+        $attr
+
+  [1mscreen_add($attr)[0m
+  [1mscreen_change($attr)[0m
+  [1mscreen_del($id, $attr)[0m
+  [1mscreen_info($id, $attr)[0m
+  [1musers_screens_add($attr)[0m
+  [1musers_screens_del($attr)[0m
+  [1musers_screens_info($id, $attr) - users_screens_info[0m
+      Arguments:
+        $id    - Service ID
+        $attr
+          SCREEN_ID - Screen ID
+
+      Results:
+
+  [1musers_screens_list($attr) - List all users screens[0m
+      Arguments:
+        $attr
+          SERICE_ID
+
+      Returns:
+        $list
+
+  [1mservices_list($attr) - list of tp services[0m
+      Arguments:
+        $attr
+
+  [1mscreen_add($attr)[0m
+  [1mscreen_change($attr)[0m
+  [1mscreen_del($id, $attr)[0m
+  [1mscreen_info($id, $attr)[0m
+  [1mservices_reports()[0m
+
+	
+	</body>
+	</html>
+  

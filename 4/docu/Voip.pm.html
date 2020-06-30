@@ -1,0 +1,57 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+     Voip  managment functions
+
+[1mSYNOPSIS[0m
+      use Voip;
+      $Voip->new($db, $admin, \%conf);
+
+  [1muser_info($uid, $attr) -  User information[0m
+  [1mlog_add($attr)[0m
+  [1mlog_change($attr)[0m
+  [1mlog_list($attr)[0m
+  [1muser_add($attr) - Add voip service[0m
+  [1muser_list($attr) - Voip users list[0m
+  [1mroute_add($attr) - Add voip route[0m
+      Arguments:
+        $attr
+          REPLACE  - Chnage insert statment to replace
+
+      Returns:
+        $self
+
+  [1mroute_info($id, $attr) - Route information[0m
+  [1mroute_del($id, $attr) - Delete route[0m
+  [1mroute_change($attr) - Route change[0m
+  [1mrp_list($attr)[0m
+  [1mrp_list($attr) - route price list[0m
+  [1mtp_add($attr)[0m
+  [1mtp_change($tp_id, $attr) - Tarif plans change[0m
+  [1mtp_del($id) - Tarif plans delete[0m
+  [1mtp_info($id, $attr)[0m
+  [1mroute_add($attr) - trunk add[0m
+  [1mtrunk_info($id, $attr) - Trunk information[0m
+  [1mtrunk_del($id) - Trunk del[0m
+  [1mtrunk_change($attr) - Trunk change[0m
+  [1mtrunk_list() - Trunk list[0m
+  [1mextra_tarification_info($attr) - Extra tarification[0m
+  [1mextra_tarification_list($attr)[0m
+  [1mivr_menu_info($attr)[0m
+  [1mivr_menu_add($attr)[0m
+  [1mivr_menu_change($attr)[0m
+  [1mivr_menu_del($attr)[0m
+  [1mivr_menu_list($attr) - IVR menu list item[0m
+  [1mvoip_yate_cdr($attr) - Yate CDR[0m
+
+	
+	</body>
+	</html>
+  

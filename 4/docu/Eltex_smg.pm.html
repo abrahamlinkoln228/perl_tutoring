@@ -1,0 +1,259 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME
+   Eltex_smg VoIP AAA functions
+   http://eltex.nsk.ru/product/smg-1016m[0m
+      Auth
+      http://tools.ietf.org/html/draft-smith-sipping-auth-examples-01
+
+    rad_recv: Access-Request packet from host 77.232.143.240 port 60567,
+    id=180, length=332 NAS-IP-Address = 172.16.16.5 NAS-Port = 48359
+    NAS-Port-Type = Async Service-Type = Login-User Framed-Protocol = SLIP
+    User-Name = "0074832599457" Called-Station-Id = "675065"
+    Calling-Station-Id = "0074832599457" h323-conf-id = "110003f6 52fa39eb
+    110003f6 52fa39eb" h323-gw-id = "172.16.16.5" Attr-108 = 0x494e56495445
+    Attr-109 = 0x7369703a363735303635403137322e31362e31362e35 Attr-104 =
+    0x3137322e31362e31362e35 Attr-103 =
+    0x6364353439363637353137666532313438303233656462386261366262393462
+    Attr-111 = 0x4d4435 Attr-105 =
+    0x6535643335393463653437643864626533313364363563383635646366346539
+    Attr-115 = 0x30303734383332353939343537 Attr-122 =
+    0x7369703a30303734383332353939343537403137322e31362e31362e35
+    Message-Authenticator = 0xd38fa8f62b39364fd4f88ff5a39ac704 # Executing
+    section authorize from file
+    /usr/local/freeradius/etc/raddb/sites-enabled/abills_default +group
+    authorize { ++[preprocess] = ok ++[mschap] = noop [files] users: Matched
+    entry DEFAULT at line 38 ++[files] = ok rlm_perl: Added pair Attr-111 =
+    0x4d4435 rlm_perl: Added pair NAS-Port-Type = Async rlm_perl: Added pair
+    Attr-109 = 0x7369703a363735303635403137322e31362e31362e35 rlm_perl: Added
+    pair Attr-108 = 0x494e56495445 rlm_perl: Added pair h323-gw-id =
+    172.16.16.5 rlm_perl: Added pair Attr-103 =
+    0x6364353439363637353137666532313438303233656462386261366262393462
+    rlm_perl: Added pair Service-Type = Login-User rlm_perl: Added pair
+    Attr-122 = 0x7369703a30303734383332353939343537403137322e31362e31362e35
+    rlm_perl: Added pair Called-Station-Id = 675065 rlm_perl: Added pair
+    Message-Authenticator = 0xd38fa8f62b39364fd4f88ff5a39ac704 rlm_perl: Added
+    pair h323-conf-id = 110003f6 52fa39eb 110003f6 52fa39eb rlm_perl: Added
+    pair NAS-IP-Address = 172.16.16.5 rlm_perl: Added pair Attr-104 =
+    0x3137322e31362e31362e35 rlm_perl: Added pair Calling-Station-Id =
+    0074832599457 rlm_perl: Added pair Framed-Protocol = SLIP rlm_perl: Added
+    pair Attr-115 = 0x30303734383332353939343537 rlm_perl: Added pair
+    User-Name = 0074832599457 rlm_perl: Added pair Attr-105 =
+    0x6535643335393463653437643864626533313364363563383635646366346539
+    rlm_perl: Added pair NAS-Port = 48359 rlm_perl: Added pair Reply-Message =
+    Unknow server '172.16.16.5' rlm_perl: Added pair Auth-Type = Perl ++[perl]
+    = reject +} # group authorize = reject Using Post-Auth-Type REJECT #
+    Executing group from file
+    /usr/local/freeradius/etc/raddb/sites-enabled/abills_default +group REJECT
+    { !!!!!!!!!!!!!!!!!! Can't connect db: 0 !!!!!!!!!!!!!! rlm_perl: Added
+    pair NAS-Port-Type = Async rlm_perl: Added pair Attr-111 = 0x4d4435
+    rlm_perl: Added pair Attr-109 =
+    0x7369703a363735303635403137322e31362e31362e35 rlm_perl: Added pair
+    h323-gw-id = 172.16.16.5 rlm_perl: Added pair Attr-108 = 0x494e56495445
+    rlm_perl: Added pair Service-Type = Login-User rlm_perl: Added pair
+    Attr-103 =
+    0x6364353439363637353137666532313438303233656462386261366262393462
+    rlm_perl: Added pair Called-Station-Id = 675065 rlm_perl: Added pair
+    Message-Authenticator = 0xd38fa8f62b39364fd4f88ff5a39ac704 rlm_perl: Added
+    pair NAS-IP-Address = 172.16.16.5 rlm_perl: Added pair h323-conf-id =
+    110003f6 52fa39eb 110003f6 52fa39eb rlm_perl: Added pair Attr-104 =
+    0x3137322e31362e31362e35 rlm_perl: Added pair Calling-Station-Id =
+    0074832599457 rlm_perl: Added pair X-Ascend-Modem-ShelfNo =
+    0x7369703a30303734383332353939343537403137322e31362e31362e35 rlm_perl:
+    Added pair Framed-Protocol = SLIP rlm_perl: Added pair User-Name =
+    0074832599457 rlm_perl: Added pair Attr-115 = 0x30303734383332353939343537
+    rlm_perl: Added pair Attr-105 =
+    0x6535643335393463653437643864626533313364363563383635646366346539
+    rlm_perl: Added pair NAS-Port = 48359 rlm_perl: Added pair Reply-Message =
+    Unknow server '172.16.16.5' rlm_perl: Added pair Auth-Type = Perl
+    rlm_perl: Added pair Post-Auth-Type = REJECT ++[perl] = ok +} # group
+    REJECT = ok Delaying reject of request 0 for 1 seconds Going to the next
+    request Waking up in 0.9 seconds. rad_recv: Access-Request packet from
+    host 77.232.143.240 port 53749, id=180, length=332 NAS-IP-Address =
+    172.16.16.5 NAS-Port = 48359 NAS-Port-Type = Async Service-Type =
+    Login-User Framed-Protocol = SLIP User-Name = "0074832599457"
+    Called-Station-Id = "675065" Calling-Station-Id = "0074832599457"
+    h323-conf-id = "110003f6 52fa39eb 110003f6 52fa39eb" h323-gw-id =
+    "172.16.16.5" Attr-108 = 0x494e56495445 Attr-109 =
+    0x7369703a363735303635403137322e31362e31362e35 Attr-104 =
+    0x3137322e31362e31362e35 Attr-103 =
+    0x6364353439363637353137666532313438303233656462386261366262393462
+    Attr-111 = 0x4d4435 Attr-105 =
+    0x6535643335393463653437643864626533313364363563383635646366346539
+    Attr-115 = 0x30303734383332353939343537 Attr-122 =
+    0x7369703a30303734383332353939343537403137322e31362e31362e35
+    Message-Authenticator = 0x28172d0246806e3815f62676d3105641 # Executing
+    section authorize from file
+    /usr/local/freeradius/etc/raddb/sites-enabled/abills_default +group
+    authorize { ++[preprocess] = ok ++[mschap] = noop [files] users: Matched
+    entry DEFAULT at line 38 ++[files] = ok rlm_perl: Added pair Attr-111 =
+    0x4d4435 rlm_perl: Added pair NAS-Port-Type = Async rlm_perl: Added pair
+    Attr-109 = 0x7369703a363735303635403137322e31362e31362e35 rlm_perl: Added
+    pair Attr-108 = 0x494e56495445 rlm_perl: Added pair h323-gw-id =
+    172.16.16.5 rlm_perl: Added pair Attr-103 =
+    0x6364353439363637353137666532313438303233656462386261366262393462
+    rlm_perl: Added pair Service-Type = Login-User rlm_perl: Added pair
+    Attr-122 = 0x7369703a30303734383332353939343537403137322e31362e31362e35
+    rlm_perl: Added pair Called-Station-Id = 675065 rlm_perl: Added pair
+    Message-Authenticator = 0x28172d0246806e3815f62676d3105641 rlm_perl: Added
+    pair h323-conf-id = 110003f6 52fa39eb 110003f6 52fa39eb rlm_perl: Added
+    pair NAS-IP-Address = 172.16.16.5 rlm_perl: Added pair Attr-104 =
+    0x3137322e31362e31362e35 rlm_perl: Added pair Calling-Station-Id =
+    0074832599457 rlm_perl: Added pair Framed-Protocol = SLIP rlm_perl: Added
+    pair Attr-115 = 0x30303734383332353939343537 rlm_perl: Added pair
+    User-Name = 0074832599457 rlm_perl: Added pair Attr-105 =
+    0x6535643335393463653437643864626533313364363563383635646366346539
+    rlm_perl: Added pair NAS-Port = 48359 rlm_perl: Added pair Reply-Message =
+    Unknow server '172.16.16.5' rlm_perl: Added pair Auth-Type = Perl ++[perl]
+    = reject +} # group authorize = reject Using Post-Auth-Type REJECT #
+    Executing group from file
+    /usr/local/freeradius/etc/raddb/sites-enabled/abills_default +group REJECT
+    { !!!!!!!!!!!!!!!!!! Can't connect db: 0 !!!!!!!!!!!!!! rlm_perl: Added
+    pair NAS-Port-Type = Async rlm_perl: Added pair Attr-111 = 0x4d4435
+    rlm_perl: Added pair Attr-109 =
+    0x7369703a363735303635403137322e31362e31362e35 rlm_perl: Added pair
+    h323-gw-id = 172.16.16.5 rlm_perl: Added pair Attr-108 = 0x494e56495445
+    rlm_perl: Added pair Service-Type = Login-User rlm_perl: Added pair
+    Attr-103 =
+    0x6364353439363637353137666532313438303233656462386261366262393462
+    rlm_perl: Added pair Called-Station-Id = 675065 rlm_perl: Added pair
+    Message-Authenticator = 0x28172d0246806e3815f62676d3105641 rlm_perl: Added
+    pair NAS-IP-Address = 172.16.16.5 rlm_perl: Added pair h323-conf-id =
+    110003f6 52fa39eb 110003f6 52fa39eb rlm_perl: Added pair Attr-104 =
+    0x3137322e31362e31362e35 rlm_perl: Added pair Calling-Station-Id =
+    0074832599457 rlm_perl: Added pair X-Ascend-Modem-ShelfNo =
+    0x7369703a30303734383332353939343537403137322e31362e31362e35 rlm_perl:
+    Added pair Framed-Protocol = SLIP rlm_perl: Added pair User-Name =
+    0074832599457 rlm_perl: Added pair Attr-115 = 0x30303734383332353939343537
+    rlm_perl: Added pair Attr-105 =
+    0x6535643335393463653437643864626533313364363563383635646366346539
+    rlm_perl: Added pair NAS-Port = 48359 rlm_perl: Added pair Reply-Message =
+    Unknow server '172.16.16.5' rlm_perl: Added pair Auth-Type = Perl
+    rlm_perl: Added pair Post-Auth-Type = REJECT ++[perl] = ok +} # group
+    REJECT = ok Delaying reject of request 1 for 1 seconds Going to the next
+    request Waking up in 0.2 seconds. Sending delayed reject for request 0
+    Sending Access-Reject of id 180 to 77.232.143.240 port 60567 Reply-Message
+    = "Unknow server '172.16.16.5'" Waking up in 0.7 seconds. rad_recv:
+    Access-Request packet from host 77.232.143.240 port 51029, id=180,
+    length=332 NAS-IP-Address = 172.16.16.5 NAS-Port = 48359 NAS-Port-Type =
+    Async Service-Type = Login-User Framed-Protocol = SLIP User-Name =
+    "0074832599457" Called-Station-Id = "675065" Calling-Station-Id =
+    "0074832599457" h323-conf-id = "110003f6 52fa39eb 110003f6 52fa39eb"
+    h323-gw-id = "172.16.16.5" Attr-108 = 0x494e56495445 Attr-109 =
+    0x7369703a363735303635403137322e31362e31362e35 Attr-104 =
+    0x3137322e31362e31362e35 Attr-103 =
+    0x6364353439363637353137666532313438303233656462386261366262393462
+    Attr-111 = 0x4d4435 Attr-105 =
+    0x6535643335393463653437643864626533313364363563383635646366346539
+    Attr-115 = 0x30303734383332353939343537 Attr-122 =
+    0x7369703a30303734383332353939343537403137322e31362e31362e35
+    Message-Authenticator = 0xa42b52aa932d8a8b6042d3faebfa0947 # Executing
+    section authorize from file
+    /usr/local/freeradius/etc/raddb/sites-enabled/abills_default +group
+    authorize { ++[preprocess] = ok ++[mschap] = noop [files] users: Matched
+    entry DEFAULT at line 38 ++[files] = ok rlm_perl: Added pair Attr-111 =
+    0x4d4435 rlm_perl: Added pair NAS-Port-Type = Async rlm_perl: Added pair
+    Attr-109 = 0x7369703a363735303635403137322e31362e31362e35 rlm_perl: Added
+    pair Attr-108 = 0x494e56495445 rlm_perl: Added pair h323-gw-id =
+    172.16.16.5 rlm_perl: Added pair Attr-103 =
+    0x6364353439363637353137666532313438303233656462386261366262393462
+    rlm_perl: Added pair Service-Type = Login-User rlm_perl: Added pair
+    Attr-122 = 0x7369703a30303734383332353939343537403137322e31362e31362e35
+    rlm_perl: Added pair Called-Station-Id = 675065 rlm_perl: Added pair
+    Message-Authenticator = 0xa42b52aa932d8a8b6042d3faebfa0947 rlm_perl: Added
+    pair h323-conf-id = 110003f6 52fa39eb 110003f6 52fa39eb rlm_perl: Added
+    pair NAS-IP-Address = 172.16.16.5 rlm_perl: Added pair Attr-104 =
+    0x3137322e31362e31362e35 rlm_perl: Added pair Calling-Station-Id =
+    0074832599457 rlm_perl: Added pair Framed-Protocol = SLIP rlm_perl: Added
+    pair Attr-115 = 0x30303734383332353939343537 rlm_perl: Added pair
+    User-Name = 0074832599457 rlm_perl: Added pair Attr-105 =
+    0x6535643335393463653437643864626533313364363563383635646366346539
+    rlm_perl: Added pair NAS-Port = 48359 rlm_perl: Added pair Reply-Message =
+    Unknow server '172.16.16.5' rlm_perl: Added pair Auth-Type = Perl ++[perl]
+    = reject +} # group authorize = reject rad_recv: Accounting-Request packet
+    from host 77.232.143.240 port 60841, id=42, length=683 Acct-Status-Type =
+    Start User-Name = "0074832599457" Calling-Station-Id = "0074832599457"
+    Called-Station-Id = "675065" Acct-Session-Id = "110003f6 52fa39ed 2830f830
+    28fd2a93" Event-Timestamp = "����. 11 2014 16:55:42 EET" NAS-Port =
+    285213686 NAS-Port-Type = Async Cisco-NAS-Port = "SIPT:03f6" Cisco-AVPair
+    = "xpgk-src-number-in=0074832599457" Cisco-AVPair =
+    "xpgk-src-number-out=599457" Cisco-AVPair = "xpgk-dst-number-in=675065"
+    Cisco-AVPair = "xpgk-dst-number-out=675065" Cisco-AVPair =
+    "xpgk-route-retries=1" Cisco-AVPair = "h323-remote-id=TrunkGroup00"
+    Cisco-AVPair = "h323-call-id=110003f6 52fa39ed 2830f830 28fd2a93"
+    Cisco-AVPair = "h323-incoming-conf-id=110003f6 52fa39ed 2830f830 28fd2a93"
+    h323-conf-id = "110003f6 52fa39ed 2830f830 28fd2a93" h323-setup-time =
+    "18:55:41.000 GMT+4 Tue Feb 11 2014" h323-call-origin = "originate"
+    h323-call-type = "VoIP" h323-connect-time = "18:55:42.000 GMT+4 Tue Feb 11
+    2014" Acct-Delay-Time = 1 NAS-IP-Address = 172.16.16.5 Cisco-AVPair =
+    "h323-gw-address=172.16.16.5" h323-gw-id = "172.16.16.5" rad_recv:
+    Accounting-Request packet from host 77.232.143.240 port 60841, id=43,
+    length=706 Acct-Status-Type = Interim-Update User-Name = "0074832599457"
+    Calling-Station-Id = "0074832599457" Called-Station-Id = "675065"
+    Acct-Session-Id = "110003f6 52fa39ed 2830f830 28fd2a93" Event-Timestamp =
+    "����. 11 2014 16:56:02 EET" NAS-Port = 285213686 NAS-Port-Type = Async
+    Cisco-NAS-Port = "SIPT:03f6" Cisco-AVPair =
+    "xpgk-src-number-in=0074832599457" Cisco-AVPair =
+    "xpgk-src-number-out=599457" Cisco-AVPair = "xpgk-dst-number-in=675065"
+    Cisco-AVPair = "xpgk-dst-number-out=675065" Cisco-AVPair =
+    "xpgk-route-retries=1" Cisco-AVPair = "h323-remote-id=TrunkGroup00"
+    Cisco-AVPair = "h323-call-id=110003f6 52fa39ed 2830f830 28fd2a93"
+    Cisco-AVPair = "h323-incoming-conf-id=110003f6 52fa39ed 2830f830 28fd2a93"
+    h323-conf-id = "110003f6 52fa39ed 2830f830 28fd2a93" h323-setup-time =
+    "18:55:41.000 GMT+4 Tue Feb 11 2014" h323-call-origin = "originate"
+    h323-call-type = "VoIP" h323-connect-time = "18:55:42.000 GMT+4 Tue Feb 11
+    2014" Eltex-AVPair = "session-time=19" Acct-Delay-Time = 5 NAS-IP-Address
+    = 172.16.16.5 Cisco-AVPair = "h323-gw-address=172.16.16.5" h323-gw-id =
+    "172.16.16.5"
+
+    Sending Accounting-Response of id 43 to 77.232.143.240 port 60841
+    Reply-Message = "Unknow server '172.16.16.5'" Finished request 4. Cleaning
+    up request 4 ID 43 with timestamp +94 Going to the next request Ready to
+    process requests. rad_recv: Accounting-Request packet from host
+    77.232.143.240 port 60841, id=44, length=801 Acct-Status-Type = Stop
+    User-Name = "0074832599457" Calling-Station-Id = "0074832599457"
+    Called-Station-Id = "675065" Acct-Session-Id = "110003f6 52fa39ed 2830f830
+    28fd2a93" Event-Timestamp = "����. 11 2014 16:56:21 EET" NAS-Port =
+    285213686 NAS-Port-Type = Async Cisco-NAS-Port = "SIPT:03f6" Cisco-AVPair
+    = "xpgk-src-number-in=0074832599457" Cisco-AVPair =
+    "xpgk-src-number-out=599457" Cisco-AVPair = "xpgk-dst-number-in=675065"
+    Cisco-AVPair = "xpgk-dst-number-out=675065" Cisco-AVPair =
+    "xpgk-route-retries=1" Cisco-AVPair = "h323-remote-id=TrunkGroup00"
+    Cisco-AVPair = "h323-call-id=110003f6 52fa39ed 2830f830 28fd2a93"
+    Cisco-AVPair = "h323-incoming-conf-id=110003f6 52fa39ed 2830f830 28fd2a93"
+    h323-conf-id = "110003f6 52fa39ed 2830f830 28fd2a93" h323-setup-time =
+    "18:55:41.000 GMT+4 Tue Feb 11 2014" h323-call-origin = "originate"
+    h323-call-type = "VoIP" h323-connect-time = "18:55:42.000 GMT+4 Tue Feb 11
+    2014" h323-disconnect-time = "18:56:22.000 GMT+4 Tue Feb 11 2014"
+    h323-disconnect-cause = "10" Cisco-AVPair =
+    "xpgk-local-disconnect-cause=1" Acct-Session-Time = 40 Eltex-AVPair =
+    "session-time=40" Acct-Delay-Time = 2 NAS-IP-Address = 172.16.16.5
+    Cisco-AVPair = "h323-gw-address=172.16.16.5" h323-gw-id = "172.16.16.5"
+
+    Sending Accounting-Response of id 44 to 77.232.143.240 port 60841
+    Reply-Message = "Unknow server '172.16.16.5'" Finished request 5. Cleaning
+    up request 5 ID 44 with timestamp +113 Going to the next request Ready to
+    process requests.
+
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 858:
+        Unknown directive: =comments
+
+    Around line 1080:
+        Non-ASCII character seen before =encoding in '"����.'. Assuming UTF-8
+
+
+	
+	</body>
+	</html>
+  

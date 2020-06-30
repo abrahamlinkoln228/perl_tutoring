@@ -1,0 +1,320 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Cashbox - module for CRM
+
+[1mSYNOPSIS[0m
+      use Cashbox;
+      my $Cashbox = Cashbox->new($db, $admin, \%conf);
+
+  [1mnew()[0m
+  [1madd_cashbox() - add new cashbox[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mfunction list_cashbox() - get list of all cashboxes[0m
+      Arguments:
+        $attr
+
+      Returns:
+        @list
+
+      Examples:
+        my @list = $Cashbox->list_cashbox({ COLS_NAME => 1});
+
+  [1mfunction delete_cashbox() - delete cashbox[0m
+      Arguments:
+        $attr
+
+      Returns:
+
+      Examples:
+        $Cashbox->delete_cashbox( {ID => 1} );
+
+  [1mfunction info_cashbox() - get information about cashbox[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        my $cashbox_info = $Cashbox->info_cashbox({ ID => 1 });
+
+  [1mfunction change_cashbox() - change cashbox's information in datebase[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $Cashbox->change_cashbox({
+          ID     => 1,
+          NAME   => 'TEST'
+        });
+
+  [1madd_type() - add type, coming or spending[0m
+      Arguments:
+        $attr -
+          spending - if it is spending type
+          coming   - if it is coming type
+      Returns:
+
+      Examples:
+        $Cashbox->add_type({ %FORM, SPENDING => 1 });
+        $Cashbox->add_type({ %FORM, COMING   => 1 });
+
+  [1mfunction list_spending_types() - get list spending types[0m
+      Arguments:
+        $attr
+
+      Returns:
+        @list
+
+      Examples:
+        my @list = $Cashbox->list_spending_types({ COLS_NAME => 1});
+
+  [1mfunction delete_type() - delete type, spending or coming[0m
+      Arguments:
+        $attr
+
+      Returns:
+
+      Examples:
+        $Cashbox->delete_type( {ID => 1, SPENDING => 1} );
+        $Cashbox->delete_type( {ID => 1, SPENDING => 1} );
+
+  [1mfunction info_type() - get information type, spending or coming[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        my $spend_type_info  = $Cashbox->info_type({ ID => 1, SPENDING => 1 });
+        my $coming_type_info = $Cashbox->info_type({ ID => 1, COMING   => 1 });
+
+  [1mfunction change_type() - change type, coming or spending[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $Cashbox->change_type({ COMING   => 1, %FORM });
+        $Cashbox->change_type({ SPENDING => 1, %FORM });
+
+  [1mfunction list_coming_type() - get list of coming types[0m
+      Arguments:
+        $attr
+
+      Returns:
+        @list
+
+      Examples:
+        my @list = $Cashbox->list_coming_type({ COLS_NAME => 1});
+
+  [1madd_spending() - add spending[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+        $Cashbox->add_spending({%FORM});
+
+  [1mfunction delete_spending() - delete spending[0m
+      Arguments:
+        $attr
+
+      Returns:
+
+      Examples:
+        $Cashbox->delete_spending( {ID => 1} );
+
+  [1mfunction info_spending() - get information about spending[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        my $info_spending = $Cashbox->info_spending({ ID => 1 });
+
+  [1mfunction change_spending() - change spending[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $Cashbox->change_spending({
+          ID       => 1,
+          AMOUNT   => 100
+        });
+
+  [1mfunction list_spending() - get list of spendings[0m
+      Arguments:
+        $attr
+
+      Returns:
+        @list
+
+      Examples:
+        my @list = $Cashbox->list_spending({ COLS_NAME => 1});
+
+  [1madd_coming() - add coming[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mfunction delete_coming() - delete cashbox[0m
+      Arguments:
+        $attr
+
+      Returns:
+
+      Examples:
+        $Cashbox->delete_coming( {ID => 1} );
+
+  [1mfunction info_coming() - get information about coming[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        my $info_coming = $Cashbox->info_coming({ ID => 1 });
+
+  [1mfunction change_coming() - change[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $Cashbox->change_coming({
+          ID     => 1,
+          AMOUNT   => 100
+        });
+
+  [1mfunction list_coming() - get list of all comings[0m
+      Arguments:
+        $attr
+
+      Returns:
+        @list
+
+      Examples:
+        my @list = $Cashbox->list_coming({ COLS_NAME => 1});
+
+  [1madd_bet() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mfunction info_aid_schedule() -[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        my $info_coming = $Crm->info_coming({ ID => 1 });
+
+  [1mfunction change_schedule() - change[0m
+      Arguments:
+        $attr
+
+      Returns:
+        $self object
+
+      Examples:
+        $Cashbox->change_schedule({
+          AID     => 1,
+          AMOUNT   => 100
+        });
+
+  [1madd_payed_salary() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1minfo_payed_salary() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1madd_reference_works() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mchange_reference_works() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1minfo_reference_works() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mdelete_reference_works() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mlist_reference_works() -[0m
+      Arguments:
+        $attr -
+      Returns:
+
+      Examples:
+
+  [1mworks_list($attr) - list of tp services[0m
+      Arguments:
+        $attr
+
+  [1mworks_add($attr)[0m
+  [1mwarks_change($attr)[0m
+  [1mworks_del($id, $attr)[0m
+  [1mworks_info($id, $attr)[0m
+
+	
+	</body>
+	</html>
+  

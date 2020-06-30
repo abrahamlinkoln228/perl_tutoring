@@ -1,0 +1,45 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Ping plugins diagnostic user internet conection
+
+      Arguments:
+        IP       = user IP adress
+        LOGIN    = user login
+        NO_CHECK = true/fals - Ping user without check in 'no_ping' list
+
+  [1mping_user() - Ping web interface setting[0m
+  [1mping_comand_builder() - Create comand ping (string)
+                               with params
+   Arguments:[0m
+        $ip      - ip of ping user
+        $attr    - Extra params
+
+       Returns:
+
+        return command result string
+
+      Examples:
+
+  [1mping_access_check() - Check if can transmitted packets to user[0m
+      Arguments:
+        $uid
+
+      Returns:
+        0 or 1
+
+      Examples:
+        ping_access_check($uid)
+
+
+	
+	</body>
+	</html>
+  

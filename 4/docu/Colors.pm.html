@@ -1,0 +1,47 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mNAME[0m
+      Dv::Colors
+
+  [1mSYNOPSYS[0m
+      This functions was splitted from Dv\webinterface because are used only on client page
+
+  [1mcolor_hex_to_rgb($hex_color_string)[0m
+     Returns:
+       arr ref of RGB
+
+  [1mrgb_to_hex($rgb_ref) - get hex string from RGB[0m
+  [1mdarken_hex($hex_color_string, $increment_by) - darkens given color[0m
+      $hex_color_string : #a825c9  #color
+      $increment_by     : coeff to change brightness
+
+      Returns:
+        #color or array (r, g, b)
+
+  [1mrgb2hls($r, $g, $b)[0m
+      $r, $g, $b : 0..255
+      Note special name '$bb' to avoid conflict
+      with ($a,$b) in sort()
+
+  [1mhls2rgb( $h, $l, $s )[0m
+      $h     : 0..360 degrees
+      $l, $s : 0..1   (inclusive)
+
+  [1m_value($n1, $n2, $hue) - helper function for _hls2rgb()[0m
+  [1mrgb_to_hex2( $r, $g, $b )[0m
+     Takes a (r,g,b) triple of numbers (possibly floats) and returns
+     - a string like '#36fe25' in scalar context
+     - a triple of corresponding integers in array context
+
+
+	
+	</body>
+	</html>
+  

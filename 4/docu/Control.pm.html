@@ -1,0 +1,101 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      NAS controlling functions
+        get_acct_info
+        hangup
+        check_activity
+
+[1mhangup($Nas, $attr);[0m
+      Hangup active port (user,cids)
+
+      Arguments:
+        $NAS_HASH_REF - NAS information
+        $PORT         - NAS port
+        $USER         - User LOGIN
+        $attr         - Extra atttributes
+          SESSION_ID
+          ACCT_SESSION_ID
+          CALLING_STATION_ID
+          FRAMED_IP_ADDRESS
+          UID
+          NETMASK
+          FILTER_ID
+          CID
+          LOG         - Log object
+
+      Returns:
+
+  [1mget_stats($nas, $PORT, $attr) - Get stats[0m
+  [1mtelnet_cmd($hostname, $commands, $attr)[0m
+  [1mtelnet_cmd2($host, $commands, $attr)[0m
+  [1mtelnet_cmd($hostname, $commands, $attr)[0m
+  [1mstats_pm25($NAS, $PORT) - Get stats from Livingston Portmaster[0m
+  [1mstats_usrns($NAS, $PORT) - Get stats from USR Netserver 8/16[0m
+  [1mhangup_snmp($NAS, $attr) Base SNMP set hangup function[0m
+  [1mhangup_radius($NAS, $attr) - hangup_radius[0m
+      Arguments:
+        $NAS   -
+        $attr  -
+          USER
+          FRAMED_IP_ADDRESS
+          SESSION_ID
+          RAD_PAIRS          - Use custom radius pairs form disconnect
+          COA                - Change request type to CoA
+          DEBUG
+
+      Radius-Disconnect messages
+        rfc2882
+
+  [1mhangup_mikrotik_telnet($NAS, $attr)[0m
+  [1mhangup_ipcad($NAS_IP, $PORT, $USER_NAME, $attr)[0m
+  [1mhangup_cisco_isg($NAS, $PORT, $attr) - HANGUP Cisco ISG[0m
+       ip rcmd rcp-enable
+       ip rcmd rsh-enable
+       no ip rcmd domain-lookup
+       ! ip rcmd remote-host ���_�����_��_cisco IP_address_���_���_�����_�_��������_�����������_������ ���_�����_��_�����_�����_�����_����������_������ enable
+       ! ��������
+       ip rcmd remote-host admin 192.168.0.254 root enable
+
+  [1mhangup_cisco($NAS, $attr) - HANGUP Cisco[0m
+     Cisco config  for rsh functions:
+       ip rcmd rcp-enable
+       ip rcmd rsh-enable
+       no ip rcmd domain-lookup
+       ! ip rcmd remote-host ���_�����_��_cisco IP_address_���_���_�����_�_��������_�����������_������  ��_�����_��_�����_�����_�����_����������_������ enable
+       ! ��������
+       ip rcmd remote-host admin 192.168.0.254 root enable
+
+[1mhangup_mpd5($NAS, $PORT, $USER, $attr) - HANGUP MPD[0m
+  [1mhascoa($NAS); - Check CoA support[0m
+  [1mhangup_unifi($NAS, $PORT, $USER, $attr) - Hangup unifi[0m
+  [1mrsh_cmd($command, $attr) - rsh cmd[0m
+      Arguments:
+        $command
+        $attr
+           NAS_MNG_USER
+           NAS_MNG_IP_PORT
+
+      Results:
+        command result
+
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 838:
+        Non-ASCII character seen before =encoding in '���_�����_��_cisco'.
+        Assuming UTF-8
+
+
+	
+	</body>
+	</html>
+  

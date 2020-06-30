@@ -1,0 +1,99 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      System web functions
+
+  [1m_color_show($text) - Marc text colot[0m
+      Arguments:
+        $text
+
+      Returns:
+        $text
+
+  [1mform_status() - service status listing[0m
+  [1mform_build() - build plugin organizer[0m
+  [1mform_templates()
+  Create templates and manage template[0m
+  [1mget_tpl_describe($file, $path) Get teblate describe[0m
+  [1mtpl_describe($tpl_name, $path, $attr) -  Get template describe. Variables and other[0m
+      tpl describe file format
+      TPL_VARIABLE:TPL_VARIABLE_DESCRIBE:DESCRIBE_LANG:PARAMS
+
+  [1mform_dictionary() - Dictionary mangment[0m
+  [1mform_exchange_rate() - System currensy and exchange rate[0m
+  [1mform_hollidays() - Hollidays list[0m
+      Hollidays gratulations and design
+
+  [1mtable_for_calendar() -[0m
+      Arguments:
+        $attr:
+          MONTH_DAYS - count of days in month
+          CUR_WDAY   - when 1 day of month start in week
+          MONTH      - month number
+
+      Returns:
+        $week_row - rows for table
+
+      Examples:
+        $table_rows = table_for_calendar({
+                    MONTH_DAYS => 30,
+                    CUR_WDAY   => 4,
+                    MONTH      => 4
+                    });
+
+  [1mholiday_array($month) Return holiday array for month[0m
+  [1mholiday_files_list($attr)[0m
+  [1mform_info_fields() - User extra fields add[0m
+      Information fields for users and companies
+
+  [1mform_info_lists() - Information lists[0m
+  [1mform config() - Show system config[0m
+  [1mform_fees_types($attr)[0m
+  [1mget_checksum();[0m
+  [1mform_tp_groups() - Tarif plans groups[0m
+  [1mform_intervals($attr) - Time intervals[0m
+  [1mform_prog_pathes() -[0m
+  [1madmin_menu($attr) - show admin menu functions list[0m
+      Arguments:
+        attr      -
+
+      Returns:
+
+  [1mclient_menu($attr) - show client menu functions[0m
+      Arguments:
+        attr      -
+
+      Returns:
+
+  [1m[0m
+      Arguments:
+        attr      -
+
+      Returns:
+
+  [1mform_payment_types[0m
+      Arguments:
+        attr      -
+
+      Returns:
+
+  [1mform_feedback()[0m
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 961:
+        Unknown directive: =head
+
+
+	
+	</body>
+	</html>
+  

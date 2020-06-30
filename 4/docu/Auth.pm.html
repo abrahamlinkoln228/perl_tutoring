@@ -1,0 +1,162 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  [1mNAME[0m
+      Auth functions
+
+      Arguments:
+        $RAD_HASH_REF  - RADIUS PAIRS
+        $NAS_HASH_REF  - NAS information object
+        $attr          - Extra attributes
+
+      Returns:
+
+  [1mAuth_CID($RAD) - Auth_mac[0m
+      Mac auth function
+
+  [1mauthentication($RAD_HASH_REF, $NAS_HASH_REF, $attr) - User authentication[0m
+  [1mmac_auth($RAD_HASH_REF, $NAS_HASH_REF, $attr) - User authentication[0m
+      Attributes:
+        $RAD_HASH_REF  - RADIUS PAIRS
+        $NAS_HASH_REF  - NAS information object
+        $attr          - Extra attributes
+
+      Returns:
+        ($r, $RAD_PAIRS_REF)
+        $r             - 1 false (Not auth)
+                         0 true  (auth)
+
+        $RAD_PAIRS_REF - Reply rad pairs hash_ref
+
+  [1mcheck_bill_account() - Check Bill account[0m
+  [1mcheck_company_account() - Check Company account[0m
+  [1mex_traffic_params($attr) - Extended traffic parameters[0m
+      Arguments:
+        $attr
+          traf_limit
+          deposit
+          TT_INTERVAL
+          BILLLING
+
+      Require:
+        $self->{TT_INTERVAL}
+
+      Returns:
+        \%EX_PARAMS
+           ex_speed
+           traf_limit_lo
+           traf_limit
+           speed->{XX}->{IN}
+           speed->{XX}->{OUT}
+
+           speed->{XX}->{IN_BURST}
+           speed->{XX}->{OUT_BURST}
+           speed->{XX}->{IN_BURST_THRESHOLD}
+           speed->{XX}->{OUT_BURST_THRESHOLD}
+           speed->{XX}->{IN_BURST_TIME}
+           speed->{XX}->{OUT_BURST_TIME}
+
+  [1mget_ip($nas_num, $nas_ip, $attr) - Get IP for user[0m
+      Arguments:
+       $nas_num  - NAS id
+       $nas_ip   - NAS IP
+       $attr
+         TP_IPPOOL - TP ip pool id
+
+      Returns:
+
+       -2 - No Free Address in TP pool
+       -1 - No free address in nas pool
+        0 - No address pool using nas servers ip address
+       192.168.101.1 - assign ip address
+
+  [1monline_add($attr) - Add session to dv_calls[0m
+  [1mcheck_systemauth($user, $password) - System auth function[0m
+  [1mcheck_chap($given_password,$want_password,$given_chap_challenge) - Check chap password[0m
+  [1mpre_auth($RAD, $attr) - Authorization module[0m
+  [1mneg_deposit_filter_former($RAD, $NAS, $NEG_DEPOSIT_FILTER_ID, $attr)[0m
+      Arguments:
+        $RAD  -
+        $NAS  -
+        $NEG_DEPOSIT_FILTER_ID
+        $attr -
+           RAD_PAIRS  - Rad pairs
+           MESSAGE    - Info message
+
+      Returns:
+        result, $RAD_PAIRS
+
+  [1mrad_pairs_former($content, $attr) - Forming RAD pairs[0m
+      Arguments:
+        $attr
+          RAD_PAIRS - HASH_REF of return rad pairs
+
+      Returns:
+        Result  TRUE or FALSE
+        HAS_REF of formed rad reply
+
+[1mopt82_parse($RAD_REQUEST, $attr) - Parse option 82[0m
+      Arguments:
+        $RAD_REQUEST
+        $attr
+          AUTH_EXPR
+            NAS_MAC, PORT (convert from hex), PORT_MULTI (not converted), DEC_PORT (dec port value), VLAN,
+            SERVER_VLAN, AGENT_REMOTE_ID, CIRCUIT_ID, LOGIN
+
+      Returns:
+        RESULTS - hash_ref
+          NAS_MAC, PORT, VLAN, SERVER_VLAN, AGENT_REMOTE_ID, CIRCUIT_ID, LOGIN
+
+      Conf:
+        $conf{AUTH_EXPR}='';
+
+      Usefull info:
+        http://tools.ietf.org/html/rfc4243
+        http://tools.ietf.org/html/rfc3046#section-7
+
+  [1mdhcp_info($attr, $NAS)[0m
+      Arguments:
+        $attr
+        $NAS
+
+      Results:
+        $self
+
+  [1mleases_add($attr, $NAS) - Add IP to leases[0m
+      Arguments:
+        $attr
+          RESERVED_IP
+          GUEST_MODE
+          GUEST_LEASES
+
+          LEASES_TIME
+          USER_MAC
+          UID
+          CIRCUIT_ID
+          AGENT_REMOTE_ID
+          HOSTNAME
+          IP
+          PORT
+          VLAN
+          NAS_MAC
+
+        $NAS
+
+[1mPOD ERRORS[0m
+    Hey! [1mThe above document had some coding errors, which are explained
+    below:[0m
+
+    Around line 76:
+        Unknown directive: =head
+
+
+	
+	</body>
+	</html>
+  

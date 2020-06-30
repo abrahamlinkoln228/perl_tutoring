@@ -1,0 +1,79 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+    [1mNAME[0m
+      Cams::Zoneminder
+
+  [1mSYNOPSIS[0m
+      Bridge beetween ABillS and Zoneminder API
+
+  [1mnew($Cams, $CONF)[0m
+      Arguments:
+        $Cams  - ref to Cams DB object
+        $CONF  - ref to %conf
+
+      Returns:
+        object
+
+  [1mautenticate() - Autenticates against API, and saves cookies[0m
+      Returns:
+        1
+
+  [1mmonitors_list($attr) - retrieves list of all cams on Zoneminder server[0m
+      Arguments:
+        $attr - hash_ref
+    
+      Returns:
+        hash_ref -
+         monitors - list of monitors [ { Monitor => { params } } ]
+
+  [1mmonitors_info($zm_id) - returns Zoneminder stream params[0m
+      Arguments:
+        $zm_id - Zoneminder stream_id
+    
+      Returns:
+         -
+
+  [1madd_cam($attr) - adds new live stream[0m
+      Arguments:
+        $attr -
+
+      Returns:
+        1 - if success
+
+  [1mdelete_cam($name) - deletes live cam stream[0m
+      Arguments:
+        $attr - hash_ref
+          NAME - to delete by name
+          ID   - to delete by id
+
+      Returns:
+        1 - if success
+
+  [1mchange_cam()[0m
+  [1m_name_for_stream()[0m
+  [1m_get_cakephp_data_payload($attr)[0m
+      Arguments :
+        $attr - hash_ref
+          Name - camera name (Required)
+          Host - camera host (Required)
+          Path - path on camera (Required)
+          Port - camera RTSP_PORT (default : 554)
+      
+      Returns:
+       string
+
+  [1mget_monitor_id_by_billing_id($billing_id)[0m
+      Get all streams and return first where billing id is found at the end of name
+
+
+	
+	</body>
+	</html>
+  
