@@ -4,14 +4,37 @@
 use File::Find;
 #use Pod::HTML;
 use File::Spec;
-
+use File::Path qw( make_path );
 
 sub pod2html {
 
 #  print $_;
 
+  my $htm_s ='
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	</head>
+	<body>	
+  ';
+
+  my $htm_e = '
+	
+	</body>
+	</html>
+  ';
+
   my $src = $_;
   my $des = "/usr/abills/documentation/".$src.".html";
+
+  my $dir = '/usr/abills/documentation/';
+
+  if ( !-d $dir ) {
+    make_path $dir or die "Failed to create path: $directories";
+}
 
   open(SRC,'<',$src) or die $!;
 
@@ -19,9 +42,12 @@ sub pod2html {
 
   print("copying content from $src to $des\n");
   print("\n");
+#  print DES "Content-Type: text/html\n\n";
+  print DES $htm_s;
   while(<SRC>){
     print DES $_;	
   }
+  print DES $htm_e;
 
   # always close the filehandles
   close(SRC);
@@ -40,7 +66,11 @@ sub eachFile {
 	if(rindex($filename =~ /[a-zA-Z]+.pm/, "documntation" )) {
 		#our $out = `/usr/bin/perldoc $fullpath. > $fullpath.documentation`;
 		#my $abs_path = File::Spec->rel2abs( $filename ) ;
-		pod2html($filepath);
+		#pod2html($filepath);
+		my $size = -s $filename;
+		if($size != 0) {
+			pod2html($filepath);
+		}
 		#print $fullpath;
 		#print "\n";			
 	
