@@ -1,110 +1,88 @@
-
 #!/usr/bin/perl
 
+=head1 NAME
+
+  File generates documentation of all documented files for abils in HTML format
+
+=cut
+
+
+use strict;
+use warnings;
+
 use File::Find;
-#use Pod::HTML;
 use File::Spec;
 use File::Path qw( make_path );
 
+#**********************************************************
+=head2 pod2html($filepath) - generates docs for file 
+ 
+  Arguments:
+    $filepath   - path to the file 
+ 
+  Returns:
+   TRUE or FALSE
+ 
+  Example:
+ 
+    pod2html("/usr/test.pm");
+ 
+=cut
+#**********************************************************
 sub pod2html {
-
-#  print $_;
-
-  my $htm_s ='
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  ';
-
-  my $htm_e = '
-	
-	</body>
-	</html>
-  ';
 
   my $src = $_;
   my $dir = '/var/www/html/work/structred/4/docu/';
-
   my $des = $dir.$src.".html";
 
-
   if ( !-d $dir ) {
-    make_path $dir or die "Failed to create path: $directories";
+    make_path $dir or die "Failed to create path: $dir";
   }
 
   my $perldoc_out = `pod2html $src`;
 
-#  open(SRC,'<',$src) or die $!;
-  open(DES,'>',$des) or die $!;
-
+  open(my $DES,'>',$des) or die $!;
   print("copying content from $src to $des\n");
   print("\n");
-#  print DES "Content-Type: text/html\n\n";
-#  print DES $htm_s;
-#  while(<SRC>){
-#    print DES $_;
-#    print DES "<br>";	
-#  }
-  print DES $perldoc_out; 
-#  print DES $htm_e;
+  print $DES $perldoc_out; 
+  close($DES);
 
-
-  #close(SRC);
-  close(DES);
-
-#      open my $in, "<:encoding(utf8)", $des or die "$file: $!";
-#    my @lines = <$in>;
-#    close $in;
-     
-#    chomp @lines;
-#    for my $line (@lines) {
-      #print $line;
-      #print "\n";
-#      if($line =~ /\^\[\[1m.*\^\[\[0m/){
-#	  print $line;
-#	} else {
-#		print "hello";
-#	}
-
-#      if($line =~ //)
-#    }
-
-#         print scalar @lines;
-
-
-
+  return 1;
 }
 
-sub eachFile {
+
+#**********************************************************
+=head2 each_file($filename) - Check the size and type of file
+ 
+  Arguments:
+    $filename   - exact path to file
+ 
+  Returns:
+   TRUE
+ 
+  Example:
+
+   find (\&each_file, "/usr/abills/"); 
+ 
+=cut
+#**********************************************************
+sub each_file {
   my $filename = $_;
   my $fullpath = $File::Find::name;
-  #remember that File::Find changes your CWD, 
-  #so you can call open with just $_
 
   if (rindex($filename, '.pm') != -1) {
-	
-	if(rindex($filename =~ /[a-zA-Z]+.pm/, "documntation" )) {
-		#our $out = `/usr/bin/perldoc $fullpath. > $fullpath.documentation`;
-		#my $abs_path = File::Spec->rel2abs( $filename ) ;
-		#pod2html($filepath);
-		my $size = -s $filename;
-		if($size != 0) {
-			pod2html($filepath);
-		}
-		#print $fullpath;
-		#print "\n";			
-	
-	}
- 
-	#print($filename);
-	#print($fullpath);
-	#print("\n");
- }
+
+    if(rindex($filename =~ /[a-zA-Z]+.pm/, "documntation" )) {
+      my $size = -s $filename;
+      if($size != 0) {
+        pod2html($fullpath);
+      }	
+    }
+  }
+
+  return 1;
 }
 
-find (\&eachFile, "/usr/abills/");
+find (\&each_file, "/usr/abills/");
+
+1;
