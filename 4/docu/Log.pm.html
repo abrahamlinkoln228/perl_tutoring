@@ -1,85 +1,109 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME
-  Make logs DB or File mode[0m
-      Error levels
-
-        LOG_EMERG   => 0
-        LOG_ALERT   => 1
-        LOG_CRIT    => 2
-        LOG_ERR     => 3
-        LOG_WARNING => 4
-        LOG_NOTICE  => 5
-        LOG_INFO    => 6
-        LOG_DEBUG   => 7
-        LOG_SQL     => 8
-
-  [1mnew($db, $CONF, $attr) Log new[0m
-      Arguments:
-        $db
-        $CONF
-        $attr
-          DEBUG_LEVEL
-          LOG_FILE
-
-  [1mlog_list($attr) - Log list[0m
-  [1mlog_print($LOG_TYPE, $USER_NAME, $MESSAGE, $attr) - Make log records[0m
-      Arguments:
-        $LOG_TYPE   -
-        $USER_NAME  -
-        $MESSAGE    -
-        $attr       -
-          LOG_FILE  - Log file
-          ACTION    - 
-          NAS       - NAS object
-          PRINT     - Print message 
-          LOG_LEVEL - Current log level for system
-
-      Results:
-        $self
-
-      Examples:
-      DB save
-        $Log->log_print('LOG_WARNING', $online->{user_name}, "Last Alive: $online->{last_alive}, Session-ID: $online->{acct_session_id}", { ACTION => 'CALCULATION', NAS => $Nas });
-
-      File save
-        $Log->log_print('LOG_ERR', '', "Some SQL error", { LOG_FILE => "/usr/abills/var/log/sql_errors" });
-
-  [1mlog_add($attr) - Add log records to DB[0m
-      Arguments:
-        $attr
-          LOG_TYPE
-          ACTION
-            AUTH
-            ACCT
-            HANGUP
-            LOST_ALIVE
-            CALCULATIO
-          USER_NAME
-          MESSAGE
-          NAS_ID
-
-      Returns:
-        TRUE or FALSE
-
-  [1mlog_del($attr) - Del log records[0m
-  [1mlog_reports() - Show log reports[0m
-      Arguments:
-        $attr   - 
-          RETRIES
-
-      Returns:
-        hash_ref_array
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME-Make-logs-DB-or-File-mode">NAME Make logs DB or File mode</a>
+    <ul>
+      <li><a href="#new-db-CONF-attr-Log-new">new($db, $CONF, $attr) Log new</a></li>
+      <li><a href="#log_list-attr---Log-list">log_list($attr) - Log list</a></li>
+      <li><a href="#log_print-LOG_TYPE-USER_NAME-MESSAGE-attr---Make-log-records">log_print($LOG_TYPE, $USER_NAME, $MESSAGE, $attr) - Make log records</a></li>
+      <li><a href="#log_add-attr---Add-log-records-to-DB">log_add($attr) - Add log records to DB</a></li>
+      <li><a href="#log_del-attr---Del-log-records">log_del($attr) - Del log records</a></li>
+      <li><a href="#log_reports---Show-log-reports">log_reports() - Show log reports</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME-Make-logs-DB-or-File-mode">NAME Make logs DB or File mode</h1>
+
+<pre><code>  Error levels
+
+    LOG_EMERG   =&gt; 0
+    LOG_ALERT   =&gt; 1
+    LOG_CRIT    =&gt; 2
+    LOG_ERR     =&gt; 3
+    LOG_WARNING =&gt; 4
+    LOG_NOTICE  =&gt; 5
+    LOG_INFO    =&gt; 6
+    LOG_DEBUG   =&gt; 7
+    LOG_SQL     =&gt; 8</code></pre>
+
+<h2 id="new-db-CONF-attr-Log-new">new($db, $CONF, $attr) Log new</h2>
+
+<pre><code>  Arguments:
+    $db
+    $CONF
+    $attr
+      DEBUG_LEVEL
+      LOG_FILE</code></pre>
+
+<h2 id="log_list-attr---Log-list">log_list($attr) - Log list</h2>
+
+<h2 id="log_print-LOG_TYPE-USER_NAME-MESSAGE-attr---Make-log-records">log_print($LOG_TYPE, $USER_NAME, $MESSAGE, $attr) - Make log records</h2>
+
+<pre><code>  Arguments:
+    $LOG_TYPE   -
+    $USER_NAME  -
+    $MESSAGE    -
+    $attr       -
+      LOG_FILE  - Log file
+      ACTION    - 
+      NAS       - NAS object
+      PRINT     - Print message 
+      LOG_LEVEL - Current log level for system
+
+  Results:
+    $self
+
+  Examples:
+  DB save
+    $Log-&gt;log_print(&#39;LOG_WARNING&#39;, $online-&gt;{user_name}, &quot;Last Alive: $online-&gt;{last_alive}, Session-ID: $online-&gt;{acct_session_id}&quot;, { ACTION =&gt; &#39;CALCULATION&#39;, NAS =&gt; $Nas });
+
+  File save
+    $Log-&gt;log_print(&#39;LOG_ERR&#39;, &#39;&#39;, &quot;Some SQL error&quot;, { LOG_FILE =&gt; &quot;/usr/abills/var/log/sql_errors&quot; });</code></pre>
+
+<h2 id="log_add-attr---Add-log-records-to-DB">log_add($attr) - Add log records to DB</h2>
+
+<pre><code>  Arguments:
+    $attr
+      LOG_TYPE
+      ACTION
+        AUTH
+        ACCT
+        HANGUP
+        LOST_ALIVE
+        CALCULATIO
+      USER_NAME
+      MESSAGE
+      NAS_ID
+
+  Returns:
+    TRUE or FALSE</code></pre>
+
+<h2 id="log_del-attr---Del-log-records">log_del($attr) - Del log records</h2>
+
+<h2 id="log_reports---Show-log-reports">log_reports() - Show log reports</h2>
+
+<pre><code>  Arguments:
+    $attr   - 
+      RETRIES
+
+  Returns:
+    hash_ref_array</code></pre>
+
+
+</body>
+
+</html>
+
+

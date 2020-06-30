@@ -1,37 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Change MX80 profile
-
-  [1mmx80_change_profile()[0m
-            Acct-Interim-Interval = 90
-            ERX-Service-Activate:2 = "svc-local_1-ipoe(5148672,4120576)"
-            Framed-IP-Address = 192.168.109.189
-            Framed-IP-Netmask = 255.255.255.255
-            ERX-Service-Activate:3 = "svc-global-ipoe(2076672,1048576)"
-
-  [1mmake_rad_pairs($request)[0m
-      Arguments:
-        $request   - Request hash
-      Results:
-        rad_pairs
-
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 145:
-        Unknown directive: =comments
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#mx80_change_profile">mx80_change_profile()</a></li>
+      <li><a href="#make_rad_pairs-request">make_rad_pairs($request)</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Change MX80 profile</code></pre>
+
+<h2 id="mx80_change_profile">mx80_change_profile()</h2>
+
+<pre><code>        Acct-Interim-Interval = 90
+        ERX-Service-Activate:2 = &quot;svc-local_1-ipoe(5148672,4120576)&quot;
+        Framed-IP-Address = 192.168.109.189
+        Framed-IP-Netmask = 255.255.255.255
+        ERX-Service-Activate:3 = &quot;svc-global-ipoe(2076672,1048576)&quot;</code></pre>
+
+<h2 id="make_rad_pairs-request">make_rad_pairs($request)</h2>
+
+<pre><code>  Arguments:
+    $request   - Request hash
+  Results:
+    rad_pairs</code></pre>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-145">Around line 145:</dt>
+<dd>
+
+<p>Unknown directive: =comments</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

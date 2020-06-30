@@ -1,78 +1,129 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-    GPS - module for DB support `gps_locations` table
+<body>
 
-[1mVERSION[0m
-      Version 0.1
 
-[1mSYNOPSIS[0m
-  [1mnew[0m
-    Instantiation of singleton db object
 
-  [1m- location_add[0m
-  [1m- location_info[0m
-  [1m- location_list[0m
-  [1m- location_del[0m
-  [1m[0m
-      Returns a list of admins who has attached gps_tracker;
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#VERSION">VERSION</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a>
+    <ul>
+      <li><a href="#new">new</a></li>
+      <li><a href="#location_add">- location_add</a></li>
+      <li><a href="#location_info">- location_info</a></li>
+      <li><a href="#location_list">- location_list</a></li>
+      <li><a href="#location_del">- location_del</a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#1"></a></li>
+      <li><a href="#tracked_admin_route_info-aid-date-attr">tracked_admin_route_info($aid, $date, $attr)</a></li>
+      <li><a href="#tracked_admin_id_by_imei">- tracked_admin_id_by_imei</a></li>
+      <li><a href="#2"></a></li>
+      <li><a href="#thumbnail_get-aid">thumbnail_get($aid)</a></li>
+      <li><a href="#thumbnail_del-aid">thumbnail_del($aid)</a></li>
+      <li><a href="#unregistered_trackers_add-attr">- unregistered_trackers_add($attr)</a></li>
+      <li><a href="#unregistered_trackers_del">- unregistered_trackers_del</a></li>
+      <li><a href="#unregistered_trackers_list">- unregistered_trackers_list</a></li>
+      <li><a href="#check_unregistered-unregistered_list">check_unregistered($unregistered_list)</a></li>
+      <li><a href="#unregistered_trackers_info-attr">- unregistered_trackers_info($attr)</a></li>
+    </ul>
+  </li>
+</ul>
 
-  [1m[0m
-      Returns last row from gps_tracker_locations for given AID;
+<h1 id="NAME">NAME</h1>
 
-      Arguments
-        $attr - hash_ref
-          AID - admin ID
+<p>GPS - module for DB support `gps_locations` table</p>
 
-  [1mtracked_admin_route_info($aid, $date, $attr)[0m
-      Returns route of admin for given date
+<h1 id="VERSION">VERSION</h1>
 
-      Arguments:
-        $aid  - Administrator id
-        $date - date for routes to show. If you need a period, use $attr parameters. Default to $DATE
-        $attr
-          DATE_START - Date in YYYY-MM-DD format
-          DATE_END   - Date in YYYY-MM-DD format
+<pre><code>  Version 0.1</code></pre>
 
-      Returns:
-        hash_ref
-          list - array of points if some
-          admin - hash_ref for admin info
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
 
-        0 - if no points
+<h2 id="new">new</h2>
 
-  [1m- tracked_admin_id_by_imei[0m
-  [1m[0m
-  [1mthumbnail_get($aid)[0m
-      Arguments:
-        $aid - Administrator ID
+<p>Instantiation of singleton db object</p>
 
-      Returns:
-        string - path to file if exists, 0 otherwise
+<h2 id="location_add">- location_add</h2>
 
-  [1mthumbnail_del($aid)[0m
-      Arguments:
-        $aid - Administrator ID for thumbnail to delete
+<h2 id="location_info">- location_info</h2>
 
-      Returns:
-        1
+<h2 id="location_list">- location_list</h2>
 
-  [1m- unregistered_trackers_add($attr)[0m
-  [1m- unregistered_trackers_del[0m
-  [1m- unregistered_trackers_list[0m
-  [1mcheck_unregistered($unregistered_list)[0m
-      Routine to check if any unregistered trackers were registered and so need to be deleted from unregistered trackers table
+<h2 id="location_del">- location_del</h2>
 
-  [1m- unregistered_trackers_info($attr)[0m
+<h2 id=""></h2>
 
-	
-	</body>
-	</html>
-  
+<pre><code>  Returns a list of admins who has attached gps_tracker;</code></pre>
+
+<h2 id="1"></h2>
+
+<pre><code>  Returns last row from gps_tracker_locations for given AID;
+
+  Arguments
+    $attr - hash_ref
+      AID - admin ID</code></pre>
+
+<h2 id="tracked_admin_route_info-aid-date-attr">tracked_admin_route_info($aid, $date, $attr)</h2>
+
+<pre><code>  Returns route of admin for given date
+
+  Arguments:
+    $aid  - Administrator id
+    $date - date for routes to show. If you need a period, use $attr parameters. Default to $DATE
+    $attr
+      DATE_START - Date in YYYY-MM-DD format
+      DATE_END   - Date in YYYY-MM-DD format
+
+  Returns:
+    hash_ref
+      list - array of points if some
+      admin - hash_ref for admin info
+
+    0 - if no points</code></pre>
+
+<h2 id="tracked_admin_id_by_imei">- tracked_admin_id_by_imei</h2>
+
+<h2 id="2"></h2>
+
+<h2 id="thumbnail_get-aid">thumbnail_get($aid)</h2>
+
+<pre><code>  Arguments:
+    $aid - Administrator ID
+
+  Returns:
+    string - path to file if exists, 0 otherwise</code></pre>
+
+<h2 id="thumbnail_del-aid">thumbnail_del($aid)</h2>
+
+<pre><code>  Arguments:
+    $aid - Administrator ID for thumbnail to delete
+
+  Returns:
+    1</code></pre>
+
+<h2 id="unregistered_trackers_add-attr">- unregistered_trackers_add($attr)</h2>
+
+<h2 id="unregistered_trackers_del">- unregistered_trackers_del</h2>
+
+<h2 id="unregistered_trackers_list">- unregistered_trackers_list</h2>
+
+<h2 id="check_unregistered-unregistered_list">check_unregistered($unregistered_list)</h2>
+
+<pre><code>  Routine to check if any unregistered trackers were registered and so need to be deleted from unregistered trackers table</code></pre>
+
+<h2 id="unregistered_trackers_info-attr">- unregistered_trackers_info($attr)</h2>
+
+
+</body>
+
+</html>
+
+

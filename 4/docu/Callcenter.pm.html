@@ -1,83 +1,114 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mCallcenter[0m
-    Callcenter - moudle for polls
+<body>
 
-[1mSynopsis[0m
-    use Callcenter;
 
-    my $Callcenter = Callcenter->new($db, $admin, \%conf);
 
-  [1mfunction new() - initialize Callcenter object[0m
-      Arguments:
-        $db    -
-        $admin -
-        %conf  -
-      Returns:
-        $self object
+<ul id="index">
+  <li><a href="#Callcenter">Callcenter</a></li>
+  <li><a href="#Synopsis">Synopsis</a>
+    <ul>
+      <li><a href="#function-new---initialize-Callcenter-object">function new() - initialize Callcenter object</a></li>
+      <li><a href="#callcenter_add_cals">callcenter_add_cals() -</a></li>
+      <li><a href="#callcenter_list_calls-attr---return-list-of-polls">callcenter_list_calls($attr) - return list of polls</a></li>
+      <li><a href="#callcenter_change_calls-attr---change-calls-status">callcenter_change_calls($attr) - change calls status</a></li>
+      <li><a href="#callcenter_info_calls-attr">callcenter_info_calls($attr) -</a></li>
+      <li><a href="#callcenter_delete_calls-attr---delete-calls">callcenter_delete_calls($attr) - delete calls</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Examples:
-        $Callcenter = Callcenter->new($db, $admin, \%conf);
+<h1 id="Callcenter">Callcenter</h1>
 
-  [1mcallcenter_add_cals() -[0m
-      Arguments:
-        $attr -
-      Returns:
+<p>Callcenter - moudle for polls</p>
 
-      Examples:
+<h1 id="Synopsis">Synopsis</h1>
 
-  [1mcallcenter_list_calls($attr) - return list of polls[0m
-      Arguments:
-        STATUS - call's status
+<p>use Callcenter;</p>
+
+<p>my $Callcenter = Callcenter-&gt;new($db, $admin, \%conf);</p>
+
+<h2 id="function-new---initialize-Callcenter-object">function new() - initialize Callcenter object</h2>
+
+<pre><code>  Arguments:
+    $db    -
+    $admin -
+    %conf  -
+  Returns:
+    $self object
+
+  Examples:
+    $Callcenter = Callcenter-&gt;new($db, $admin, \%conf);</code></pre>
+
+<h2 id="callcenter_add_cals">callcenter_add_cals() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="callcenter_list_calls-attr---return-list-of-polls">callcenter_list_calls($attr) - return list of polls</h2>
+
+<pre><code>  Arguments:
+    STATUS - call&#39;s status
     
-      Returns:
-        $self object;
+  Returns:
+    $self object;
 
-      Examples:
-        all polls
-        my $tp_list = $Triplay->list_tp({COLS_NAME => 1});
+  Examples:
+    all polls
+    my $tp_list = $Triplay-&gt;list_tp({COLS_NAME =&gt; 1});
 
-        polls with status eq 2
-        my $tp_list = $Triplay->list_tp({COLS_NAME => 1, STATUS => 2});
+    polls with status eq 2
+    my $tp_list = $Triplay-&gt;list_tp({COLS_NAME =&gt; 1, STATUS =&gt; 2});
+  </code></pre>
 
-  [1mcallcenter_change_calls($attr) - change calls status[0m
-      Arguments:
+<h2 id="callcenter_change_calls-attr---change-calls-status">callcenter_change_calls($attr) - change calls status</h2>
+
+<pre><code>  Arguments:
     
     
-      Returns:
-        $self object;
+  Returns:
+    $self object;
 
-      Examples:
-        $Poll->change_poll({  });
+  Examples:
+    $Poll-&gt;change_poll({  });
+  </code></pre>
 
-  [1mcallcenter_info_calls($attr) -[0m
-      Arguments:
-        ID      - tp's ID
+<h2 id="callcenter_info_calls-attr">callcenter_info_calls($attr) -</h2>
+
+<pre><code>  Arguments:
+    ID      - tp&#39;s ID
     
-      Returns:
+  Returns:
 
-      Examples:
-        $call_info = $Callcenter->callcenter_info_calls({COLS_NAME => 1, ID => 1});
+  Examples:
+    $call_info = $Callcenter-&gt;callcenter_info_calls({COLS_NAME =&gt; 1, ID =&gt; 1});
+  </code></pre>
 
-  [1mcallcenter_delete_calls($attr) - delete calls[0m
-      Arguments:
-        ID   - call's ID;
+<h2 id="callcenter_delete_calls-attr---delete-calls">callcenter_delete_calls($attr) - delete calls</h2>
+
+<pre><code>  Arguments:
+    ID   - call&#39;s ID;
     
-      Returns:
-        $self object;
+  Returns:
+    $self object;
 
-      Examples:
-        $Callcenter->callcenter_delete_calls({ID => $FORM{del}});
+  Examples:
+    $Callcenter-&gt;callcenter_delete_calls({ID =&gt; $FORM{del}});
+  </code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

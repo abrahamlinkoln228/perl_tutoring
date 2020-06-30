@@ -1,57 +1,130 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-     Voip  managment functions
+<body>
 
-[1mSYNOPSIS[0m
-      use Voip;
-      $Voip->new($db, $admin, \%conf);
 
-  [1muser_info($uid, $attr) -  User information[0m
-  [1mlog_add($attr)[0m
-  [1mlog_change($attr)[0m
-  [1mlog_list($attr)[0m
-  [1muser_add($attr) - Add voip service[0m
-  [1muser_list($attr) - Voip users list[0m
-  [1mroute_add($attr) - Add voip route[0m
-      Arguments:
-        $attr
-          REPLACE  - Chnage insert statment to replace
 
-      Returns:
-        $self
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a>
+    <ul>
+      <li><a href="#user_info-uid-attr---User-information">user_info($uid, $attr) - User information</a></li>
+      <li><a href="#log_add-attr">log_add($attr)</a></li>
+      <li><a href="#log_change-attr">log_change($attr)</a></li>
+      <li><a href="#log_list-attr">log_list($attr)</a></li>
+      <li><a href="#user_add-attr---Add-voip-service">user_add($attr) - Add voip service</a></li>
+      <li><a href="#user_list-attr---Voip-users-list">user_list($attr) - Voip users list</a></li>
+      <li><a href="#route_add-attr---Add-voip-route">route_add($attr) - Add voip route</a></li>
+      <li><a href="#route_info-id-attr---Route-information">route_info($id, $attr) - Route information</a></li>
+      <li><a href="#route_del-id-attr---Delete-route">route_del($id, $attr) - Delete route</a></li>
+      <li><a href="#route_change-attr---Route-change">route_change($attr) - Route change</a></li>
+      <li><a href="#rp_list-attr">rp_list($attr)</a></li>
+      <li><a href="#rp_list-attr---route-price-list">rp_list($attr) - route price list</a></li>
+      <li><a href="#tp_add-attr">tp_add($attr)</a></li>
+      <li><a href="#tp_change-tp_id-attr---Tarif-plans-change">tp_change($tp_id, $attr) - Tarif plans change</a></li>
+      <li><a href="#tp_del-id---Tarif-plans-delete">tp_del($id) - Tarif plans delete</a></li>
+      <li><a href="#tp_info-id-attr">tp_info($id, $attr)</a></li>
+      <li><a href="#route_add-attr---trunk-add">route_add($attr) - trunk add</a></li>
+      <li><a href="#trunk_info-id-attr---Trunk-information">trunk_info($id, $attr) - Trunk information</a></li>
+      <li><a href="#trunk_del-id---Trunk-del">trunk_del($id) - Trunk del</a></li>
+      <li><a href="#trunk_change-attr---Trunk-change">trunk_change($attr) - Trunk change</a></li>
+      <li><a href="#trunk_list---Trunk-list">trunk_list() - Trunk list</a></li>
+      <li><a href="#extra_tarification_info-attr---Extra-tarification">extra_tarification_info($attr) - Extra tarification</a></li>
+      <li><a href="#extra_tarification_list-attr">extra_tarification_list($attr)</a></li>
+      <li><a href="#ivr_menu_info-attr">ivr_menu_info($attr)</a></li>
+      <li><a href="#ivr_menu_add-attr">ivr_menu_add($attr)</a></li>
+      <li><a href="#ivr_menu_change-attr">ivr_menu_change($attr)</a></li>
+      <li><a href="#ivr_menu_del-attr">ivr_menu_del($attr)</a></li>
+      <li><a href="#ivr_menu_list-attr---IVR-menu-list-item">ivr_menu_list($attr) - IVR menu list item</a></li>
+      <li><a href="#voip_yate_cdr-attr---Yate-CDR">voip_yate_cdr($attr) - Yate CDR</a></li>
+    </ul>
+  </li>
+</ul>
 
-  [1mroute_info($id, $attr) - Route information[0m
-  [1mroute_del($id, $attr) - Delete route[0m
-  [1mroute_change($attr) - Route change[0m
-  [1mrp_list($attr)[0m
-  [1mrp_list($attr) - route price list[0m
-  [1mtp_add($attr)[0m
-  [1mtp_change($tp_id, $attr) - Tarif plans change[0m
-  [1mtp_del($id) - Tarif plans delete[0m
-  [1mtp_info($id, $attr)[0m
-  [1mroute_add($attr) - trunk add[0m
-  [1mtrunk_info($id, $attr) - Trunk information[0m
-  [1mtrunk_del($id) - Trunk del[0m
-  [1mtrunk_change($attr) - Trunk change[0m
-  [1mtrunk_list() - Trunk list[0m
-  [1mextra_tarification_info($attr) - Extra tarification[0m
-  [1mextra_tarification_list($attr)[0m
-  [1mivr_menu_info($attr)[0m
-  [1mivr_menu_add($attr)[0m
-  [1mivr_menu_change($attr)[0m
-  [1mivr_menu_del($attr)[0m
-  [1mivr_menu_list($attr) - IVR menu list item[0m
-  [1mvoip_yate_cdr($attr) - Yate CDR[0m
+<h1 id="NAME">NAME</h1>
 
-	
-	</body>
-	</html>
-  
+<pre><code> Voip  managment functions</code></pre>
+
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
+
+<pre><code>  use Voip;
+  $Voip-&gt;new($db, $admin, \%conf);</code></pre>
+
+<h2 id="user_info-uid-attr---User-information">user_info($uid, $attr) - User information</h2>
+
+<h2 id="log_add-attr">log_add($attr)</h2>
+
+<h2 id="log_change-attr">log_change($attr)</h2>
+
+<h2 id="log_list-attr">log_list($attr)</h2>
+
+<h2 id="user_add-attr---Add-voip-service">user_add($attr) - Add voip service</h2>
+
+<h2 id="user_list-attr---Voip-users-list">user_list($attr) - Voip users list</h2>
+
+<h2 id="route_add-attr---Add-voip-route">route_add($attr) - Add voip route</h2>
+
+<pre><code>  Arguments:
+    $attr
+      REPLACE  - Chnage insert statment to replace
+
+  Returns:
+    $self</code></pre>
+
+<h2 id="route_info-id-attr---Route-information">route_info($id, $attr) - Route information</h2>
+
+<h2 id="route_del-id-attr---Delete-route">route_del($id, $attr) - Delete route</h2>
+
+<h2 id="route_change-attr---Route-change">route_change($attr) - Route change</h2>
+
+<h2 id="rp_list-attr">rp_list($attr)</h2>
+
+<h2 id="rp_list-attr---route-price-list">rp_list($attr) - route price list</h2>
+
+<h2 id="tp_add-attr">tp_add($attr)</h2>
+
+<h2 id="tp_change-tp_id-attr---Tarif-plans-change">tp_change($tp_id, $attr) - Tarif plans change</h2>
+
+<h2 id="tp_del-id---Tarif-plans-delete">tp_del($id) - Tarif plans delete</h2>
+
+<h2 id="tp_info-id-attr">tp_info($id, $attr)</h2>
+
+<h2 id="route_add-attr---trunk-add">route_add($attr) - trunk add</h2>
+
+<h2 id="trunk_info-id-attr---Trunk-information">trunk_info($id, $attr) - Trunk information</h2>
+
+<h2 id="trunk_del-id---Trunk-del">trunk_del($id) - Trunk del</h2>
+
+<h2 id="trunk_change-attr---Trunk-change">trunk_change($attr) - Trunk change</h2>
+
+<h2 id="trunk_list---Trunk-list">trunk_list() - Trunk list</h2>
+
+<h2 id="extra_tarification_info-attr---Extra-tarification">extra_tarification_info($attr) - Extra tarification</h2>
+
+<h2 id="extra_tarification_list-attr">extra_tarification_list($attr)</h2>
+
+<h2 id="ivr_menu_info-attr">ivr_menu_info($attr)</h2>
+
+<h2 id="ivr_menu_add-attr">ivr_menu_add($attr)</h2>
+
+<h2 id="ivr_menu_change-attr">ivr_menu_change($attr)</h2>
+
+<h2 id="ivr_menu_del-attr">ivr_menu_del($attr)</h2>
+
+<h2 id="ivr_menu_list-attr---IVR-menu-list-item">ivr_menu_list($attr) - IVR menu list item</h2>
+
+<h2 id="voip_yate_cdr-attr---Yate-CDR">voip_yate_cdr($attr) - Yate CDR</h2>
+
+
+</body>
+
+</html>
+
+

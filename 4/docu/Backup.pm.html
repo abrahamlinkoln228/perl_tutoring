@@ -1,40 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Equipment::Backup;
+<body>
 
-  [1mequipment_backup()[0m
-  [1m_equipment_snmp_op($operation)[0m
-      Arguments:
-        $operation - string, 'UPLOAD' or 'BACKUP'
 
-  [1mequipment_snmp_backup()[0m
-  [1mequipment_snmp_upload()[0m
-  [1m_get_snmp_oids_array($section, $vendor, $model_name, $revision, $hostconn, $tftpserv, $backup_name)[0m
-      Arguments:
-       $vendor               - as defined in Equipment_models.sql
-       $model_name           - as defined in Equipment_models.sql
-       $revision             - revision of board. Required for D-Link
-       $tfptpserv            - ip address of tftp server where backup will be loaded
-       $backup_name          - name that config will be saved
-       $section              - BACKUP / UPLOAD
 
-     Returns:
-       Success:
-         array of oids
-       Fail:
-        0
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#equipment_backup">equipment_backup()</a></li>
+      <li><a href="#equipment_snmp_op-operation">_equipment_snmp_op($operation)</a></li>
+      <li><a href="#equipment_snmp_backup">equipment_snmp_backup()</a></li>
+      <li><a href="#equipment_snmp_upload">equipment_snmp_upload()</a></li>
+      <li><a href="#get_snmp_oids_array-section-vendor-model_name-revision-hostconn-tftpserv-backup_name">_get_snmp_oids_array($section, $vendor, $model_name, $revision, $hostconn, $tftpserv, $backup_name)</a></li>
+      <li><a href="#equipment_show_snmp_backup_files">equipment_show_snmp_backup_files()</a></li>
+    </ul>
+  </li>
+</ul>
 
-  [1mequipment_show_snmp_backup_files()[0m
+<h1 id="NAME">NAME</h1>
 
-	
-	</body>
-	</html>
-  
+<pre><code>  Equipment::Backup;</code></pre>
+
+<h2 id="equipment_backup">equipment_backup()</h2>
+
+<h2 id="equipment_snmp_op-operation">_equipment_snmp_op($operation)</h2>
+
+<pre><code>  Arguments:
+    $operation - string, &#39;UPLOAD&#39; or &#39;BACKUP&#39;</code></pre>
+
+<h2 id="equipment_snmp_backup">equipment_snmp_backup()</h2>
+
+<h2 id="equipment_snmp_upload">equipment_snmp_upload()</h2>
+
+<h2 id="get_snmp_oids_array-section-vendor-model_name-revision-hostconn-tftpserv-backup_name">_get_snmp_oids_array($section, $vendor, $model_name, $revision, $hostconn, $tftpserv, $backup_name)</h2>
+
+<pre><code>  Arguments:
+   $vendor               - as defined in Equipment_models.sql
+   $model_name           - as defined in Equipment_models.sql
+   $revision             - revision of board. Required for D-Link
+   $tfptpserv            - ip address of tftp server where backup will be loaded
+   $backup_name          - name that config will be saved
+   $section              - BACKUP / UPLOAD
+
+ Returns:
+   Success:
+     array of oids
+   Fail:
+    0</code></pre>
+
+<h2 id="equipment_show_snmp_backup_files">equipment_show_snmp_backup_files()</h2>
+
+
+</body>
+
+</html>
+
+

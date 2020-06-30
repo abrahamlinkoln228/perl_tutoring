@@ -1,52 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mnew($attr) - Create new Telegram object[0m
-      Arguments:
-        $attr
-          CONF
+<body>
 
-      Returns:
 
-      Examples:
-        my $Telegram = Abills::Sender::Telegram->new( token => $conf{TELEGRAM_TOKEN} );
 
-  [1msend_message() - Send message to user with his chat_id or to channel with username(@<CHANNELNAME>)[0m
-      Arguments:
-        $attr:
-          TO_ADDRESS - Telegram ID
-          MESSAGE    - text of the message
-          PARSE_MODE - parse mode of the message. u can use 'markdown' or 'html' 
-          DEBUG      - debug mode
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new-attr---Create-new-Telegram-object">new($attr) - Create new Telegram object</a></li>
+      <li><a href="#send_message---Send-message-to-user-with-his-chat_id-or-to-channel-with-username-CHANNELNAME">send_message() - Send message to user with his chat_id or to channel with username(@&lt;CHANNELNAME&gt;)</a></li>
+      <li><a href="#get_updates">get_updates() -</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="new-attr---Create-new-Telegram-object">new($attr) - Create new Telegram object</h2>
+
+<pre><code>  Arguments:
+    $attr
+      CONF
+
+  Returns:
+
+  Examples:
+    my $Telegram = Abills::Sender::Telegram-&gt;new( token =&gt; $conf{TELEGRAM_TOKEN} );</code></pre>
+
+<h2 id="send_message---Send-message-to-user-with-his-chat_id-or-to-channel-with-username-CHANNELNAME">send_message() - Send message to user with his chat_id or to channel with username(@&lt;CHANNELNAME&gt;)</h2>
+
+<pre><code>  Arguments:
+    $attr:
+      TO_ADDRESS - Telegram ID
+      MESSAGE    - text of the message
+      PARSE_MODE - parse mode of the message. u can use &#39;markdown&#39; or &#39;html&#39; 
+      DEBUG      - debug mode
   
-      Returns:
+  Returns:
 
-      Examples:
-        $Telegram->send_message({
-          AID        => "235570079",
-          MESSAGE    => "testing",
-          PARSE_MODE => 'markdown',
-          DEBUG      => 1
-        });
+  Examples:
+    $Telegram-&gt;send_message({
+      AID        =&gt; &quot;235570079&quot;,
+      MESSAGE    =&gt; &quot;testing&quot;,
+      PARSE_MODE =&gt; &#39;markdown&#39;,
+      DEBUG      =&gt; 1
+    });</code></pre>
 
-  [1mget_updates() -[0m
-      Arguments:
-        $attr:
-          OFFSET - Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates.
-          DEUBG  - debug mode
-      Returns:
+<h2 id="get_updates">get_updates() -</h2>
 
-      Examples:
-        $result = $Telegram->get_updates( { OFFSET => $updateid + 1, DEBUG => 1 } )->{result};
+<pre><code>  Arguments:
+    $attr:
+      OFFSET - Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates.
+      DEUBG  - debug mode
+  Returns:
+
+  Examples:
+    $result = $Telegram-&gt;get_updates( { OFFSET =&gt; $updateid + 1, DEBUG =&gt; 1 } )-&gt;{result};</code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

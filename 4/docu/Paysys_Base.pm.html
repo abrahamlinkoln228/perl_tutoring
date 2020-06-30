@@ -1,235 +1,261 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mPaysys_Base[0m
-      Paysys_Base - module for payments
-
-[1mSYNOPSIS[0m
-      paysys_load('Paysys_Base');
-
-  [1mfunction paysys_pay() - make payment;[0m
-      Arguments:
-        $attr
-          DEBUG             - Level of debugging;
-          EXT_ID            - External unique identifier of payment;
-          CHECK_FIELD       - Synchronization field for subscriber;
-          USER_ID           - Identifier for subscriber;
-          PAYMENT_SYSTEM    - Short name of payment system;
-          PAYMENT_SYSTEM_ID - ID of payment system;
-          CURRENCY          - The exchange rate for the payment of the system;
-          CURRENCY_ISO      -
-          SUM               - Payment amount;
-          DATA              - HASH_REF Transaction infromation field;
-          ORDER_ID          - Transaction identifier in ABillS;
-          MK_LOG            - Logging;
-          REGISTRATION_ONLY - Add payment info without real payment
-          PAYMENT_DESCRIBE  - Description of payment;
-          PAYMENT_ID        - if this attribute is on(1), function will return two values:
-                                        $status_code - status code;
-                                        $payments_id - transaction identifier in ABillS;
-          USER_INFO         - Additional information;
-          ERROR             - Status error;
-      Returns:
-        Payment status code.
-        All codes:
-          0   Operation was successfully completed
-          1   User not present in the system
-          2   The error in the database
-          3   Such payment already exists in the system (payments list)
-          5   Improper payment amount. It arises in systems with a tandem payment if the user starts a transaction with one amount but in the process of changing the amount of the transaction
-          6   Too small amount
-          7   The amount of the payment more than permitted
-          8   The transaction is not found (Paysys list not found)
-          9   Payments already exists
-          10  This payment is not found in the system
-          11  For this group of users not allowed to use external payment (Paysys)
-          12  An unknown SQL error payment
-          13  Error logging external payments (Paysys list exist transaction)
-          14  User withot bill account
-          15
-          17  SQL when conducting payment
-          28  Wrong exchange
-          35  Wrong signature
+<body>
 
 
-      Examples:
-        my $result_code = paysys_pay({
-            PAYMENT_SYSTEM    => OP,
-            PAYMENT_SYSTEM_ID => 100,
-            CHECK_FIELD       => UID,
-            USER_ID           => 1,
-            SUM               => 50.00,
-            EXT_ID            => 11111111,
-            DATA              => \%FORM,
-            CURRENCY          => $conf{PAYSYS_PAYNET_CURRENCY},
-            PAYMENT_DESCRIBE  => 'Payment with paysystem Oplata'
-            PAYMENT_ID        => 1,
-            MK_LOG            => 1,
-            DEBUG             => 7
-        });
-        $result_code - payment status code.
 
-        my ($result_code, $payments_id ) = paysys_pay({
-        PAYMENT_SYSTEM    => $payment_system,
-        PAYMENT_SYSTEM_ID => $payment_system_id,
-        CHECK_FIELD       => $CHECK_FIELD,
-        USER_ID           => $request_params{customer_id},
-        SUM               => $request_params{sum},
-        EXT_ID            => $request_params{transaction_id},
-        DATA              => \%request_params,
-        CURRENCY          => $conf{PAYSYS_PAYNET_CURRENCY},
-        MK_LOG            => 1,
-        PAYMENT_ID        => 1,
-        DEBUG             => $debug
+<ul id="index">
+  <li><a href="#Paysys_Base">Paysys_Base</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a>
+    <ul>
+      <li><a href="#function-paysys_pay---make-payment">function paysys_pay() - make payment;</a></li>
+      <li><a href="#function-paysys_check_user---check-user-in-system">function paysys_check_user() - check user in system;</a></li>
+      <li><a href="#function-paysys_pay_cancel---cancel-payment">function paysys_pay_cancel() - cancel payment;</a></li>
+      <li><a href="#function-paysys_pay_check---Checking-existing-transaction-Arguments:-attr-PAYSYS_ID---Payment-system-identifier-TRANSACTION_ID---Transaction-identifier">function paysys_pay_check() - Checking existing transaction Arguments: $attr PAYSYS_ID - Payment system identifier; TRANSACTION_ID - Transaction identifier;</a></li>
+      <li><a href="#function-paysys_info---Arguments:-attr-PAYSYS_ID---Payment-system-identifier">function paysys_info() - Arguments: $attr PAYSYS_ID - Payment system identifier;</a></li>
+      <li><a href="#conf_gid_split---Find-payment-system-paramerts-for-some-user-group-GID">conf_gid_split() - Find payment system paramerts for some user group (GID)</a></li>
+      <li><a href="#mk_log-message-attr---add-data-to-logfile">mk_log($message, $attr) - add data to logfile;</a></li>
+      <li><a href="#paysys_show_result-attr---Show-result">paysys_show_result($attr) - Show result</a></li>
+      <li><a href="#payasys_import_parse-content-import_expr-BINDING_FIELD---Parce-file">payasys_import_parse($content, $import_expr, $BINDING_FIELD) - Parce file</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="Paysys_Base">Paysys_Base</h1>
+
+<pre><code>  Paysys_Base - module for payments</code></pre>
+
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
+
+<pre><code>  paysys_load(&#39;Paysys_Base&#39;);</code></pre>
+
+<h2 id="function-paysys_pay---make-payment">function paysys_pay() - make payment;</h2>
+
+<pre><code>  Arguments:
+    $attr
+      DEBUG             - Level of debugging;
+      EXT_ID            - External unique identifier of payment;
+      CHECK_FIELD       - Synchronization field for subscriber;
+      USER_ID           - Identifier for subscriber;
+      PAYMENT_SYSTEM    - Short name of payment system;
+      PAYMENT_SYSTEM_ID - ID of payment system;
+      CURRENCY          - The exchange rate for the payment of the system;
+      CURRENCY_ISO      -
+      SUM               - Payment amount;
+      DATA              - HASH_REF Transaction infromation field;
+      ORDER_ID          - Transaction identifier in ABillS;
+      MK_LOG            - Logging;
+      REGISTRATION_ONLY - Add payment info without real payment
+      PAYMENT_DESCRIBE  - Description of payment;
+      PAYMENT_ID        - if this attribute is on(1), function will return two values:
+                                    $status_code - status code;
+                                    $payments_id - transaction identifier in ABillS;
+      USER_INFO         - Additional information;
+      ERROR             - Status error;
+  Returns:
+    Payment status code.
+    All codes:
+      0   Operation was successfully completed
+      1   User not present in the system
+      2   The error in the database
+      3   Such payment already exists in the system (payments list)
+      5   Improper payment amount. It arises in systems with a tandem payment if the user starts a transaction with one amount but in the process of changing the amount of the transaction
+      6   Too small amount
+      7   The amount of the payment more than permitted
+      8   The transaction is not found (Paysys list not found)
+      9   Payments already exists
+      10  This payment is not found in the system
+      11  For this group of users not allowed to use external payment (Paysys)
+      12  An unknown SQL error payment
+      13  Error logging external payments (Paysys list exist transaction)
+      14  User withot bill account
+      15
+      17  SQL when conducting payment
+      28  Wrong exchange
+      35  Wrong signature
+
+
+  Examples:
+    my $result_code = paysys_pay({
+        PAYMENT_SYSTEM    =&gt; OP,
+        PAYMENT_SYSTEM_ID =&gt; 100,
+        CHECK_FIELD       =&gt; UID,
+        USER_ID           =&gt; 1,
+        SUM               =&gt; 50.00,
+        EXT_ID            =&gt; 11111111,
+        DATA              =&gt; \%FORM,
+        CURRENCY          =&gt; $conf{PAYSYS_PAYNET_CURRENCY},
+        PAYMENT_DESCRIBE  =&gt; &#39;Payment with paysystem Oplata&#39;
+        PAYMENT_ID        =&gt; 1,
+        MK_LOG            =&gt; 1,
+        DEBUG             =&gt; 7
+    });
+    $result_code - payment status code.
+
+    my ($result_code, $payments_id ) = paysys_pay({
+    PAYMENT_SYSTEM    =&gt; $payment_system,
+    PAYMENT_SYSTEM_ID =&gt; $payment_system_id,
+    CHECK_FIELD       =&gt; $CHECK_FIELD,
+    USER_ID           =&gt; $request_params{customer_id},
+    SUM               =&gt; $request_params{sum},
+    EXT_ID            =&gt; $request_params{transaction_id},
+    DATA              =&gt; \%request_params,
+    CURRENCY          =&gt; $conf{PAYSYS_PAYNET_CURRENCY},
+    MK_LOG            =&gt; 1,
+    PAYMENT_ID        =&gt; 1,
+    DEBUG             =&gt; $debug
+});</code></pre>
+
+<h2 id="function-paysys_check_user---check-user-in-system">function paysys_check_user() - check user in system;</h2>
+
+<pre><code>  Arguments:
+    $attr
+      CHECK_FIELD - Searching field for user;
+      USER_ID     - User identifier for CHECK_FIELD;
+      EXTRA_FIELDS- Extra fields
+
+  Returns:
+    Checking code.
+    All codes:
+      0  - User exist;
+      1  - User not exist;
+      2  - SQL error;
+      11 - Disable paysys for group
+
+  Examples:
+    my ($result, $list) = paysys_check_user({
+     CHECK_FIELD =&gt; &#39;UID&#39;,
+     USER_ID     =&gt; 1
     });
 
-  [1mfunction paysys_check_user() - check user in system;[0m
-      Arguments:
-        $attr
-          CHECK_FIELD - Searching field for user;
-          USER_ID     - User identifier for CHECK_FIELD;
-          EXTRA_FIELDS- Extra fields
+    $result - result code;
+    $list - users information fields.</code></pre>
 
-      Returns:
-        Checking code.
-        All codes:
-          0  - User exist;
-          1  - User not exist;
-          2  - SQL error;
-          11 - Disable paysys for group
+<h2 id="function-paysys_pay_cancel---cancel-payment">function paysys_pay_cancel() - cancel payment;</h2>
 
-      Examples:
-        my ($result, $list) = paysys_check_user({
-         CHECK_FIELD => 'UID',
-         USER_ID     => 1
-        });
-
-        $result - result code;
-        $list - users information fields.
-
-  [1mfunction paysys_pay_cancel() - cancel payment;[0m
-      Arguments:
-        $attr
-          PAYSYS_ID      - Paysys ID (unique number of operation);
-          TRANSACTION_ID - Paysys Transaction identifier
-          DEBUG
-
-      Returns:
-        Cancel code.
-        All codes:
-
-      Examples:
-
-        my $result = paysys_pay_cancel({
-                      TRANSACTION_ID => "OP:11111111"
-                     });
-
-        $result - cancel code.
-
-  [1mfunction paysys_pay_check() - Checking existing transaction
-  Arguments:
+<pre><code>  Arguments:
     $attr
-      PAYSYS_ID      - Payment system identifier;
-      TRANSACTION_ID - Transaction identifier;[0m
-      Returns:
-        0      - if transaction not found;
-        number - transaction ID
+      PAYSYS_ID      - Paysys ID (unique number of operation);
+      TRANSACTION_ID - Paysys Transaction identifier
+      DEBUG
 
-      Examples:
+  Returns:
+    Cancel code.
+    All codes:
 
-        my $result = paysys_pay_check({
-                      TRANSACTION_ID => "OP:11111111"
+  Examples:
+
+    my $result = paysys_pay_cancel({
+                  TRANSACTION_ID =&gt; &quot;OP:11111111&quot;
                  });
 
-        $result - 0 or transaction id;
+    $result - cancel code.</code></pre>
 
-  [1mfunction paysys_info() -
-  Arguments:
+<h2 id="function-paysys_pay_check---Checking-existing-transaction-Arguments:-attr-PAYSYS_ID---Payment-system-identifier-TRANSACTION_ID---Transaction-identifier">function paysys_pay_check() - Checking existing transaction Arguments: $attr PAYSYS_ID - Payment system identifier; TRANSACTION_ID - Transaction identifier;</h2>
+
+<pre><code>  Returns:
+    0      - if transaction not found;
+    number - transaction ID
+
+  Examples:
+
+    my $result = paysys_pay_check({
+                  TRANSACTION_ID =&gt; &quot;OP:11111111&quot;
+             });
+
+    $result - 0 or transaction id;</code></pre>
+
+<h2 id="function-paysys_info---Arguments:-attr-PAYSYS_ID---Payment-system-identifier">function paysys_info() - Arguments: $attr PAYSYS_ID - Payment system identifier;</h2>
+
+<pre><code>  Returns:
+
+    Paysys object
+
+  Examples:
+
+    $Paysys-&gt;paysys_info({ PAYSYS_ID =&gt; 121 });</code></pre>
+
+<h2 id="conf_gid_split---Find-payment-system-paramerts-for-some-user-group-GID">conf_gid_split() - Find payment system paramerts for some user group (GID)</h2>
+
+<pre><code>  Arguments:
     $attr
-      PAYSYS_ID - Payment system identifier;[0m
-      Returns:
+      GID         - group identifier;
+      PARAMS      - Array of parameters
+      SERVICE     - Service ID
+      SERVICE2GID - Service to gid
+                      delimiter :
+                      separator ;
 
-        Paysys object
+  Returns:
+    TRUE or FALSE
 
-      Examples:
+  Examples:
 
-        $Paysys->paysys_info({ PAYSYS_ID => 121 });
+    conf_gid_split({ GID    =&gt; 1,
+                     PARAMS =&gt; [
+                         &#39;PAYSYS_UKRPAYS_SERVICE_ID&#39;,
+                      ],
+                 })</code></pre>
 
-  [1mconf_gid_split() - Find payment system paramerts for some user group (GID)[0m
-      Arguments:
-        $attr
-          GID         - group identifier;
-          PARAMS      - Array of parameters
-          SERVICE     - Service ID
-          SERVICE2GID - Service to gid
-                          delimiter :
-                          separator ;
+<h2 id="mk_log-message-attr---add-data-to-logfile">mk_log($message, $attr) - add data to logfile;</h2>
 
-      Returns:
-        TRUE or FALSE
+<p>Make log file for paysys request</p>
 
-      Examples:
+<pre><code>  Arguments:
+    $message -
+    $attr
+      PAYSYS_ID - payment system ID
+      REQUEST   - System Request
+      REPLY     - ABillS Reply
+      SHOW      - print message to output
+      LOG_FILE  - Log file. (Default: paysys_check.log)
 
-        conf_gid_split({ GID    => 1,
-                         PARAMS => [
-                             'PAYSYS_UKRPAYS_SERVICE_ID',
-                          ],
-                     })
+  Returns:
 
-  [1mmk_log($message, $attr) - add data to logfile;[0m
-    Make log file for paysys request
+     TRUE or FALSE
 
-      Arguments:
-        $message -
-        $attr
-          PAYSYS_ID - payment system ID
-          REQUEST   - System Request
-          REPLY     - ABillS Reply
-          SHOW      - print message to output
-          LOG_FILE  - Log file. (Default: paysys_check.log)
+  Examples:
+    mk_log(&quot;Data for logfile&quot;, { PAYSYS_ID =&gt; &#39;63&#39; });</code></pre>
 
-      Returns:
+<h2 id="paysys_show_result-attr---Show-result">paysys_show_result($attr) - Show result</h2>
 
-         TRUE or FALSE
+<pre><code>  WEB form show result
 
-      Examples:
-        mk_log("Data for logfile", { PAYSYS_ID => '63' });
+  Attributes:
+    $attr
+      TRANSACTION_ID
+      UID
+      SUM
+      SHOW_TRUE_PARAMS - Hash ref
+        {NAME:VALUE}
+      SHOW_FALSE_PARAMS - Hash ref
+        {NAME:VALUE}
+  Results:
+    TRUE or FALSE</code></pre>
 
-  [1mpaysys_show_result($attr) - Show result[0m
-      WEB form show result
+<h2 id="payasys_import_parse-content-import_expr-BINDING_FIELD---Parce-file">payasys_import_parse($content, $import_expr, $BINDING_FIELD) - Parce file</h2>
 
-      Attributes:
-        $attr
-          TRANSACTION_ID
-          UID
-          SUM
-          SHOW_TRUE_PARAMS - Hash ref
-            {NAME:VALUE}
-          SHOW_FALSE_PARAMS - Hash ref
-            {NAME:VALUE}
-      Results:
-        TRUE or FALSE
+<pre><code>  Arguments:
+    $content
+    $import_expr
+    $BINDING_FIELD
+    $attr
+      DEBUG
+      ENCODE
 
-  [1mpayasys_import_parse($content, $import_expr, $BINDING_FIELD) - Parce file[0m
-      Arguments:
-        $content
-        $import_expr
-        $BINDING_FIELD
-        $attr
-          DEBUG
-          ENCODE
-
-      Returns:
-        return \@DATA_ARR, \@BINDING_IDS;
+  Returns:
+    return \@DATA_ARR, \@BINDING_IDS;</code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

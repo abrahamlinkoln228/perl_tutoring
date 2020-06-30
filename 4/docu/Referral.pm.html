@@ -1,111 +1,148 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Referral SQL
-
-  [1mnew($db, $admin, $CONF)[0m
-      Arguments:
-        $db    - ref to DB
-        $admin - current Web session admin
-        $CONF  - ref to %conf
-
-      Returns:
-        object
-
-  [1msettings_get()[0m
-      Arguments:
-        $attr
-          PARAM - specify name of the only param you want to get
-
-      Returns:
-        list
-
-  [1mmax_level_set($all_params)[0m
-      Arguments:
-        $all_params - arr_ref,  list of new parameters
-
-      Returns:
-        1;
-
-      #TODO: When there will be a lot of params, check if need to change
-
-  [1msettings_define($attr)[0m
-      Defines unexistent configuration variables
-
-      Arguments:
-        $attr - hash_ref
-          ALREADY_DEFINED - list
-
-      Returns:
-        1
-
-  [1mlist($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-
-  [1minfo($uid, $attr)[0m
-      Arguments:
-        $uid   - uid of user
-        $attr - hash_ref
-
-      Returns:
-
-  [1madd($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-
-  [1mdel($id)[0m
-      Arguments:
+<body>
 
 
-      Returns:
 
-  [1mchange($attr)[0m
-      Arguments:
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#new-db-admin-CONF">new($db, $admin, $CONF)</a></li>
+      <li><a href="#settings_get">settings_get()</a></li>
+      <li><a href="#max_level_set-all_params">max_level_set($all_params)</a></li>
+      <li><a href="#settings_define-attr">settings_define($attr)</a></li>
+      <li><a href="#list-attr">list($attr)</a></li>
+      <li><a href="#info-uid-attr">info($uid, $attr)</a></li>
+      <li><a href="#add-attr">add($attr)</a></li>
+      <li><a href="#del-id">del($id)</a></li>
+      <li><a href="#change-attr">change($attr)</a></li>
+      <li><a href="#get_user_info-uid">get_user_info($uid)</a></li>
+      <li><a href="#get_referrers_list---get-all-users-who-are-referrers">get_referrers_list() - get all users who are referrers</a></li>
+      <li><a href="#transform_to_hash-list-attr">transform_to_hash($list, $attr)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Referral SQL</code></pre>
+
+<h2 id="new-db-admin-CONF">new($db, $admin, $CONF)</h2>
+
+<pre><code>  Arguments:
+    $db    - ref to DB
+    $admin - current Web session admin
+    $CONF  - ref to %conf
+
+  Returns:
+    object</code></pre>
+
+<h2 id="settings_get">settings_get()</h2>
+
+<pre><code>  Arguments:
+    $attr
+      PARAM - specify name of the only param you want to get
+
+  Returns:
+    list</code></pre>
+
+<h2 id="max_level_set-all_params">max_level_set($all_params)</h2>
+
+<pre><code>  Arguments:
+    $all_params - arr_ref,  list of new parameters
+
+  Returns:
+    1;
+
+  #TODO: When there will be a lot of params, check if need to change</code></pre>
+
+<h2 id="settings_define-attr">settings_define($attr)</h2>
+
+<pre><code>  Defines unexistent configuration variables
+
+  Arguments:
+    $attr - hash_ref
+      ALREADY_DEFINED - list
+
+  Returns:
+    1</code></pre>
+
+<h2 id="list-attr">list($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:</code></pre>
+
+<h2 id="info-uid-attr">info($uid, $attr)</h2>
+
+<pre><code>  Arguments:
+    $uid   - uid of user
+    $attr - hash_ref
+
+  Returns:</code></pre>
+
+<h2 id="add-attr">add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:</code></pre>
+
+<h2 id="del-id">del($id)</h2>
+
+<pre><code>  Arguments:
 
 
-      Returns:
+  Returns:</code></pre>
 
-  [1mget_user_info($uid)[0m
-      Arguments:
-        $uid - Users ID
+<h2 id="change-attr">change($attr)</h2>
 
-      Returns:
-        hash_ref
-          UID => 'FIO ( ID )'
-
-  [1mget_referrers_list() - get all users who are referrers[0m
-      Arguments:
+<pre><code>  Arguments:
 
 
-      Returns:
-        list of all users who are referrers
+  Returns:</code></pre>
 
-  [1mtransform_to_hash($list, $attr)[0m
-      Transforms arr_ref of hash_ref to one hash_ref
+<h2 id="get_user_info-uid">get_user_info($uid)</h2>
 
-      Arguments:
-        $list - DB list, arr_ref of hash_ref
-        $attr
-          NAME_KEY
-          VAL_KEY
+<pre><code>  Arguments:
+    $uid - Users ID
 
-      Returns:
-        hash_ref
+  Returns:
+    hash_ref
+      UID =&gt; &#39;FIO ( ID )&#39;</code></pre>
+
+<h2 id="get_referrers_list---get-all-users-who-are-referrers">get_referrers_list() - get all users who are referrers</h2>
+
+<pre><code>  Arguments:
 
 
-	
-	</body>
-	</html>
-  
+  Returns:
+    list of all users who are referrers</code></pre>
+
+<h2 id="transform_to_hash-list-attr">transform_to_hash($list, $attr)</h2>
+
+<pre><code>  Transforms arr_ref of hash_ref to one hash_ref
+
+  Arguments:
+    $list - DB list, arr_ref of hash_ref
+    $attr
+      NAME_KEY
+      VAL_KEY
+
+  Returns:
+    hash_ref</code></pre>
+
+
+</body>
+
+</html>
+
+

@@ -1,79 +1,117 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mNAME[0m
-      Cams::Zoneminder
+<body>
 
-  [1mSYNOPSIS[0m
-      Bridge beetween ABillS and Zoneminder API
 
-  [1mnew($Cams, $CONF)[0m
-      Arguments:
-        $Cams  - ref to Cams DB object
-        $CONF  - ref to %conf
 
-      Returns:
-        object
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#NAME">NAME</a></li>
+      <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+      <li><a href="#new-Cams-CONF">new($Cams, $CONF)</a></li>
+      <li><a href="#autenticate---Autenticates-against-API-and-saves-cookies">autenticate() - Autenticates against API, and saves cookies</a></li>
+      <li><a href="#monitors_list-attr---retrieves-list-of-all-cams-on-Zoneminder-server">monitors_list($attr) - retrieves list of all cams on Zoneminder server</a></li>
+      <li><a href="#monitors_info-zm_id---returns-Zoneminder-stream-params">monitors_info($zm_id) - returns Zoneminder stream params</a></li>
+      <li><a href="#add_cam-attr---adds-new-live-stream">add_cam($attr) - adds new live stream</a></li>
+      <li><a href="#delete_cam-name---deletes-live-cam-stream">delete_cam($name) - deletes live cam stream</a></li>
+      <li><a href="#change_cam">change_cam()</a></li>
+      <li><a href="#name_for_stream">_name_for_stream()</a></li>
+      <li><a href="#get_cakephp_data_payload-attr">_get_cakephp_data_payload($attr)</a></li>
+      <li><a href="#get_monitor_id_by_billing_id-billing_id">get_monitor_id_by_billing_id($billing_id)</a></li>
+    </ul>
+  </li>
+</ul>
 
-  [1mautenticate() - Autenticates against API, and saves cookies[0m
-      Returns:
-        1
+<h2 id="NAME">NAME</h2>
 
-  [1mmonitors_list($attr) - retrieves list of all cams on Zoneminder server[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Cams::Zoneminder</code></pre>
+
+<h2 id="SYNOPSIS">SYNOPSIS</h2>
+
+<pre><code>  Bridge beetween ABillS and Zoneminder API</code></pre>
+
+<h2 id="new-Cams-CONF">new($Cams, $CONF)</h2>
+
+<pre><code>  Arguments:
+    $Cams  - ref to Cams DB object
+    $CONF  - ref to %conf
+
+  Returns:
+    object</code></pre>
+
+<h2 id="autenticate---Autenticates-against-API-and-saves-cookies">autenticate() - Autenticates against API, and saves cookies</h2>
+
+<pre><code>  Returns:
+    1
+    </code></pre>
+
+<h2 id="monitors_list-attr---retrieves-list-of-all-cams-on-Zoneminder-server">monitors_list($attr) - retrieves list of all cams on Zoneminder server</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
     
-      Returns:
-        hash_ref -
-         monitors - list of monitors [ { Monitor => { params } } ]
+  Returns:
+    hash_ref -
+     monitors - list of monitors [ { Monitor =&gt; { params } } ]</code></pre>
 
-  [1mmonitors_info($zm_id) - returns Zoneminder stream params[0m
-      Arguments:
-        $zm_id - Zoneminder stream_id
+<h2 id="monitors_info-zm_id---returns-Zoneminder-stream-params">monitors_info($zm_id) - returns Zoneminder stream params</h2>
+
+<pre><code>  Arguments:
+    $zm_id - Zoneminder stream_id
     
-      Returns:
-         -
+  Returns:
+     -
+    </code></pre>
 
-  [1madd_cam($attr) - adds new live stream[0m
-      Arguments:
-        $attr -
+<h2 id="add_cam-attr---adds-new-live-stream">add_cam($attr) - adds new live stream</h2>
 
-      Returns:
-        1 - if success
+<pre><code>  Arguments:
+    $attr -
 
-  [1mdelete_cam($name) - deletes live cam stream[0m
-      Arguments:
-        $attr - hash_ref
-          NAME - to delete by name
-          ID   - to delete by id
+  Returns:
+    1 - if success</code></pre>
 
-      Returns:
-        1 - if success
+<h2 id="delete_cam-name---deletes-live-cam-stream">delete_cam($name) - deletes live cam stream</h2>
 
-  [1mchange_cam()[0m
-  [1m_name_for_stream()[0m
-  [1m_get_cakephp_data_payload($attr)[0m
-      Arguments :
-        $attr - hash_ref
-          Name - camera name (Required)
-          Host - camera host (Required)
-          Path - path on camera (Required)
-          Port - camera RTSP_PORT (default : 554)
+<pre><code>  Arguments:
+    $attr - hash_ref
+      NAME - to delete by name
+      ID   - to delete by id
+
+  Returns:
+    1 - if success</code></pre>
+
+<h2 id="change_cam">change_cam()</h2>
+
+<h2 id="name_for_stream">_name_for_stream()</h2>
+
+<h2 id="get_cakephp_data_payload-attr">_get_cakephp_data_payload($attr)</h2>
+
+<pre><code>  Arguments :
+    $attr - hash_ref
+      Name - camera name (Required)
+      Host - camera host (Required)
+      Path - path on camera (Required)
+      Port - camera RTSP_PORT (default : 554)
       
-      Returns:
-       string
+  Returns:
+   string</code></pre>
 
-  [1mget_monitor_id_by_billing_id($billing_id)[0m
-      Get all streams and return first where billing id is found at the end of name
+<h2 id="get_monitor_id_by_billing_id-billing_id">get_monitor_id_by_billing_id($billing_id)</h2>
+
+<pre><code>  Get all streams and return first where billing id is found at the end of name</code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

@@ -1,162 +1,218 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Auth functions
-
-      Arguments:
-        $RAD_HASH_REF  - RADIUS PAIRS
-        $NAS_HASH_REF  - NAS information object
-        $attr          - Extra attributes
-
-      Returns:
-
-  [1mAuth_CID($RAD) - Auth_mac[0m
-      Mac auth function
-
-  [1mauthentication($RAD_HASH_REF, $NAS_HASH_REF, $attr) - User authentication[0m
-  [1mmac_auth($RAD_HASH_REF, $NAS_HASH_REF, $attr) - User authentication[0m
-      Attributes:
-        $RAD_HASH_REF  - RADIUS PAIRS
-        $NAS_HASH_REF  - NAS information object
-        $attr          - Extra attributes
-
-      Returns:
-        ($r, $RAD_PAIRS_REF)
-        $r             - 1 false (Not auth)
-                         0 true  (auth)
-
-        $RAD_PAIRS_REF - Reply rad pairs hash_ref
-
-  [1mcheck_bill_account() - Check Bill account[0m
-  [1mcheck_company_account() - Check Company account[0m
-  [1mex_traffic_params($attr) - Extended traffic parameters[0m
-      Arguments:
-        $attr
-          traf_limit
-          deposit
-          TT_INTERVAL
-          BILLLING
-
-      Require:
-        $self->{TT_INTERVAL}
-
-      Returns:
-        \%EX_PARAMS
-           ex_speed
-           traf_limit_lo
-           traf_limit
-           speed->{XX}->{IN}
-           speed->{XX}->{OUT}
-
-           speed->{XX}->{IN_BURST}
-           speed->{XX}->{OUT_BURST}
-           speed->{XX}->{IN_BURST_THRESHOLD}
-           speed->{XX}->{OUT_BURST_THRESHOLD}
-           speed->{XX}->{IN_BURST_TIME}
-           speed->{XX}->{OUT_BURST_TIME}
-
-  [1mget_ip($nas_num, $nas_ip, $attr) - Get IP for user[0m
-      Arguments:
-       $nas_num  - NAS id
-       $nas_ip   - NAS IP
-       $attr
-         TP_IPPOOL - TP ip pool id
-
-      Returns:
-
-       -2 - No Free Address in TP pool
-       -1 - No free address in nas pool
-        0 - No address pool using nas servers ip address
-       192.168.101.1 - assign ip address
-
-  [1monline_add($attr) - Add session to dv_calls[0m
-  [1mcheck_systemauth($user, $password) - System auth function[0m
-  [1mcheck_chap($given_password,$want_password,$given_chap_challenge) - Check chap password[0m
-  [1mpre_auth($RAD, $attr) - Authorization module[0m
-  [1mneg_deposit_filter_former($RAD, $NAS, $NEG_DEPOSIT_FILTER_ID, $attr)[0m
-      Arguments:
-        $RAD  -
-        $NAS  -
-        $NEG_DEPOSIT_FILTER_ID
-        $attr -
-           RAD_PAIRS  - Rad pairs
-           MESSAGE    - Info message
-
-      Returns:
-        result, $RAD_PAIRS
-
-  [1mrad_pairs_former($content, $attr) - Forming RAD pairs[0m
-      Arguments:
-        $attr
-          RAD_PAIRS - HASH_REF of return rad pairs
-
-      Returns:
-        Result  TRUE or FALSE
-        HAS_REF of formed rad reply
-
-[1mopt82_parse($RAD_REQUEST, $attr) - Parse option 82[0m
-      Arguments:
-        $RAD_REQUEST
-        $attr
-          AUTH_EXPR
-            NAS_MAC, PORT (convert from hex), PORT_MULTI (not converted), DEC_PORT (dec port value), VLAN,
-            SERVER_VLAN, AGENT_REMOTE_ID, CIRCUIT_ID, LOGIN
-
-      Returns:
-        RESULTS - hash_ref
-          NAS_MAC, PORT, VLAN, SERVER_VLAN, AGENT_REMOTE_ID, CIRCUIT_ID, LOGIN
-
-      Conf:
-        $conf{AUTH_EXPR}='';
-
-      Usefull info:
-        http://tools.ietf.org/html/rfc4243
-        http://tools.ietf.org/html/rfc3046#section-7
-
-  [1mdhcp_info($attr, $NAS)[0m
-      Arguments:
-        $attr
-        $NAS
-
-      Results:
-        $self
-
-  [1mleases_add($attr, $NAS) - Add IP to leases[0m
-      Arguments:
-        $attr
-          RESERVED_IP
-          GUEST_MODE
-          GUEST_LEASES
-
-          LEASES_TIME
-          USER_MAC
-          UID
-          CIRCUIT_ID
-          AGENT_REMOTE_ID
-          HOSTNAME
-          IP
-          PORT
-          VLAN
-          NAS_MAC
-
-        $NAS
-
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 76:
-        Unknown directive: =head
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#Auth_CID-RAD---Auth_mac">Auth_CID($RAD) - Auth_mac</a></li>
+      <li><a href="#authentication-RAD_HASH_REF-NAS_HASH_REF-attr---User-authentication">authentication($RAD_HASH_REF, $NAS_HASH_REF, $attr) - User authentication</a></li>
+      <li><a href="#mac_auth-RAD_HASH_REF-NAS_HASH_REF-attr---User-authentication">mac_auth($RAD_HASH_REF, $NAS_HASH_REF, $attr) - User authentication</a></li>
+      <li><a href="#check_bill_account---Check-Bill-account">check_bill_account() - Check Bill account</a></li>
+      <li><a href="#check_company_account---Check-Company-account">check_company_account() - Check Company account</a></li>
+      <li><a href="#ex_traffic_params-attr---Extended-traffic-parameters">ex_traffic_params($attr) - Extended traffic parameters</a></li>
+      <li><a href="#get_ip-nas_num-nas_ip-attr---Get-IP-for-user">get_ip($nas_num, $nas_ip, $attr) - Get IP for user</a></li>
+      <li><a href="#online_add-attr---Add-session-to-dv_calls">online_add($attr) - Add session to dv_calls</a></li>
+      <li><a href="#check_systemauth-user-password---System-auth-function">check_systemauth($user, $password) - System auth function</a></li>
+      <li><a href="#check_chap-given_password-want_password-given_chap_challenge---Check-chap-password">check_chap($given_password,$want_password,$given_chap_challenge) - Check chap password</a></li>
+      <li><a href="#pre_auth-RAD-attr---Authorization-module">pre_auth($RAD, $attr) - Authorization module</a></li>
+      <li><a href="#neg_deposit_filter_former-RAD-NAS-NEG_DEPOSIT_FILTER_ID-attr">neg_deposit_filter_former($RAD, $NAS, $NEG_DEPOSIT_FILTER_ID, $attr)</a></li>
+      <li><a href="#rad_pairs_former-content-attr---Forming-RAD-pairs">rad_pairs_former($content, $attr) - Forming RAD pairs</a></li>
+    </ul>
+  </li>
+  <li><a href="#opt82_parse-RAD_REQUEST-attr---Parse-option-82">opt82_parse($RAD_REQUEST, $attr) - Parse option 82</a>
+    <ul>
+      <li><a href="#dhcp_info-attr-NAS">dhcp_info($attr, $NAS)</a></li>
+      <li><a href="#leases_add-attr-NAS---Add-IP-to-leases">leases_add($attr, $NAS) - Add IP to leases</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Auth functions</code></pre>
+
+<pre><code>  Arguments:
+    $RAD_HASH_REF  - RADIUS PAIRS
+    $NAS_HASH_REF  - NAS information object
+    $attr          - Extra attributes
+
+  Returns:</code></pre>
+
+<h2 id="Auth_CID-RAD---Auth_mac">Auth_CID($RAD) - Auth_mac</h2>
+
+<pre><code>  Mac auth function</code></pre>
+
+<h2 id="authentication-RAD_HASH_REF-NAS_HASH_REF-attr---User-authentication">authentication($RAD_HASH_REF, $NAS_HASH_REF, $attr) - User authentication</h2>
+
+<h2 id="mac_auth-RAD_HASH_REF-NAS_HASH_REF-attr---User-authentication">mac_auth($RAD_HASH_REF, $NAS_HASH_REF, $attr) - User authentication</h2>
+
+<pre><code>  Attributes:
+    $RAD_HASH_REF  - RADIUS PAIRS
+    $NAS_HASH_REF  - NAS information object
+    $attr          - Extra attributes
+
+  Returns:
+    ($r, $RAD_PAIRS_REF)
+    $r             - 1 false (Not auth)
+                     0 true  (auth)
+
+    $RAD_PAIRS_REF - Reply rad pairs hash_ref</code></pre>
+
+<h2 id="check_bill_account---Check-Bill-account">check_bill_account() - Check Bill account</h2>
+
+<h2 id="check_company_account---Check-Company-account">check_company_account() - Check Company account</h2>
+
+<h2 id="ex_traffic_params-attr---Extended-traffic-parameters">ex_traffic_params($attr) - Extended traffic parameters</h2>
+
+<pre><code>  Arguments:
+    $attr
+      traf_limit
+      deposit
+      TT_INTERVAL
+      BILLLING
+
+  Require:
+    $self-&gt;{TT_INTERVAL}
+
+  Returns:
+    \%EX_PARAMS
+       ex_speed
+       traf_limit_lo
+       traf_limit
+       speed-&gt;{XX}-&gt;{IN}
+       speed-&gt;{XX}-&gt;{OUT}
+
+       speed-&gt;{XX}-&gt;{IN_BURST}
+       speed-&gt;{XX}-&gt;{OUT_BURST}
+       speed-&gt;{XX}-&gt;{IN_BURST_THRESHOLD}
+       speed-&gt;{XX}-&gt;{OUT_BURST_THRESHOLD}
+       speed-&gt;{XX}-&gt;{IN_BURST_TIME}
+       speed-&gt;{XX}-&gt;{OUT_BURST_TIME}</code></pre>
+
+<h2 id="get_ip-nas_num-nas_ip-attr---Get-IP-for-user">get_ip($nas_num, $nas_ip, $attr) - Get IP for user</h2>
+
+<pre><code>  Arguments:
+   $nas_num  - NAS id
+   $nas_ip   - NAS IP
+   $attr
+     TP_IPPOOL - TP ip pool id
+
+  Returns:
+
+   -2 - No Free Address in TP pool
+   -1 - No free address in nas pool
+    0 - No address pool using nas servers ip address
+   192.168.101.1 - assign ip address</code></pre>
+
+<h2 id="online_add-attr---Add-session-to-dv_calls">online_add($attr) - Add session to dv_calls</h2>
+
+<h2 id="check_systemauth-user-password---System-auth-function">check_systemauth($user, $password) - System auth function</h2>
+
+<h2 id="check_chap-given_password-want_password-given_chap_challenge---Check-chap-password">check_chap($given_password,$want_password,$given_chap_challenge) - Check chap password</h2>
+
+<h2 id="pre_auth-RAD-attr---Authorization-module">pre_auth($RAD, $attr) - Authorization module</h2>
+
+<h2 id="neg_deposit_filter_former-RAD-NAS-NEG_DEPOSIT_FILTER_ID-attr">neg_deposit_filter_former($RAD, $NAS, $NEG_DEPOSIT_FILTER_ID, $attr)</h2>
+
+<pre><code>  Arguments:
+    $RAD  -
+    $NAS  -
+    $NEG_DEPOSIT_FILTER_ID
+    $attr -
+       RAD_PAIRS  - Rad pairs
+       MESSAGE    - Info message
+
+  Returns:
+    result, $RAD_PAIRS</code></pre>
+
+<h2 id="rad_pairs_former-content-attr---Forming-RAD-pairs">rad_pairs_former($content, $attr) - Forming RAD pairs</h2>
+
+<pre><code>  Arguments:
+    $attr
+      RAD_PAIRS - HASH_REF of return rad pairs
+
+  Returns:
+    Result  TRUE or FALSE
+    HAS_REF of formed rad reply</code></pre>
+
+<h1 id="opt82_parse-RAD_REQUEST-attr---Parse-option-82">opt82_parse($RAD_REQUEST, $attr) - Parse option 82</h1>
+
+<pre><code>  Arguments:
+    $RAD_REQUEST
+    $attr
+      AUTH_EXPR
+        NAS_MAC, PORT (convert from hex), PORT_MULTI (not converted), DEC_PORT (dec port value), VLAN,
+        SERVER_VLAN, AGENT_REMOTE_ID, CIRCUIT_ID, LOGIN
+
+  Returns:
+    RESULTS - hash_ref
+      NAS_MAC, PORT, VLAN, SERVER_VLAN, AGENT_REMOTE_ID, CIRCUIT_ID, LOGIN
+
+  Conf:
+    $conf{AUTH_EXPR}=&#39;&#39;;
+
+  Usefull info:
+    http://tools.ietf.org/html/rfc4243
+    http://tools.ietf.org/html/rfc3046#section-7</code></pre>
+
+<h2 id="dhcp_info-attr-NAS">dhcp_info($attr, $NAS)</h2>
+
+<pre><code>  Arguments:
+    $attr
+    $NAS
+
+  Results:
+    $self</code></pre>
+
+<h2 id="leases_add-attr-NAS---Add-IP-to-leases">leases_add($attr, $NAS) - Add IP to leases</h2>
+
+<pre><code>  Arguments:
+    $attr
+      RESERVED_IP
+      GUEST_MODE
+      GUEST_LEASES
+
+      LEASES_TIME
+      USER_MAC
+      UID
+      CIRCUIT_ID
+      AGENT_REMOTE_ID
+      HOSTNAME
+      IP
+      PORT
+      VLAN
+      NAS_MAC
+
+    $NAS</code></pre>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-76">Around line 76:</dt>
+<dd>
+
+<p>Unknown directive: =head</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

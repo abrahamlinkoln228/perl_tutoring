@@ -1,78 +1,113 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-     Ipn Collector functions
+<body>
 
-  [1mtraffic_agregate_clean()[0m
-  [1mtraffic_agregate_users($DATA) - Get Data and agregate it by users[0m
-      Arguments:
-        $DATA  - Data hash_ref
-          SRC_IP
-          DST_IP
-          SRC_PORT
-          DST_PORT
-          PROTOCOL
-          SIZE
-          NAS_ID
-          UID
-          START
-          STOP
 
-      Returns:
 
-  [1mtraffic_agregate_nets($DATA)[0m
-  [1mget_interval_params()[0m
-  [1mip_in_zone($ip_num, $port, $zoneid, $zone_data) - Check IP in zone[0m
-      Arguments:
-        $ip_num,    - IP in NUm format
-        $port       - Port
-        $zoneid     - Zone ID
-        $zone_data  - Zone hash_ref
-           IP    - IP in num format;
-           Mask  - NETMASK in num format
-           Neg   - Negative result
-           Ports - Array of ports
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#traffic_agregate_clean">traffic_agregate_clean()</a></li>
+      <li><a href="#traffic_agregate_users-DATA---Get-Data-and-agregate-it-by-users">traffic_agregate_users($DATA) - Get Data and agregate it by users</a></li>
+      <li><a href="#traffic_agregate_nets-DATA">traffic_agregate_nets($DATA)</a></li>
+      <li><a href="#get_interval_params">get_interval_params()</a></li>
+      <li><a href="#ip_in_zone-ip_num-port-zoneid-zone_data---Check-IP-in-zone">ip_in_zone($ip_num, $port, $zoneid, $zone_data) - Check IP in zone</a></li>
+      <li><a href="#traffic_add_user-DATA---Add-traffic-to-DB">traffic_add_user($DATA) - Add traffic to DB</a></li>
+      <li><a href="#traffic_user_get-attr---Get-used-traffic-from-DB">traffic_user_get($attr) - Get used traffic from DB</a></li>
+      <li><a href="#traffic_add-DATA---Add-traffic-to-DB">traffic_add($DATA) - Add traffic to DB</a></li>
+      <li><a href="#acct_update-DATA-Acct_update">acct_update($DATA) Acct_update</a></li>
+    </ul>
+  </li>
+  <li><a href="#acct_stop-attr---Stop-accounting-Arguments:-attr-ACCT_SESSION_ID">acct_stop($attr) - Stop accounting Arguments: $attr ACCT_SESSION_ID</a>
+    <ul>
+      <li><a href="#unknown_add-attr---Add-unknown-ip-address">unknown_add($attr) - Add unknown ip address</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Result:
-        0 - True
-        1 - False
+<h1 id="NAME">NAME</h1>
 
-  [1mtraffic_add_user($DATA) - Add traffic to DB[0m
-  [1mtraffic_user_get($attr) - Get used traffic from DB[0m
-  [1mtraffic_add($DATA) - Add traffic to DB[0m
-      Arguments:
-        $DATA  - Data hash_ref
-          SRC_IP
-          DST_IP
-          SRC_PORT
-          DST_PORT
-          PROTOCOL
-          SIZE
-          NAS_ID
-          UID
-          START
-          STOP
+<pre><code> Ipn Collector functions</code></pre>
 
-      Returns:
-        Object
+<h2 id="traffic_agregate_clean">traffic_agregate_clean()</h2>
 
-  [1macct_update($DATA) Acct_update[0m
-[1macct_stop($attr) - Stop accounting
-  Arguments:
-    $attr
-      ACCT_SESSION_ID[0m
-      Returns:
+<h2 id="traffic_agregate_users-DATA---Get-Data-and-agregate-it-by-users">traffic_agregate_users($DATA) - Get Data and agregate it by users</h2>
 
-  [1munknown_add($attr) - Add unknown ip address[0m
+<pre><code>  Arguments:
+    $DATA  - Data hash_ref
+      SRC_IP
+      DST_IP
+      SRC_PORT
+      DST_PORT
+      PROTOCOL
+      SIZE
+      NAS_ID
+      UID
+      START
+      STOP
 
-	
-	</body>
-	</html>
-  
+  Returns:</code></pre>
+
+<h2 id="traffic_agregate_nets-DATA">traffic_agregate_nets($DATA)</h2>
+
+<h2 id="get_interval_params">get_interval_params()</h2>
+
+<h2 id="ip_in_zone-ip_num-port-zoneid-zone_data---Check-IP-in-zone">ip_in_zone($ip_num, $port, $zoneid, $zone_data) - Check IP in zone</h2>
+
+<pre><code>  Arguments:
+    $ip_num,    - IP in NUm format
+    $port       - Port
+    $zoneid     - Zone ID
+    $zone_data  - Zone hash_ref
+       IP    - IP in num format;
+       Mask  - NETMASK in num format
+       Neg   - Negative result
+       Ports - Array of ports
+
+  Result:
+    0 - True
+    1 - False</code></pre>
+
+<h2 id="traffic_add_user-DATA---Add-traffic-to-DB">traffic_add_user($DATA) - Add traffic to DB</h2>
+
+<h2 id="traffic_user_get-attr---Get-used-traffic-from-DB">traffic_user_get($attr) - Get used traffic from DB</h2>
+
+<h2 id="traffic_add-DATA---Add-traffic-to-DB">traffic_add($DATA) - Add traffic to DB</h2>
+
+<pre><code>  Arguments:
+    $DATA  - Data hash_ref
+      SRC_IP
+      DST_IP
+      SRC_PORT
+      DST_PORT
+      PROTOCOL
+      SIZE
+      NAS_ID
+      UID
+      START
+      STOP
+
+  Returns:
+    Object</code></pre>
+
+<h2 id="acct_update-DATA-Acct_update">acct_update($DATA) Acct_update</h2>
+
+<h1 id="acct_stop-attr---Stop-accounting-Arguments:-attr-ACCT_SESSION_ID">acct_stop($attr) - Stop accounting Arguments: $attr ACCT_SESSION_ID</h1>
+
+<pre><code>  Returns:</code></pre>
+
+<h2 id="unknown_add-attr---Add-unknown-ip-address">unknown_add($attr) - Add unknown ip address</h2>
+
+
+</body>
+
+</html>
+
+

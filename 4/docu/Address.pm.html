@@ -1,81 +1,140 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Address manage functions
-
-  [1maddress_info($id) - Address register full address info[0m
-      Arguments:
-        $id  - Location id
-
-      Returns:
-        Address object
-          DISTRICT_ID
-          CITY
-          ADDRESS_DISTRICT
-          ADDRESS_STREET
-          ADDRESS_BUILD
-          STREET_ID
-          ZIP
-          COORDX
-
-  [1maddress_list($attr) - returns list of all builds in DB[0m
-      Arguments:
-        $attr - hash_ref, reserved for future
-
-      Returns:
-        Address_list
-          DISTRICT_ID
-          DISTRICT_NAME
-          STREET_ID
-          STREET_NAME
-          STREET_DISTRICT_ID
-          BUILD_ID
-          BUILD_NAME
-          BUILD_STREET_ID
-
-  [1maddress_parentness($in_array_func, $attr) - Build an parentness tree for districts->streets->builds[0m
-      We need to pass here an $in_array function to avoid using Base.pm
-
-      Arguments:
-        $in_array_func - refference for a in_array function
-        $attr - hash_ref
-          STREETS - boolean (do not make builds)
+<body>
 
 
 
-      Returns:
-        $list - DB list of builds
-        $parentness_hash - districts->streets->builds ierarchy. You can read more doc in HTML::build_parentness_tree()
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#address_info-id---Address-register-full-address-info">address_info($id) - Address register full address info</a></li>
+      <li><a href="#address_list-attr---returns-list-of-all-builds-in-DB">address_list($attr) - returns list of all builds in DB</a></li>
+      <li><a href="#address_parentness-in_array_func-attr---Build-an-parentness-tree-for-districts-streets-builds">address_parentness($in_array_func, $attr) - Build an parentness tree for districts-&gt;streets-&gt;builds</a></li>
+      <li><a href="#district_list-attr---District-list">district_list($attr) - District list</a></li>
+      <li><a href="#district_info-attr">district_info($attr)</a></li>
+      <li><a href="#district_change-attr">district_change($attr)</a></li>
+      <li><a href="#district_add-attr---Add-district">district_add($attr) - Add district</a></li>
+      <li><a href="#district_del-id---District-name">district_del($id) - District name</a></li>
+      <li><a href="#street_list-attr---Street-list">street_list($attr) - Street list</a></li>
+      <li><a href="#street_info-attr">street_info($attr)</a></li>
+      <li><a href="#street_change-attr">street_change($attr)</a></li>
+      <li><a href="#street_add-attr">street_add($attr)</a></li>
+      <li><a href="#street_del-id">street_del($id)</a></li>
+      <li><a href="#build_list-attr">build_list($attr)</a></li>
+      <li><a href="#build_info-attr">build_info($attr)</a></li>
+      <li><a href="#build_change-attr">build_change($attr)</a></li>
+      <li><a href="#build_add-attr">build_add($attr)</a></li>
+      <li><a href="#build_del-id">build_del($id)</a></li>
+      <li><a href="#location_media_list-attr">location_media_list($attr)</a></li>
+      <li><a href="#location_media_info-attr">location_media_info($attr)</a></li>
+      <li><a href="#location_media_change-attr">location_media_change($attr)</a></li>
+      <li><a href="#location_media_add-attr">location_media_add($attr)</a></li>
+      <li><a href="#location_media_del-id">location_media_del($id)</a></li>
+    </ul>
+  </li>
+</ul>
 
-  [1mdistrict_list($attr) - District list[0m
-  [1mdistrict_info($attr)[0m
-  [1mdistrict_change($attr)[0m
-  [1mdistrict_add($attr) - Add district[0m
-  [1mdistrict_del($id) - District name[0m
-  [1mstreet_list($attr) - Street list[0m
-  [1mstreet_info($attr)[0m
-  [1mstreet_change($attr)[0m
-  [1mstreet_add($attr)[0m
-  [1mstreet_del($id)[0m
-  [1mbuild_list($attr)[0m
-  [1mbuild_info($attr)[0m
-  [1mbuild_change($attr)[0m
-  [1mbuild_add($attr)[0m
-  [1mbuild_del($id)[0m
-  [1mlocation_media_list($attr)[0m
-  [1mlocation_media_info($attr)[0m
-  [1mlocation_media_change($attr)[0m
-  [1mlocation_media_add($attr)[0m
-  [1mlocation_media_del($id)[0m
+<h1 id="NAME">NAME</h1>
 
-	
-	</body>
-	</html>
-  
+<pre><code>  Address manage functions</code></pre>
+
+<h2 id="address_info-id---Address-register-full-address-info">address_info($id) - Address register full address info</h2>
+
+<pre><code>  Arguments:
+    $id  - Location id
+
+  Returns:
+    Address object
+      DISTRICT_ID
+      CITY
+      ADDRESS_DISTRICT
+      ADDRESS_STREET
+      ADDRESS_BUILD
+      STREET_ID
+      ZIP
+      COORDX</code></pre>
+
+<h2 id="address_list-attr---returns-list-of-all-builds-in-DB">address_list($attr) - returns list of all builds in DB</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref, reserved for future
+
+  Returns:
+    Address_list
+      DISTRICT_ID
+      DISTRICT_NAME
+      STREET_ID
+      STREET_NAME
+      STREET_DISTRICT_ID
+      BUILD_ID
+      BUILD_NAME
+      BUILD_STREET_ID</code></pre>
+
+<h2 id="address_parentness-in_array_func-attr---Build-an-parentness-tree-for-districts-streets-builds">address_parentness($in_array_func, $attr) - Build an parentness tree for districts-&gt;streets-&gt;builds</h2>
+
+<pre><code>  We need to pass here an $in_array function to avoid using Base.pm
+
+  Arguments:
+    $in_array_func - refference for a in_array function
+    $attr - hash_ref
+      STREETS - boolean (do not make builds)
+
+
+
+  Returns:
+    $list - DB list of builds
+    $parentness_hash - districts-&gt;streets-&gt;builds ierarchy. You can read more doc in HTML::build_parentness_tree()</code></pre>
+
+<h2 id="district_list-attr---District-list">district_list($attr) - District list</h2>
+
+<h2 id="district_info-attr">district_info($attr)</h2>
+
+<h2 id="district_change-attr">district_change($attr)</h2>
+
+<h2 id="district_add-attr---Add-district">district_add($attr) - Add district</h2>
+
+<h2 id="district_del-id---District-name">district_del($id) - District name</h2>
+
+<h2 id="street_list-attr---Street-list">street_list($attr) - Street list</h2>
+
+<h2 id="street_info-attr">street_info($attr)</h2>
+
+<h2 id="street_change-attr">street_change($attr)</h2>
+
+<h2 id="street_add-attr">street_add($attr)</h2>
+
+<h2 id="street_del-id">street_del($id)</h2>
+
+<h2 id="build_list-attr">build_list($attr)</h2>
+
+<h2 id="build_info-attr">build_info($attr)</h2>
+
+<h2 id="build_change-attr">build_change($attr)</h2>
+
+<h2 id="build_add-attr">build_add($attr)</h2>
+
+<h2 id="build_del-id">build_del($id)</h2>
+
+<h2 id="location_media_list-attr">location_media_list($attr)</h2>
+
+<h2 id="location_media_info-attr">location_media_info($attr)</h2>
+
+<h2 id="location_media_change-attr">location_media_change($attr)</h2>
+
+<h2 id="location_media_add-attr">location_media_add($attr)</h2>
+
+<h2 id="location_media_del-id">location_media_del($id)</h2>
+
+
+</body>
+
+</html>
+
+

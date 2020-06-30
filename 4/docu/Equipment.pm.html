@@ -1,174 +1,317 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Equipment managment system
+<body>
 
-  [1mvendor_list($attr)[0m
-  [1mvendor_add($attr)[0m
-  [1mvendor_info($id, $attr) - Vendor info[0m
-  [1mvendor_change($attr)[0m
-  [1mvendor_del($id)[0m
-  [1mtype_list($attr)[0m
-  [1mtype_add($attr)[0m
-  [1mtype_change($attr)[0m
-  [1mtype_del($id)[0m
-  [1mtype_info($id, $attr)[0m
-  [1mmodel_list($attr)[0m
-  [1mmodel_add($attr)[0m
-  [1mmodel_change($attr)[0m
-  [1mmodel_del($id)[0m
-  [1mmodel_info($id, $attr) - Get model information[0m
-      Arguments:
-        $id
-        $attr
 
-      Returns:
-        Object
 
-  [1m_list($attr) - Equipment list[0m
-  [1m_add($attr)[0m
-  [1m_change($attr)[0m
-  [1m_del($id)[0m
-  [1m_info($id, $attr) - Equipment unit information[0m
-      Arguments:
-        $id
-        $attr
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#vendor_list-attr">vendor_list($attr)</a></li>
+      <li><a href="#vendor_add-attr">vendor_add($attr)</a></li>
+      <li><a href="#vendor_info-id-attr---Vendor-info">vendor_info($id, $attr) - Vendor info</a></li>
+      <li><a href="#vendor_change-attr">vendor_change($attr)</a></li>
+      <li><a href="#vendor_del-id">vendor_del($id)</a></li>
+      <li><a href="#type_list-attr">type_list($attr)</a></li>
+      <li><a href="#type_add-attr">type_add($attr)</a></li>
+      <li><a href="#type_change-attr">type_change($attr)</a></li>
+      <li><a href="#type_del-id">type_del($id)</a></li>
+      <li><a href="#type_info-id-attr">type_info($id, $attr)</a></li>
+      <li><a href="#model_list-attr">model_list($attr)</a></li>
+      <li><a href="#model_add-attr">model_add($attr)</a></li>
+      <li><a href="#model_change-attr">model_change($attr)</a></li>
+      <li><a href="#model_del-id">model_del($id)</a></li>
+      <li><a href="#model_info-id-attr---Get-model-information">model_info($id, $attr) - Get model information</a></li>
+      <li><a href="#list-attr---Equipment-list">_list($attr) - Equipment list</a></li>
+      <li><a href="#add-attr">_add($attr)</a></li>
+      <li><a href="#change-attr">_change($attr)</a></li>
+      <li><a href="#del-id">_del($id)</a></li>
+      <li><a href="#info-id-attr---Equipment-unit-information">_info($id, $attr) - Equipment unit information</a></li>
+      <li><a href="#port_list-attr">port_list($attr)</a></li>
+      <li><a href="#port_add-attr">port_add($attr)</a></li>
+      <li><a href="#port_change-attr">port_change($attr)</a></li>
+      <li><a href="#port_del-id">port_del($id)</a></li>
+      <li><a href="#port_info-attr">port_info($attr)</a></li>
+      <li><a href="#extra_port_update-attr">extra_port_update($attr)</a></li>
+      <li><a href="#extra_ports_list-id">extra_ports_list($id)</a></li>
+      <li><a href="#vlan_add-attr---add-vlan-to-db">vlan_add($attr) - add vlan to db</a></li>
+      <li><a href="#vlan_change-attr---change-info-about-vlan">vlan_change($attr) - change info about vlan</a></li>
+      <li><a href="#vlan_del-attr---delete-vlan-from-db">vlan_del($attr) - delete vlan from db</a></li>
+      <li><a href="#vlan_info-attr---get-vlan-info">vlan_info($attr) - get vlan info</a></li>
+      <li><a href="#vlan_list-attr---get-vlans-list">vlan_list($attr) - get vlans list</a></li>
+      <li><a href="#traps_del-attr">traps_del($attr)</a></li>
+      <li><a href="#trap_list-attr">trap_list($attr)</a></li>
+      <li><a href="#graph_list-attr">graph_list($attr)</a></li>
+      <li><a href="#graph_add-attr">graph_add($attr)</a></li>
+      <li><a href="#graph_change-attr">graph_change($attr)</a></li>
+      <li><a href="#graph_del-id">graph_del($id)</a></li>
+      <li><a href="#graph_info-id-attr">graph_info($id, $attr)</a></li>
+      <li><a href="#mac_log_list-attr">mac_log_list($attr)</a></li>
+      <li><a href="#mac_log_add-attr">mac_log_add($attr)</a></li>
+      <li><a href="#mac_notif_add-attr">mac_notif_add($attr)</a></li>
+      <li><a href="#mac_log_del-attr">mac_log_del($attr)</a></li>
+      <li><a href="#info_add-attr---info_add">info_add($attr) - info_add</a></li>
+      <li><a href="#info_del-attr">info_del($attr)</a></li>
+      <li><a href="#info_list-attr">info_list($attr)</a></li>
+      <li><a href="#info_port-attr">info_port($attr)</a></li>
+      <li><a href="#snmp_tpl_add">snmp_tpl_add</a></li>
+      <li><a href="#snmp_tpl_list-attr">snmp_tpl_list($attr)</a></li>
+      <li><a href="#onu_list-attr">onu_list($attr)</a></li>
+      <li><a href="#type_add-attr1">type_add($attr)</a></li>
+      <li><a href="#type_change-attr1">type_change($attr)</a></li>
+      <li><a href="#onu_del-id">onu_del($id)</a></li>
+      <li><a href="#onu_info-id-attr">onu_info($id, $attr)</a></li>
+      <li><a href="#pon_port_list-attr">pon_port_list($attr)</a></li>
+      <li><a href="#pon_port_add-attr">pon_port_add($attr)</a></li>
+      <li><a href="#pon_port_change-attr">pon_port_change($attr)</a></li>
+      <li><a href="#pon_port_del-id">pon_port_del($id)</a></li>
+      <li><a href="#type_info-id-attr1">type_info($id, $attr)</a></li>
+      <li><a href="#trap_type_add-attr">trap_type_add($attr) -</a></li>
+      <li><a href="#trap_type_list-attr">trap_type_list($attr) -</a></li>
+      <li><a href="#trap_type_del">trap_type_del() -</a></li>
+      <li><a href="#trap_type_change">trap_type_change() -</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Returns:
-        Object
+<h1 id="NAME">NAME</h1>
 
-  [1mport_list($attr)[0m
-  [1mport_add($attr)[0m
-  [1mport_change($attr)[0m
-  [1mport_del($id)[0m
-  [1mport_info($attr)[0m
-      Argumnets:
-        $attr
-          NAS_ID
-          PORT
+<pre><code>  Equipment managment system</code></pre>
 
-  [1mextra_port_update($attr)[0m
-      Arguments:
-        $attr
-          MODEL_ID          - Model ID to change ports
-          EXTRA_PORTS       - hash_ref  port numbers => type
-          EXTRA_PORT_ROWS  - hash_ref  port_number => row
+<h2 id="vendor_list-attr">vendor_list($attr)</h2>
 
-      Returns:
+<h2 id="vendor_add-attr">vendor_add($attr)</h2>
 
-  [1mextra_ports_list($id)[0m
-      Arguments:
-        $id - Id of model
+<h2 id="vendor_info-id-attr---Vendor-info">vendor_info($id, $attr) - Vendor info</h2>
 
-      Returns:
-        DB_LIST
+<h2 id="vendor_change-attr">vendor_change($attr)</h2>
 
-  [1mvlan_add($attr) - add vlan to db[0m
-      Arguments:
+<h2 id="vendor_del-id">vendor_del($id)</h2>
+
+<h2 id="type_list-attr">type_list($attr)</h2>
+
+<h2 id="type_add-attr">type_add($attr)</h2>
+
+<h2 id="type_change-attr">type_change($attr)</h2>
+
+<h2 id="type_del-id">type_del($id)</h2>
+
+<h2 id="type_info-id-attr">type_info($id, $attr)</h2>
+
+<h2 id="model_list-attr">model_list($attr)</h2>
+
+<h2 id="model_add-attr">model_add($attr)</h2>
+
+<h2 id="model_change-attr">model_change($attr)</h2>
+
+<h2 id="model_del-id">model_del($id)</h2>
+
+<h2 id="model_info-id-attr---Get-model-information">model_info($id, $attr) - Get model information</h2>
+
+<pre><code>  Arguments:
+    $id
+    $attr
+
+  Returns:
+    Object</code></pre>
+
+<h2 id="list-attr---Equipment-list">_list($attr) - Equipment list</h2>
+
+<h2 id="add-attr">_add($attr)</h2>
+
+<h2 id="change-attr">_change($attr)</h2>
+
+<h2 id="del-id">_del($id)</h2>
+
+<h2 id="info-id-attr---Equipment-unit-information">_info($id, $attr) - Equipment unit information</h2>
+
+<pre><code>  Arguments:
+    $id
+    $attr
+
+  Returns:
+    Object</code></pre>
+
+<h2 id="port_list-attr">port_list($attr)</h2>
+
+<h2 id="port_add-attr">port_add($attr)</h2>
+
+<h2 id="port_change-attr">port_change($attr)</h2>
+
+<h2 id="port_del-id">port_del($id)</h2>
+
+<h2 id="port_info-attr">port_info($attr)</h2>
+
+<pre><code>  Argumnets:
+    $attr
+      NAS_ID
+      PORT</code></pre>
+
+<h2 id="extra_port_update-attr">extra_port_update($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr
+      MODEL_ID          - Model ID to change ports
+      EXTRA_PORTS       - hash_ref  port numbers =&gt; type
+      EXTRA_PORT_ROWS  - hash_ref  port_number =&gt; row
+
+  Returns:</code></pre>
+
+<h2 id="extra_ports_list-id">extra_ports_list($id)</h2>
+
+<pre><code>  Arguments:
+    $id - Id of model
+
+  Returns:
+    DB_LIST</code></pre>
+
+<h2 id="vlan_add-attr---add-vlan-to-db">vlan_add($attr) - add vlan to db</h2>
+
+<pre><code>  Arguments:
     
-      Returns:
+  Returns:
 
-      Example:
-        $Equipment->vlan_add({%FORM});
+  Example:
+    $Equipment-&gt;vlan_add({%FORM});
+  </code></pre>
 
-  [1mvlan_change($attr) - change info about vlan[0m
-      Arguments:
+<h2 id="vlan_change-attr---change-info-about-vlan">vlan_change($attr) - change info about vlan</h2>
+
+<pre><code>  Arguments:
     
-      Returns:
+  Returns:
 
-      Example:
-        $Equipment->vlan_change({ID => $FORM{id}, %FORM});
+  Example:
+    $Equipment-&gt;vlan_change({ID =&gt; $FORM{id}, %FORM});
+  </code></pre>
 
-  [1mvlan_del($attr) - delete vlan from db[0m
-      Arguments:
+<h2 id="vlan_del-attr---delete-vlan-from-db">vlan_del($attr) - delete vlan from db</h2>
+
+<pre><code>  Arguments:
     
-      Returns:
+  Returns:
 
-      Example:
-        $Equipment->vlan_del({ID => $FORM{del}});
+  Example:
+    $Equipment-&gt;vlan_del({ID =&gt; $FORM{del}});
+  </code></pre>
 
-  [1mvlan_info($attr) - get vlan info[0m
-      Arguments:
+<h2 id="vlan_info-attr---get-vlan-info">vlan_info($attr) - get vlan info</h2>
+
+<pre><code>  Arguments:
     
-      Returns:
+  Returns:
 
-      Example:
-        $vlan_info = $Equipment->vlan_info({ID => $FORM{chg}});
+  Example:
+    $vlan_info = $Equipment-&gt;vlan_info({ID =&gt; $FORM{chg}});</code></pre>
 
-  [1mvlan_list($attr) - get vlans list[0m
-      Arguments:
+<h2 id="vlan_list-attr---get-vlans-list">vlan_list($attr) - get vlans list</h2>
+
+<pre><code>  Arguments:
     
     
-      Returns:
+  Returns:
 
-      Example:
-        $Equipment->vlan_list({COLS_NAME => 1});
+  Example:
+    $Equipment-&gt;vlan_list({COLS_NAME =&gt; 1});
+  </code></pre>
 
-  [1mtraps_del($attr)[0m
-  [1mtrap_list($attr)[0m
-  [1mgraph_list($attr)[0m
-  [1mgraph_add($attr)[0m
-  [1mgraph_change($attr)[0m
-  [1mgraph_del($id)[0m
-  [1mgraph_info($id, $attr)[0m
-  [1mmac_log_list($attr)[0m
-  [1mmac_log_add($attr)[0m
-      Arguments:
-        $attr
+<h2 id="traps_del-attr">traps_del($attr)</h2>
 
-  [1mmac_notif_add($attr)[0m
-      Arguments:
-        $attr
+<h2 id="trap_list-attr">trap_list($attr)</h2>
 
-  [1mmac_log_del($attr)[0m
-  [1minfo_add($attr) - info_add[0m
-  [1minfo_del($attr)[0m
-  [1minfo_list($attr)[0m
-  [1minfo_port($attr)[0m
-  [1msnmp_tpl_add[0m
-  [1msnmp_tpl_list($attr)[0m
-  [1monu_list($attr)[0m
-  [1mtype_add($attr)[0m
-  [1mtype_change($attr)[0m
-  [1monu_del($id)[0m
-  [1monu_info($id, $attr)[0m
-  [1mpon_port_list($attr)[0m
-  [1mpon_port_add($attr)[0m
-  [1mpon_port_change($attr)[0m
-  [1mpon_port_del($id)[0m
-  [1mtype_info($id, $attr)[0m
-  [1mtrap_type_add($attr) -[0m
-      Arguments:
-        $attr -
+<h2 id="graph_list-attr">graph_list($attr)</h2>
 
-      Returns:
+<h2 id="graph_add-attr">graph_add($attr)</h2>
 
-      Examples:
+<h2 id="graph_change-attr">graph_change($attr)</h2>
 
-  [1mtrap_type_list($attr) -[0m
-      Arguments:
-        $attr -
-      Returns:
+<h2 id="graph_del-id">graph_del($id)</h2>
 
-      Examples:
+<h2 id="graph_info-id-attr">graph_info($id, $attr)</h2>
 
-  [1mtrap_type_del() -[0m
-  [1mtrap_type_change() -[0m
-      Arguments:
-         -
-      Returns:
+<h2 id="mac_log_list-attr">mac_log_list($attr)</h2>
 
-      Examples:
+<h2 id="mac_log_add-attr">mac_log_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr</code></pre>
+
+<h2 id="mac_notif_add-attr">mac_notif_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr</code></pre>
+
+<h2 id="mac_log_del-attr">mac_log_del($attr)</h2>
+
+<h2 id="info_add-attr---info_add">info_add($attr) - info_add</h2>
+
+<h2 id="info_del-attr">info_del($attr)</h2>
+
+<h2 id="info_list-attr">info_list($attr)</h2>
+
+<h2 id="info_port-attr">info_port($attr)</h2>
+
+<h2 id="snmp_tpl_add">snmp_tpl_add</h2>
+
+<h2 id="snmp_tpl_list-attr">snmp_tpl_list($attr)</h2>
+
+<h2 id="onu_list-attr">onu_list($attr)</h2>
+
+<h2 id="type_add-attr1">type_add($attr)</h2>
+
+<h2 id="type_change-attr1">type_change($attr)</h2>
+
+<h2 id="onu_del-id">onu_del($id)</h2>
+
+<h2 id="onu_info-id-attr">onu_info($id, $attr)</h2>
+
+<h2 id="pon_port_list-attr">pon_port_list($attr)</h2>
+
+<h2 id="pon_port_add-attr">pon_port_add($attr)</h2>
+
+<h2 id="pon_port_change-attr">pon_port_change($attr)</h2>
+
+<h2 id="pon_port_del-id">pon_port_del($id)</h2>
+
+<h2 id="type_info-id-attr1">type_info($id, $attr)</h2>
+
+<h2 id="trap_type_add-attr">trap_type_add($attr) -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="trap_type_list-attr">trap_type_list($attr) -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="trap_type_del">trap_type_del() -</h2>
+
+<h2 id="trap_type_change">trap_type_change() -</h2>
+
+<pre><code>  Arguments:
+     -
+  Returns:
+
+  Examples:</code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

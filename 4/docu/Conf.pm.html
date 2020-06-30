@@ -1,63 +1,99 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Config
+<body>
 
-  [1mconfig_list($attr) - Config option list[0m
-      Arguments:
-        $attr
-          PARAM
-          VALUE
-          DOMAIN_ID
-          CONF_ONLY - do not show total
 
-      Returns:
-        \@list
 
-  [1mconfig_info($attr) - Get config information[0m
-      Arguments:
-        $attr
-          PARAM
-          DOMAIN_ID
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#config_list-attr---Config-option-list">config_list($attr) - Config option list</a></li>
+      <li><a href="#config_info-attr---Get-config-information">config_info($attr) - Get config information</a></li>
+      <li><a href="#config_change-param-attr">config_change($param, $attr)</a></li>
+      <li><a href="#config_add-attr">config_add($attr)</a></li>
+      <li><a href="#config_del-id">config_del($id)</a></li>
+      <li><a href="#add---Add-config-variables">add() - Add config variables</a></li>
+      <li><a href="#del-id---Del-config-variables">del($id) - Del config variables</a></li>
+      <li><a href="#change-attr">change($attr)</a></li>
+      <li><a href="#info-attr">info($attr)</a></li>
+      <li><a href="#list-attr">list($attr)</a></li>
+      <li><a href="#check_password-password---checks-for-password-security">check_password($password) - checks for password security</a></li>
+    </ul>
+  </li>
+</ul>
 
-  [1mconfig_change($param, $attr)[0m
-      Arguments:
-        $attr
-           WITHOUT_PARAM_CHANGE - Change without param
+<h1 id="NAME">NAME</h1>
 
-  [1mconfig_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
-          PARAM   -
-          VALUE   -
-          REPLACE -
+<pre><code>  Config</code></pre>
 
-      Returns:
-        Conf instance
+<h2 id="config_list-attr---Config-option-list">config_list($attr) - Config option list</h2>
 
-  [1mconfig_del($id)[0m
-  [1madd() - Add config variables[0m
-  [1mdel($id) - Del config variables[0m
-  [1mchange($attr)[0m
-  [1minfo($attr)[0m
-  [1mlist($attr)[0m
-  [1mcheck_password($password) - checks for password security[0m
-      Arguments:
-        $password - string to check
-        $config_string - (optional) encoded password constraints
+<pre><code>  Arguments:
+    $attr
+      PARAM
+      VALUE
+      DOMAIN_ID
+      CONF_ONLY - do not show total
+
+  Returns:
+    \@list</code></pre>
+
+<h2 id="config_info-attr---Get-config-information">config_info($attr) - Get config information</h2>
+
+<pre><code>  Arguments:
+    $attr
+      PARAM
+      DOMAIN_ID</code></pre>
+
+<h2 id="config_change-param-attr">config_change($param, $attr)</h2>
+
+<pre><code>  Arguments:
+    $attr
+       WITHOUT_PARAM_CHANGE - Change without param</code></pre>
+
+<h2 id="config_add-attr">config_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+      PARAM   -
+      VALUE   -
+      REPLACE -
+
+  Returns:
+    Conf instance</code></pre>
+
+<h2 id="config_del-id">config_del($id)</h2>
+
+<h2 id="add---Add-config-variables">add() - Add config variables</h2>
+
+<h2 id="del-id---Del-config-variables">del($id) - Del config variables</h2>
+
+<h2 id="change-attr">change($attr)</h2>
+
+<h2 id="info-attr">info($attr)</h2>
+
+<h2 id="list-attr">list($attr)</h2>
+
+<h2 id="check_password-password---checks-for-password-security">check_password($password) - checks for password security</h2>
+
+<pre><code>  Arguments:
+    $password - string to check
+    $config_string - (optional) encoded password constraints
     
-      Returns:
-        boolean
+  Returns:
+    boolean
+    </code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

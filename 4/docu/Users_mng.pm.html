@@ -1,61 +1,116 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      User manage
+<body>
 
-  [1mform_users($attr) - User account managment form[0m
-  [1mform_bill_correction($attr) - Personal information form[0m
-  [1mform_social_networks($attr)[0m
-  [1muser_pi($attr) - Personal information form[0m
-  [1muser_form($attr) - Main user form[0m
-  [1muser_info_items($uid, $user_info)[0m
-  [1muser_services($attr)[0m
-      Arguments:
-        USER_INFO
 
-      Return:
 
-  [1muser_right_menu($uid, $LOGIN, $attr) - User extra menu[0m
-  [1muser_ext_menu($uid, $LOGIN, $attr) - User extra menu[0m
-  [1muser_info($uid, $attr) - User info panel[0m
-  [1mform_users_list($attr)[0m
-  [1muser_del($attr)[0m
-  [1muser_group($attr)[0m
-  [1muser_company($attr)[0m
-  [1mform_wizard($attr) - User registration wizards[0m
-      Arguments:
-        $attr
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#form_users-attr---User-account-managment-form">form_users($attr) - User account managment form</a></li>
+      <li><a href="#form_bill_correction-attr---Personal-information-form">form_bill_correction($attr) - Personal information form</a></li>
+      <li><a href="#form_social_networks-attr">form_social_networks($attr)</a></li>
+      <li><a href="#user_pi-attr---Personal-information-form">user_pi($attr) - Personal information form</a></li>
+      <li><a href="#user_form-attr---Main-user-form">user_form($attr) - Main user form</a></li>
+      <li><a href="#user_info_items-uid-user_info">user_info_items($uid, $user_info)</a></li>
+      <li><a href="#user_services-attr">user_services($attr)</a></li>
+      <li><a href="#user_right_menu-uid-LOGIN-attr---User-extra-menu">user_right_menu($uid, $LOGIN, $attr) - User extra menu</a></li>
+      <li><a href="#user_ext_menu-uid-LOGIN-attr---User-extra-menu">user_ext_menu($uid, $LOGIN, $attr) - User extra menu</a></li>
+      <li><a href="#user_info-uid-attr---User-info-panel">user_info($uid, $attr) - User info panel</a></li>
+      <li><a href="#form_users_list-attr">form_users_list($attr)</a></li>
+      <li><a href="#user_del-attr">user_del($attr)</a></li>
+      <li><a href="#user_group-attr">user_group($attr)</a></li>
+      <li><a href="#user_company-attr">user_company($attr)</a></li>
+      <li><a href="#form_wizard-attr---User-registration-wizards">form_wizard($attr) - User registration wizards</a></li>
+      <li><a href="#form_contact_types">form_contact_types()</a></li>
+      <li><a href="#build_user_contacts_form-user_contacts_list">_build_user_contacts_form($user_contacts_list)</a></li>
+      <li><a href="#user_contacts_renew">user_contacts_renew()</a></li>
+      <li><a href="#form_info_field_tpl-attr---Info-fields-tp-form">form_info_field_tpl($attr) - Info fields tp form</a></li>
+      <li><a href="#form_show_attach-attr">form_show_attach($attr)</a></li>
+      <li><a href="#form_fees_wizard-attr">form_fees_wizard($attr)</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Result:
-        TRUE or FALSE
+<h1 id="NAME">NAME</h1>
 
-  [1mform_contact_types()[0m
-  [1m_build_user_contacts_form($user_contacts_list)[0m
-      Arguments:
-        $user_contacts_list -
+<pre><code>  User manage</code></pre>
 
-      Returns:
+<h2 id="form_users-attr---User-account-managment-form">form_users($attr) - User account managment form</h2>
 
-  [1muser_contacts_renew()[0m
-  [1mform_info_field_tpl($attr) - Info fields tp form[0m
-      Arguments:
-        COMPANY  - Company info fields
-        VALUES   - Info field value hash_ref
+<h2 id="form_bill_correction-attr---Personal-information-form">form_bill_correction($attr) - Personal information form</h2>
 
-      Returns:
-        Return formed form
+<h2 id="form_social_networks-attr">form_social_networks($attr)</h2>
 
-  [1mform_show_attach($attr)[0m
-  [1mform_fees_wizard($attr)[0m
+<h2 id="user_pi-attr---Personal-information-form">user_pi($attr) - Personal information form</h2>
 
-	
-	</body>
-	</html>
-  
+<h2 id="user_form-attr---Main-user-form">user_form($attr) - Main user form</h2>
+
+<h2 id="user_info_items-uid-user_info">user_info_items($uid, $user_info)</h2>
+
+<h2 id="user_services-attr">user_services($attr)</h2>
+
+<pre><code>  Arguments:
+    USER_INFO
+
+  Return:</code></pre>
+
+<h2 id="user_right_menu-uid-LOGIN-attr---User-extra-menu">user_right_menu($uid, $LOGIN, $attr) - User extra menu</h2>
+
+<h2 id="user_ext_menu-uid-LOGIN-attr---User-extra-menu">user_ext_menu($uid, $LOGIN, $attr) - User extra menu</h2>
+
+<h2 id="user_info-uid-attr---User-info-panel">user_info($uid, $attr) - User info panel</h2>
+
+<h2 id="form_users_list-attr">form_users_list($attr)</h2>
+
+<h2 id="user_del-attr">user_del($attr)</h2>
+
+<h2 id="user_group-attr">user_group($attr)</h2>
+
+<h2 id="user_company-attr">user_company($attr)</h2>
+
+<h2 id="form_wizard-attr---User-registration-wizards">form_wizard($attr) - User registration wizards</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Result:
+    TRUE or FALSE</code></pre>
+
+<h2 id="form_contact_types">form_contact_types()</h2>
+
+<h2 id="build_user_contacts_form-user_contacts_list">_build_user_contacts_form($user_contacts_list)</h2>
+
+<pre><code>  Arguments:
+    $user_contacts_list -
+
+  Returns:</code></pre>
+
+<h2 id="user_contacts_renew">user_contacts_renew()</h2>
+
+<h2 id="form_info_field_tpl-attr---Info-fields-tp-form">form_info_field_tpl($attr) - Info fields tp form</h2>
+
+<pre><code>  Arguments:
+    COMPANY  - Company info fields
+    VALUES   - Info field value hash_ref
+
+  Returns:
+    Return formed form</code></pre>
+
+<h2 id="form_show_attach-attr">form_show_attach($attr)</h2>
+
+<h2 id="form_fees_wizard-attr">form_fees_wizard($attr)</h2>
+
+
+</body>
+
+</html>
+
+

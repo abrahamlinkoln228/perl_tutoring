@@ -1,139 +1,204 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      NAS Server configuration and managing
+<body>
 
-  [1mlist($attr)[0m
-  [1minfo($attr)[0m
-      Arguments:
-        NAS_ID
-        IP
-        CALLED_STATION_ID
 
-      Returns:
-        NAS_INFO
 
-  [1mchange($attr)[0m
-  [1madd($attr) - Add nas server[0m
-  [1mdel($id) ADel nas server[0m
-  [1mnas_ip_pools_list($attr)[0m
-  [1mnas_ip_pools_set($attr) NAS IP Pools[0m
-  [1mip_pools_info($id)[0m
-  [1mip_pools_change($attr) - NAS IP Pools change[0m
-  [1mip_pools_list($attr)[0m
-  [1mip_pools_add($attr)[0m
-  [1mip_pools_del()[0m
-  [1mnas_group_list($attr)[0m
-  [1mnas_group_info($attr);[0m
-  [1mnas_group_change($attr)[0m
-  [1mnas_group_add($attr)[0m
-  [1mnas_group_del()[0m
-  [1mfunction add_radtest_query() - add query to datebase[0m
-      Arguments:
-        $attr
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#list-attr">list($attr)</a></li>
+      <li><a href="#info-attr">info($attr)</a></li>
+      <li><a href="#change-attr">change($attr)</a></li>
+      <li><a href="#add-attr---Add-nas-server">add($attr) - Add nas server</a></li>
+      <li><a href="#del-id-ADel-nas-server">del($id) ADel nas server</a></li>
+      <li><a href="#nas_ip_pools_list-attr">nas_ip_pools_list($attr)</a></li>
+      <li><a href="#nas_ip_pools_set-attr-NAS-IP-Pools">nas_ip_pools_set($attr) NAS IP Pools</a></li>
+      <li><a href="#ip_pools_info-id">ip_pools_info($id)</a></li>
+      <li><a href="#ip_pools_change-attr---NAS-IP-Pools-change">ip_pools_change($attr) - NAS IP Pools change</a></li>
+      <li><a href="#ip_pools_list-attr">ip_pools_list($attr)</a></li>
+      <li><a href="#ip_pools_add-attr">ip_pools_add($attr)</a></li>
+      <li><a href="#ip_pools_del">ip_pools_del()</a></li>
+      <li><a href="#nas_group_list-attr">nas_group_list($attr)</a></li>
+      <li><a href="#nas_group_info-attr">nas_group_info($attr);</a></li>
+      <li><a href="#nas_group_change-attr">nas_group_change($attr)</a></li>
+      <li><a href="#nas_group_add-attr">nas_group_add($attr)</a></li>
+      <li><a href="#nas_group_del">nas_group_del()</a></li>
+      <li><a href="#function-add_radtest_query---add-query-to-datebase">function add_radtest_query() - add query to datebase</a></li>
+      <li><a href="#function-query_list---queries-list">function query_list() - queries list</a></li>
+      <li><a href="#function-del_query---del-query-from-datebase">function del_query() - del query from datebase</a></li>
+      <li><a href="#function-query_info---query-info-from-datebase">function query_info() - query info from datebase</a></li>
+      <li><a href="#function-add_radtest_query---add-query-to-datebase1">function add_radtest_query() - add query to datebase</a></li>
+      <li><a href="#function-nas_cmd_del---del-query-from-datebase">function nas_cmd_del() - del query from datebase</a></li>
+      <li><a href="#function-nas_cmd_info---query-info-from-datebase">function nas_cmd_info() - query info from datebase</a></li>
+      <li><a href="#function-nas_cmd_list---queries-list">function nas_cmd_list() - queries list</a></li>
+      <li><a href="#nas_cmd_change-attr">nas_cmd_change($attr)</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Returns:
-        $self object
+<h1 id="NAME">NAME</h1>
 
-      Examples:
-        $nas->add_radtest_query({
-          COMMENTS   => 'test',
-          RAD_QUERY  => 'User-Name=test',
-          DATETIME   => 'NOW()'
-        });
+<pre><code>  NAS Server configuration and managing</code></pre>
 
-        $nas->add_radtest_query({
-          %FORM
-        });
+<h2 id="list-attr">list($attr)</h2>
 
-  [1mfunction query_list() - queries list[0m
-      Arguments:
-        $attr
+<h2 id="info-attr">info($attr)</h2>
 
-      Returns:
-        $self object
+<pre><code>  Arguments:
+    NAS_ID
+    IP
+    CALLED_STATION_ID
 
-      Examples:
-        $query_list = $nas->query_list({COLS_NAME => 1});
+  Returns:
+    NAS_INFO</code></pre>
 
-  [1mfunction del_query() - del query from datebase[0m
-      Arguments:
-        ID   - query identificator
+<h2 id="change-attr">change($attr)</h2>
 
-      Returns:
-        $self object
+<h2 id="add-attr---Add-nas-server">add($attr) - Add nas server</h2>
 
-      Examples:
-        $nas->del_query({ID => $FORM{query_del}});
+<h2 id="del-id-ADel-nas-server">del($id) ADel nas server</h2>
 
-  [1mfunction query_info() - query info from datebase[0m
-      Arguments:
-        ID   - query identificator
+<h2 id="nas_ip_pools_list-attr">nas_ip_pools_list($attr)</h2>
 
-      Returns:
-        $self object
+<h2 id="nas_ip_pools_set-attr-NAS-IP-Pools">nas_ip_pools_set($attr) NAS IP Pools</h2>
 
-      Examples:
-        $nas->query_info({ID => $FORM{query_info}});
+<h2 id="ip_pools_info-id">ip_pools_info($id)</h2>
 
-  [1mfunction add_radtest_query() - add query to datebase[0m
-      Arguments:
-        $attr
+<h2 id="ip_pools_change-attr---NAS-IP-Pools-change">ip_pools_change($attr) - NAS IP Pools change</h2>
 
-      Returns:
-        $self object
+<h2 id="ip_pools_list-attr">ip_pools_list($attr)</h2>
 
-      Examples:
-        $nas->nas_cmd_add({
-          COMMENTS   => 'test',
-          RAD_QUERY  => 'User-Name=test',
-          DATETIME   => 'NOW()'
-        });
+<h2 id="ip_pools_add-attr">ip_pools_add($attr)</h2>
 
-        $nas->nas_cmd_add({
-          %FORM
-        });
+<h2 id="ip_pools_del">ip_pools_del()</h2>
 
-  [1mfunction nas_cmd_del() - del query from datebase[0m
-      Arguments:
-        ID   - query identificator
+<h2 id="nas_group_list-attr">nas_group_list($attr)</h2>
 
-      Returns:
-        $self object
+<h2 id="nas_group_info-attr">nas_group_info($attr);</h2>
 
-      Examples:
-        $nas->nas_cmd_del({ID => $FORM{del}});
+<h2 id="nas_group_change-attr">nas_group_change($attr)</h2>
 
-  [1mfunction nas_cmd_info() - query info from datebase[0m
-      Arguments:
-        ID   - query identificator
+<h2 id="nas_group_add-attr">nas_group_add($attr)</h2>
 
-      Returns:
-        $self object
+<h2 id="nas_group_del">nas_group_del()</h2>
 
-      Examples:
-        $nas->nas_cmd_info({ID => $FORM{ID}});
+<h2 id="function-add_radtest_query---add-query-to-datebase">function add_radtest_query() - add query to datebase</h2>
 
-  [1mfunction nas_cmd_list() - queries list[0m
-      Arguments:
-        $attr
+<pre><code>  Arguments:
+    $attr
 
-      Returns:
-        $self object
+  Returns:
+    $self object
 
-      Examples:
-        $cmd_list = $Nas->nas_cmd_list({COLS_NAME => 1});
+  Examples:
+    $nas-&gt;add_radtest_query({
+      COMMENTS   =&gt; &#39;test&#39;,
+      RAD_QUERY  =&gt; &#39;User-Name=test&#39;,
+      DATETIME   =&gt; &#39;NOW()&#39;
+    });
 
-  [1mnas_cmd_change($attr)[0m
+    $nas-&gt;add_radtest_query({
+      %FORM
+    });</code></pre>
 
-	
-	</body>
-	</html>
-  
+<h2 id="function-query_list---queries-list">function query_list() - queries list</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Returns:
+    $self object
+
+  Examples:
+    $query_list = $nas-&gt;query_list({COLS_NAME =&gt; 1});</code></pre>
+
+<h2 id="function-del_query---del-query-from-datebase">function del_query() - del query from datebase</h2>
+
+<pre><code>  Arguments:
+    ID   - query identificator
+
+  Returns:
+    $self object
+
+  Examples:
+    $nas-&gt;del_query({ID =&gt; $FORM{query_del}});</code></pre>
+
+<h2 id="function-query_info---query-info-from-datebase">function query_info() - query info from datebase</h2>
+
+<pre><code>  Arguments:
+    ID   - query identificator
+
+  Returns:
+    $self object
+
+  Examples:
+    $nas-&gt;query_info({ID =&gt; $FORM{query_info}});</code></pre>
+
+<h2 id="function-add_radtest_query---add-query-to-datebase1">function add_radtest_query() - add query to datebase</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Returns:
+    $self object
+
+  Examples:
+    $nas-&gt;nas_cmd_add({
+      COMMENTS   =&gt; &#39;test&#39;,
+      RAD_QUERY  =&gt; &#39;User-Name=test&#39;,
+      DATETIME   =&gt; &#39;NOW()&#39;
+    });
+
+    $nas-&gt;nas_cmd_add({
+      %FORM
+    });</code></pre>
+
+<h2 id="function-nas_cmd_del---del-query-from-datebase">function nas_cmd_del() - del query from datebase</h2>
+
+<pre><code>  Arguments:
+    ID   - query identificator
+
+  Returns:
+    $self object
+
+  Examples:
+    $nas-&gt;nas_cmd_del({ID =&gt; $FORM{del}});</code></pre>
+
+<h2 id="function-nas_cmd_info---query-info-from-datebase">function nas_cmd_info() - query info from datebase</h2>
+
+<pre><code>  Arguments:
+    ID   - query identificator
+
+  Returns:
+    $self object
+
+  Examples:
+    $nas-&gt;nas_cmd_info({ID =&gt; $FORM{ID}});</code></pre>
+
+<h2 id="function-nas_cmd_list---queries-list">function nas_cmd_list() - queries list</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Returns:
+    $self object
+
+  Examples:
+    $cmd_list = $Nas-&gt;nas_cmd_list({COLS_NAME =&gt; 1});</code></pre>
+
+<h2 id="nas_cmd_change-attr">nas_cmd_change($attr)</h2>
+
+
+</body>
+
+</html>
+
+

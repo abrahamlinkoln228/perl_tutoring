@@ -1,75 +1,123 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-        UNIFI API v4
-
-      VERSION: 0.16
-      REVISION: 2016-10-25
+<body>
 
 
-      Useful links
-      https://github.com/malle-pietje/UniFi-API-browser/blob/master/phpapi/class.unifi.php
 
-  [1mget_api_list($api_path, [ params ]) - request list from Unifi[0m
-    $api_path - as defined in $OBJPATH
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#get_api_list-api_path-params---request-list-from-Unifi">get_api_list($api_path, [ params ]) - request list from Unifi</a></li>
+      <li><a href="#users_list---Get-connected-users">users_list() - Get connected users</a></li>
+      <li><a href="#users_stats---Get-statistics-for-all-users">users_stats() - Get statistics for all users</a></li>
+      <li><a href="#devices_list---Get-device-list">devices_list() - Get device list</a></li>
+      <li><a href="#login-attr---Device-auth">login($attr) - Device auth</a></li>
+      <li><a href="#logout---Log-out-from-NAS">logout() - Log out from NAS</a></li>
+      <li><a href="#mk_request---Make-request-to-NAS">mk_request() - Make request to NAS</a></li>
+      <li><a href="#authorize-attr">authorize($attr)</a></li>
+      <li><a href="#deauthorize-attr---Hangup-user">deauthorize($attr) - Hangup user</a></li>
+      <li><a href="#disconnect-attr">disconnect($attr) -</a></li>
+      <li><a href="#sys_info---Sysinfo">sys_info() - Sysinfo</a></li>
+      <li><a href="#alarms---Sysinfo">alarms() - Sysinfo</a></li>
+      <li><a href="#daily_site---Sysinfo">daily_site() - Sysinfo</a></li>
+      <li><a href="#convert_result-data_hash">convert_result($data_hash)</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
 
-  [1musers_list() - Get connected users[0m
-  [1musers_stats() - Get statistics for all users[0m
-      Arguments:
-        $filters - hash_ref of unifi-specific parameters
-          within - filter by time ( default: last 24 hours)
+<pre><code>  UNIFI API v4
 
-      Returns:
-        list
-
-  [1mdevices_list() - Get device list[0m
-  [1mlogin($attr) - Device auth[0m
-  [1mlogout() - Log out from NAS[0m
-  [1mmk_request() - Make request to NAS[0m
-      Arguments:
-        $url             - Request url
-        $request_params  - Request params (Hash_ref)
-        $attr            - extra attr
-          DEBUG
-          METHOD         - string (Default: post)
-
-      Result:
-        TRUE or FALSE
-          $self->{errno}
-          $self->{errstr}
-
-  [1mauthorize($attr)[0m
-  [1mdeauthorize($attr) - Hangup user[0m
-      Arguments:
-        $attr
-          MAC
-
-      Returns:
-
-  [1mdisconnect($attr) -[0m
-      Arguments:
-        $attr
-           MAC
-
-  [1msys_info() - Sysinfo[0m
-  [1malarms() - Sysinfo[0m
-  [1mdaily_site() - Sysinfo[0m
-  [1mconvert_result($data_hash)[0m
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 3:
-        Unknown directive: =head
+  VERSION: 0.16
+  REVISION: 2016-10-25
 
 
-	
-	</body>
-	</html>
-  
+  Useful links
+  https://github.com/malle-pietje/UniFi-API-browser/blob/master/phpapi/class.unifi.php</code></pre>
+
+<h2 id="get_api_list-api_path-params---request-list-from-Unifi">get_api_list($api_path, [ params ]) - request list from Unifi</h2>
+
+<p>$api_path - as defined in $OBJPATH</p>
+
+<h2 id="users_list---Get-connected-users">users_list() - Get connected users</h2>
+
+<h2 id="users_stats---Get-statistics-for-all-users">users_stats() - Get statistics for all users</h2>
+
+<pre><code>  Arguments:
+    $filters - hash_ref of unifi-specific parameters
+      within - filter by time ( default: last 24 hours)
+
+  Returns:
+    list</code></pre>
+
+<h2 id="devices_list---Get-device-list">devices_list() - Get device list</h2>
+
+<h2 id="login-attr---Device-auth">login($attr) - Device auth</h2>
+
+<h2 id="logout---Log-out-from-NAS">logout() - Log out from NAS</h2>
+
+<h2 id="mk_request---Make-request-to-NAS">mk_request() - Make request to NAS</h2>
+
+<pre><code>  Arguments:
+    $url             - Request url
+    $request_params  - Request params (Hash_ref)
+    $attr            - extra attr
+      DEBUG
+      METHOD         - string (Default: post)
+
+  Result:
+    TRUE or FALSE
+      $self-&gt;{errno}
+      $self-&gt;{errstr}</code></pre>
+
+<h2 id="authorize-attr">authorize($attr)</h2>
+
+<h2 id="deauthorize-attr---Hangup-user">deauthorize($attr) - Hangup user</h2>
+
+<pre><code>  Arguments:
+    $attr
+      MAC
+
+  Returns:</code></pre>
+
+<h2 id="disconnect-attr">disconnect($attr) -</h2>
+
+<pre><code>  Arguments:
+    $attr
+       MAC</code></pre>
+
+<h2 id="sys_info---Sysinfo">sys_info() - Sysinfo</h2>
+
+<h2 id="alarms---Sysinfo">alarms() - Sysinfo</h2>
+
+<h2 id="daily_site---Sysinfo">daily_site() - Sysinfo</h2>
+
+<h2 id="convert_result-data_hash">convert_result($data_hash)</h2>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-3">Around line 3:</dt>
+<dd>
+
+<p>Unknown directive: =head</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

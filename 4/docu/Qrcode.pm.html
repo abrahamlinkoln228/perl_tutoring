@@ -1,47 +1,68 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-       QR code generator
-
-  [1mqr_make($url, $attr)[0m
-      Arguments:
-        $url - base url for QRCode
-        $attr - hash_ref
-          PARAMS      - hash to stringified and appended to base url
-          IMG_RETURN  - REturn img OBJ with html
-
-  [1m_generate_img($params, $attr) - generate HTML <img> that points to same func[0m
-      Arguments:
-        $params
-        $attr - hash_ref
-
-      Returns:
-        HTML code for <img>
-
-  [1m_print_image($params, $attr) - output QRCode image[0m
-      Arguments:
-        $params - params for url
-        $text - link
-
-      Returns:
-        1
-
-  [1m_parse_params($attr) - stringify params ( %FORM ) hash[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        string
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#qr_make-url-attr">qr_make($url, $attr)</a></li>
+      <li><a href="#generate_img-params-attr---generate-HTML-img-that-points-to-same-func">_generate_img($params, $attr) - generate HTML &lt;img&gt; that points to same func</a></li>
+      <li><a href="#print_image-params-attr---output-QRCode-image">_print_image($params, $attr) - output QRCode image</a></li>
+      <li><a href="#parse_params-attr---stringify-params-FORM-hash">_parse_params($attr) - stringify params ( %FORM ) hash</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>   QR code generator</code></pre>
+
+<h2 id="qr_make-url-attr">qr_make($url, $attr)</h2>
+
+<pre><code>  Arguments:
+    $url - base url for QRCode
+    $attr - hash_ref
+      PARAMS      - hash to stringified and appended to base url
+      IMG_RETURN  - REturn img OBJ with html</code></pre>
+
+<h2 id="generate_img-params-attr---generate-HTML-img-that-points-to-same-func">_generate_img($params, $attr) - generate HTML &lt;img&gt; that points to same func</h2>
+
+<pre><code>  Arguments:
+    $params
+    $attr - hash_ref
+
+  Returns:
+    HTML code for &lt;img&gt;</code></pre>
+
+<h2 id="print_image-params-attr---output-QRCode-image">_print_image($params, $attr) - output QRCode image</h2>
+
+<pre><code>  Arguments:
+    $params - params for url
+    $text - link
+
+  Returns:
+    1</code></pre>
+
+<h2 id="parse_params-attr---stringify-params-FORM-hash">_parse_params($attr) - stringify params ( %FORM ) hash</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    string</code></pre>
+
+
+</body>
+
+</html>
+
+

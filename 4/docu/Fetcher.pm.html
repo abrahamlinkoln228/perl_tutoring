@@ -1,50 +1,67 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Web fetcher function
-        using CURL
-
-  [1mjson_return($result, $attr) - make json return[0m
-  [1mweb_request($request, $attr); - make web request[0m
-      Arguments:
-        $request        - request URL
-        $attr           - Attributes
-          REQUEST_PARAMS - Request params hash
-            [Param name] => [ value ]
-          REQUEST_PARAMS_JSON - Request params hash converted to json request string
-            [Param name] => [ value ]
-          POST           - POST string (When not specified REQUEST_PARAMS)
-          GET            - GET request mode
-          JSON_ARRAY_VARS- JSON_ARRAY_VARS
-          JSON_RETURN    - agregate result as JSON, return JSON hash result
-          JSON_UTF8      - treat result as UTF8 (may be needed for JSON::XS)
-          AGENT          - Agent info
-          CURL_OPTIONS   - curl options
-          HEADERS        - curl -H option (ARRAY_ref)
-          BIN_DATA       - Send data througth file
-          COOKIE         - Use cookies
-          CLEAR_COOKIE   - Clear saved cookies
-          TIMEOUT        - Request timeout (Default: 30 sec)
-          DEBUG          - Debug mode
-          DEBUG2FILE     - Write debug to file (Result is not writed unless DEBUG > 1)
-          PAGE_HEADER    - Page header for debug message
-
-      Returns:
-          result string
-          or
-          hash on JSON_RETURN mode
-
-      Examples:
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#json_return-result-attr---make-json-return">json_return($result, $attr) - make json return</a></li>
+      <li><a href="#web_request-request-attr---make-web-request">web_request($request, $attr); - make web request</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Web fetcher function
+    using CURL</code></pre>
+
+<h2 id="json_return-result-attr---make-json-return">json_return($result, $attr) - make json return</h2>
+
+<h2 id="web_request-request-attr---make-web-request">web_request($request, $attr); - make web request</h2>
+
+<pre><code>  Arguments:
+    $request        - request URL
+    $attr           - Attributes
+      REQUEST_PARAMS - Request params hash
+        [Param name] =&gt; [ value ]
+      REQUEST_PARAMS_JSON - Request params hash converted to json request string
+        [Param name] =&gt; [ value ]
+      POST           - POST string (When not specified REQUEST_PARAMS)
+      GET            - GET request mode
+      JSON_ARRAY_VARS- JSON_ARRAY_VARS
+      JSON_RETURN    - agregate result as JSON, return JSON hash result
+      JSON_UTF8      - treat result as UTF8 (may be needed for JSON::XS)
+      AGENT          - Agent info
+      CURL_OPTIONS   - curl options
+      HEADERS        - curl -H option (ARRAY_ref)
+      BIN_DATA       - Send data througth file
+      COOKIE         - Use cookies
+      CLEAR_COOKIE   - Clear saved cookies
+      TIMEOUT        - Request timeout (Default: 30 sec)
+      DEBUG          - Debug mode
+      DEBUG2FILE     - Write debug to file (Result is not writed unless DEBUG &gt; 1)
+      PAGE_HEADER    - Page header for debug message
+
+  Returns:
+      result string
+      or
+      hash on JSON_RETURN mode
+
+  Examples:</code></pre>
+
+
+</body>
+
+</html>
+
+

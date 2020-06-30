@@ -1,45 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Ping plugins diagnostic user internet conection
-
-      Arguments:
-        IP       = user IP adress
-        LOGIN    = user login
-        NO_CHECK = true/fals - Ping user without check in 'no_ping' list
-
-  [1mping_user() - Ping web interface setting[0m
-  [1mping_comand_builder() - Create comand ping (string)
-                               with params
-   Arguments:[0m
-        $ip      - ip of ping user
-        $attr    - Extra params
-
-       Returns:
-
-        return command result string
-
-      Examples:
-
-  [1mping_access_check() - Check if can transmitted packets to user[0m
-      Arguments:
-        $uid
-
-      Returns:
-        0 or 1
-
-      Examples:
-        ping_access_check($uid)
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#ping_user---Ping-web-interface-setting">ping_user() - Ping web interface setting</a></li>
+      <li><a href="#ping_comand_builder---Create-comand-ping-string-with-params-Arguments">ping_comand_builder() - Create comand ping (string) with params Arguments:</a></li>
+      <li><a href="#ping_access_check---Check-if-can-transmitted-packets-to-user">ping_access_check() - Check if can transmitted packets to user</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Ping plugins diagnostic user internet conection
+
+  Arguments:
+    IP       = user IP adress
+    LOGIN    = user login
+    NO_CHECK = true/fals - Ping user without check in &#39;no_ping&#39; list</code></pre>
+
+<h2 id="ping_user---Ping-web-interface-setting">ping_user() - Ping web interface setting</h2>
+
+<h2 id="ping_comand_builder---Create-comand-ping-string-with-params-Arguments">ping_comand_builder() - Create comand ping (string) with params Arguments:</h2>
+
+<pre><code>    $ip      - ip of ping user
+    $attr    - Extra params
+
+   Returns:
+
+    return command result string
+
+  Examples:</code></pre>
+
+<h2 id="ping_access_check---Check-if-can-transmitted-packets-to-user">ping_access_check() - Check if can transmitted packets to user</h2>
+
+<pre><code>  Arguments:
+    $uid
+
+  Returns:
+    0 or 1
+
+  Examples:
+    ping_access_check($uid)</code></pre>
+
+
+</body>
+
+</html>
+
+

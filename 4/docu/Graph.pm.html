@@ -1,40 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Equipment::Graph
+<body>
 
-  [1madd_graph($attr)
-   Arguments:
+
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#add_graph-attr-Arguments:-attr-NAS_ID---Nas-id-PORT---Port-id-TYPE---Graph-type:-SPEED-SIGNAL-TEMPERATURE-STEP---Step:-60-300-default-300-DATA---Data-hash">add_graph($attr) Arguments: $attr NAS_ID - Nas id PORT - Port id TYPE - Graph type: SPEED, SIGNAL, TEMPERATURE STEP - Step: 60, 300 (default 300) DATA - Data hash</a></li>
+      <li><a href="#get_graph_data-attr">get_graph_data($attr)</a></li>
+      <li><a href="#del_graph_data-attr">del_graph_data($attr)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Equipment::Graph</code></pre>
+
+<h2 id="add_graph-attr-Arguments:-attr-NAS_ID---Nas-id-PORT---Port-id-TYPE---Graph-type:-SPEED-SIGNAL-TEMPERATURE-STEP---Step:-60-300-default-300-DATA---Data-hash">add_graph($attr) Arguments: $attr NAS_ID - Nas id PORT - Port id TYPE - Graph type: SPEED, SIGNAL, TEMPERATURE STEP - Step: 60, 300 (default 300) DATA - Data hash</h2>
+
+<h2 id="get_graph_data-attr">get_graph_data($attr)</h2>
+
+<pre><code>   Arguments:
      $attr
-       NAS_ID  - Nas id
-       PORT    - Port id
-       TYPE    - Graph type: SPEED, SIGNAL, TEMPERATURE
-       STEP    - Step: 60, 300 (default 300)
-       DATA    - Data hash[0m
-  [1mget_graph_data($attr)[0m
-       Arguments:
-         $attr
-           NAS_ID   - Nas id
-           PORT     - Port id
-           TYPE     - Graph type: SPEED, SIGNAL, TEMPERATURE
-           DS_NAMES - Array data source names
+       NAS_ID   - Nas id
+       PORT     - Port id
+       TYPE     - Graph type: SPEED, SIGNAL, TEMPERATURE
+       DS_NAMES - Array data source names</code></pre>
 
-  [1mdel_graph_data($attr)[0m
-       Arguments:
-         $attr
-           NAS_ID   - Nas id
-           PORT     - Port id
-           TYPE     - Graph type: SPEED, SIGNAL, TEMPERATURE
+<h2 id="del_graph_data-attr">del_graph_data($attr)</h2>
+
+<pre><code>   Arguments:
+     $attr
+       NAS_ID   - Nas id
+       PORT     - Port id
+       TYPE     - Graph type: SPEED, SIGNAL, TEMPERATURE</code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

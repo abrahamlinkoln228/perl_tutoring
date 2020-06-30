@@ -1,47 +1,79 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mNAME[0m
-      Dv::Colors
-
-  [1mSYNOPSYS[0m
-      This functions was splitted from Dv\webinterface because are used only on client page
-
-  [1mcolor_hex_to_rgb($hex_color_string)[0m
-     Returns:
-       arr ref of RGB
-
-  [1mrgb_to_hex($rgb_ref) - get hex string from RGB[0m
-  [1mdarken_hex($hex_color_string, $increment_by) - darkens given color[0m
-      $hex_color_string : #a825c9  #color
-      $increment_by     : coeff to change brightness
-
-      Returns:
-        #color or array (r, g, b)
-
-  [1mrgb2hls($r, $g, $b)[0m
-      $r, $g, $b : 0..255
-      Note special name '$bb' to avoid conflict
-      with ($a,$b) in sort()
-
-  [1mhls2rgb( $h, $l, $s )[0m
-      $h     : 0..360 degrees
-      $l, $s : 0..1   (inclusive)
-
-  [1m_value($n1, $n2, $hue) - helper function for _hls2rgb()[0m
-  [1mrgb_to_hex2( $r, $g, $b )[0m
-     Takes a (r,g,b) triple of numbers (possibly floats) and returns
-     - a string like '#36fe25' in scalar context
-     - a triple of corresponding integers in array context
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#NAME">NAME</a></li>
+      <li><a href="#SYNOPSYS">SYNOPSYS</a></li>
+      <li><a href="#color_hex_to_rgb-hex_color_string">color_hex_to_rgb($hex_color_string)</a></li>
+      <li><a href="#rgb_to_hex-rgb_ref---get-hex-string-from-RGB">rgb_to_hex($rgb_ref) - get hex string from RGB</a></li>
+      <li><a href="#darken_hex-hex_color_string-increment_by---darkens-given-color">darken_hex($hex_color_string, $increment_by) - darkens given color</a></li>
+      <li><a href="#rgb2hls-r-g-b">rgb2hls($r, $g, $b)</a></li>
+      <li><a href="#hls2rgb-h-l-s">hls2rgb( $h, $l, $s )</a></li>
+      <li><a href="#value-n1-n2-hue---helper-function-for-_hls2rgb">_value($n1, $n2, $hue) - helper function for _hls2rgb()</a></li>
+      <li><a href="#rgb_to_hex2-r-g-b">rgb_to_hex2( $r, $g, $b )</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="NAME">NAME</h2>
+
+<pre><code>  Dv::Colors
+  </code></pre>
+
+<h2 id="SYNOPSYS">SYNOPSYS</h2>
+
+<pre><code>  This functions was splitted from Dv\webinterface because are used only on client page
+  </code></pre>
+
+<h2 id="color_hex_to_rgb-hex_color_string">color_hex_to_rgb($hex_color_string)</h2>
+
+<pre><code> Returns:
+   arr ref of RGB</code></pre>
+
+<h2 id="rgb_to_hex-rgb_ref---get-hex-string-from-RGB">rgb_to_hex($rgb_ref) - get hex string from RGB</h2>
+
+<h2 id="darken_hex-hex_color_string-increment_by---darkens-given-color">darken_hex($hex_color_string, $increment_by) - darkens given color</h2>
+
+<pre><code>  $hex_color_string : #a825c9  #color
+  $increment_by     : coeff to change brightness
+
+  Returns:
+    #color or array (r, g, b)</code></pre>
+
+<h2 id="rgb2hls-r-g-b">rgb2hls($r, $g, $b)</h2>
+
+<pre><code>  $r, $g, $b : 0..255
+  Note special name &#39;$bb&#39; to avoid conflict
+  with ($a,$b) in sort()</code></pre>
+
+<h2 id="hls2rgb-h-l-s">hls2rgb( $h, $l, $s )</h2>
+
+<pre><code>  $h     : 0..360 degrees
+  $l, $s : 0..1   (inclusive)</code></pre>
+
+<h2 id="value-n1-n2-hue---helper-function-for-_hls2rgb">_value($n1, $n2, $hue) - helper function for _hls2rgb()</h2>
+
+<h2 id="rgb_to_hex2-r-g-b">rgb_to_hex2( $r, $g, $b )</h2>
+
+<pre><code> Takes a (r,g,b) triple of numbers (possibly floats) and returns
+ - a string like &#39;#36fe25&#39; in scalar context
+ - a triple of corresponding integers in array context</code></pre>
+
+
+</body>
+
+</html>
+
+

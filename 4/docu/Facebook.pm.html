@@ -1,28 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      facebook.com auth module
-
-  [1mget_token() - Get token[0m
-  [1mcheck_auth($attr)[0m
-      https://www.facebook.com/v2.3/dialog/oauth?client_id=546673382033765&response_type=code&redirect_uri=https%3A%2F%2Fmy.lanet.ua%2Flogin.php&state=facebook&scope=public_profile%2Cemail%2Cuser_birthday%2Cuser_likes%2Cuser_friends
-
-  [1mget_info($attr)[0m
-      Arguments:
-       CLIENT_ID
-
-      Returns:
-        result_hash_ref
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#get_token---Get-token">get_token() - Get token</a></li>
+      <li><a href="#check_auth-attr">check_auth($attr)</a></li>
+      <li><a href="#get_info-attr">get_info($attr)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  facebook.com auth module</code></pre>
+
+<h2 id="get_token---Get-token">get_token() - Get token</h2>
+
+<h2 id="check_auth-attr">check_auth($attr)</h2>
+
+<pre><code>  https://www.facebook.com/v2.3/dialog/oauth?client_id=546673382033765&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Fmy.lanet.ua%2Flogin.php&amp;state=facebook&amp;scope=public_profile%2Cemail%2Cuser_birthday%2Cuser_likes%2Cuser_friends</code></pre>
+
+<h2 id="get_info-attr">get_info($attr)</h2>
+
+<pre><code>  Arguments:
+   CLIENT_ID
+
+  Returns:
+    result_hash_ref</code></pre>
+
+
+</body>
+
+</html>
+
+

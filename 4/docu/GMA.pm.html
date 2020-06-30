@@ -1,72 +1,101 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-        https://developers.google.com/maps/documentation/geocoding/intro
+<body>
 
-      https://developers.google.com/maps/documentation/geocoding/get-api-key
 
-  [1mnew($db, $admin, \%conf) - constructor for Google Maps Api[0m
-      Attributes:
-        $db, $admin, \%conf -
 
-      Returns:
-        object - new Google Maps Api instance
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new-db-admin-conf---constructor-for-Google-Maps-Api">new($db, $admin, \%conf) - constructor for Google Maps Api</a></li>
+      <li><a href="#get_unfilled_addresses">get_unfilled_addresses()</a></li>
+      <li><a href="#get_coords_for-build---returns-coordinates-for-build">get_coords_for($build) - returns coordinates for build</a></li>
+      <li><a href="#get_address_for-latlng-attr---Returns-address-for-coordinates-if-its-ROOFTOP">get_address_for($latlng, $attr) - Returns address for coordinates (if it&#39;s ROOFTOP)</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
 
-  [1mget_unfilled_addresses()[0m
-      Returns:
-        list
+<pre><code>  https://developers.google.com/maps/documentation/geocoding/intro
 
-  [1mget_coords_for($build) - returns coordinates for build[0m
-      See Returns for details
+  https://developers.google.com/maps/documentation/geocoding/get-api-key</code></pre>
 
-      Arguments:
-        $build - build hash
-          full_address - address name
+<h2 id="new-db-admin-conf---constructor-for-Google-Maps-Api">new($db, $admin, \%conf) - constructor for Google Maps Api</h2>
 
-      Returns:
-        HASH
-          STATUS - Status of response. 1 is "OK"
-          COORDX - longitude
-          COORDY - latitude
-          formatted_address - Forrmatted address returned by Google API
-          requested_address - address as it was sended to Google API
+<pre><code>  Attributes:
+    $db, $admin, \%conf -
 
-      Responce from Google API can contain multiple results. In this case returns:
-        HASH
-          STATUS - integer
-          requested_address - address as it was sended to Google API
-          formatted_address - Forrmatted address returned by Google API
-          COORDS [
-            COORDX, - longitude
-            COORDY  - latitude
-          ]
+  Returns:
+    object - new Google Maps Api instance</code></pre>
 
-  [1mget_address_for($latlng, $attr) - Returns address for coordinates (if it's ROOFTOP)[0m
-      Arguments:
-        $latlng - hash_ref
-          COORDX
-          COORDY
-         $attr -
+<h2 id="get_unfilled_addresses">get_unfilled_addresses()</h2>
+
+<pre><code>  Returns:
+    list</code></pre>
+
+<h2 id="get_coords_for-build---returns-coordinates-for-build">get_coords_for($build) - returns coordinates for build</h2>
+
+<pre><code>  See Returns for details
+
+  Arguments:
+    $build - build hash
+      full_address - address name
+
+  Returns:
+    HASH
+      STATUS - Status of response. 1 is &quot;OK&quot;
+      COORDX - longitude
+      COORDY - latitude
+      formatted_address - Forrmatted address returned by Google API
+      requested_address - address as it was sended to Google API
+
+  Responce from Google API can contain multiple results. In this case returns:
+    HASH
+      STATUS - integer
+      requested_address - address as it was sended to Google API
+      formatted_address - Forrmatted address returned by Google API
+      COORDS [
+        COORDX, - longitude
+        COORDY  - latitude
+      ]</code></pre>
+
+<h2 id="get_address_for-latlng-attr---Returns-address-for-coordinates-if-its-ROOFTOP">get_address_for($latlng, $attr) - Returns address for coordinates (if it&#39;s ROOFTOP)</h2>
+
+<pre><code>  Arguments:
+    $latlng - hash_ref
+      COORDX
+      COORDY
+     $attr -
     
-      Returns:
-        hash_ref -
-         ADDRESS
+  Returns:
+    hash_ref -
+     ADDRESS
+    </code></pre>
 
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
+<h1 id="POD-ERRORS">POD ERRORS</h1>
 
-    Around line 3:
-        Unknown directive: =name
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-3">Around line 3:</dt>
+<dd>
+
+<p>Unknown directive: =name</p>
+
+</dd>
+</dl>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

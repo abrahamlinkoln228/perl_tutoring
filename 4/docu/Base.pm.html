@@ -1,441 +1,534 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a>
+    <ul>
+      <li><a href="#null-Null-function">null() Null function</a></li>
+      <li><a href="#cfg2hash-cfg-attr-Convert-cft-str-to-hash">cfg2hash($cfg, $attr) Convert cft str to hash</a></li>
+      <li><a href="#in_array-value-array---Check-value-in-array">in_array($value, $array) - Check value in array</a></li>
+      <li><a href="#convert-text-attr---Converter-text">convert($text, $attr) - Converter text</a></li>
+      <li><a href="#txt2translit-text---convert-to-translit">txt2translit($text) - convert to translit</a></li>
+      <li><a href="#win2utf8-text">win2utf8($text)</a></li>
+      <li><a href="#utf82win-text">utf82win($text)</a></li>
+      <li><a href="#cp8662utf8-text">cp8662utf8($text)</a></li>
+      <li><a href="#utf82cp866-text">utf82cp866($text)</a></li>
+      <li><a href="#parse_arguments-ARGV---Parse-comand-line-arguments">parse_arguments(\@ARGV) - Parse comand line arguments</a></li>
+      <li><a href="#sendmail-from-to_addresses-subject-message-charset-priority-attr---Send-mail-message">sendmail($from, $to_addresses, $subject, $message, $charset, $priority, $attr) - Send mail message</a></li>
+      <li><a href="#show_log-uid-type-attr---Log-parser">show_log($uid, $type, $attr) - Log parser</a></li>
+      <li><a href="#mk_unique_value-size-attr---Make-unique-value">mk_unique_value($size, $attr) - Make unique value</a></li>
+      <li><a href="#int2ip-int-Convert-integer-value-to-ip">int2ip($int) Convert integer value to ip</a></li>
+      <li><a href="#ip2int-ip---Convert-ip-to-int">ip2int($ip) - Convert ip to int</a></li>
+      <li><a href="#time2sec-time-attr---Time-to-second">time2sec($time, $attr) - Time to second</a></li>
+      <li><a href="#sec2time-value-attr---Seconds-to-date-format">sec2time($value, $attr) - Seconds to date format</a></li>
+      <li><a href="#sec2date-secnum---Convert-second-to-date">sec2date($secnum) - Convert second to date</a></li>
+      <li><a href="#int2byte-val-attr---Convert-Integer-to-byte-definision">int2byte($val, $attr) - Convert Integer to byte definision</a></li>
+      <li><a href="#int2ml-sum-attr-integet-to-money-in-litteral-format">int2ml($sum, $attr) integet to money in litteral format</a></li>
+      <li><a href="#decode_base64">decode_base64()</a></li>
+      <li><a href="#encode_base64">encode_base64()</a></li>
+      <li><a href="#check_time---time-check-function.-Make-start-time-point">check_time() - time check function. Make start time point</a></li>
+      <li><a href="#gen_time-begin_time---Show-generation-time">gen_time($begin_time) - Show generation time</a></li>
+      <li><a href="#clearquotes-text-attr---For-clearing-quotes">clearquotes($text, $attr) - For clearing quotes</a></li>
+      <li><a href="#tpl_parse-string-HASH_REF-attr---Parse-tpl">tpl_parse($string, \%HASH_REF, $attr); - Parse tpl</a></li>
+      <li><a href="#cmd-cmd-HASH_REF---Execute-shell-command">cmd($cmd, \%HASH_REF); - Execute shell command</a></li>
+      <li><a href="#ssh_cmd-cmd-attr---Make-ssh-command">ssh_cmd($cmd, $attr) - Make ssh command</a></li>
+      <li><a href="#date_diff-from_date-to_date---period-in-days-from-date1-to-date2">date_diff($from_date, $to_date) - period in days from date1 to date2</a></li>
+      <li><a href="#date_format-date-format-attr---convert-date-to-other-date-format">date_format($date, $format, $attr) - convert date to other date format</a></li>
+      <li><a href="#bp-attr---Break-points-for-debugging">_bp($attr) - Break points for debugging</a></li>
+      <li><a href="#urlencode-text-URL-encode-function">urlencode($text) URL encode function</a></li>
+      <li><a href="#urldecode-text-URL-decode-function-Arguments:-text---Text-string">urldecode($text) URL decode function Arguments: $text - Text string</a></li>
+      <li><a href="#startup_files-attr---Get-deamon-startup-information-and-other-params-of-system">startup_files($attr) - Get deamon startup information and other params of system</a></li>
+      <li><a href="#days_in_month-attr">days_in_month($attr)</a></li>
+      <li><a href="#next_month-attr">next_month($attr)</a></li>
+      <li><a href="#show_hash-hash">show_hash($hash)</a></li>
+      <li><a href="#load_pmodule-modulename-attr---Load-perl-module">load_pmodule($modulename, $attr); - Load perl module</a></li>
+      <li><a href="#date_inc-date">date_inc($date)</a></li>
+    </ul>
+  </li>
+  <li><a href="#AUTHOR">AUTHOR</a></li>
+</ul>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-    Abills::Base - Base functions
+<h1 id="NAME">NAME</h1>
 
-[1mSYNOPSIS[0m
-        use Abills::Base;
+<p>Abills::Base - Base functions</p>
 
-        convert();
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
 
-  [1mnull() Null function[0m
-      Return:
-        true
+<pre><code>    use Abills::Base;
 
-  [1mcfg2hash($cfg, $attr) Convert cft str to hash[0m
-      Arguments:
-        $cfg
-          format:
-            key:value;key:value;key:value;
-        $attr
+    convert();</code></pre>
 
-      Results:
+<h2 id="null-Null-function">null() Null function</h2>
 
-  [1min_array($value, $array) - Check value in array[0m
-      Arguments:
+<pre><code>  Return:
+    true</code></pre>
 
-        $value   - Search value
-        $array   - Array ref
+<h2 id="cfg2hash-cfg-attr-Convert-cft-str-to-hash">cfg2hash($cfg, $attr) Convert cft str to hash</h2>
 
-      Returns:
+<pre><code>  Arguments:
+    $cfg
+      format:
+        key:value;key:value;key:value;
+    $attr
 
-        true or false
+  Results:</code></pre>
 
-      Examples:
+<h2 id="in_array-value-array---Check-value-in-array">in_array($value, $array) - Check value in array</h2>
 
-        my $ret = in_array(10, \@array);
+<pre><code>  Arguments:
 
-  [1mconvert($text, $attr) - Converter text[0m
-       Attributes:
-         $text     - Text for convertation
-         $attr     - Params
-           text2html - convert text to HTML
-           html2text -
-           txt2translit - text to translit
-           json      - Convert \n to \n
+    $value   - Search value
+    $array   - Array ref
 
-           Transpation
-             win2koi
-             koi2win
-             win2iso
-             iso2win
-             win2dos
-             dos2win
+  Returns:
 
-      Returns:
+    true or false
 
-        converted text
+  Examples:
 
-      Examples:
-         convert($text, $attr)
+    my $ret = in_array(10, \@array);</code></pre>
 
-      Formating text
+<h2 id="convert-text-attr---Converter-text">convert($text, $attr) - Converter text</h2>
 
-        convert($text, { text2html => 1, SHOW_URL => 1 });
+<pre><code>   Attributes:
+     $text     - Text for convertation
+     $attr     - Params
+       text2html - convert text to HTML
+       html2text -
+       txt2translit - text to translit
+       json      - Convert \n to \n
 
-  [1mtxt2translit($text) - convert to translit[0m
-  [1mwin2utf8($text)[0m
-      http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1251.TXT
+       Transpation
+         win2koi
+         koi2win
+         win2iso
+         iso2win
+         win2dos
+         dos2win
 
-  [1mutf82win($text)[0m
-       http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1251.TXT
-       http://www.utf8-chartable.de/unicode-utf8-table.pl
+  Returns:
 
-  [1mcp8662utf8($text)[0m
-      Arguments:
+    converted text
 
+  Examples:
+     convert($text, $attr)
 
-      Returns:
+  Formating text
 
-  [1mutf82cp866($text)[0m
-      Arguments:
+    convert($text, { text2html =&gt; 1, SHOW_URL =&gt; 1 });</code></pre>
 
+<h2 id="txt2translit-text---convert-to-translit">txt2translit($text) - convert to translit</h2>
 
-      Returns:
+<h2 id="win2utf8-text">win2utf8($text)</h2>
 
-  [1mparse_arguments(\@ARGV) - Parse comand line arguments[0m
-      Arguments:
+<pre><code>  http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1251.TXT</code></pre>
 
-        @ARGV   - Command line arguments
+<h2 id="utf82win-text">utf82win($text)</h2>
 
-      Returns:
+<pre><code>   http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1251.TXT
+   http://www.utf8-chartable.de/unicode-utf8-table.pl</code></pre>
 
-        return HASH_REF of values
+<h2 id="cp8662utf8-text">cp8662utf8($text)</h2>
 
-      Examples:
-
-        my $argv = parse_arguments(\@ARGV);
-
-  [1msendmail($from, $to_addresses, $subject, $message, $charset, $priority, $attr) - Send mail message[0m
-      Arguments:
-
-        $from          - Sender e-mail
-        $to_addresses  - Receipt e-mail
-        $subject       - Subject
-        $message       - Message
-        $charset       - Charset
-        $priority      - Priority
-
-        $attr          - Attributes
-          ATTACHMENTS    - ARRAY of attachments
-          SENDMAIL_PATH  - path to sendmail program (Default: /usr/sbin/sendmail)
-          MAIL_HEADER    - Custom mail header
-          TEST           - Test mode. Only show email body
-          CONTENT_TYPE   - Content Type
-          ACTIONS        - Make actions fields
-          ID             - Message ID
-
-      Returns:
-        0 - true
-        1 - error
-        2 - reciever email not specified
-
-      Examples:
-
-        sendmail("$conf{ADMIN_MAIL}", "user@email", "Subject", "Message text",
-              "$conf{MAIL_CHARSET}", "2 (High)");
-
-  [1mshow_log($uid, $type, $attr) - Log parser[0m
-      Attributes:
-        $uid
-        $type
-        $attr
-          PAGE_ROWS
-          PG
-          DATE
-          LOG_TYPE
-
-  [1mmk_unique_value($size, $attr) - Make unique value[0m
-      Arguments:
-        $size  - Size of result string
-        $attr
-          SYMBOLS     -
-          EXTRA_RULES - '$chars:$case' (0 - num, 1 - special, 2 - both):(0 - lower, 1 - upper, 2 - both)
+<pre><code>  Arguments:
 
-      Results:
-        $value - Uniques string
 
-  [1mint2ip($int) Convert integer value to ip[0m
-  [1mip2int($ip) - Convert ip to int[0m
-  [1mtime2sec($time, $attr) - Time to second[0m
-      Returns:
-        $sec;
+  Returns:</code></pre>
 
-  [1msec2time($value, $attr) - Seconds to date format[0m
-      Convert seconds to date format
-
-      Arguments:
-        $value - number, seconds for conversion
-        $attr
-          format - return in 'HH:MM:SS' format
-          str    - return in '+D HH:MM:SS' format
+<h2 id="utf82cp866-text">utf82cp866($text)</h2>
 
-      Returns:
-        array - ($seconds, $minutes, $hours, $days)
-        if $attr see 'Arguments'
+<pre><code>  Arguments:
 
-  [1msec2date($secnum) - Convert second to date[0m
-      Arguments:
-        $secnum - Unixtime
 
-      Returns:
-        "$year-$mon-$mday $hour:$min:$sec"
+  Returns:</code></pre>
 
-  [1mint2byte($val, $attr) - Convert Integer to byte definision[0m
-      $KBYTE_SIZE - Size of kilobyte (Standart 1024)
+<h2 id="parse_arguments-ARGV---Parse-comand-line-arguments">parse_arguments(\@ARGV) - Parse comand line arguments</h2>
 
-  [1mint2ml($sum, $attr) integet to money in litteral format[0m
-      Arguments:
-        $sum
-        $attr
+<pre><code>  Arguments:
 
-      Returns:
-        $literal_sum
+    @ARGV   - Command line arguments
 
-  [1mdecode_base64()[0m
-  [1mencode_base64()[0m
-  [1mcheck_time() - time check function. Make start time point[0m
-  [1mgen_time($begin_time) - Show generation time[0m
-      Arguments:
-        $begin_time  - Start time point
-        $attr
-          TIME_ONLY
+  Returns:
 
-      Returns:
-        generation time
+    return HASH_REF of values
 
-  [1mclearquotes($text, $attr) - For clearing quotes[0m
-  [1mtpl_parse($string, \%HASH_REF, $attr); - Parse tpl[0m
-      Arguments:
-        $string   - parse string
-        $HASH_REF - Hash_ref of parameters
-        $attr     - Extra attributes
-          SET_ENV - Set enviropment values
+  Examples:
 
-      Return:
-        result string
+    my $argv = parse_arguments(\@ARGV);</code></pre>
 
-  [1mcmd($cmd, \%HASH_REF); - Execute shell command[0m
-    command execute in backgroud mode without output
+<h2 id="sendmail-from-to_addresses-subject-message-charset-priority-attr---Send-mail-message">sendmail($from, $to_addresses, $subject, $message, $charset, $priority, $attr) - Send mail message</h2>
 
-      Arguments:
+<pre><code>  Arguments:
 
-        $cmd     - command for execute
-        $attr    - Extra params
-          PARAMS          - Parameters for command line (HASH_REF)
-            [PARAM_NAME => PARAM_VALUE] convert to PARAM_NAME="PARAM_VALUE"
-          SHOW_RESULT     - show output of execution
-          timeout         - Time for command execute (Default: 5 sec.)
-          RESULT_ARRAY    - Return result as ARRAY_REF
-          ARGV            - Add ARGV for program
-          DEBUG           - Debug mode
+    $from          - Sender e-mail
+    $to_addresses  - Receipt e-mail
+    $subject       - Subject
+    $message       - Message
+    $charset       - Charset
+    $priority      - Priority
 
-          $ENV{CMD_EMULATE_MODE}
-             /usr/abills/var/log/cmd.log
+    $attr          - Attributes
+      ATTACHMENTS    - ARRAY of attachments
+      SENDMAIL_PATH  - path to sendmail program (Default: /usr/sbin/sendmail)
+      MAIL_HEADER    - Custom mail header
+      TEST           - Test mode. Only show email body
+      CONTENT_TYPE   - Content Type
+      ACTIONS        - Make actions fields
+      ID             - Message ID
 
-      Returns:
+  Returns:
+    0 - true
+    1 - error
+    2 - reciever email not specified
 
-        return command result string
+  Examples:
 
-      Examples:
+    sendmail(&quot;$conf{ADMIN_MAIL}&quot;, &quot;user@email&quot;, &quot;Subject&quot;, &quot;Message text&quot;,
+          &quot;$conf{MAIL_CHARSET}&quot;, &quot;2 (High)&quot;);</code></pre>
 
-        my $result = cmd("/usr/abills/misc/extended.sh %LOGIN% %IP%", { PARAMS => { LOGIN => text } });
+<h2 id="show_log-uid-type-attr---Log-parser">show_log($uid, $type, $attr) - Log parser</h2>
 
-        run as:
+<pre><code>  Attributes:
+    $uid
+    $type
+    $attr
+      PAGE_ROWS
+      PG
+      DATE
+      LOG_TYPE</code></pre>
 
-        /usr/abills/misc/extended.sh test
+<h2 id="mk_unique_value-size-attr---Make-unique-value">mk_unique_value($size, $attr) - Make unique value</h2>
 
+<pre><code>  Arguments:
+    $size  - Size of result string
+    $attr
+      SYMBOLS     -
+      EXTRA_RULES - &#39;$chars:$case&#39; (0 - num, 1 - special, 2 - both):(0 - lower, 1 - upper, 2 - both)
 
-        my $result = cmd("/usr/abills/misc/extended.sh", { ARGV => 1, PARAMS => { LOGIN => text } });
+  Results:
+    $value - Uniques string</code></pre>
 
-        run as:
+<h2 id="int2ip-int-Convert-integer-value-to-ip">int2ip($int) Convert integer value to ip</h2>
 
-        /usr/abills/misc/extended.sh LOGIN="test"
+<h2 id="ip2int-ip---Convert-ip-to-int">ip2int($ip) - Convert ip to int</h2>
 
-  [1mssh_cmd($cmd, $attr) - Make ssh command[0m
-      Arguments:
+<h2 id="time2sec-time-attr---Time-to-second">time2sec($time, $attr) - Time to second</h2>
 
-        $cmd     - command for execute
-          extra cmd "sleep 10"
-        $attr    - Extra params
-          NAS_MNG_IP_PORT  - Server IP:PORT
-          BASE_DIR         - Base dir for certificate BASE_DIR/Certs/id_dsa
-          NAS_MNG_USER     - ssh login (Default: abills_admin)
-          SSH_CMD          - ssh command (Default: /usr/bin/ssh -p $nas_port -o StrictHostKeyChecking=no -i $base_dir/Certs/id_dsa.$nas_admin)
-          SSH_KEY          - (optional) custom certificate file
-          DEBUG            - Debug mode
+<pre><code>  Returns:
+    $sec;</code></pre>
 
-      Returns:
+<h2 id="sec2time-value-attr---Seconds-to-date-format">sec2time($value, $attr) - Seconds to date format</h2>
 
-        return array_ref
+<pre><code>  Convert seconds to date format
 
-      Examples:
-
-        my $result = ssh_cmd('ls', { NAS_MNG_IP_PORT => '192.168.0.12:22' });
-
-        make
-
-        /usr/bin/ssh -p 22 -o StrictHostKeyChecking=no -i /usr/abills/Certs/id_dsa.abills_admin abills_admin@192.168.0.12 '$cmd'
-
-  [1mdate_diff($from_date, $to_date) - period in days from date1 to date2[0m
-      Arguments:
-
-        $from_date - From date
-        $to_date   - To date
-
-      Returns:
-
-        integer of date
-
-      Examples:
-
-        my $days = date_diff('2015-10-31', '2015-12-01');
-
-  [1mdate_format($date, $format, $attr) - convert date to other date format[0m
-      Arguments:
-
-        $date     - Input date YYYY-MM-DD
-        $format   - Output format (Use POSIX conver format)
-        $attr     -  Extra atributes
-
-      Returns:
-
-        string of date
-
-      Examples:
-
-        date_format('2015-10-31 08:01:15', "%m.%d.%y");
-
-        result 31.10.2015
-
-        date_format('2015-10-31 08:01:15', "%H-%m-%S");
-
-        result 08-01-15
-
-  [1m_bp($attr) - Break points for debugging[0m
-      Show file name,line number of point and input value
-
-      Arguments:
-        $explanation - Describe of value or hash_ref(legacy)
-          HEADER     - show html header (Content-Type)
-          SHOW       - Show input. Auto detect: string, array_ref, hash_ref, obj
-          EXIT       - Exit programs
-          BREAK_LINE - Break line symbols
-        $value       - Value of any type STRING, ARR_REF, HASH_REF
-        $attr        - hash_ref
-          HEADER         - print HTTP content-type header
-          EXIT           - Exit program (!!!)
-          BREAK_LINE     - Break line symbols
-          TO_WEB_CONSOLE - print to browser debug console via JavaScript
-          TO_CONSOLE     - print without HTML formatting
-          SORT           - Sort hash keys
-
-      Returns:
-        1
-
-      Example:
-        my $hash = { id1 => 'value1' };
-
-        Show with explanation of value
-          _bp( 'Simple hash', $hash, $attr ) if ($attr->{DEBUG});
-          _bp("Simple hash", $hash);
-
-        Show value in browser console
-          _bp("Simple hash", $hash, { TO_WEB_CONSOLE => 1 });
-
-        No HTML formatting
-          _bp("Simple hash", $hash, { TO_CONSOLE => 1 });
-
-        Legacy:
-          _bp({ SHOW => 'Some text' });
-
-  [1murlencode($text) URL encode function[0m
-      Arguments:
-        $text   - Text string
-
-      Returns:
-        Encoding string
-
-  [1murldecode($text) URL decode function
   Arguments:
-    $text   - Text string[0m
-      Returns:
-        decoding string
+    $value - number, seconds for conversion
+    $attr
+      format - return in &#39;HH:MM:SS&#39; format
+      str    - return in &#39;+D HH:MM:SS&#39; format
 
-  [1mstartup_files($attr) - Get deamon startup information and other params of system[0m
-    Analise file /usr/abills/Abills/programs and return hash_ref of params
+  Returns:
+    array - ($seconds, $minutes, $hours, $days)
+    if $attr see &#39;Arguments&#39;</code></pre>
 
-      Atributes:
-        $attr
-          TPL_DIR
+<h2 id="sec2date-secnum---Convert-second-to-date">sec2date($secnum) - Convert second to date</h2>
 
-      Returns:
-        hash_ref
+<pre><code>  Arguments:
+    $secnum - Unixtime
 
-  [1mdays_in_month($attr)[0m
-      Arguments:
-        $attr
-          DATE
+  Returns:
+    &quot;$year-$mon-$mday $hour:$min:$sec&quot;</code></pre>
 
-      Returns:
-        $day_in_month
+<h2 id="int2byte-val-attr---Convert-Integer-to-byte-definision">int2byte($val, $attr) - Convert Integer to byte definision</h2>
 
-      Examples:
+<pre><code>  $KBYTE_SIZE - Size of kilobyte (Standart 1024)</code></pre>
 
-        days_in_month({ DATE => '2016-11' });
+<h2 id="int2ml-sum-attr-integet-to-money-in-litteral-format">int2ml($sum, $attr) integet to money in litteral format</h2>
 
-        days_in_month({ DATE => '2016-11-01' });
+<pre><code>  Arguments:
+    $sum
+    $attr
 
-  [1mnext_month($attr)[0m
-      Arguments:
-        $attr
-          DATE      - Curdate
-          END       - End off month
-          PERIOD    - Month period
+  Returns:
+    $literal_sum</code></pre>
 
-      Return:
-        $next_month
+<h2 id="decode_base64">decode_base64()</h2>
 
-      Examples:
-        next_month({ DATE => '2016-03-12' });
+<h2 id="encode_base64">encode_base64()</h2>
 
-  [1mshow_hash($hash)[0m
-      Arguments:
-        $hash_ref
-        $attr
-          DELIMITER
-          OUTPUT2RETURN
+<h2 id="check_time---time-check-function.-Make-start-time-point">check_time() - time check function. Make start time point</h2>
 
-      Results:
-        True or false
+<h2 id="gen_time-begin_time---Show-generation-time">gen_time($begin_time) - Show generation time</h2>
 
-  [1mload_pmodule($modulename, $attr); - Load perl module[0m
-      Arguments:
-        $modulename   - Perl module name
-        $attr
-          IMPORT      - Function for import
-          HEADER      - Add Content-Type header
-          SHOW_RETURN - Result to return
+<pre><code>  Arguments:
+    $begin_time  - Start time point
+    $attr
+      TIME_ONLY
 
-      Returns:
-        TRUE - Not loaded
-        FALSE - Loaded
+  Returns:
+    generation time</code></pre>
 
-      Examples:
+<h2 id="clearquotes-text-attr---For-clearing-quotes">clearquotes($text, $attr) - For clearing quotes</h2>
 
-        load_pmodule('Simple::XML');
+<h2 id="tpl_parse-string-HASH_REF-attr---Parse-tpl">tpl_parse($string, \%HASH_REF, $attr); - Parse tpl</h2>
 
-  [1mdate_inc($date)[0m
-      Arguments:
-        $date - '2016-01-24'
+<pre><code>  Arguments:
+    $string   - parse string
+    $HASH_REF - Hash_ref of parameters
+    $attr     - Extra attributes
+      SET_ENV - Set enviropment values
 
-      Returns:
-       string - date incremented by one day
+  Return:
+    result string</code></pre>
 
-       0 if incorrect date;
+<h2 id="cmd-cmd-HASH_REF---Execute-shell-command">cmd($cmd, \%HASH_REF); - Execute shell command</h2>
 
-[1mAUTHOR[0m
-    ~AsmodeuS~ (http://abills.net.ua/)
+<p>command execute in backgroud mode without output</p>
+
+<pre><code>  Arguments:
+
+    $cmd     - command for execute
+    $attr    - Extra params
+      PARAMS          - Parameters for command line (HASH_REF)
+        [PARAM_NAME =&gt; PARAM_VALUE] convert to PARAM_NAME=&quot;PARAM_VALUE&quot;
+      SHOW_RESULT     - show output of execution
+      timeout         - Time for command execute (Default: 5 sec.)
+      RESULT_ARRAY    - Return result as ARRAY_REF
+      ARGV            - Add ARGV for program
+      DEBUG           - Debug mode
+
+      $ENV{CMD_EMULATE_MODE}
+         /usr/abills/var/log/cmd.log
+
+  Returns:
+
+    return command result string
+
+  Examples:
+
+    my $result = cmd(&quot;/usr/abills/misc/extended.sh %LOGIN% %IP%&quot;, { PARAMS =&gt; { LOGIN =&gt; text } });
+
+    run as:
+
+    /usr/abills/misc/extended.sh test
 
 
-	
-	</body>
-	</html>
-  
+    my $result = cmd(&quot;/usr/abills/misc/extended.sh&quot;, { ARGV =&gt; 1, PARAMS =&gt; { LOGIN =&gt; text } });
+
+    run as:
+
+    /usr/abills/misc/extended.sh LOGIN=&quot;test&quot;</code></pre>
+
+<h2 id="ssh_cmd-cmd-attr---Make-ssh-command">ssh_cmd($cmd, $attr) - Make ssh command</h2>
+
+<pre><code>  Arguments:
+
+    $cmd     - command for execute
+      extra cmd &quot;sleep 10&quot;
+    $attr    - Extra params
+      NAS_MNG_IP_PORT  - Server IP:PORT
+      BASE_DIR         - Base dir for certificate BASE_DIR/Certs/id_dsa
+      NAS_MNG_USER     - ssh login (Default: abills_admin)
+      SSH_CMD          - ssh command (Default: /usr/bin/ssh -p $nas_port -o StrictHostKeyChecking=no -i $base_dir/Certs/id_dsa.$nas_admin)
+      SSH_KEY          - (optional) custom certificate file
+      DEBUG            - Debug mode
+
+  Returns:
+
+    return array_ref
+
+  Examples:
+
+    my $result = ssh_cmd(&#39;ls&#39;, { NAS_MNG_IP_PORT =&gt; &#39;192.168.0.12:22&#39; });
+
+    make
+
+    /usr/bin/ssh -p 22 -o StrictHostKeyChecking=no -i /usr/abills/Certs/id_dsa.abills_admin abills_admin@192.168.0.12 &#39;$cmd&#39;</code></pre>
+
+<h2 id="date_diff-from_date-to_date---period-in-days-from-date1-to-date2">date_diff($from_date, $to_date) - period in days from date1 to date2</h2>
+
+<pre><code>  Arguments:
+
+    $from_date - From date
+    $to_date   - To date
+
+  Returns:
+
+    integer of date
+
+  Examples:
+
+    my $days = date_diff(&#39;2015-10-31&#39;, &#39;2015-12-01&#39;);</code></pre>
+
+<h2 id="date_format-date-format-attr---convert-date-to-other-date-format">date_format($date, $format, $attr) - convert date to other date format</h2>
+
+<pre><code>  Arguments:
+
+    $date     - Input date YYYY-MM-DD
+    $format   - Output format (Use POSIX conver format)
+    $attr     -  Extra atributes
+
+  Returns:
+
+    string of date
+
+  Examples:
+
+    date_format(&#39;2015-10-31 08:01:15&#39;, &quot;%m.%d.%y&quot;);
+
+    result 31.10.2015
+
+    date_format(&#39;2015-10-31 08:01:15&#39;, &quot;%H-%m-%S&quot;);
+
+    result 08-01-15</code></pre>
+
+<h2 id="bp-attr---Break-points-for-debugging">_bp($attr) - Break points for debugging</h2>
+
+<pre><code>  Show file name,line number of point and input value
+
+  Arguments:
+    $explanation - Describe of value or hash_ref(legacy)
+      HEADER     - show html header (Content-Type)
+      SHOW       - Show input. Auto detect: string, array_ref, hash_ref, obj
+      EXIT       - Exit programs
+      BREAK_LINE - Break line symbols
+    $value       - Value of any type STRING, ARR_REF, HASH_REF
+    $attr        - hash_ref
+      HEADER         - print HTTP content-type header
+      EXIT           - Exit program (!!!)
+      BREAK_LINE     - Break line symbols
+      TO_WEB_CONSOLE - print to browser debug console via JavaScript
+      TO_CONSOLE     - print without HTML formatting
+      SORT           - Sort hash keys
+
+  Returns:
+    1
+
+  Example:
+    my $hash = { id1 =&gt; &#39;value1&#39; };
+
+    Show with explanation of value
+      _bp( &#39;Simple hash&#39;, $hash, $attr ) if ($attr-&gt;{DEBUG});
+      _bp(&quot;Simple hash&quot;, $hash);
+
+    Show value in browser console
+      _bp(&quot;Simple hash&quot;, $hash, { TO_WEB_CONSOLE =&gt; 1 });
+
+    No HTML formatting
+      _bp(&quot;Simple hash&quot;, $hash, { TO_CONSOLE =&gt; 1 });
+
+    Legacy:
+      _bp({ SHOW =&gt; &#39;Some text&#39; });</code></pre>
+
+<h2 id="urlencode-text-URL-encode-function">urlencode($text) URL encode function</h2>
+
+<pre><code>  Arguments:
+    $text   - Text string
+
+  Returns:
+    Encoding string</code></pre>
+
+<h2 id="urldecode-text-URL-decode-function-Arguments:-text---Text-string">urldecode($text) URL decode function Arguments: $text - Text string</h2>
+
+<pre><code>  Returns:
+    decoding string</code></pre>
+
+<h2 id="startup_files-attr---Get-deamon-startup-information-and-other-params-of-system">startup_files($attr) - Get deamon startup information and other params of system</h2>
+
+<p>Analise file /usr/abills/Abills/programs and return hash_ref of params</p>
+
+<pre><code>  Atributes:
+    $attr
+      TPL_DIR
+
+  Returns:
+    hash_ref</code></pre>
+
+<h2 id="days_in_month-attr">days_in_month($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr
+      DATE
+
+  Returns:
+    $day_in_month
+
+  Examples:
+
+    days_in_month({ DATE =&gt; &#39;2016-11&#39; });
+
+    days_in_month({ DATE =&gt; &#39;2016-11-01&#39; });</code></pre>
+
+<h2 id="next_month-attr">next_month($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr
+      DATE      - Curdate
+      END       - End off month
+      PERIOD    - Month period
+
+  Return:
+    $next_month
+
+  Examples:
+    next_month({ DATE =&gt; &#39;2016-03-12&#39; });</code></pre>
+
+<h2 id="show_hash-hash">show_hash($hash)</h2>
+
+<pre><code>  Arguments:
+    $hash_ref
+    $attr
+      DELIMITER
+      OUTPUT2RETURN
+
+  Results:
+    True or false</code></pre>
+
+<h2 id="load_pmodule-modulename-attr---Load-perl-module">load_pmodule($modulename, $attr); - Load perl module</h2>
+
+<pre><code>  Arguments:
+    $modulename   - Perl module name
+    $attr
+      IMPORT      - Function for import
+      HEADER      - Add Content-Type header
+      SHOW_RETURN - Result to return
+
+  Returns:
+    TRUE - Not loaded
+    FALSE - Loaded
+
+  Examples:
+
+    load_pmodule(&#39;Simple::XML&#39;);</code></pre>
+
+<h2 id="date_inc-date">date_inc($date)</h2>
+
+<pre><code>  Arguments:
+    $date - &#39;2016-01-24&#39;
+
+  Returns:
+   string - date incremented by one day
+
+   0 if incorrect date;</code></pre>
+
+<h1 id="AUTHOR">AUTHOR</h1>
+
+<p>~AsmodeuS~ (http://abills.net.ua/)</p>
+
+
+</body>
+
+</html>
+
+

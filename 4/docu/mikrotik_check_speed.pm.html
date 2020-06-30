@@ -1,61 +1,81 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Mikrotik: Check speed and reconfigure
-
-      Argumnets:
-       RECONFIGURE=1
-       NAT=1
-       DOMAIN_ID=1
-       EXPORT_FILE=export.rsh - Export rules to file
-       SHOW_SPEED  - Show list ips
-       SKIP_NAT_IPS="xxx,xxx"
-
-       SSH_CMD
-       SSH_PORT
-
-  [1mcheck_speed_mikrotik($attr) Manage mikrotik bandwidth[0m
-      Arguments:
-        ARGV
-          SSH_PORT
-          SSH_CMD
-          MIKROTIK6
-          RECONFIGURE  - Reconfigure shaper
-          SHOW_SPEED   - Show current speed
-          NAT          - Configure NAT (Autoconfigure from: $base_dir/libexec/mikrotik.nat)
-          SKIP_NAT_IPS - Skip Nat ips
-          EXPORT_FILE
-
-      Actions:
-        up
-        down
-        check
-
-    > /queue tree print Flags: X - disabled, I - invalid 0
-    name="TP_102_in_global" parent=global-in packet-mark=ALLOW_GLOBAL_102
-    limit-at=5242880 queue=default priority=5 max-limit=5242880 burst-limit=0
-    burst-threshold=0 burst-time=0s
-
-     1   name="TP_102_out_global" parent=global-out packet-mark=ALLOW_GLOBAL_102
-         limit-at=5242880 queue=default priority=5 max-limit=5242880 burst-limit=0
-         burst-threshold=0 burst-time=0s
-
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 163:
-        Unknown directive: =comments
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#check_speed_mikrotik-attr-Manage-mikrotik-bandwidth">check_speed_mikrotik($attr) Manage mikrotik bandwidth</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Mikrotik: Check speed and reconfigure
+
+  Argumnets:
+   RECONFIGURE=1
+   NAT=1
+   DOMAIN_ID=1
+   EXPORT_FILE=export.rsh - Export rules to file
+   SHOW_SPEED  - Show list ips
+   SKIP_NAT_IPS=&quot;xxx,xxx&quot;
+
+   SSH_CMD
+   SSH_PORT</code></pre>
+
+<h2 id="check_speed_mikrotik-attr-Manage-mikrotik-bandwidth">check_speed_mikrotik($attr) Manage mikrotik bandwidth</h2>
+
+<pre><code>  Arguments:
+    ARGV
+      SSH_PORT
+      SSH_CMD
+      MIKROTIK6
+      RECONFIGURE  - Reconfigure shaper
+      SHOW_SPEED   - Show current speed
+      NAT          - Configure NAT (Autoconfigure from: $base_dir/libexec/mikrotik.nat)
+      SKIP_NAT_IPS - Skip Nat ips
+      EXPORT_FILE
+
+  Actions:
+    up
+    down
+    check</code></pre>
+
+<p>&gt; /queue tree print Flags: X - disabled, I - invalid 0 name=&quot;TP_102_in_global&quot; parent=global-in packet-mark=ALLOW_GLOBAL_102 limit-at=5242880 queue=default priority=5 max-limit=5242880 burst-limit=0 burst-threshold=0 burst-time=0s</p>
+
+<pre><code> 1   name=&quot;TP_102_out_global&quot; parent=global-out packet-mark=ALLOW_GLOBAL_102
+     limit-at=5242880 queue=default priority=5 max-limit=5242880 burst-limit=0
+     burst-threshold=0 burst-time=0s</code></pre>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-163">Around line 163:</dt>
+<dd>
+
+<p>Unknown directive: =comments</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

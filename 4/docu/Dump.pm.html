@@ -1,59 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mparse($file, $attr) -[0m
-      Arguments:
-        $file - filepath or directory
-        $attr - hash ref
-          CACHED - read from cached file. treats $file as Dumper structure
+<body>
+
+
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#parse-file-attr">parse($file, $attr) -</a></li>
+      <li><a href="#parse_accumulate-files_list-attr">parse_accumulate($files_list, $attr)</a></li>
+      <li><a href="#get_accumulated">get_accumulated()</a></li>
+      <li><a href="#parse_statement-statement">parse_statement($statement)</a></li>
+      <li><a href="#parse_columns-table---parses-SQL::Translator::Table-to-desired-format">_parse_columns($table) - parses SQL::Translator::Table to desired format</a></li>
+      <li><a href="#read_from_file-filepath-attr">read_from_file($filepath, $attr)</a></li>
+      <li><a href="#set_debug">set_debug()</a></li>
+      <li><a href="#renew_translator---clear-cache">renew_translator() - clear cache</a></li>
+      <li><a href="#print_debug_content-str---prints-with">_print_debug_content($str) - prints with</a></li>
+      <li><a href="#get_file_content-filepath">get_file_content($filepath)</a></li>
+      <li><a href="#filter_alter-content-alter_defined">filter_alter(\$content, \%alter_defined)</a></li>
+      <li><a href="#parse_field_definition-field">parse_field_definition($field)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="parse-file-attr">parse($file, $attr) -</h2>
+
+<pre><code>  Arguments:
+    $file - filepath or directory
+    $attr - hash ref
+      CACHED - read from cached file. treats $file as Dumper structure
     
-      Returns:
-        $parsed_info - hash_ref
-          table_name => {
-            columns => {
-              col1 => {
-                Type    => type1,
-                Null    => 'No',
-                Default => 'default'
-              }
-            },
-            ...
-            file => $file - file table was defined
-          },
-          ...
+  Returns:
+    $parsed_info - hash_ref
+      table_name =&gt; {
+        columns =&gt; {
+          col1 =&gt; {
+            Type    =&gt; type1,
+            Null    =&gt; &#39;No&#39;,
+            Default =&gt; &#39;default&#39;
+          }
+        },
+        ...
+        file =&gt; $file - file table was defined
+      },
+      ...
+    </code></pre>
 
-  [1mparse_accumulate($files_list, $attr)[0m
-  [1mget_accumulated()[0m
-      Arguments:
-         $attr -
-           USE_CACHE - gives function hash_ref for tables defined in cache
+<h2 id="parse_accumulate-files_list-attr">parse_accumulate($files_list, $attr)</h2>
+
+<h2 id="get_accumulated">get_accumulated()</h2>
+
+<pre><code>  Arguments:
+     $attr -
+       USE_CACHE - gives function hash_ref for tables defined in cache
     
-      Returns:
-        \%table_info - information for tables in schema parsed earlier
+  Returns:
+    \%table_info - information for tables in schema parsed earlier
+    </code></pre>
 
-  [1mparse_statement($statement)[0m
-      Arguments:
-        $statement -
+<h2 id="parse_statement-statement">parse_statement($statement)</h2>
+
+<pre><code>  Arguments:
+    $statement -
     
-      Returns:
-        hash_ref
+  Returns:
+    hash_ref
+    </code></pre>
 
-  [1m_parse_columns($table) - parses SQL::Translator::Table to desired format[0m
-  [1mread_from_file($filepath, $attr)[0m
-  [1mset_debug()[0m
-  [1mrenew_translator() - clear cache[0m
-  [1m_print_debug_content($str) - prints with[0m
-  [1mget_file_content($filepath)[0m
-  [1mfilter_alter(\$content, \%alter_defined)[0m
-  [1mparse_field_definition($field)[0m
+<h2 id="parse_columns-table---parses-SQL::Translator::Table-to-desired-format">_parse_columns($table) - parses SQL::Translator::Table to desired format</h2>
 
-	
-	</body>
-	</html>
-  
+<h2 id="read_from_file-filepath-attr">read_from_file($filepath, $attr)</h2>
+
+<h2 id="set_debug">set_debug()</h2>
+
+<h2 id="renew_translator---clear-cache">renew_translator() - clear cache</h2>
+
+<h2 id="print_debug_content-str---prints-with">_print_debug_content($str) - prints with</h2>
+
+<h2 id="get_file_content-filepath">get_file_content($filepath)</h2>
+
+<h2 id="filter_alter-content-alter_defined">filter_alter(\$content, \%alter_defined)</h2>
+
+<h2 id="parse_field_definition-field">parse_field_definition($field)</h2>
+
+
+</body>
+
+</html>
+
+

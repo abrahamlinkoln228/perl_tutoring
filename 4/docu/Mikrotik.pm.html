@@ -1,133 +1,180 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mnew() - Constructor[0m
-  [1mexecute($command) -[0m
-      Arguments:
-        $command -
+<body>
 
-      Returns:
-        1 - if success
 
-  [1mhas_access()[0m
-  [1mgenerate_key($admin_name) - generates SSH key[0m
-      Arguments:
-        $admin_name - name for admin ( for key name )
 
-      Returns:
-        1 - if generated
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new---Constructor">new() - Constructor</a></li>
+      <li><a href="#execute-command">execute($command) -</a></li>
+      <li><a href="#has_access">has_access()</a></li>
+      <li><a href="#generate_key-admin_name---generates-SSH-key">generate_key($admin_name) - generates SSH key</a></li>
+      <li><a href="#upload_key-attr---uploads-key-for-remote-ssh-management">upload_key($attr) - uploads key for remote ssh management</a></li>
+      <li><a href="#get_error---returns-inner-executor-error">get_error() - returns inner executor error</a></li>
+      <li><a href="#get_list-list_name-attr---forwarding-request-to-executor">get_list($list_name, $attr) - forwarding request to executor</a></li>
+      <li><a href="#interfaces_list-filter">interfaces_list($filter)</a></li>
+      <li><a href="#addresses_list">addresses_list()</a></li>
+      <li><a href="#adverts_list-attr---get-hotspot-adverts-for-default-user-profile">adverts_list($attr) - get hotspot adverts for default user profile</a></li>
+      <li><a href="#leases_list---returns-leases-from-mikrotik">leases_list() - returns leases from mikrotik</a></li>
+      <li><a href="#remove_leases-leases_ids_list-attr">remove_leases($leases_ids_list, $attr)</a></li>
+      <li><a href="#add_leases-leases_list-attr">add_leases($leases_list, $attr)</a></li>
+      <li><a href="#remove_all_generated_leases-nas-attr">remove_all_generated_leases($nas, $attr)</a></li>
+      <li><a href="#check_dhcp_servers-networks-attr">check_dhcp_servers($networks, $attr)</a></li>
+      <li><a href="#configure_hotspot-arguments">configure_hotspot(\%arguments)</a></li>
+      <li><a href="#radius_add-host-attr---adds-first-radius-server">radius_add($host, $attr) - adds first radius server</a></li>
+    </ul>
+  </li>
+</ul>
 
-  [1mupload_key($attr) - uploads key for remote ssh management[0m
-      Arguments:
-        $attr - hash_ref
-          ADMIN_NAME    - admin to upload key for. Will be created if not exists
-          SYSTEM_ADMIN  - current active admin
-          SYSTEM_PASSWD - current password
+<h2 id="new---Constructor">new() - Constructor</h2>
 
-      Returns:
-        1 - if success
+<h2 id="execute-command">execute($command) -</h2>
 
-  [1mget_error() - returns inner executor error[0m
-  [1mget_list($list_name, $attr) - forwarding request to executor[0m
-      Arguments:
-        $list_name - one of predefined commands
+<pre><code>  Arguments:
+    $command -
 
-      Returns:
-       list
+  Returns:
+    1 - if success</code></pre>
 
-  [1minterfaces_list($filter)[0m
-      Arguments:
-        $filter - hash_ref
+<h2 id="has_access">has_access()</h2>
 
-      Returns:
-      list of interfaces (filtered if filter defined)
+<h2 id="generate_key-admin_name---generates-SSH-key">generate_key($admin_name) - generates SSH key</h2>
 
-  [1maddresses_list()[0m
-  [1madverts_list($attr) - get hotspot adverts for default user profile[0m
-  [1mleases_list() - returns leases from mikrotik[0m
-      Arguments:
-        $mikrotik - Mikrotik object
+<pre><code>  Arguments:
+    $admin_name - name for admin ( for key name )
 
-      Returns:
-        list
+  Returns:
+    1 - if generated</code></pre>
 
-  [1mremove_leases($leases_ids_list, $attr)[0m
-      Arguments:
-        $leases_ids_list - array_ref of IDs to delete
-        $attr - hash_ref
+<h2 id="upload_key-attr---uploads-key-for-remote-ssh-management">upload_key($attr) - uploads key for remote ssh management</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+      ADMIN_NAME    - admin to upload key for. Will be created if not exists
+      SYSTEM_ADMIN  - current active admin
+      SYSTEM_PASSWD - current password
+
+  Returns:
+    1 - if success</code></pre>
+
+<h2 id="get_error---returns-inner-executor-error">get_error() - returns inner executor error</h2>
+
+<h2 id="get_list-list_name-attr---forwarding-request-to-executor">get_list($list_name, $attr) - forwarding request to executor</h2>
+
+<pre><code>  Arguments:
+    $list_name - one of predefined commands
+
+  Returns:
+   list</code></pre>
+
+<h2 id="interfaces_list-filter">interfaces_list($filter)</h2>
+
+<pre><code>  Arguments:
+    $filter - hash_ref
+
+  Returns:
+  list of interfaces (filtered if filter defined)</code></pre>
+
+<h2 id="addresses_list">addresses_list()</h2>
+
+<h2 id="adverts_list-attr---get-hotspot-adverts-for-default-user-profile">adverts_list($attr) - get hotspot adverts for default user profile</h2>
+
+<h2 id="leases_list---returns-leases-from-mikrotik">leases_list() - returns leases from mikrotik</h2>
+
+<pre><code>  Arguments:
+    $mikrotik - Mikrotik object
+
+  Returns:
+    list</code></pre>
+
+<h2 id="remove_leases-leases_ids_list-attr">remove_leases($leases_ids_list, $attr)</h2>
+
+<pre><code>  Arguments:
+    $leases_ids_list - array_ref of IDs to delete
+    $attr - hash_ref
     
-      Returns:
-        boolean
+  Returns:
+    boolean</code></pre>
 
-  [1madd_leases($leases_list, $attr)[0m
-      Arguments:
-        $leases_list - list of leases in DB format
-          [
-           {
-             tp_tp_id
-             network
-             mac
-             ip
-           }
-          ]
-        $attr
-          SKIP_DHCP_NAME - add lease for all DHCP servers
-          VERBOSE - be verbose
-          DEBUG
+<h2 id="add_leases-leases_list-attr">add_leases($leases_list, $attr)</h2>
 
-      Returns:
-        1
+<pre><code>  Arguments:
+    $leases_list - list of leases in DB format
+      [
+       {
+         tp_tp_id
+         network
+         mac
+         ip
+       }
+      ]
+    $attr
+      SKIP_DHCP_NAME - add lease for all DHCP servers
+      VERBOSE - be verbose
+      DEBUG
 
-  [1mremove_all_generated_leases($nas, $attr)[0m
-      Arguments:
-        $nas - nases table line
-        $attr - hash_ref
+  Returns:
+    1</code></pre>
 
-      Returns:
-       1 if success
+<h2 id="remove_all_generated_leases-nas-attr">remove_all_generated_leases($nas, $attr)</h2>
 
-  [1mcheck_dhcp_servers($networks, $attr)[0m
-      Arguments:
-        $mikrotik - Mikrotik object
-        $networks - networks list from DB
+<pre><code>  Arguments:
+    $nas - nases table line
+    $attr - hash_ref
 
-      Returns:
-        1
+  Returns:
+   1 if success</code></pre>
 
-  [1mconfigure_hotspot(\%arguments)[0m
-      Arguments:
-        $arguments - hash_ref
-          INTERFACE            - interface to apply hotspot firewall rules
-          DHCP_RANGE           - range of client addresses
-          ADDRESS              - local IP address for hotspot interface
-          NETWORK              - hotspot network
-          NETMASK              - hotspot network bits length
-          GATEWAY              - WAN interface gateway
-          DNS
-          DNS_NAME             - name that clients are redirected to
-          BILLING_IP_ADDRESS   - radius IP address
-          RADIUS_SECRET
+<h2 id="check_dhcp_servers-networks-attr">check_dhcp_servers($networks, $attr)</h2>
 
-  [1mradius_add($host, $attr) - adds first radius server[0m
-      Arguments:
-        $host - ip address
-        $attr - hash_ref
-          RADIUS_SECRET - use special radius secret, instead of given in host params
-          COA           - port for listening COA requests (3799)
-          REPLACE       - if server exists, delete it and set with given params
-          SERVICES      - services to use with this radius (hotspot, ppp, dhcp)
+<pre><code>  Arguments:
+    $mikrotik - Mikrotik object
+    $networks - networks list from DB
+
+  Returns:
+    1</code></pre>
+
+<h2 id="configure_hotspot-arguments">configure_hotspot(\%arguments)</h2>
+
+<pre><code>  Arguments:
+    $arguments - hash_ref
+      INTERFACE            - interface to apply hotspot firewall rules
+      DHCP_RANGE           - range of client addresses
+      ADDRESS              - local IP address for hotspot interface
+      NETWORK              - hotspot network
+      NETMASK              - hotspot network bits length
+      GATEWAY              - WAN interface gateway
+      DNS
+      DNS_NAME             - name that clients are redirected to
+      BILLING_IP_ADDRESS   - radius IP address
+      RADIUS_SECRET</code></pre>
+
+<h2 id="radius_add-host-attr---adds-first-radius-server">radius_add($host, $attr) - adds first radius server</h2>
+
+<pre><code>  Arguments:
+    $host - ip address
+    $attr - hash_ref
+      RADIUS_SECRET - use special radius secret, instead of given in host params
+      COA           - port for listening COA requests (3799)
+      REPLACE       - if server exists, delete it and set with given params
+      SERVICES      - services to use with this radius (hotspot, ppp, dhcp)
     
-      Returns:
-        1 - if success
+  Returns:
+    1 - if success
+    </code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

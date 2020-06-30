@@ -1,114 +1,155 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Users manage functions
+<body>
 
-  [1mcontacts_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
-          UID
-          VALUE
-          PRIORITY
-          TYPE
-          TYPE_NAME
 
-      Returns:
-        list
 
-  [1mcontacts_info($id)[0m
-      Arguments:
-        $id - id for contacts
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#contacts_list-attr">contacts_list($attr)</a></li>
+      <li><a href="#contacts_info-id">contacts_info($id)</a></li>
+      <li><a href="#contacts_add-attr">contacts_add($attr)</a></li>
+      <li><a href="#contacts_del-attr">contacts_del($attr)</a></li>
+      <li><a href="#contacts_change-attr">contacts_change($attr)</a></li>
+      <li><a href="#contact_types_list-attr">contact_types_list($attr)</a></li>
+      <li><a href="#contact_types_info-id">contact_types_info($id)</a></li>
+      <li><a href="#contact_types_add-attr">contact_types_add($attr)</a></li>
+      <li><a href="#contact_types_del-attr">contact_types_del($attr)</a></li>
+      <li><a href="#contact_types_change-attr">contact_types_change($attr)</a></li>
+      <li><a href="#social_add_info">social_add_info() -</a></li>
+      <li><a href="#social_list_info-attr">social_list_info($attr) -</a></li>
+      <li><a href="#contact_type_id_for_name-name---get-contact_type_id-for-name">contact_type_id_for_name($name) - get contact_type_id for name</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Returns:
-        hash_ref
+<h1 id="NAME">NAME</h1>
 
-  [1mcontacts_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Users manage functions</code></pre>
 
-      Returns:
-        1
+<h2 id="contacts_list-attr">contacts_list($attr)</h2>
 
-  [1mcontacts_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
+      UID
+      VALUE
+      PRIORITY
+      TYPE
+      TYPE_NAME
 
-      Returns:
-       1
+  Returns:
+    list</code></pre>
 
-  [1mcontacts_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="contacts_info-id">contacts_info($id)</h2>
 
-      Returns:
-        1
+<pre><code>  Arguments:
+    $id - id for contacts
 
-  [1mcontact_types_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    hash_ref</code></pre>
 
-      Returns:
-        list
+<h2 id="contacts_add-attr">contacts_add($attr)</h2>
 
-  [1mcontact_types_info($id)[0m
-      Arguments:
-        $id - id for contact_types
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        hash_ref
+  Returns:
+    1</code></pre>
 
-  [1mcontact_types_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="contacts_del-attr">contacts_del($attr)</h2>
 
-      Returns:
-        1
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1mcontact_types_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+   1</code></pre>
 
-      Returns:
-       1
+<h2 id="contacts_change-attr">contacts_change($attr)</h2>
 
-  [1mcontact_types_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        1
+  Returns:
+    1</code></pre>
 
-  [1msocial_add_info() -[0m
-      Arguments:
-        $attr -
-      Returns:
+<h2 id="contact_types_list-attr">contact_types_list($attr)</h2>
 
-      Examples:
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1msocial_list_info($attr) -[0m
-      Arguments:
-        $attr -
+  Returns:
+    list</code></pre>
 
-      Returns:
-        $self object;
+<h2 id="contact_types_info-id">contact_types_info($id)</h2>
 
-      Examples:
+<pre><code>  Arguments:
+    $id - id for contact_types
 
-  [1mcontact_type_id_for_name($name) - get contact_type_id for name[0m
-      Arguments:
-        $name -
+  Returns:
+    hash_ref</code></pre>
+
+<h2 id="contact_types_add-attr">contact_types_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="contact_types_del-attr">contact_types_del($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+   1</code></pre>
+
+<h2 id="contact_types_change-attr">contact_types_change($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="social_add_info">social_add_info() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="social_list_info-attr">social_list_info($attr) -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+
+  Returns:
+    $self object;
+
+  Examples:</code></pre>
+
+<h2 id="contact_type_id_for_name-name---get-contact_type_id-for-name">contact_type_id_for_name($name) - get contact_type_id for name</h2>
+
+<pre><code>  Arguments:
+    $name -
     
-      Returns:
+  Returns:
+    
+    </code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

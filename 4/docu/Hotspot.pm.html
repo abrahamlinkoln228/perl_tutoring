@@ -1,268 +1,356 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new-db-admin-conf---constructor-for-Hotspot-DB-object">new($db, $admin, \%conf) - constructor for Hotspot DB object</a></li>
+      <li><a href="#visits_list-attr">visits_list($attr)</a></li>
+      <li><a href="#visits_count---quick-count">visits_count() - quick count</a></li>
+      <li><a href="#visits_info-id">visits_info($id)</a></li>
+      <li><a href="#visits_add-attr">visits_add($attr)</a></li>
+      <li><a href="#visits_del-attr">visits_del($attr)</a></li>
+      <li><a href="#visits_change-attr">visits_change($attr)</a></li>
+      <li><a href="#logins_list-attr">logins_list($attr)</a></li>
+      <li><a href="#logins_info-id">logins_info($id)</a></li>
+      <li><a href="#logins_info_for_session-session_id---Searches-login-by-visit-id">logins_info_for_session($session_id) - Searches login by visit id</a></li>
+      <li><a href="#logins_add-attr">logins_add($attr)</a></li>
+      <li><a href="#logins_del-attr">logins_del($attr)</a></li>
+      <li><a href="#logins_change-attr">logins_change($attr)</a></li>
+      <li><a href="#user_agents_list-attr">user_agents_list($attr)</a></li>
+      <li><a href="#user_agents_add-attr">user_agents_add($attr)</a></li>
+      <li><a href="#user_agents_del-attr">user_agents_del($attr)</a></li>
+      <li><a href="#oses_list-attr">oses_list($attr)</a></li>
+      <li><a href="#oses_info-id">oses_info($id)</a></li>
+      <li><a href="#oses_add-attr">oses_add($attr)</a></li>
+      <li><a href="#oses_del-attr">oses_del($attr)</a></li>
+      <li><a href="#oses_change-attr">oses_change($attr)</a></li>
+      <li><a href="#browsers_list-attr">browsers_list($attr)</a></li>
+      <li><a href="#browsers_info-id">browsers_info($id)</a></li>
+      <li><a href="#browsers_add-attr">browsers_add($attr)</a></li>
+      <li><a href="#browsers_del-attr">browsers_del($attr)</a></li>
+      <li><a href="#browsers_change-attr">browsers_change($attr)</a></li>
+      <li><a href="#adverts_list-attr">adverts_list($attr)</a></li>
+      <li><a href="#adverts_info-id">adverts_info($id)</a></li>
+      <li><a href="#adverts_add-attr">adverts_add($attr)</a></li>
+      <li><a href="#adverts_del-attr">adverts_del($attr)</a></li>
+      <li><a href="#adverts_change-attr">adverts_change($attr)</a></li>
+      <li><a href="#advert_shows_list-attr">advert_shows_list($attr)</a></li>
+      <li><a href="#advert_shows_info-id">advert_shows_info($id)</a></li>
+      <li><a href="#advert_shows_add-attr">advert_shows_add($attr)</a></li>
+      <li><a href="#advert_shows_del-attr">advert_shows_del($attr)</a></li>
+      <li><a href="#advert_shows_change-attr">advert_shows_change($attr)</a></li>
+      <li><a href="#advert_shows_count-id-attr---get-count-of-advert-shows">advert_shows_count($id, $attr) - get count of advert shows</a></li>
+      <li><a href="#request_random_ad-attr---returns-random-ad-url">request_random_ad($attr) - returns random ad url</a></li>
+    </ul>
+  </li>
+</ul>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mnew($db, $admin, \%conf) - constructor for Hotspot DB object[0m
-  [1mvisits_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="new-db-admin-conf---constructor-for-Hotspot-DB-object">new($db, $admin, \%conf) - constructor for Hotspot DB object</h2>
 
-      Returns:
-        list
+<h2 id="visits_list-attr">visits_list($attr)</h2>
 
-  [1mvisits_count() - quick count[0m
-      Returns:
-        Count of elements in table
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1mvisits_info($id)[0m
-      Arguments:
-        $id - id for hotspot_visits
+  Returns:
+    list</code></pre>
 
-      Returns:
-        hash_ref
+<h2 id="visits_count---quick-count">visits_count() - quick count</h2>
 
-  [1mvisits_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Returns:
+    Count of elements in table</code></pre>
 
-      Returns:
-        1
+<h2 id="visits_info-id">visits_info($id)</h2>
 
-  [1mvisits_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $id - id for hotspot_visits
 
-      Returns:
-       1
+  Returns:
+    hash_ref</code></pre>
 
-  [1mvisits_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="visits_add-attr">visits_add($attr)</h2>
 
-      Returns:
-        1
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1mlogins_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    1</code></pre>
 
-      Returns:
-        list
+<h2 id="visits_del-attr">visits_del($attr)</h2>
 
-  [1mlogins_info($id)[0m
-      Arguments:
-        $id - id for logins
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        hash_ref
+  Returns:
+   1</code></pre>
 
-  [1mlogins_info_for_session($session_id) - Searches login by visit id[0m
-      Arguments:
-        $session_id - session_id for logins as specified in hotspot_visits
+<h2 id="visits_change-attr">visits_change($attr)</h2>
 
-      Returns:
-        hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1mlogins_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    1</code></pre>
 
-      Returns:
-        1
+<h2 id="logins_list-attr">logins_list($attr)</h2>
 
-  [1mlogins_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-       1
+  Returns:
+    list</code></pre>
 
-  [1mlogins_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="logins_info-id">logins_info($id)</h2>
 
-      Returns:
-        1
+<pre><code>  Arguments:
+    $id - id for logins
 
-  [1muser_agents_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    hash_ref</code></pre>
 
-      Returns:
-        list
+<h2 id="logins_info_for_session-session_id---Searches-login-by-visit-id">logins_info_for_session($session_id) - Searches login by visit id</h2>
 
-  [1muser_agents_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $session_id - session_id for logins as specified in hotspot_visits
 
-      Returns:
-        1
+  Returns:
+    hash_ref</code></pre>
 
-  [1muser_agents_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="logins_add-attr">logins_add($attr)</h2>
 
-      Returns:
-       1
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1moses_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    1</code></pre>
 
-      Returns:
-        list
+<h2 id="logins_del-attr">logins_del($attr)</h2>
 
-  [1moses_info($id)[0m
-      Arguments:
-        $id - id for oses
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        hash_ref
+  Returns:
+   1</code></pre>
 
-  [1moses_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="logins_change-attr">logins_change($attr)</h2>
 
-      Returns:
-        1
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1moses_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    1</code></pre>
 
-      Returns:
-       1
+<h2 id="user_agents_list-attr">user_agents_list($attr)</h2>
 
-  [1moses_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        1
+  Returns:
+    list</code></pre>
 
-  [1mbrowsers_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="user_agents_add-attr">user_agents_add($attr)</h2>
 
-      Returns:
-        list
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1mbrowsers_info($id)[0m
-      Arguments:
-        $id - id for browsers
+  Returns:
+    1</code></pre>
 
-      Returns:
-        hash_ref
+<h2 id="user_agents_del-attr">user_agents_del($attr)</h2>
 
-  [1mbrowsers_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        1
+  Returns:
+   1</code></pre>
 
-  [1mbrowsers_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="oses_list-attr">oses_list($attr)</h2>
 
-      Returns:
-       1
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1mbrowsers_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    list</code></pre>
 
-      Returns:
-        1
+<h2 id="oses_info-id">oses_info($id)</h2>
 
-  [1madverts_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $id - id for oses
 
-      Returns:
-        list
+  Returns:
+    hash_ref</code></pre>
 
-  [1madverts_info($id)[0m
-      Arguments:
-        $id - id for adverts
+<h2 id="oses_add-attr">oses_add($attr)</h2>
 
-      Returns:
-        hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1madverts_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    1</code></pre>
 
-      Returns:
-        1
+<h2 id="oses_del-attr">oses_del($attr)</h2>
 
-  [1madverts_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-       1
+  Returns:
+   1</code></pre>
 
-  [1madverts_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="oses_change-attr">oses_change($attr)</h2>
 
-      Returns:
-        1
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1madvert_shows_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    1</code></pre>
 
-      Returns:
-        list
+<h2 id="browsers_list-attr">browsers_list($attr)</h2>
 
-  [1madvert_shows_info($id)[0m
-      Arguments:
-        $id - id for advert_shows
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        hash_ref
+  Returns:
+    list</code></pre>
 
-  [1madvert_shows_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="browsers_info-id">browsers_info($id)</h2>
 
-      Returns:
-        1
+<pre><code>  Arguments:
+    $id - id for browsers
 
-  [1madvert_shows_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    hash_ref</code></pre>
 
-      Returns:
-       1
+<h2 id="browsers_add-attr">browsers_add($attr)</h2>
 
-  [1madvert_shows_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        1
+  Returns:
+    1</code></pre>
 
-  [1madvert_shows_count($id, $attr) - get count of advert shows[0m
-      Arguments:
-        $id -
+<h2 id="browsers_del-attr">browsers_del($attr)</h2>
 
-      Returns:
-        number - count of shows
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1mrequest_random_ad($attr) - returns random ad url[0m
-      Returns:
-        string - url
+  Returns:
+   1</code></pre>
 
+<h2 id="browsers_change-attr">browsers_change($attr)</h2>
 
-	
-	</body>
-	</html>
-  
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="adverts_list-attr">adverts_list($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
+
+<h2 id="adverts_info-id">adverts_info($id)</h2>
+
+<pre><code>  Arguments:
+    $id - id for adverts
+
+  Returns:
+    hash_ref</code></pre>
+
+<h2 id="adverts_add-attr">adverts_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="adverts_del-attr">adverts_del($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+   1</code></pre>
+
+<h2 id="adverts_change-attr">adverts_change($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="advert_shows_list-attr">advert_shows_list($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
+
+<h2 id="advert_shows_info-id">advert_shows_info($id)</h2>
+
+<pre><code>  Arguments:
+    $id - id for advert_shows
+
+  Returns:
+    hash_ref</code></pre>
+
+<h2 id="advert_shows_add-attr">advert_shows_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="advert_shows_del-attr">advert_shows_del($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+   1</code></pre>
+
+<h2 id="advert_shows_change-attr">advert_shows_change($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="advert_shows_count-id-attr---get-count-of-advert-shows">advert_shows_count($id, $attr) - get count of advert shows</h2>
+
+<pre><code>  Arguments:
+    $id -
+
+  Returns:
+    number - count of shows</code></pre>
+
+<h2 id="request_random_ad-attr---returns-random-ad-url">request_random_ad($attr) - returns random ad url</h2>
+
+<pre><code>  Returns:
+    string - url</code></pre>
+
+
+</body>
+
+</html>
+
+

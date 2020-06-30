@@ -1,133 +1,167 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-     Main billing functions
+<body>
 
-  [1mtraffic_calculations() -
+
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#traffic_calculations---Arguments:-RAD">traffic_calculations() - Arguments: $RAD</a></li>
+      <li><a href="#get_traffic-attr---Get-traffic-from-some-period">get_traffic($attr) - Get traffic from some period</a></li>
+      <li><a href="#get_traffic_ipn-attr---Get-traffic-from-some-period-using-IPN-stats">get_traffic_ipn($attr) - Get traffic from some period using IPN stats</a></li>
+      <li><a href="#session_sum-USER_NAME-SESSION_START-SESSION_DURATION-RAD-attr---Calculate-session-sum">session_sum ($USER_NAME, $SESSION_START, $SESSION_DURATION, $RAD, $attr) - Calculate session sum</a></li>
+      <li><a href="#time_intervals-TP_ID-attr---Get-Time-intervals">time_intervals($TP_ID, $attr) - Get Time intervals</a></li>
+      <li><a href="#session_splitter-start-duration-day_begin-day_of_week-day_or_year-intervals---Split-session-to-intervals">session_splitter($start, $duration, $day_begin, $day_of_week, $day_or_year, $intervals) - Split session to intervals</a></li>
+      <li><a href="#time_calculation-attr---Time-calculation">time_calculation($attr) - Time calculation</a></li>
+      <li><a href="#get_timeinfo---Get-current-time-info">get_timeinfo() - Get current time info</a></li>
+      <li><a href="#remaining_time-deposit-attr---Calculate-remaining-time">remaining_time($deposit, $attr) - Calculate remaining time</a></li>
+      <li><a href="#mk_session_log-acct_info---Make-file-lof-if-db-not-accessible">mk_session_log(\$acct_info) - Make file lof if db not accessible</a></li>
+      <li><a href="#expression-UID-expr-attr---Extretions-formul">expression($UID, $expr, $attr) - Extretions formul</a></li>
+      <li><a href="#get_result-right-attr---get-expresion-result">get_result($right, $attr) - get expresion result</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code> Main billing functions</code></pre>
+
+<h2 id="traffic_calculations---Arguments:-RAD">traffic_calculations() - Arguments: $RAD</h2>
+
+<pre><code>  Returns:
+    Return TRAFFIC SUM</code></pre>
+
+<h2 id="get_traffic-attr---Get-traffic-from-some-period">get_traffic($attr) - Get traffic from some period</h2>
+
+<pre><code>  Arguments:
+    UID     - user id
+    PERIOD  - start period
+    STATS_ONLY
+
+  Returns:
+    Return traffic recalculation by MB
+
+      TRAFFIC_OUT
+      TRAFFIC_IN
+      TRAFFIC_OUT_2
+      TRAFFIC_IN_2</code></pre>
+
+<h2 id="get_traffic_ipn-attr---Get-traffic-from-some-period-using-IPN-stats">get_traffic_ipn($attr) - Get traffic from some period using IPN stats</h2>
+
+<pre><code>  Arguments:
+    UID     - user id
+    PERIOD  - start period
+
+  Returns:
+     Return traffic recalculation by MB</code></pre>
+
+<h2 id="session_sum-USER_NAME-SESSION_START-SESSION_DURATION-RAD-attr---Calculate-session-sum">session_sum ($USER_NAME, $SESSION_START, $SESSION_DURATION, $RAD, $attr) - Calculate session sum</h2>
+
+<pre><code>  Calculate session sum
+
   Arguments:
-    $RAD[0m
-      Returns:
-        Return TRAFFIC SUM
+     $USER_NAME
+     $SESSION_START
+     $SESSION_DURATION
+     $RAD
+     $attr
 
-  [1mget_traffic($attr) - Get traffic from some period[0m
-      Arguments:
-        UID     - user id
-        PERIOD  - start period
-        STATS_ONLY
+  Returns:
+    &gt;= 0 - session sum
+    -1 Less than minimun session trafic and time
+    -2 Can\&#39;t find user account
+    -3 SQL Error
+    -4 Company not found
+    -5 TP not found
+    -16 Not allow start period</code></pre>
 
-      Returns:
-        Return traffic recalculation by MB
+<h2 id="time_intervals-TP_ID-attr---Get-Time-intervals">time_intervals($TP_ID, $attr) - Get Time intervals</h2>
 
-          TRAFFIC_OUT
-          TRAFFIC_IN
-          TRAFFIC_OUT_2
-          TRAFFIC_IN_2
+<pre><code>  Arguments:
+    $TP_ID
+    $attr
 
-  [1mget_traffic_ipn($attr) - Get traffic from some period using IPN stats[0m
-      Arguments:
-        UID     - user id
-        PERIOD  - start period
+  Returns:
+    \%time_periods, \%periods_time_tarif, \%periods_traf_tarif</code></pre>
 
-      Returns:
-         Return traffic recalculation by MB
+<h2 id="session_splitter-start-duration-day_begin-day_of_week-day_or_year-intervals---Split-session-to-intervals">session_splitter($start, $duration, $day_begin, $day_of_week, $day_or_year, $intervals) - Split session to intervals</h2>
 
-  [1msession_sum ($USER_NAME, $SESSION_START, $SESSION_DURATION, $RAD, $attr) - Calculate session sum[0m
-      Calculate session sum
+<h2 id="time_calculation-attr---Time-calculation">time_calculation($attr) - Time calculation</h2>
 
-      Arguments:
-         $USER_NAME
-         $SESSION_START
-         $SESSION_DURATION
-         $RAD
-         $attr
+<h2 id="get_timeinfo---Get-current-time-info">get_timeinfo() - Get current time info</h2>
 
-      Returns:
-        >= 0 - session sum
-        -1 Less than minimun session trafic and time
-        -2 Can\'t find user account
-        -3 SQL Error
-        -4 Company not found
-        -5 TP not found
-        -16 Not allow start period
+<pre><code>  Returns
+    Object
+      SESSION_START
+      DAY_BEGIN
+      DAY_OF_WEEK
+      DAY_OF_YEAR</code></pre>
 
-  [1mtime_intervals($TP_ID, $attr) - Get Time intervals[0m
-      Arguments:
-        $TP_ID
-        $attr
+<h2 id="remaining_time-deposit-attr---Calculate-remaining-time">remaining_time($deposit, $attr) - Calculate remaining time</h2>
 
-      Returns:
-        \%time_periods, \%periods_time_tarif, \%periods_traf_tarif
+<pre><code>  Arguments:
+    $deposit - User deposit
+    $attr
 
-  [1msession_splitter($start, $duration, $day_begin, $day_of_week,
-                  $day_or_year, $intervals) - Split session to intervals[0m
-  [1mtime_calculation($attr) - Time calculation[0m
-  [1mget_timeinfo() - Get current time info[0m
-      Returns
-        Object
-          SESSION_START
-          DAY_BEGIN
-          DAY_OF_WEEK
-          DAY_OF_YEAR
+      TIME_INTERVALS
+      INTERVAL_TIME_TARIF
+      INTERVAL_TRAF_TARIF
+      SESSION_START
+      DAY_BEGIN
+      DAY_OF_WEEK
+      DAY_OF_YEAR
+      REDUCTION
+      POSTPAID
+      DEBUG
 
-  [1mremaining_time($deposit, $attr) - Calculate remaining time[0m
-      Arguments:
-        $deposit - User deposit
-        $attr
+  Returns:
+    -1 = access deny not allow day
+    -2 = access deny not allow hour
+    -3 = Too small deposit</code></pre>
 
-          TIME_INTERVALS
-          INTERVAL_TIME_TARIF
-          INTERVAL_TRAF_TARIF
-          SESSION_START
-          DAY_BEGIN
-          DAY_OF_WEEK
-          DAY_OF_YEAR
-          REDUCTION
-          POSTPAID
-          DEBUG
+<h2 id="mk_session_log-acct_info---Make-file-lof-if-db-not-accessible">mk_session_log(\$acct_info) - Make file lof if db not accessible</h2>
 
-      Returns:
-        -1 = access deny not allow day
-        -2 = access deny not allow hour
-        -3 = Too small deposit
+<pre><code>  Arguments:
+    $RAD - Radius pairs hash_ref</code></pre>
 
-  [1mmk_session_log(\$acct_info) -  Make file lof if db not accessible[0m
-      Arguments:
-        $RAD - Radius pairs hash_ref
+<h2 id="expression-UID-expr-attr---Extretions-formul">expression($UID, $expr, $attr) - Extretions formul</h2>
 
-  [1mexpression($UID, $expr, $attr) - Extretions formul[0m
-      Arguments:
-        $UID
-        $expr
-        $attr
-          START_PERIOD   -
-          STOP_PERIOD    -
-          UIDS           - For multuser operations
-          PERIOD_TRAFFIC - period traffic summary
-          RAD_ALIVE      - Alive pkg
-          IPN            - Use IPN traffic
-          debug          - Debug mode
+<pre><code>  Arguments:
+    $UID
+    $expr
+    $attr
+      START_PERIOD   -
+      STOP_PERIOD    -
+      UIDS           - For multuser operations
+      PERIOD_TRAFFIC - period traffic summary
+      RAD_ALIVE      - Alive pkg
+      IPN            - Use IPN traffic
+      debug          - Debug mode
 
-      Results:
-        %RESULT - Hash ref parameters
-          PRICE_IN
-          PRICE_OUT
+  Results:
+    %RESULT - Hash ref parameters
+      PRICE_IN
+      PRICE_OUT</code></pre>
 
-  [1mget_result($right, $attr) - get expresion result[0m
-       Arguments:
-         $right
-         $attr
-       Returns:
-         Hash_ref of results
+<h2 id="get_result-right-attr---get-expresion-result">get_result($right, $attr) - get expresion result</h2>
+
+<pre><code>   Arguments:
+     $right
+     $attr
+   Returns:
+     Hash_ref of results</code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

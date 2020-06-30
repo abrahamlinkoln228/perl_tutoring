@@ -1,490 +1,572 @@
-
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Abills::Misc - ABillS misc functions
-
-  [1mload_pmodule($modulename, $attr); - Load perl module[0m
-      Arguments:
-        $modulename   - Perl module name
-        $attr
-          IMPORT      - Function for import
-          HEADER      - Add Content-Type header
-          SHOW_RETURN - Result to return
-
-      Returns:
-        TRUE - Not loaded
-        FALSE - Loaded
-
-      Examples:
-
-        load_pmodule('Simple::XML');
-
-  [1mload_module($modulename, $attr); - Load ABillS modules[0m
-      Arguments:
-        $modulename   - Perl module name
-        $attr         - Use $html
-          IMPORT      - Make import
-          LANG_ONLY   - Load language only
-          HEADER      - Add Content-Type header
-          SHOW_RETURN - Result to return
-          language    - Language (Default: english)
-          RELOAD      - Reload module
-
-      Returns:
-        TRUE or FALSE
-
-  [1mform_purchase_module($attr); - Load commercial modules[0m
-      Arguments:
-        $attr
-          MODULE          - Module name
-          REQUIRE_VERSION - Required version
-          HEADER          - Add Content-Type header
-          SHOW_RETURN     - Result to return
-          DEBUG           - Debug mode
-
-  [1m_error_show($modulename, $attr); - show functions errors[0m
-      Arguments:
-        $modulename - Module object
-        $attr       -
-          MODULE_NAME  - Module name
-          ID_PREFIX
-          MESSAGE
-          ERROR_IDS
-          ID           - Error number
-          SILENT_MODE  - Skip showin sql query for sql request
-          RIZE_ERROR   -
-
-      Returns:
-        TRUE - Error
-        FALSE
-    Iptv/Trinity_tv.pm
-
-  [1m_function($index, $attr); - Exec function by index[0m
-      Arguments:
-        $index         - Function index
-        $attr
-          IF_EXIST     - Run only if exists function
-          ALL          - Show full log for errors
-          DEBUG        - Debug mode
-
-  [1mcross_modules_call($function_sufix, $attr); - Calls function for all registration modules if function exist[0m
-      Arguments:
-        $function_sufix - Function sufix
-        $attr           - Extra attributes
-          SILENT       - silent mode without output (Default: enable)
-          SKIP_MODULES - Skip modules
-          timeout      - Max timeout for function execute
-          DEBUG        - Debug mode
-          USER_INFO    - User information hash
-          HTML         - $html object
-
-      Return:
-        return all modules return hash
-
-      Example:
-
-        cross_modules_call('_payments_maked', {
-            USER_INFO    => $user,
-            SUM          => $sum,
-            PAYMENT_ID   => $payments->{PAYMENT_ID},
-            SKIP_MODULES => 'Paysys,Sqlcmd'
-        });
-
-  [1mget_function_index($function_name, $attr) - Get function index[0m
-      Arguments:
-        $function_name   - Function name
-        $attr
-          ARGS   - Extra arguments
-            empty - show only with empty argv
-
-      Returns:
-        function index
-
-  [1mget_period_dates($attr) - Get period  intervals[0m
-      Arguments:
-        $attr
-          TYPE              0 - day, 1 - month
-          START_DATE
-          ACCOUNT_ACTIVATE
-          PERIOD_ALIGNMENT
-
-      Returns:
-        Return string of period
-
-  [1mfees_dsc_former($attr) - Make fees describe[0m
-      Arguments:
-        $attr
-          SERVICE_NAME       - Service name
-          TEMPLATE_KEY_NAME  - name for %conf key (DV_FEES_DSC)
-
-  [1mservice_get_month_fee($Service, $attr) - Make month feee[0m
-      Arguments:
-        $Service - Module object
-        $attr
-          SERVICE_NAME - Service name
-          DATE         - date of fees
-          SHEDULER     - execute from sheduler
-          EXT_DESCRIBE - Extra decribe
-          QUITE        - Quite mode
-          DEBUG
-
-        Extra config option:
-
-         $conf{DV_CURDATE_ACTIVATE}=1; - Activate non payment service by cur date
-
-      Returns:
-        total_sum
-          Hash of results
-             [ ACTIVATE  => 0 ]
-             [ MONTH_FEE => 0 ]
-
-  [1msearch_link($val, $attr); - forming search link[0m
-      Arguments:
-        $val  - Function name
-        $attr -
-          PARAMS
-          VALUES
-          LINK_NAME
-
-      Returns:
-        Link
-
-  [1mresult_row_former($attr); - forming result from array_hash[0m
-      Arguments:
-        $attr
-          table - table object
-          ROWS  - array_array
-          ROW_COLORS - ref Array color
-
-      Examples:
-
-  [1mresult_former($attr) - Make result table from different source[0m
-      Arguments:
-        $attr
-          DEFAULT_FIELDS  - Default fields
-          HIDDEN_FIELDS   - Requested but not showed in HTML table ('FIELD1,FIELD2')
-          INPUT_DATA      - DB object
-          FUNCTION        - object list function name
-          LIST            - get input data from list (array_hash)
-          BASE_FIELDS     - count of default field for list ( Show first %BASE_FIELDS% $search_columns fields )
-
-          DATAHASH        - get input data from json parsed hash
-          BASE_PREFIX     - Base prefix for data hash
-
-          FUNCTION_FIELDS - function field forming
-             change  - change field
-             payment - payment field
-             status  - status field
-             del     - del field
-          STATUS_VALS - Value for status fields (status,disable)
-          EXT_TITLES  - Translations for table header ( Necessary for column selection modal window)
-            [ object_name => 'translation' ]
-          SKIP_USER_TITLE - don\'t show user titles in gum menu
-
-          MAKE_ROWS   - Show result table
-          MODULE      - Module name for user link
-          FILTER_COLS - Use function filter for field
-            filter_function:params:params:...
-          SELECT_VALUE- Select value for field
-          MULTISELECT - multiselect column ( Will add checkbox for every row string 'id:line_key_for_value_name:form_id' )
-            [ id => value ]
-
-          SKIP_PAGES  - Not show table pages
-          TABLE       - Table information (HASH)
-            caption
-            cols_align
-            qs
-            pages
-            ID
-            EXPORT
-            MENU
-          TOTAL         - Show table with totals
-                          Multi total
-                          $val_id:$name;$val_id:$name
-          SHOW_MORE_THEN- Show table when rows more then SHOW_MORE_THEN
-
-          MAP         - Make map tab
-          MAP_FIELDS  - Map fields
-          MAP_ICON    - Icons for map points
-
-          CHARTS      - Make charts. Coma separated column names to make chart from
-          CHARTS_XTEXT- Charts x axis text
-          OUTPUT2RETURN - Output to return
-
-      Returns:
-        ($table, $list)
-        $table   - Table object
-        $list    - result array list
-
-      Examples:
-        http://abills.net.ua/wiki/doku.php/abills:docs:development:modules:ru#result_former
-
-  [1mtable_function_fields($function_fields, $line, $attr) - Make function fields[0m
-      Attributes:
-        $function_fields - Function fields name (array_ref)
-          form_payments
-          stats
-          change
-          cpmpany_id
-          ex_info
-          del
-        $line            - array_ref of list result
-        $attr            - Extra attributes
-          TABLE          - Table object hash_ref
-          MODULE         - Module name
-
-      Result:
-        Arrya_ref of cols
-
-  [1mdirname($path)[0m
-  [1mload_pmodule($file, $attr); - Make external operations[0m
-      Arguments:
-        $file     - File for executions
-        $attr     - Extra arguments
-
-      Returns:
-        1 - Susccess
-        0 - Error
-
-  [1mget_fees_types($attr)[0m
-       Arguments:
-         $attr
-
-       Returns:
-         \%FEES_METHODS
-
-  [1mget_payment_methods($attr)[0m
-      Arguments:
-        $attr
-          EXTRA_METHODS = Coma separated string
-
-      Returns:
-        \%PAYMENTS_METHODS
-
-  [1mcheck_ip($require_ip, $ips) - Check ip[0m
-      Arguments:
-        $require_ip - Required IP
-        $ips        - IP list commas separated
-
-      Results:
-        TRUE or FALSE
-
-      Examples:
-        10.10.1.2,10.20.0.0/20
-
-  [1m_translate($text) - translate string[0m
-      Arguments:
-        $text   - text for translate
-      Returns:
-          translated string
-
-  [1m_translate_list($list, @name_keys)[0m
-      Arguments:
-        $list      - list of vars to translate
-        @name_keys - array of hash keys to translate. default : (name)
-
-      Returns:
-        translated list
-
-  [1msnmp_get($attr); - Set SNMP value[0m
-      Arguments:
-        $attr
-          SNMP_COMMUNITY
-          OID             - oid
-          WALK            - walk mode
-          SILENT          - DOn't generate exception
-          TIMEOUT         - Request timeout (Default: 2)
-          SKIP_TIMEOUT    -
-          VERSION         - SNMP version (1 default or v2c)
-          DEBUG
-
-      Returns:
-          result string
-          ot result array for WALK mode
-
-  [1msnmp_set($attr); - Set SNMP value[0m
-      Arguments:
-        $attr
-          SNMP_COMMUNITY  - {community_name}@{ip_address}[:port]
-          TIMEOUT         - Timeout
-          OID             - array ( OID, type, value, OID, type, value, ...)
-          DEBUG
-
-  [1mget_oui_info($mac); - Get MAC information
-  Arguments:
-    $mac - mac[0m
-      Returns:
-        vendor string
-
-  [1mhost_diagnostic($ip, $attr); - Diagnostic host activity[0m
-      Diagnostic methods:
-        ping (Default)
-      Arguments:
-        IP      - IP address of host
-        QUITE   - Quite mode
-        TIMEOUT - Timeout
-        $attr   -
-      Return:
-        Active or disable  (TRUE or FALSE)
-
-  [1mfile_op($attr) File operations[0m
-      Secure file operation function, with warnings
-
-      Arguments:
-
-        FILENAME   - Filename
-        PATH       - File folder (Default path $conf{TPL_DIR})
-        WRITE      - Enable write mode (Default: 0 - read mode)
-        CREATE     - Create file if not exists skip if exists
-        CONTENT    - file content for writing
-        SKIP_CHECK - Skip checking file exist for read mode
-        ROWS       - After reading return array of rows for text file only
-
-      Returns:
-        File content for reading
-        TRUE OR FALSE for wrinting
-
-      Examples:
-
-    open image file and print content
-
-        print file_op({
-          FILENAME => "$conf{TPL_DIR}/if_image/image_file.jpg",
-          PATH     => "$conf{TPL_DIR}/if_image"
-        });
-
-  [1mupload_file($file, $attr) - Upload file to server[0m
-      Attributes:
-        $file      - HTML file field object
-        $attr      - Attributes
-           PREFIX                   - Upload folder (Defauls: $conf{TPL_DIR})
-           SAFE_FILENAME_CHARACTERS - Check file symbols
-           FILE_NAME                - Filename for saving
-           EXTENTIONS               - Allow extensions (String - comma separated)
-           REWRITE                  - Allow rewrite file
-
-      Retursn:
-        TRUE or FALSE
-
-      Examples:
-        upload_file($FORM{FILENAME});
-
-  [1msel_groups($attr) - show select user group[0m
-      Attributes:
-        $attr
-          GID
-          HASH_RESULT     - Return results as hash
-          SKIP_MUULTISEL  - Skip multiselect
-
-      Returns:
-        GID select form
-
-  [1msel_status($attr) - show select user group
-  Attributes:
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#load_pmodule-modulename-attr---Load-perl-module">load_pmodule($modulename, $attr); - Load perl module</a></li>
+      <li><a href="#load_module-modulename-attr---Load-ABillS-modules">load_module($modulename, $attr); - Load ABillS modules</a></li>
+      <li><a href="#form_purchase_module-attr---Load-commercial-modules">form_purchase_module($attr); - Load commercial modules</a></li>
+      <li><a href="#error_show-modulename-attr---show-functions-errors">_error_show($modulename, $attr); - show functions errors</a></li>
+      <li><a href="#function-index-attr---Exec-function-by-index">_function($index, $attr); - Exec function by index</a></li>
+      <li><a href="#cross_modules_call-function_sufix-attr---Calls-function-for-all-registration-modules-if-function-exist">cross_modules_call($function_sufix, $attr); - Calls function for all registration modules if function exist</a></li>
+      <li><a href="#get_function_index-function_name-attr---Get-function-index">get_function_index($function_name, $attr) - Get function index</a></li>
+      <li><a href="#get_period_dates-attr---Get-period-intervals">get_period_dates($attr) - Get period intervals</a></li>
+      <li><a href="#fees_dsc_former-attr---Make-fees-describe">fees_dsc_former($attr) - Make fees describe</a></li>
+      <li><a href="#service_get_month_fee-Service-attr---Make-month-feee">service_get_month_fee($Service, $attr) - Make month feee</a></li>
+      <li><a href="#search_link-val-attr---forming-search-link">search_link($val, $attr); - forming search link</a></li>
+      <li><a href="#result_row_former-attr---forming-result-from-array_hash">result_row_former($attr); - forming result from array_hash</a></li>
+      <li><a href="#result_former-attr---Make-result-table-from-different-source">result_former($attr) - Make result table from different source</a></li>
+      <li><a href="#table_function_fields-function_fields-line-attr---Make-function-fields">table_function_fields($function_fields, $line, $attr) - Make function fields</a></li>
+      <li><a href="#dirname-path">dirname($path)</a></li>
+      <li><a href="#load_pmodule-file-attr---Make-external-operations">load_pmodule($file, $attr); - Make external operations</a></li>
+      <li><a href="#get_fees_types-attr">get_fees_types($attr)</a></li>
+      <li><a href="#get_payment_methods-attr">get_payment_methods($attr)</a></li>
+      <li><a href="#check_ip-require_ip-ips---Check-ip">check_ip($require_ip, $ips) - Check ip</a></li>
+      <li><a href="#translate-text---translate-string">_translate($text) - translate string</a></li>
+      <li><a href="#translate_list-list-name_keys">_translate_list($list, @name_keys)</a></li>
+      <li><a href="#snmp_get-attr---Set-SNMP-value">snmp_get($attr); - Set SNMP value</a></li>
+      <li><a href="#snmp_set-attr---Set-SNMP-value">snmp_set($attr); - Set SNMP value</a></li>
+      <li><a href="#get_oui_info-mac---Get-MAC-information-Arguments:-mac---mac">get_oui_info($mac); - Get MAC information Arguments: $mac - mac</a></li>
+      <li><a href="#host_diagnostic-ip-attr---Diagnostic-host-activity">host_diagnostic($ip, $attr); - Diagnostic host activity</a></li>
+      <li><a href="#file_op-attr-File-operations">file_op($attr) File operations</a></li>
+      <li><a href="#upload_file-file-attr---Upload-file-to-server">upload_file($file, $attr) - Upload file to server</a></li>
+      <li><a href="#sel_groups-attr---show-select-user-group">sel_groups($attr) - show select user group</a></li>
+      <li><a href="#sel_status-attr---show-select-user-group-Attributes:-attr-STATUS---Status-ID-HASH_RESULT---Return-results-as-hash-NAME---Select-element-name-COLORS---Status-colors-ALL---Show-all-item">sel_status($attr) - show select user group Attributes: $attr STATUS - Status ID HASH_RESULT - Return results as hash NAME - Select element name COLORS - Status colors ALL - Show all item</a></li>
+      <li><a href="#address_list_tree_menu-attr---get-collapsible-tree-menu-to-choose-address">address_list_tree_menu($attr) - get collapsible tree menu to choose address</a></li>
+      <li><a href="#import_show-attr---Show-import-date">import_show($attr) - Show import date</a></li>
+      <li><a href="#import_former---Multi-address-form">import_former() - Multi address form</a></li>
+      <li><a href="#mk_menu-menu---Multi-address-form">mk_menu($menu) - Multi address form</a></li>
+      <li><a href="#custom_menu-attr">custom_menu($attr)</a></li>
+      <li><a href="#get_version">get_version();</a></li>
+      <li><a href="#system_info">system_info();</a></li>
+      <li><a href="#get_files_in-directory_path-filter">_get_files_in($directory_path, $filter)</a></li>
+      <li><a href="#md5_of-file">md5_of($file)</a></li>
+      <li><a href="#stats_for_file-file">_stats_for_file($file)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Abills::Misc - ABillS misc functions</code></pre>
+
+<h2 id="load_pmodule-modulename-attr---Load-perl-module">load_pmodule($modulename, $attr); - Load perl module</h2>
+
+<pre><code>  Arguments:
+    $modulename   - Perl module name
     $attr
-      STATUS       - Status ID
-      HASH_RESULT  - Return results as hash
-      NAME         - Select element name
-      COLORS       - Status colors
-      ALL          - Show all item[0m
-      Returns:
-        GID select form
+      IMPORT      - Function for import
+      HEADER      - Add Content-Type header
+      SHOW_RETURN - Result to return
 
-  [1maddress_list_tree_menu($attr) - get collapsible tree menu to choose address[0m
-      Arguments:
-        $attr
-          STREETS - if given will not display BUILD level
-          NAME    - Name for a first level. Default is $lang{ADDRESS}
-          OUTPUT2RETURN
+  Returns:
+    TRUE - Not loaded
+    FALSE - Loaded
 
-      Returns:
-        if $attr->{OUTPUT2RETURN} returns HTML code for menu
-        else returns 1
+  Examples:
 
-      Example:
-        address_list_tree_menu({ STREETS=> 1 });
+    load_pmodule(&#39;Simple::XML&#39;);</code></pre>
 
-  [1mimport_show($attr) - Show import date[0m
-      Arguments:
-        $attr
-          DATA  - Import data aray_of_hash
-          COLS_NAMES
+<h2 id="load_module-modulename-attr---Load-ABillS-modules">load_module($modulename, $attr); - Load ABillS modules</h2>
 
-      Returns:
-        True or False
+<pre><code>  Arguments:
+    $modulename   - Perl module name
+    $attr         - Use $html
+      IMPORT      - Make import
+      LANG_ONLY   - Load language only
+      HEADER      - Add Content-Type header
+      SHOW_RETURN - Result to return
+      language    - Language (Default: english)
+      RELOAD      - Reload module
 
-  [1mimport_former() - Multi address form[0m
-      Arguments:
-        UPLOAD_FILE
-        IMPORT_DELIMITER
-        IMPORT_FIELDS
-        IMPORT_TYPE
-           CSV
-           XML
-           JSON
-        UPLOAD_PRE
-        ENCODE
+  Returns:
+    TRUE or FALSE</code></pre>
 
-      Results:
-        \@import_data_hash
+<h2 id="form_purchase_module-attr---Load-commercial-modules">form_purchase_module($attr); - Load commercial modules</h2>
 
-  [1mmk_menu($menu) - Multi address form[0m
-      Arguments:
-        $menu
-        $attr
-          USER_FUNCTION_LIST
-          CUSTOM
+<pre><code>  Arguments:
+    $attr
+      MODULE          - Module name
+      REQUIRE_VERSION - Required version
+      HEADER          - Add Content-Type header
+      SHOW_RETURN     - Result to return
+      DEBUG           - Debug mode</code></pre>
 
-      Results:
+<h2 id="error_show-modulename-attr---show-functions-errors">_error_show($modulename, $attr); - show functions errors</h2>
 
-  [1mcustom_menu($attr)[0m
-  [1mget_version();[0m
-      get billing version
+<pre><code>  Arguments:
+    $modulename - Module object
+    $attr       -
+      MODULE_NAME  - Module name
+      ID_PREFIX
+      MESSAGE
+      ERROR_IDS
+      ID           - Error number
+      SILENT_MODE  - Skip showin sql query for sql request
+      RIZE_ERROR   -
 
-  [1msystem_info();[0m
-  [1m_get_files_in($directory_path, $filter)[0m
-      Arguments:
-         $directory_path
-         $attr
-           FILTER - regexp
-           WITH_DIRS
-           FULL_PATH
-           RECURSIVE - get all files in underlying folders too
+  Returns:
+    TRUE - Error
+    FALSE
+Iptv/Trinity_tv.pm</code></pre>
+
+<h2 id="function-index-attr---Exec-function-by-index">_function($index, $attr); - Exec function by index</h2>
+
+<pre><code>  Arguments:
+    $index         - Function index
+    $attr
+      IF_EXIST     - Run only if exists function
+      ALL          - Show full log for errors
+      DEBUG        - Debug mode</code></pre>
+
+<h2 id="cross_modules_call-function_sufix-attr---Calls-function-for-all-registration-modules-if-function-exist">cross_modules_call($function_sufix, $attr); - Calls function for all registration modules if function exist</h2>
+
+<pre><code>  Arguments:
+    $function_sufix - Function sufix
+    $attr           - Extra attributes
+      SILENT       - silent mode without output (Default: enable)
+      SKIP_MODULES - Skip modules
+      timeout      - Max timeout for function execute
+      DEBUG        - Debug mode
+      USER_INFO    - User information hash
+      HTML         - $html object
+
+  Return:
+    return all modules return hash
+
+  Example:
+
+    cross_modules_call(&#39;_payments_maked&#39;, {
+        USER_INFO    =&gt; $user,
+        SUM          =&gt; $sum,
+        PAYMENT_ID   =&gt; $payments-&gt;{PAYMENT_ID},
+        SKIP_MODULES =&gt; &#39;Paysys,Sqlcmd&#39;
+    });</code></pre>
+
+<h2 id="get_function_index-function_name-attr---Get-function-index">get_function_index($function_name, $attr) - Get function index</h2>
+
+<pre><code>  Arguments:
+    $function_name   - Function name
+    $attr
+      ARGS   - Extra arguments
+        empty - show only with empty argv
+
+  Returns:
+    function index</code></pre>
+
+<h2 id="get_period_dates-attr---Get-period-intervals">get_period_dates($attr) - Get period intervals</h2>
+
+<pre><code>  Arguments:
+    $attr
+      TYPE              0 - day, 1 - month
+      START_DATE
+      ACCOUNT_ACTIVATE
+      PERIOD_ALIGNMENT
+
+  Returns:
+    Return string of period</code></pre>
+
+<h2 id="fees_dsc_former-attr---Make-fees-describe">fees_dsc_former($attr) - Make fees describe</h2>
+
+<pre><code>  Arguments:
+    $attr
+      SERVICE_NAME       - Service name
+      TEMPLATE_KEY_NAME  - name for %conf key (DV_FEES_DSC)</code></pre>
+
+<h2 id="service_get_month_fee-Service-attr---Make-month-feee">service_get_month_fee($Service, $attr) - Make month feee</h2>
+
+<pre><code>  Arguments:
+    $Service - Module object
+    $attr
+      SERVICE_NAME - Service name
+      DATE         - date of fees
+      SHEDULER     - execute from sheduler
+      EXT_DESCRIBE - Extra decribe
+      QUITE        - Quite mode
+      DEBUG
+
+    Extra config option:
+
+     $conf{DV_CURDATE_ACTIVATE}=1; - Activate non payment service by cur date
+
+  Returns:
+    total_sum
+      Hash of results
+         [ ACTIVATE  =&gt; 0 ]
+         [ MONTH_FEE =&gt; 0 ]</code></pre>
+
+<h2 id="search_link-val-attr---forming-search-link">search_link($val, $attr); - forming search link</h2>
+
+<pre><code>  Arguments:
+    $val  - Function name
+    $attr -
+      PARAMS
+      VALUES
+      LINK_NAME
+
+  Returns:
+    Link</code></pre>
+
+<h2 id="result_row_former-attr---forming-result-from-array_hash">result_row_former($attr); - forming result from array_hash</h2>
+
+<pre><code>  Arguments:
+    $attr
+      table - table object
+      ROWS  - array_array
+      ROW_COLORS - ref Array color
+
+  Examples:</code></pre>
+
+<h2 id="result_former-attr---Make-result-table-from-different-source">result_former($attr) - Make result table from different source</h2>
+
+<pre><code>  Arguments:
+    $attr
+      DEFAULT_FIELDS  - Default fields
+      HIDDEN_FIELDS   - Requested but not showed in HTML table (&#39;FIELD1,FIELD2&#39;)
+      INPUT_DATA      - DB object
+      FUNCTION        - object list function name
+      LIST            - get input data from list (array_hash)
+      BASE_FIELDS     - count of default field for list ( Show first %BASE_FIELDS% $search_columns fields )
+
+      DATAHASH        - get input data from json parsed hash
+      BASE_PREFIX     - Base prefix for data hash
+
+      FUNCTION_FIELDS - function field forming
+         change  - change field
+         payment - payment field
+         status  - status field
+         del     - del field
+      STATUS_VALS - Value for status fields (status,disable)
+      EXT_TITLES  - Translations for table header ( Necessary for column selection modal window)
+        [ object_name =&gt; &#39;translation&#39; ]
+      SKIP_USER_TITLE - don\&#39;t show user titles in gum menu
+
+      MAKE_ROWS   - Show result table
+      MODULE      - Module name for user link
+      FILTER_COLS - Use function filter for field
+        filter_function:params:params:...
+      SELECT_VALUE- Select value for field
+      MULTISELECT - multiselect column ( Will add checkbox for every row string &#39;id:line_key_for_value_name:form_id&#39; )
+        [ id =&gt; value ]
+
+      SKIP_PAGES  - Not show table pages
+      TABLE       - Table information (HASH)
+        caption
+        cols_align
+        qs
+        pages
+        ID
+        EXPORT
+        MENU
+      TOTAL         - Show table with totals
+                      Multi total
+                      $val_id:$name;$val_id:$name
+      SHOW_MORE_THEN- Show table when rows more then SHOW_MORE_THEN
+
+      MAP         - Make map tab
+      MAP_FIELDS  - Map fields
+      MAP_ICON    - Icons for map points
+
+      CHARTS      - Make charts. Coma separated column names to make chart from
+      CHARTS_XTEXT- Charts x axis text
+      OUTPUT2RETURN - Output to return
+
+  Returns:
+    ($table, $list)
+    $table   - Table object
+    $list    - result array list
+
+  Examples:
+    http://abills.net.ua/wiki/doku.php/abills:docs:development:modules:ru#result_former</code></pre>
+
+<h2 id="table_function_fields-function_fields-line-attr---Make-function-fields">table_function_fields($function_fields, $line, $attr) - Make function fields</h2>
+
+<pre><code>  Attributes:
+    $function_fields - Function fields name (array_ref)
+      form_payments
+      stats
+      change
+      cpmpany_id
+      ex_info
+      del
+    $line            - array_ref of list result
+    $attr            - Extra attributes
+      TABLE          - Table object hash_ref
+      MODULE         - Module name
+
+  Result:
+    Arrya_ref of cols</code></pre>
+
+<h2 id="dirname-path">dirname($path)</h2>
+
+<h2 id="load_pmodule-file-attr---Make-external-operations">load_pmodule($file, $attr); - Make external operations</h2>
+
+<pre><code>  Arguments:
+    $file     - File for executions
+    $attr     - Extra arguments
+
+  Returns:
+    1 - Susccess
+    0 - Error</code></pre>
+
+<h2 id="get_fees_types-attr">get_fees_types($attr)</h2>
+
+<pre><code>   Arguments:
+     $attr
+
+   Returns:
+     \%FEES_METHODS</code></pre>
+
+<h2 id="get_payment_methods-attr">get_payment_methods($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr
+      EXTRA_METHODS = Coma separated string
+
+  Returns:
+    \%PAYMENTS_METHODS</code></pre>
+
+<h2 id="check_ip-require_ip-ips---Check-ip">check_ip($require_ip, $ips) - Check ip</h2>
+
+<pre><code>  Arguments:
+    $require_ip - Required IP
+    $ips        - IP list commas separated
+
+  Results:
+    TRUE or FALSE
+
+  Examples:
+    10.10.1.2,10.20.0.0/20</code></pre>
+
+<h2 id="translate-text---translate-string">_translate($text) - translate string</h2>
+
+<pre><code>  Arguments:
+    $text   - text for translate
+  Returns:
+      translated string</code></pre>
+
+<h2 id="translate_list-list-name_keys">_translate_list($list, @name_keys)</h2>
+
+<pre><code>  Arguments:
+    $list      - list of vars to translate
+    @name_keys - array of hash keys to translate. default : (name)
+
+  Returns:
+    translated list</code></pre>
+
+<h2 id="snmp_get-attr---Set-SNMP-value">snmp_get($attr); - Set SNMP value</h2>
+
+<pre><code>  Arguments:
+    $attr
+      SNMP_COMMUNITY
+      OID             - oid
+      WALK            - walk mode
+      SILENT          - DOn&#39;t generate exception
+      TIMEOUT         - Request timeout (Default: 2)
+      SKIP_TIMEOUT    -
+      VERSION         - SNMP version (1 default or v2c)
+      DEBUG
+
+  Returns:
+      result string
+      ot result array for WALK mode</code></pre>
+
+<h2 id="snmp_set-attr---Set-SNMP-value">snmp_set($attr); - Set SNMP value</h2>
+
+<pre><code>  Arguments:
+    $attr
+      SNMP_COMMUNITY  - {community_name}@{ip_address}[:port]
+      TIMEOUT         - Timeout
+      OID             - array ( OID, type, value, OID, type, value, ...)
+      DEBUG</code></pre>
+
+<h2 id="get_oui_info-mac---Get-MAC-information-Arguments:-mac---mac">get_oui_info($mac); - Get MAC information Arguments: $mac - mac</h2>
+
+<pre><code>  Returns:
+    vendor string</code></pre>
+
+<h2 id="host_diagnostic-ip-attr---Diagnostic-host-activity">host_diagnostic($ip, $attr); - Diagnostic host activity</h2>
+
+<pre><code>  Diagnostic methods:
+    ping (Default)
+  Arguments:
+    IP      - IP address of host
+    QUITE   - Quite mode
+    TIMEOUT - Timeout
+    $attr   -
+  Return:
+    Active or disable  (TRUE or FALSE)</code></pre>
+
+<h2 id="file_op-attr-File-operations">file_op($attr) File operations</h2>
+
+<pre><code>  Secure file operation function, with warnings
+
+  Arguments:
+
+    FILENAME   - Filename
+    PATH       - File folder (Default path $conf{TPL_DIR})
+    WRITE      - Enable write mode (Default: 0 - read mode)
+    CREATE     - Create file if not exists skip if exists
+    CONTENT    - file content for writing
+    SKIP_CHECK - Skip checking file exist for read mode
+    ROWS       - After reading return array of rows for text file only
+
+  Returns:
+    File content for reading
+    TRUE OR FALSE for wrinting
+
+  Examples:</code></pre>
+
+<p>open image file and print content</p>
+
+<pre><code>    print file_op({
+      FILENAME =&gt; &quot;$conf{TPL_DIR}/if_image/image_file.jpg&quot;,
+      PATH     =&gt; &quot;$conf{TPL_DIR}/if_image&quot;
+    });</code></pre>
+
+<h2 id="upload_file-file-attr---Upload-file-to-server">upload_file($file, $attr) - Upload file to server</h2>
+
+<pre><code>  Attributes:
+    $file      - HTML file field object
+    $attr      - Attributes
+       PREFIX                   - Upload folder (Defauls: $conf{TPL_DIR})
+       SAFE_FILENAME_CHARACTERS - Check file symbols
+       FILE_NAME                - Filename for saving
+       EXTENTIONS               - Allow extensions (String - comma separated)
+       REWRITE                  - Allow rewrite file
+
+  Retursn:
+    TRUE or FALSE
+
+  Examples:
+    upload_file($FORM{FILENAME});</code></pre>
+
+<h2 id="sel_groups-attr---show-select-user-group">sel_groups($attr) - show select user group</h2>
+
+<pre><code>  Attributes:
+    $attr
+      GID
+      HASH_RESULT     - Return results as hash
+      SKIP_MUULTISEL  - Skip multiselect
+
+  Returns:
+    GID select form</code></pre>
+
+<h2 id="sel_status-attr---show-select-user-group-Attributes:-attr-STATUS---Status-ID-HASH_RESULT---Return-results-as-hash-NAME---Select-element-name-COLORS---Status-colors-ALL---Show-all-item">sel_status($attr) - show select user group Attributes: $attr STATUS - Status ID HASH_RESULT - Return results as hash NAME - Select element name COLORS - Status colors ALL - Show all item</h2>
+
+<pre><code>  Returns:
+    GID select form</code></pre>
+
+<h2 id="address_list_tree_menu-attr---get-collapsible-tree-menu-to-choose-address">address_list_tree_menu($attr) - get collapsible tree menu to choose address</h2>
+
+<pre><code>  Arguments:
+    $attr
+      STREETS - if given will not display BUILD level
+      NAME    - Name for a first level. Default is $lang{ADDRESS}
+      OUTPUT2RETURN
+
+  Returns:
+    if $attr-&gt;{OUTPUT2RETURN} returns HTML code for menu
+    else returns 1
+
+  Example:
+    address_list_tree_menu({ STREETS=&gt; 1 });</code></pre>
+
+<h2 id="import_show-attr---Show-import-date">import_show($attr) - Show import date</h2>
+
+<pre><code>  Arguments:
+    $attr
+      DATA  - Import data aray_of_hash
+      COLS_NAMES
+
+  Returns:
+    True or False</code></pre>
+
+<h2 id="import_former---Multi-address-form">import_former() - Multi address form</h2>
+
+<pre><code>  Arguments:
+    UPLOAD_FILE
+    IMPORT_DELIMITER
+    IMPORT_FIELDS
+    IMPORT_TYPE
+       CSV
+       XML
+       JSON
+    UPLOAD_PRE
+    ENCODE
+
+  Results:
+    \@import_data_hash</code></pre>
+
+<h2 id="mk_menu-menu---Multi-address-form">mk_menu($menu) - Multi address form</h2>
+
+<pre><code>  Arguments:
+    $menu
+    $attr
+      USER_FUNCTION_LIST
+      CUSTOM
+
+  Results:</code></pre>
+
+<h2 id="custom_menu-attr">custom_menu($attr)</h2>
+
+<h2 id="get_version">get_version();</h2>
+
+<pre><code>  get billing version</code></pre>
+
+<h2 id="system_info">system_info();</h2>
+
+<h2 id="get_files_in-directory_path-filter">_get_files_in($directory_path, $filter)</h2>
+
+<pre><code>  Arguments:
+     $directory_path
+     $attr
+       FILTER - regexp
+       WITH_DIRS
+       FULL_PATH
+       RECURSIVE - get all files in underlying folders too
    
-      Returns:
-        array_ref
+  Returns:
+    array_ref</code></pre>
 
-  [1mmd5_of($file)[0m
-  [1m_stats_for_file($file)[0m
-      Arguments:
-        $file - path to file
+<h2 id="md5_of-file">md5_of($file)</h2>
 
-      Returns:
-        hash_ref
-         file    - name of file with stats
-         dev     - number of filesystem
-         ino     - inode number
-         mode    - file mode  (type and permissions)
-         nlink   - number of (hard) links to the file
-         uid     - numeric user ID of file's owner
-         gid     - numeric group ID of file's owner
-         rdev    - the device identifier (special files only)
-         size    - total size of file, in bytes
-         atime   - last access time in seconds since the epoch
-         mtime   - last modify time in seconds since the epoch
-         ctime   - inode change time in seconds since the epoch (*)
-         blksize - preferred I/O size in bytes for interacting with the file (may vary from file to file)
-         blocks  - actual number of system-specific blocks allocated on disk (often, but not always, 512 bytes each)
+<h2 id="stats_for_file-file">_stats_for_file($file)</h2>
+
+<pre><code>  Arguments:
+    $file - path to file
+
+  Returns:
+    hash_ref
+     file    - name of file with stats
+     dev     - number of filesystem
+     ino     - inode number
+     mode    - file mode  (type and permissions)
+     nlink   - number of (hard) links to the file
+     uid     - numeric user ID of file&#39;s owner
+     gid     - numeric group ID of file&#39;s owner
+     rdev    - the device identifier (special files only)
+     size    - total size of file, in bytes
+     atime   - last access time in seconds since the epoch
+     mtime   - last modify time in seconds since the epoch
+     ctime   - inode change time in seconds since the epoch (*)
+     blksize - preferred I/O size in bytes for interacting with the file (may vary from file to file)
+     blocks  - actual number of system-specific blocks allocated on disk (often, but not always, 512 bytes each)</code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

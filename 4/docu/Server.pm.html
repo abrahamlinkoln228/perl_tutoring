@@ -1,69 +1,102 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-    Abills::Server - Base server functions
-
-[1mSYNOPSIS[0m
-        use Abills::Server;
-
-  [1mmake_pid($pid_file, $attr) - Check running program by px[0m
-      Arguments:
-        $pid_file  - PID file
-        $attr      - 
-           clean   - Clean PID file
-
-      Returns:
-        TRUE  - Running
-        FALSE - Not run
-
-      Arguments:
-        $pid     -   PID file
-
-      Returns:
-        TRUE or FALSE
-
-  [1mdaemonize($attr) - Demonize proccess[0m
-      Arguments: 
-        $attr
-          PROGRAM_NAME -  Program name
-          LOG_DIR      -  logdir for pid  Default: /usr/abills/var/log/
-
-      Returns:
-
-  [1mstop_server($pid_file, $attr) = @_;[0m
-      Argumenst:
-        $pid_file - PID file
-        $attr     - Extra arguments
-
-      Returns;
-        TRUE or FALSE
-
-  [1mget_pid($attr) = @_;[0m
-      Argumenst:
-        $attr     - Extra arguments
-
-      Returns;
-        PID file name
-
-[1mAUTHOR[0m
-    ~AsmodeuS~ (http://abills.net.ua/)
-
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 82:
-        Unknown directive: =head
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a>
+    <ul>
+      <li><a href="#make_pid-pid_file-attr---Check-running-program-by-px">make_pid($pid_file, $attr) - Check running program by px</a></li>
+      <li><a href="#daemonize-attr---Demonize-proccess">daemonize($attr) - Demonize proccess</a></li>
+      <li><a href="#stop_server-pid_file-attr-_">stop_server($pid_file, $attr) = @_;</a></li>
+      <li><a href="#get_pid-attr-_">get_pid($attr) = @_;</a></li>
+    </ul>
+  </li>
+  <li><a href="#AUTHOR">AUTHOR</a></li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<p>Abills::Server - Base server functions</p>
+
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
+
+<pre><code>    use Abills::Server;</code></pre>
+
+<h2 id="make_pid-pid_file-attr---Check-running-program-by-px">make_pid($pid_file, $attr) - Check running program by px</h2>
+
+<pre><code>  Arguments:
+    $pid_file  - PID file
+    $attr      - 
+       clean   - Clean PID file
+
+  Returns:
+    TRUE  - Running
+    FALSE - Not run</code></pre>
+
+<pre><code>  Arguments:
+    $pid     -   PID file
+
+  Returns:
+    TRUE or FALSE</code></pre>
+
+<h2 id="daemonize-attr---Demonize-proccess">daemonize($attr) - Demonize proccess</h2>
+
+<pre><code>  Arguments: 
+    $attr
+      PROGRAM_NAME -  Program name
+      LOG_DIR      -  logdir for pid  Default: /usr/abills/var/log/
+
+  Returns:</code></pre>
+
+<h2 id="stop_server-pid_file-attr-_">stop_server($pid_file, $attr) = @_;</h2>
+
+<pre><code>  Argumenst:
+    $pid_file - PID file
+    $attr     - Extra arguments
+
+  Returns;
+    TRUE or FALSE</code></pre>
+
+<h2 id="get_pid-attr-_">get_pid($attr) = @_;</h2>
+
+<pre><code>  Argumenst:
+    $attr     - Extra arguments
+
+  Returns;
+    PID file name</code></pre>
+
+<h1 id="AUTHOR">AUTHOR</h1>
+
+<p>~AsmodeuS~ (http://abills.net.ua/)</p>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-82">Around line 82:</dt>
+<dd>
+
+<p>Unknown directive: =head</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

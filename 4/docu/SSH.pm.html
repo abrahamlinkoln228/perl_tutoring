@@ -1,60 +1,82 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mnew($db, $admin, $CONF)[0m
-      Arguments:
-        $host - NAS Info
-        $attr - hash_ref
-          ADMIN_NAME    - login for admin with write access (abills_admin)
-          IDENTITY_FILE - path to SSH private key (/usr/abills/Certs/id_dsa.$attr->{ADMIN_NAME})
-          SSH_PORT      - port for SSH (22)
-          SSH_EXECUTIVE - ssh program path (`which ssh`)
-
-      Returns:
-        object
-
-  [1mexecute($command) - Execute command in remote console[0m
-      Arguments:
-        $command - string  or array of strings
-        $attr - hash_ref
-          SAVE_TO         - filename to save output
-          SKIP_ERROR      - do not finish execution if error on one of commands
-
-          GET_SSH_COMMAND - returns command that will be executed in console
-
-      Returns:
-        1
-
-  [1mssh_single($command, $attr) - executes single command via SSH[0m
-      Arguments:
-        $command - command to execute
-        $attr
-          SAVE_TO          - file to save result
-          SSH_COMMAND_BASE - ssh connection command
-
-      Returns:
-       1 if success or 0
-
-  [1mget_list($command, $attr)[0m
-      Arguments:
-        $command
-        $attr - hash_ref
-
-      Returns:
-        arr_ref
-
-  [1mcheck_access() - checks if mikrotik is accessible[0m
-      Returns:
-        boolean
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new-db-admin-CONF">new($db, $admin, $CONF)</a></li>
+      <li><a href="#execute-command---Execute-command-in-remote-console">execute($command) - Execute command in remote console</a></li>
+      <li><a href="#ssh_single-command-attr---executes-single-command-via-SSH">ssh_single($command, $attr) - executes single command via SSH</a></li>
+      <li><a href="#get_list-command-attr">get_list($command, $attr)</a></li>
+      <li><a href="#check_access---checks-if-mikrotik-is-accessible">check_access() - checks if mikrotik is accessible</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="new-db-admin-CONF">new($db, $admin, $CONF)</h2>
+
+<pre><code>  Arguments:
+    $host - NAS Info
+    $attr - hash_ref
+      ADMIN_NAME    - login for admin with write access (abills_admin)
+      IDENTITY_FILE - path to SSH private key (/usr/abills/Certs/id_dsa.$attr-&gt;{ADMIN_NAME})
+      SSH_PORT      - port for SSH (22)
+      SSH_EXECUTIVE - ssh program path (`which ssh`)
+
+  Returns:
+    object</code></pre>
+
+<h2 id="execute-command---Execute-command-in-remote-console">execute($command) - Execute command in remote console</h2>
+
+<pre><code>  Arguments:
+    $command - string  or array of strings
+    $attr - hash_ref
+      SAVE_TO         - filename to save output
+      SKIP_ERROR      - do not finish execution if error on one of commands
+
+      GET_SSH_COMMAND - returns command that will be executed in console
+
+  Returns:
+    1</code></pre>
+
+<h2 id="ssh_single-command-attr---executes-single-command-via-SSH">ssh_single($command, $attr) - executes single command via SSH</h2>
+
+<pre><code>  Arguments:
+    $command - command to execute
+    $attr
+      SAVE_TO          - file to save result
+      SSH_COMMAND_BASE - ssh connection command
+
+  Returns:
+   1 if success or 0</code></pre>
+
+<h2 id="get_list-command-attr">get_list($command, $attr)</h2>
+
+<pre><code>  Arguments:
+    $command
+    $attr - hash_ref
+
+  Returns:
+    arr_ref</code></pre>
+
+<h2 id="check_access---checks-if-mikrotik-is-accessible">check_access() - checks if mikrotik is accessible</h2>
+
+<pre><code>  Returns:
+    boolean</code></pre>
+
+
+</body>
+
+</html>
+
+

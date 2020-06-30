@@ -1,57 +1,80 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Attach DB managment
+<body>
 
-  [1mfile2disc($attr) - Add to disck[0m
-      Arguments:
-        $attr
-          FILENAME
-          UID
 
-      Returns:
-        $self
 
-  [1mattachment_file_del($attr) - Add to disck[0m
-      Arguments:
-        $attr
-          FILENAME
-          UID
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#file2disc-attr---Add-to-disck">file2disc($attr) - Add to disck</a></li>
+      <li><a href="#attachment_file_del-attr---Add-to-disck">attachment_file_del($attr) - Add to disck</a></li>
+      <li><a href="#attachment_add-attr---Add-attachment">attachment_add($attr) - Add attachment</a></li>
+      <li><a href="#attachment_del-attr---Add-attachment">attachment_del($attr) - Add attachment</a></li>
+      <li><a href="#attachment_info-attr">attachment_info($attr)</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Returns:
-        $self
+<h1 id="NAME">NAME</h1>
 
-  [1mattachment_add($attr) - Add attachment[0m
-      Arguments:
-        $attr
-          TABLE    - Table name
-          FILENAME
-          CONTENT_TYPE
-          FILESIZE
-          CONTENT
+<pre><code>  Attach DB managment</code></pre>
 
-      Returns:
-        $self
+<h2 id="file2disc-attr---Add-to-disck">file2disc($attr) - Add to disck</h2>
 
-  [1mattachment_del($attr) - Add attachment[0m
-      Arguments:
-        $attr
-          TABLE    - Table name
-          ID       - ID
+<pre><code>  Arguments:
+    $attr
+      FILENAME
+      UID
 
-      Returns:
-        $self
+  Returns:
+    $self</code></pre>
 
-  [1mattachment_info($attr)[0m
+<h2 id="attachment_file_del-attr---Add-to-disck">attachment_file_del($attr) - Add to disck</h2>
 
-	
-	</body>
-	</html>
-  
+<pre><code>  Arguments:
+    $attr
+      FILENAME
+      UID
+
+  Returns:
+    $self</code></pre>
+
+<h2 id="attachment_add-attr---Add-attachment">attachment_add($attr) - Add attachment</h2>
+
+<pre><code>  Arguments:
+    $attr
+      TABLE    - Table name
+      FILENAME
+      CONTENT_TYPE
+      FILESIZE
+      CONTENT
+
+  Returns:
+    $self</code></pre>
+
+<h2 id="attachment_del-attr---Add-attachment">attachment_del($attr) - Add attachment</h2>
+
+<pre><code>  Arguments:
+    $attr
+      TABLE    - Table name
+      ID       - ID
+
+  Returns:
+    $self</code></pre>
+
+<h2 id="attachment_info-attr">attachment_info($attr)</h2>
+
+
+</body>
+
+</html>
+
+

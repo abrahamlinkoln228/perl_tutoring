@@ -1,40 +1,67 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mnew($db, $admin, $CONF)[0m
-      Arguments:
-        $db    - ref to DB
-        $admin - current Web session admin
-        $CONF  - ref to %conf
+<body>
+
+
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new-db-admin-CONF">new($db, $admin, $CONF)</a></li>
+      <li><a href="#parse---returns-info-for-current-DB-scheme">parse() - returns info for current DB scheme</a></li>
+      <li><a href="#tables_list">tables_list() -</a></li>
+      <li><a href="#table_info-table_name">table_info($table_name) -</a></li>
+      <li><a href="#parse_columns-table_info---formats-columns-to-usual-format">_parse_columns($table_info) - formats columns to usual format</a></li>
+      <li><a href="#get_tables_struct">get_tables_struct()</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="new-db-admin-CONF">new($db, $admin, $CONF)</h2>
+
+<pre><code>  Arguments:
+    $db    - ref to DB
+    $admin - current Web session admin
+    $CONF  - ref to %conf
     
-      Returns:
-        object
+  Returns:
+    object
+    </code></pre>
 
-  [1mparse() - returns info for current DB scheme[0m
-      Arguments:
-         -
+<h2 id="parse---returns-info-for-current-DB-scheme">parse() - returns info for current DB scheme</h2>
+
+<pre><code>  Arguments:
+     -
     
-      Returns:
-        hash_ref
+  Returns:
+    hash_ref
+    </code></pre>
 
-  [1mtables_list() -[0m
-  [1mtable_info($table_name) -[0m
-      Arguments:
-        $table_name -
+<h2 id="tables_list">tables_list() -</h2>
+
+<h2 id="table_info-table_name">table_info($table_name) -</h2>
+
+<pre><code>  Arguments:
+    $table_name -
     
-      Returns:
-        hash_ref -
+  Returns:
+    hash_ref -
+    </code></pre>
 
-  [1m_parse_columns($table_info) - formats columns to usual format[0m
-  [1mget_tables_struct()[0m
+<h2 id="parse_columns-table_info---formats-columns-to-usual-format">_parse_columns($table_info) - formats columns to usual format</h2>
 
-	
-	</body>
-	</html>
-  
+<h2 id="get_tables_struct">get_tables_struct()</h2>
+
+
+</body>
+
+</html>
+
+

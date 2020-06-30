@@ -1,49 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Ipn functions
-
-  [1mstats($attr) - Base stats[0m
-  [1mreports_users($attr)[0m
-      Arguments:
-        $attr
-          INTERVAL
-          FROM_DATE
-          TO_DATE
-          UID
-
-  [1mipn_log_rotate($attr) Delete information from detail table and log table[0m
-      Arguments:
-        $attr
-          PERIOD
-          DETAIL
-
-      Returns:
-        $self
-
-  [1muser_detail($attr)[0m
-  [1munknown_ips_del($attr)[0m
-  [1munknown_ips_list($attr)[0m
-  [1mtraffic_by_port_list($attr) - get traffic and ports[0m
-      Arguments:
-        $attr - hash_ref
-          UID
-          NAS_ID
-          S_TIME
-          F_TIME
-
-      Returns:
-        list
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#stats-attr---Base-stats">stats($attr) - Base stats</a></li>
+      <li><a href="#reports_users-attr">reports_users($attr)</a></li>
+      <li><a href="#ipn_log_rotate-attr-Delete-information-from-detail-table-and-log-table">ipn_log_rotate($attr) Delete information from detail table and log table</a></li>
+      <li><a href="#user_detail-attr">user_detail($attr)</a></li>
+      <li><a href="#unknown_ips_del-attr">unknown_ips_del($attr)</a></li>
+      <li><a href="#unknown_ips_list-attr">unknown_ips_list($attr)</a></li>
+      <li><a href="#traffic_by_port_list-attr---get-traffic-and-ports">traffic_by_port_list($attr) - get traffic and ports</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Ipn functions</code></pre>
+
+<h2 id="stats-attr---Base-stats">stats($attr) - Base stats</h2>
+
+<h2 id="reports_users-attr">reports_users($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr
+      INTERVAL
+      FROM_DATE
+      TO_DATE
+      UID</code></pre>
+
+<h2 id="ipn_log_rotate-attr-Delete-information-from-detail-table-and-log-table">ipn_log_rotate($attr) Delete information from detail table and log table</h2>
+
+<pre><code>  Arguments:
+    $attr
+      PERIOD
+      DETAIL
+
+  Returns:
+    $self     </code></pre>
+
+<h2 id="user_detail-attr">user_detail($attr)</h2>
+
+<h2 id="unknown_ips_del-attr">unknown_ips_del($attr)</h2>
+
+<h2 id="unknown_ips_list-attr">unknown_ips_list($attr)</h2>
+
+<h2 id="traffic_by_port_list-attr---get-traffic-and-ports">traffic_by_port_list($attr) - get traffic and ports</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+      UID
+      NAS_ID
+      S_TIME
+      F_TIME
+
+  Returns:
+    list</code></pre>
+
+
+</body>
+
+</html>
+
+

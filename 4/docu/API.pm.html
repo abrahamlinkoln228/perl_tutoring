@@ -1,109 +1,180 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Abills::Nas::Mikrotik::API
-
-      Forked from https://raw.githubusercontent.com/efaden/MikroTikPerl/
-
-      This module is not a part of ABillS
-
-  [1mVERSION[0m
-      VERSION 0.1
-
-  [1mAUTHOR[0m
-      Eric Faden (efaden@gmail.com)
-
-  [1mLICENSE[0m
-      Released Under Creative Commons License
-
-  [1mORIGINAL HEADER[0m
-      # MikroTik::API.pm
-      # Version 0.1
-      # By Eric Faden (efaden@gmail.com)
-
-      # Fork of MikroTik-Perl-API
-      # From https://github.com/ellocofray/mikrotik-perl-api
-
-      # Released Under Creative Commons License
-
-  [1mnew($db, $admin, $CONF)[0m
-      Arguments:
-        $db    - ref to DB
-        $admin - current Web session admin
-        $CONF  - ref to %conf
-
-      Returns:
-        object
-
-  [1mexecute($cmd, $attr) - Execute command in remote console[0m
-      Arguments:
-        $cmd - string  or array of strings
-        $attr - hash_ref
-          SAVE_TO         - filename to save output
-          SKIP_ERROR      - do not finish execution if error on one of commands
+<body>
 
 
-      Returns:
-        1
 
-  [1mget_list($command, $attr)[0m
-      Arguments:
-        $command
-        $attr - hash_ref
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#VERSION">VERSION</a></li>
+      <li><a href="#AUTHOR">AUTHOR</a></li>
+      <li><a href="#LICENSE">LICENSE</a></li>
+      <li><a href="#ORIGINAL-HEADER">ORIGINAL HEADER</a></li>
+      <li><a href="#new-db-admin-CONF">new($db, $admin, $CONF)</a></li>
+      <li><a href="#execute-cmd-attr---Execute-command-in-remote-console">execute($cmd, $attr) - Execute command in remote console</a></li>
+      <li><a href="#get_list-command-attr">get_list($command, $attr)</a></li>
+      <li><a href="#check_access---checks-if-mikrotik-is-accessible">check_access() - checks if mikrotik is accessible</a></li>
+      <li><a href="#upload_key-attr---Uploads-key-without-password">upload_key($attr) - Uploads key without password</a></li>
+      <li><a href="#talk">talk()</a></li>
+      <li><a href="#raw_talk">raw_talk()</a></li>
+      <li><a href="#login-host-username-passwd-port">login($host, $username, $passwd, $port)</a></li>
+      <li><a href="#logout">logout()</a></li>
+      <li><a href="#get_by_key">get_by_key()</a></li>
+      <li><a href="#mtik_cmd">mtik_cmd()</a></li>
+      <li><a href="#mtik_query-cmd-attrs-queries">mtik_query($cmd, \%attrs, \%queries)</a></li>
+      <li><a href="#mtik_connect">_mtik_connect()</a></li>
+      <li><a href="#write_word">_write_word()</a></li>
+      <li><a href="#write_sentence">_write_sentence()</a></li>
+      <li><a href="#write_len">_write_len()</a></li>
+      <li><a href="#read_byte">_read_byte()</a></li>
+      <li><a href="#read_len">_read_len()</a></li>
+      <li><a href="#read_word">_read_word()</a></li>
+      <li><a href="#read_sentence">_read_sentence()</a></li>
+      <li><a href="#LICENSE1">LICENSE</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
 
-      Returns:
-        arr_ref
+<h1 id="NAME">NAME</h1>
 
-  [1mcheck_access() - checks if mikrotik is accessible[0m
-      Returns:
-        boolean
+<pre><code>  Abills::Nas::Mikrotik::API</code></pre>
 
-  [1mupload_key($attr) - Uploads key without password[0m
-      Arguments:
-        $attr - hash_ref
-          ADMIN_NAME    - admin to upload key for
-          SYSTEM_ADMIN  - current active admin
-          SYSTEM_PASSWD - current password
+<pre><code>  Forked from https://raw.githubusercontent.com/efaden/MikroTikPerl/
 
-      Returns:
-        1 - if success
+  This module is not a part of ABillS</code></pre>
 
-  [1mtalk()[0m
-  [1mraw_talk()[0m
-  [1mlogin($host, $username, $passwd, $port)[0m
-  [1mlogout()[0m
-  [1mget_by_key()[0m
-  [1mmtik_cmd()[0m
-  [1mmtik_query($cmd, \%attrs, \%queries)[0m
-  [1m_mtik_connect()[0m
-  [1m_write_word()[0m
-  [1m_write_sentence()[0m
-  [1m_write_len()[0m
-  [1m_read_byte()[0m
-  [1m_read_len()[0m
-  [1m_read_word()[0m
-  [1m_read_sentence()[0m
-  [1mLICENSE[0m
-      Attribution-NonCommercial-ShareAlike 4.0 International
+<h2 id="VERSION">VERSION</h2>
 
-      https://github.com/horodchukanton/MikroTikPerl/blob/master/LICENSE
+<pre><code>  VERSION 0.1</code></pre>
 
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
+<h2 id="AUTHOR">AUTHOR</h2>
 
-    Around line 6:
-        Unknown directive: =SYNOPSYS
+<pre><code>  Eric Faden (efaden@gmail.com)</code></pre>
+
+<h2 id="LICENSE">LICENSE</h2>
+
+<pre><code>  Released Under Creative Commons License</code></pre>
+
+<h2 id="ORIGINAL-HEADER">ORIGINAL HEADER</h2>
+
+<pre><code>  # MikroTik::API.pm
+  # Version 0.1
+  # By Eric Faden (efaden@gmail.com)
+
+  # Fork of MikroTik-Perl-API
+  # From https://github.com/ellocofray/mikrotik-perl-api
+
+  # Released Under Creative Commons License</code></pre>
+
+<h2 id="new-db-admin-CONF">new($db, $admin, $CONF)</h2>
+
+<pre><code>  Arguments:
+    $db    - ref to DB
+    $admin - current Web session admin
+    $CONF  - ref to %conf
+
+  Returns:
+    object</code></pre>
+
+<h2 id="execute-cmd-attr---Execute-command-in-remote-console">execute($cmd, $attr) - Execute command in remote console</h2>
+
+<pre><code>  Arguments:
+    $cmd - string  or array of strings
+    $attr - hash_ref
+      SAVE_TO         - filename to save output
+      SKIP_ERROR      - do not finish execution if error on one of commands
 
 
-	
-	</body>
-	</html>
-  
+  Returns:
+    1</code></pre>
+
+<h2 id="get_list-command-attr">get_list($command, $attr)</h2>
+
+<pre><code>  Arguments:
+    $command
+    $attr - hash_ref
+
+  Returns:
+    arr_ref</code></pre>
+
+<h2 id="check_access---checks-if-mikrotik-is-accessible">check_access() - checks if mikrotik is accessible</h2>
+
+<pre><code>  Returns:
+    boolean</code></pre>
+
+<h2 id="upload_key-attr---Uploads-key-without-password">upload_key($attr) - Uploads key without password</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+      ADMIN_NAME    - admin to upload key for
+      SYSTEM_ADMIN  - current active admin
+      SYSTEM_PASSWD - current password
+
+  Returns:
+    1 - if success</code></pre>
+
+<h2 id="talk">talk()</h2>
+
+<h2 id="raw_talk">raw_talk()</h2>
+
+<h2 id="login-host-username-passwd-port">login($host, $username, $passwd, $port)</h2>
+
+<h2 id="logout">logout()</h2>
+
+<h2 id="get_by_key">get_by_key()</h2>
+
+<h2 id="mtik_cmd">mtik_cmd()</h2>
+
+<h2 id="mtik_query-cmd-attrs-queries">mtik_query($cmd, \%attrs, \%queries)</h2>
+
+<h2 id="mtik_connect">_mtik_connect()</h2>
+
+<h2 id="write_word">_write_word()</h2>
+
+<h2 id="write_sentence">_write_sentence()</h2>
+
+<h2 id="write_len">_write_len()</h2>
+
+<h2 id="read_byte">_read_byte()</h2>
+
+<h2 id="read_len">_read_len()</h2>
+
+<h2 id="read_word">_read_word()</h2>
+
+<h2 id="read_sentence">_read_sentence()</h2>
+
+<h2 id="LICENSE1">LICENSE</h2>
+
+<pre><code>  Attribution-NonCommercial-ShareAlike 4.0 International
+
+  https://github.com/horodchukanton/MikroTikPerl/blob/master/LICENSE</code></pre>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-6">Around line 6:</dt>
+<dd>
+
+<p>Unknown directive: =SYNOPSYS</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

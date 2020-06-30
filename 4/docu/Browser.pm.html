@@ -1,108 +1,148 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mnew($db, $admin, $CONF)[0m
-      Arguments:
-        $db    - ref to DB
-        $admin - current Web session admin
-        $CONF  - ref to %conf
-        $attr
+<body>
 
-      Returns:
-        object
 
-  [1mis_connected() - check if connected to internal WebSocket server[0m
-  [1msend_message($attr)[0m
-      Arguments:
-        $attr -
-          UID|AID  - string, receiver ( TODO: '*' to send to all of this type)
-          MESSAGE  - string, text of message
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new-db-admin-CONF">new($db, $admin, $CONF)</a></li>
+      <li><a href="#is_connected---check-if-connected-to-internal-WebSocket-server">is_connected() - check if connected to internal WebSocket server</a></li>
+      <li><a href="#send_message-attr">send_message($attr)</a></li>
+      <li><a href="#connected_admins">connected_admins()</a></li>
+      <li><a href="#has_connected_admin-aid---check-if-certain-admin-is-present-in-connected-sockets">has_connected_admin($aid) - check if certain admin is present in connected sockets</a></li>
+      <li><a href="#call-aid-message---send-message-and-receive-responce">call($aid, $message) - send message and receive responce</a></li>
+      <li><a href="#json_request-attr---simple-alias-to-get-perl-structure-as-result">json_request($attr) - simple alias to get perl structure as result</a></li>
+      <li><a href="#request-attr---Request-types-wrapper">_request($attr) - Request types wrapper</a></li>
+      <li><a href="#asynchronous_request-attr---will-write-to-socket-and-run-callback-when-receive-result">_asynchronous_request($attr) - will write to socket and run callback, when receive result</a></li>
+      <li><a href="#synchronous_request-attr">_synchronous_request($attr)</a></li>
+      <li><a href="#instant_request-attr---will-not-wait-for-timeout-but-no-warranties-for-receive">_instant_request($attr) - will not wait for timeout, but no warranties for receive</a></li>
+      <li><a href="#safe_json_decode-json_string">safe_json_decode($json_string)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="new-db-admin-CONF">new($db, $admin, $CONF)</h2>
+
+<pre><code>  Arguments:
+    $db    - ref to DB
+    $admin - current Web session admin
+    $CONF  - ref to %conf
+    $attr
+
+  Returns:
+    object</code></pre>
+
+<h2 id="is_connected---check-if-connected-to-internal-WebSocket-server">is_connected() - check if connected to internal WebSocket server</h2>
+
+<h2 id="send_message-attr">send_message($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr -
+      UID|AID  - string, receiver ( TODO: &#39;*&#39; to send to all of this type)
+      MESSAGE  - string, text of message
       
-          NON_SAFE - boolean, will use instant request (without confirmation)
+      NON_SAFE - boolean, will use instant request (without confirmation)
      
-          ASYNC    - coderef, asynchronous callback
+      ASYNC    - coderef, asynchronous callback
 
-      Returns:
-        1 if sended;
+  Returns:
+    1 if sended;</code></pre>
 
-  [1mconnected_admins()[0m
-      Returns:
-        list - aids of connected admins
+<h2 id="connected_admins">connected_admins()</h2>
 
-  [1mhas_connected_admin($aid) - check if certain admin is present in connected sockets[0m
-      Arguments:
-        $aid - admin ID
+<pre><code>  Returns:
+    list - aids of connected admins</code></pre>
 
-      Returns:
-        boolean - if connected
+<h2 id="has_connected_admin-aid---check-if-certain-admin-is-present-in-connected-sockets">has_connected_admin($aid) - check if certain admin is present in connected sockets</h2>
 
-  [1mcall($aid, $message) - send message and receive responce[0m
-      Arguments:
-        $aid     - Admin ID
-        $message - json
-          DATA
+<pre><code>  Arguments:
+    $aid - admin ID
 
-      Returns:
-        hash - responce
+  Returns:
+    boolean - if connected</code></pre>
 
-  [1mjson_request($attr) - simple alias to get perl structure as result[0m
-      Arguments:
-        $attr - hash_ref
-          MESSAGE - JSON string
+<h2 id="call-aid-message---send-message-and-receive-responce">call($aid, $message) - send message and receive responce</h2>
 
-      Returns:
-        hash_ref - result
-        undef on timeout
+<pre><code>  Arguments:
+    $aid     - Admin ID
+    $message - json
+      DATA
 
-  [1m_request($attr) - Request types wrapper[0m
-      Arguments:
-        $attr -
-          NON_SAFE
-          ASYNC
-          RETURN_RESULT
+  Returns:
+    hash - responce</code></pre>
+
+<h2 id="json_request-attr---simple-alias-to-get-perl-structure-as-result">json_request($attr) - simple alias to get perl structure as result</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+      MESSAGE - JSON string
+
+  Returns:
+    hash_ref - result
+    undef on timeout</code></pre>
+
+<h2 id="request-attr---Request-types-wrapper">_request($attr) - Request types wrapper</h2>
+
+<pre><code>  Arguments:
+    $attr -
+      NON_SAFE
+      ASYNC
+      RETURN_RESULT
       
-      Returns:
+  Returns:
+    
+    </code></pre>
 
-  [1m_asynchronous_request($attr) - will write to socket and run callback, when receive result[0m
-      Arguments:
-        $attr - hash_ref
-          MESSAGE  - text will be send to backend server
-          CALLBACK - function($result)
-            $result will be
-              string - if server responded with message
-              ''     - if server accepted message, but not responded nothing
-              undef  - if timeout
+<h2 id="asynchronous_request-attr---will-write-to-socket-and-run-callback-when-receive-result">_asynchronous_request($attr) - will write to socket and run callback, when receive result</h2>
 
-      Returns:
-        undef
+<pre><code>  Arguments:
+    $attr - hash_ref
+      MESSAGE  - text will be send to backend server
+      CALLBACK - function($result)
+        $result will be
+          string - if server responded with message
+          &#39;&#39;     - if server accepted message, but not responded nothing
+          undef  - if timeout
 
-  [1m_synchronous_request($attr)[0m
-      Arguments:
-        $attr - hash_ref
-          MESSAGE - text will be send to backend server
+  Returns:
+    undef
+    </code></pre>
 
-      Returns:
-        string - if server responded with message
-        ''     - if server accepted message, but not responded nothing
-        undef  - if timeout
+<h2 id="synchronous_request-attr">_synchronous_request($attr)</h2>
 
-  [1m_instant_request($attr) - will not wait for timeout, but no warranties for receive[0m
-      Arguments:
-        $attr - hash_ref
-          MESSAGE - text will be send to backend server
+<pre><code>  Arguments:
+    $attr - hash_ref
+      MESSAGE - text will be send to backend server
 
-      Returns:
-        1
+  Returns:
+    string - if server responded with message
+    &#39;&#39;     - if server accepted message, but not responded nothing
+    undef  - if timeout</code></pre>
 
-  [1msafe_json_decode($json_string)[0m
+<h2 id="instant_request-attr---will-not-wait-for-timeout-but-no-warranties-for-receive">_instant_request($attr) - will not wait for timeout, but no warranties for receive</h2>
 
-	
-	</body>
-	</html>
-  
+<pre><code>  Arguments:
+    $attr - hash_ref
+      MESSAGE - text will be send to backend server
+
+  Returns:
+    1
+    </code></pre>
+
+<h2 id="safe_json_decode-json_string">safe_json_decode($json_string)</h2>
+
+
+</body>
+
+</html>
+
+

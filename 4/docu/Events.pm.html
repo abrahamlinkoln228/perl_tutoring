@@ -1,104 +1,142 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mNAME[0m
-     Events
+<body>
 
-  [1mSYNOPSIS[0m
-       $Events->events_add( {
-          # Name for module
-            MODULE      => 'Test',
-          # Text
-            COMMENTS    => 'Generated',
-          # Link to see external info
-            EXTRA       => 'http://abills.net.ua',
-          # 1..5 Bigger is more important
-            PRIORITY_ID => 1,
-          } );
 
-  [1mAUTOLOAD[0m
-      Because all namings are standart, 'add', 'change', 'del', 'info' can be generated automatically.
 
-  [1mSYNOPSIS[0m
-      AUTOLOAD is called when undefined function was called in Package::Foo.
-      global $AUTOLOAD var is filled with full name of called undefined function (Package::Foo::some_function)
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#NAME">NAME</a></li>
+      <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+      <li><a href="#AUTOLOAD">AUTOLOAD</a></li>
+      <li><a href="#SYNOPSIS1">SYNOPSIS</a></li>
+      <li><a href="#USAGE">USAGE</a></li>
+      <li><a href="#new-db-admin-CONF">new($db, $admin, $CONF)</a></li>
+      <li><a href="#events_list-attr">events_list($attr)</a></li>
+      <li><a href="#state_list-attr">state_list($attr)</a></li>
+      <li><a href="#privacy_list-attr">privacy_list($attr)</a></li>
+      <li><a href="#priority_list-attr">priority_list($attr)</a></li>
+      <li><a href="#priority_send_types_list-attr">priority_send_types_list($attr)</a></li>
+      <li><a href="#group_list-attr">group_list($attr)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="NAME">NAME</h2>
+
+<pre><code> Events</code></pre>
+
+<h2 id="SYNOPSIS">SYNOPSIS</h2>
+
+<pre><code>   $Events-&gt;events_add( {
+      # Name for module
+        MODULE      =&gt; &#39;Test&#39;,
+      # Text
+        COMMENTS    =&gt; &#39;Generated&#39;,
+      # Link to see external info
+        EXTRA       =&gt; &#39;http://abills.net.ua&#39;,
+      # 1..5 Bigger is more important
+        PRIORITY_ID =&gt; 1,
+      } );</code></pre>
+
+<h2 id="AUTOLOAD">AUTOLOAD</h2>
+
+<pre><code>  Because all namings are standart, &#39;add&#39;, &#39;change&#39;, &#39;del&#39;, &#39;info&#39; can be generated automatically.
+  </code></pre>
+
+<h2 id="SYNOPSIS1">SYNOPSIS</h2>
+
+<pre><code>  AUTOLOAD is called when undefined function was called in Package::Foo.
+  global $AUTOLOAD var is filled with full name of called undefined function (Package::Foo::some_function)
   
-      Because in this module DB tables and columns are named same as template variables, in all logic for custom operations
-      the only thing that changes is table name.
+  Because in this module DB tables and columns are named same as template variables, in all logic for custom operations
+  the only thing that changes is table name.
   
-      We can parse it from called function name and generate 'add', 'change', 'del', 'info' functions on the fly
+  We can parse it from called function name and generate &#39;add&#39;, &#39;change&#39;, &#39;del&#39;, &#39;info&#39; functions on the fly
+   </code></pre>
 
-  [1mUSAGE[0m
-      You should use this function as usual, nothing changes in webinterface logic.
-      Info functions are working regarding to 'SHOW_ALL_COLUMNS' in table_list()
+<h2 id="USAGE">USAGE</h2>
+
+<pre><code>  You should use this function as usual, nothing changes in webinterface logic.
+  Info functions are working regarding to &#39;SHOW_ALL_COLUMNS&#39; in table_list()
   
-      Just call $Events->group_info($group_id)
+  Just call $Events-&gt;group_info($group_id)
   
-      Arguments:
-        arguments are typical for operations, assuming we are working with ID column as primary key
+  Arguments:
+    arguments are typical for operations, assuming we are working with ID column as primary key
     
-      Returns:
-        returns same result as usual operation functions ( Generally nothing )
+  Returns:
+    returns same result as usual operation functions ( Generally nothing )</code></pre>
 
-  [1mnew($db, $admin, $CONF)[0m
-      Arguments:
-        $db    - ref to DB
-        $admin - current Web session admin
-        $CONF  - ref to %conf
+<h2 id="new-db-admin-CONF">new($db, $admin, $CONF)</h2>
 
-      Returns:
-        object
+<pre><code>  Arguments:
+    $db    - ref to DB
+    $admin - current Web session admin
+    $CONF  - ref to %conf
 
-  [1mevents_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    object</code></pre>
 
-      Returns:
-        list
+<h2 id="events_list-attr">events_list($attr)</h2>
 
-  [1mstate_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        list
+  Returns:
+    list</code></pre>
 
-  [1mprivacy_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="state_list-attr">state_list($attr)</h2>
 
-      Returns:
-        list
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-  [1mpriority_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+  Returns:
+    list</code></pre>
 
-      Returns:
-        list
+<h2 id="privacy_list-attr">privacy_list($attr)</h2>
 
-  [1mpriority_send_types_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<pre><code>  Arguments:
+    $attr - hash_ref
 
-      Returns:
-        list
+  Returns:
+    list</code></pre>
 
-  [1mgroup_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
+<h2 id="priority_list-attr">priority_list($attr)</h2>
 
-      Returns:
-        list
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
+
+<h2 id="priority_send_types_list-attr">priority_send_types_list($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
+
+<h2 id="group_list-attr">group_list($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

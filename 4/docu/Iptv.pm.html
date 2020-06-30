@@ -1,91 +1,184 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Iptv module
+<body>
 
-    Iptv db function
 
-[1mSYNOPSIS[0m
-      use Iptv;
-      $Iptv->new($db, $admin, \%conf);
 
-  [1muser_info($id, $attr) - User information[0m
-  [1muser_add($attr) - Add user[0m
-  [1muser_change($attr) - Change users[0m
-  [1muser_del(attr);[0m
-  [1muser_list($attr) - Users list[0m
-  [1muser_tp_channels_list($attr) User information[0m
-  [1mchannel_info($attr) - Channel info[0m
-  [1mchannel_defaults()[0m
-  [1mchannel_add($attr) - Channel add[0m
-  [1mchannel_change($attr) - Channel change[0m
-  [1mchannel_del($id, $attr) - Channel del[0m
-  [1mchannel_list($attr)[0m
-  [1muser_channels($attr) - Users channels[0m
-      Arguments:
-        $attr
-          IDS
-          ID
-          TP_ID
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a>
+    <ul>
+      <li><a href="#user_info-id-attr---User-information">user_info($id, $attr) - User information</a></li>
+      <li><a href="#user_add-attr---Add-user">user_add($attr) - Add user</a></li>
+      <li><a href="#user_change-attr---Change-users">user_change($attr) - Change users</a></li>
+      <li><a href="#user_del-attr">user_del(attr);</a></li>
+      <li><a href="#user_list-attr---Users-list">user_list($attr) - Users list</a></li>
+      <li><a href="#user_tp_channels_list-attr-User-information">user_tp_channels_list($attr) User information</a></li>
+      <li><a href="#channel_info-attr---Channel-info">channel_info($attr) - Channel info</a></li>
+      <li><a href="#channel_defaults">channel_defaults()</a></li>
+      <li><a href="#channel_add-attr---Channel-add">channel_add($attr) - Channel add</a></li>
+      <li><a href="#channel_change-attr---Channel-change">channel_change($attr) - Channel change</a></li>
+      <li><a href="#channel_del-id-attr---Channel-del">channel_del($id, $attr) - Channel del</a></li>
+      <li><a href="#channel_list-attr">channel_list($attr)</a></li>
+      <li><a href="#user_channels-attr---Users-channels">user_channels($attr) - Users channels</a></li>
+      <li><a href="#user_channels_list-attr">user_channels_list($attr)</a></li>
+      <li><a href="#channel_ti_change-attr">channel_ti_change($attr)</a></li>
+      <li><a href="#channel_ti_list">channel_ti_list()</a></li>
+      <li><a href="#reports_channels_use-attr">reports_channels_use($attr)</a></li>
+      <li><a href="#online-attr">online($attr)</a></li>
+      <li><a href="#online_add-attr">online_add($attr)</a></li>
+      <li><a href="#online_update-attr">online_update($attr)</a></li>
+      <li><a href="#online_del-attr">online_del($attr)</a></li>
+      <li><a href="#subsribe_list-attr">subsribe_list($attr)</a></li>
+      <li><a href="#subscribe_add-attr">subscribe_add($attr)</a></li>
+      <li><a href="#subscribe_change">subscribe_change()</a></li>
+      <li><a href="#screens_list-attr---list-of-tp-screens">screens_list($attr) - list of tp screens</a></li>
+      <li><a href="#screen_add-attr">screen_add($attr)</a></li>
+      <li><a href="#screen_change-attr">screen_change($attr)</a></li>
+      <li><a href="#screen_del-id-attr">screen_del($id, $attr)</a></li>
+      <li><a href="#screen_info-id-attr">screen_info($id, $attr)</a></li>
+      <li><a href="#users_screens_add-attr">users_screens_add($attr)</a></li>
+      <li><a href="#users_screens_del-attr">users_screens_del($attr)</a></li>
+      <li><a href="#users_screens_info-id-attr---users_screens_info">users_screens_info($id, $attr) - users_screens_info</a></li>
+      <li><a href="#users_screens_list-attr---List-all-users-screens">users_screens_list($attr) - List all users screens</a></li>
+      <li><a href="#services_list-attr---list-of-tp-services">services_list($attr) - list of tp services</a></li>
+      <li><a href="#screen_add-attr1">screen_add($attr)</a></li>
+      <li><a href="#screen_change-attr1">screen_change($attr)</a></li>
+      <li><a href="#screen_del-id-attr1">screen_del($id, $attr)</a></li>
+      <li><a href="#screen_info-id-attr1">screen_info($id, $attr)</a></li>
+      <li><a href="#services_reports">services_reports()</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Results:
-        Objects
+<h1 id="NAME">NAME</h1>
 
-  [1muser_channels_list($attr)[0m
-  [1mchannel_ti_change($attr)[0m
-  [1mchannel_ti_list()[0m
-  [1mreports_channels_use($attr)[0m
-  [1monline($attr)[0m
-  [1monline_add($attr)[0m
-  [1monline_update($attr)[0m
-  [1monline_del($attr)[0m
-  [1msubsribe_list($attr)[0m
-  [1msubscribe_add($attr)[0m
-  [1msubscribe_change()[0m
-  [1mscreens_list($attr) - list of tp screens[0m
-      Arguments:
-        $attr
+<pre><code>  Iptv module</code></pre>
 
-  [1mscreen_add($attr)[0m
-  [1mscreen_change($attr)[0m
-  [1mscreen_del($id, $attr)[0m
-  [1mscreen_info($id, $attr)[0m
-  [1musers_screens_add($attr)[0m
-  [1musers_screens_del($attr)[0m
-  [1musers_screens_info($id, $attr) - users_screens_info[0m
-      Arguments:
-        $id    - Service ID
-        $attr
-          SCREEN_ID - Screen ID
+<p>Iptv db function</p>
 
-      Results:
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
 
-  [1musers_screens_list($attr) - List all users screens[0m
-      Arguments:
-        $attr
-          SERICE_ID
+<pre><code>  use Iptv;
+  $Iptv-&gt;new($db, $admin, \%conf);</code></pre>
 
-      Returns:
-        $list
+<h2 id="user_info-id-attr---User-information">user_info($id, $attr) - User information</h2>
 
-  [1mservices_list($attr) - list of tp services[0m
-      Arguments:
-        $attr
+<h2 id="user_add-attr---Add-user">user_add($attr) - Add user</h2>
 
-  [1mscreen_add($attr)[0m
-  [1mscreen_change($attr)[0m
-  [1mscreen_del($id, $attr)[0m
-  [1mscreen_info($id, $attr)[0m
-  [1mservices_reports()[0m
+<h2 id="user_change-attr---Change-users">user_change($attr) - Change users</h2>
 
-	
-	</body>
-	</html>
-  
+<h2 id="user_del-attr">user_del(attr);</h2>
+
+<h2 id="user_list-attr---Users-list">user_list($attr) - Users list</h2>
+
+<h2 id="user_tp_channels_list-attr-User-information">user_tp_channels_list($attr) User information</h2>
+
+<h2 id="channel_info-attr---Channel-info">channel_info($attr) - Channel info</h2>
+
+<h2 id="channel_defaults">channel_defaults()</h2>
+
+<h2 id="channel_add-attr---Channel-add">channel_add($attr) - Channel add</h2>
+
+<h2 id="channel_change-attr---Channel-change">channel_change($attr) - Channel change</h2>
+
+<h2 id="channel_del-id-attr---Channel-del">channel_del($id, $attr) - Channel del</h2>
+
+<h2 id="channel_list-attr">channel_list($attr)</h2>
+
+<h2 id="user_channels-attr---Users-channels">user_channels($attr) - Users channels</h2>
+
+<pre><code>  Arguments:
+    $attr
+      IDS
+      ID
+      TP_ID
+
+  Results:
+    Objects</code></pre>
+
+<h2 id="user_channels_list-attr">user_channels_list($attr)</h2>
+
+<h2 id="channel_ti_change-attr">channel_ti_change($attr)</h2>
+
+<h2 id="channel_ti_list">channel_ti_list()</h2>
+
+<h2 id="reports_channels_use-attr">reports_channels_use($attr)</h2>
+
+<h2 id="online-attr">online($attr)</h2>
+
+<h2 id="online_add-attr">online_add($attr)</h2>
+
+<h2 id="online_update-attr">online_update($attr)</h2>
+
+<h2 id="online_del-attr">online_del($attr)</h2>
+
+<h2 id="subsribe_list-attr">subsribe_list($attr)</h2>
+
+<h2 id="subscribe_add-attr">subscribe_add($attr)</h2>
+
+<h2 id="subscribe_change">subscribe_change()</h2>
+
+<h2 id="screens_list-attr---list-of-tp-screens">screens_list($attr) - list of tp screens</h2>
+
+<pre><code>  Arguments:
+    $attr</code></pre>
+
+<h2 id="screen_add-attr">screen_add($attr)</h2>
+
+<h2 id="screen_change-attr">screen_change($attr)</h2>
+
+<h2 id="screen_del-id-attr">screen_del($id, $attr)</h2>
+
+<h2 id="screen_info-id-attr">screen_info($id, $attr)</h2>
+
+<h2 id="users_screens_add-attr">users_screens_add($attr)</h2>
+
+<h2 id="users_screens_del-attr">users_screens_del($attr)</h2>
+
+<h2 id="users_screens_info-id-attr---users_screens_info">users_screens_info($id, $attr) - users_screens_info</h2>
+
+<pre><code>  Arguments:
+    $id    - Service ID
+    $attr
+      SCREEN_ID - Screen ID
+
+  Results:</code></pre>
+
+<h2 id="users_screens_list-attr---List-all-users-screens">users_screens_list($attr) - List all users screens</h2>
+
+<pre><code>  Arguments:
+    $attr
+      SERICE_ID
+
+  Returns:
+    $list</code></pre>
+
+<h2 id="services_list-attr---list-of-tp-services">services_list($attr) - list of tp services</h2>
+
+<pre><code>  Arguments:
+    $attr</code></pre>
+
+<h2 id="screen_add-attr1">screen_add($attr)</h2>
+
+<h2 id="screen_change-attr1">screen_change($attr)</h2>
+
+<h2 id="screen_del-id-attr1">screen_del($id, $attr)</h2>
+
+<h2 id="screen_info-id-attr1">screen_info($id, $attr)</h2>
+
+<h2 id="services_reports">services_reports()</h2>
+
+
+</body>
+
+</html>
+
+

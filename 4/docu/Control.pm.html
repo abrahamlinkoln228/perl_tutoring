@@ -1,101 +1,158 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      NAS controlling functions
-        get_acct_info
-        hangup
-        check_activity
-
-[1mhangup($Nas, $attr);[0m
-      Hangup active port (user,cids)
-
-      Arguments:
-        $NAS_HASH_REF - NAS information
-        $PORT         - NAS port
-        $USER         - User LOGIN
-        $attr         - Extra atttributes
-          SESSION_ID
-          ACCT_SESSION_ID
-          CALLING_STATION_ID
-          FRAMED_IP_ADDRESS
-          UID
-          NETMASK
-          FILTER_ID
-          CID
-          LOG         - Log object
-
-      Returns:
-
-  [1mget_stats($nas, $PORT, $attr) - Get stats[0m
-  [1mtelnet_cmd($hostname, $commands, $attr)[0m
-  [1mtelnet_cmd2($host, $commands, $attr)[0m
-  [1mtelnet_cmd($hostname, $commands, $attr)[0m
-  [1mstats_pm25($NAS, $PORT) - Get stats from Livingston Portmaster[0m
-  [1mstats_usrns($NAS, $PORT) - Get stats from USR Netserver 8/16[0m
-  [1mhangup_snmp($NAS, $attr) Base SNMP set hangup function[0m
-  [1mhangup_radius($NAS, $attr) - hangup_radius[0m
-      Arguments:
-        $NAS   -
-        $attr  -
-          USER
-          FRAMED_IP_ADDRESS
-          SESSION_ID
-          RAD_PAIRS          - Use custom radius pairs form disconnect
-          COA                - Change request type to CoA
-          DEBUG
-
-      Radius-Disconnect messages
-        rfc2882
-
-  [1mhangup_mikrotik_telnet($NAS, $attr)[0m
-  [1mhangup_ipcad($NAS_IP, $PORT, $USER_NAME, $attr)[0m
-  [1mhangup_cisco_isg($NAS, $PORT, $attr) - HANGUP Cisco ISG[0m
-       ip rcmd rcp-enable
-       ip rcmd rsh-enable
-       no ip rcmd domain-lookup
-       ! ip rcmd remote-host ���_�����_��_cisco IP_address_���_���_�����_�_��������_�����������_������ ���_�����_��_�����_�����_�����_����������_������ enable
-       ! ��������
-       ip rcmd remote-host admin 192.168.0.254 root enable
-
-  [1mhangup_cisco($NAS, $attr) - HANGUP Cisco[0m
-     Cisco config  for rsh functions:
-       ip rcmd rcp-enable
-       ip rcmd rsh-enable
-       no ip rcmd domain-lookup
-       ! ip rcmd remote-host ���_�����_��_cisco IP_address_���_���_�����_�_��������_�����������_������  ��_�����_��_�����_�����_�����_����������_������ enable
-       ! ��������
-       ip rcmd remote-host admin 192.168.0.254 root enable
-
-[1mhangup_mpd5($NAS, $PORT, $USER, $attr) - HANGUP MPD[0m
-  [1mhascoa($NAS); - Check CoA support[0m
-  [1mhangup_unifi($NAS, $PORT, $USER, $attr) - Hangup unifi[0m
-  [1mrsh_cmd($command, $attr) - rsh cmd[0m
-      Arguments:
-        $command
-        $attr
-           NAS_MNG_USER
-           NAS_MNG_IP_PORT
-
-      Results:
-        command result
-
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 838:
-        Non-ASCII character seen before =encoding in '���_�����_��_cisco'.
-        Assuming UTF-8
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#hangup-Nas-attr">hangup($Nas, $attr);</a>
+    <ul>
+      <li><a href="#get_stats-nas-PORT-attr---Get-stats">get_stats($nas, $PORT, $attr) - Get stats</a></li>
+      <li><a href="#telnet_cmd-hostname-commands-attr">telnet_cmd($hostname, $commands, $attr)</a></li>
+      <li><a href="#telnet_cmd2-host-commands-attr">telnet_cmd2($host, $commands, $attr)</a></li>
+      <li><a href="#telnet_cmd-hostname-commands-attr1">telnet_cmd($hostname, $commands, $attr)</a></li>
+      <li><a href="#stats_pm25-NAS-PORT---Get-stats-from-Livingston-Portmaster">stats_pm25($NAS, $PORT) - Get stats from Livingston Portmaster</a></li>
+      <li><a href="#stats_usrns-NAS-PORT---Get-stats-from-USR-Netserver-8-16">stats_usrns($NAS, $PORT) - Get stats from USR Netserver 8/16</a></li>
+      <li><a href="#hangup_snmp-NAS-attr-Base-SNMP-set-hangup-function">hangup_snmp($NAS, $attr) Base SNMP set hangup function</a></li>
+      <li><a href="#hangup_radius-NAS-attr---hangup_radius">hangup_radius($NAS, $attr) - hangup_radius</a></li>
+      <li><a href="#hangup_mikrotik_telnet-NAS-attr">hangup_mikrotik_telnet($NAS, $attr)</a></li>
+      <li><a href="#hangup_ipcad-NAS_IP-PORT-USER_NAME-attr">hangup_ipcad($NAS_IP, $PORT, $USER_NAME, $attr)</a></li>
+      <li><a href="#hangup_cisco_isg-NAS-PORT-attr---HANGUP-Cisco-ISG">hangup_cisco_isg($NAS, $PORT, $attr) - HANGUP Cisco ISG</a></li>
+      <li><a href="#hangup_cisco-NAS-attr---HANGUP-Cisco">hangup_cisco($NAS, $attr) - HANGUP Cisco</a></li>
+    </ul>
+  </li>
+  <li><a href="#hangup_mpd5-NAS-PORT-USER-attr---HANGUP-MPD">hangup_mpd5($NAS, $PORT, $USER, $attr) - HANGUP MPD</a>
+    <ul>
+      <li><a href="#hascoa-NAS---Check-CoA-support">hascoa($NAS); - Check CoA support</a></li>
+      <li><a href="#hangup_unifi-NAS-PORT-USER-attr---Hangup-unifi">hangup_unifi($NAS, $PORT, $USER, $attr) - Hangup unifi</a></li>
+      <li><a href="#rsh_cmd-command-attr---rsh-cmd">rsh_cmd($command, $attr) - rsh cmd</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  NAS controlling functions
+    get_acct_info
+    hangup
+    check_activity</code></pre>
+
+<h1 id="hangup-Nas-attr">hangup($Nas, $attr);</h1>
+
+<pre><code>  Hangup active port (user,cids)
+
+  Arguments:
+    $NAS_HASH_REF - NAS information
+    $PORT         - NAS port
+    $USER         - User LOGIN
+    $attr         - Extra atttributes
+      SESSION_ID
+      ACCT_SESSION_ID
+      CALLING_STATION_ID
+      FRAMED_IP_ADDRESS
+      UID
+      NETMASK
+      FILTER_ID
+      CID
+      LOG         - Log object
+
+  Returns:</code></pre>
+
+<h2 id="get_stats-nas-PORT-attr---Get-stats">get_stats($nas, $PORT, $attr) - Get stats</h2>
+
+<h2 id="telnet_cmd-hostname-commands-attr">telnet_cmd($hostname, $commands, $attr)</h2>
+
+<h2 id="telnet_cmd2-host-commands-attr">telnet_cmd2($host, $commands, $attr)</h2>
+
+<h2 id="telnet_cmd-hostname-commands-attr1">telnet_cmd($hostname, $commands, $attr)</h2>
+
+<h2 id="stats_pm25-NAS-PORT---Get-stats-from-Livingston-Portmaster">stats_pm25($NAS, $PORT) - Get stats from Livingston Portmaster</h2>
+
+<h2 id="stats_usrns-NAS-PORT---Get-stats-from-USR-Netserver-8-16">stats_usrns($NAS, $PORT) - Get stats from USR Netserver 8/16</h2>
+
+<h2 id="hangup_snmp-NAS-attr-Base-SNMP-set-hangup-function">hangup_snmp($NAS, $attr) Base SNMP set hangup function</h2>
+
+<h2 id="hangup_radius-NAS-attr---hangup_radius">hangup_radius($NAS, $attr) - hangup_radius</h2>
+
+<pre><code>  Arguments:
+    $NAS   -
+    $attr  -
+      USER
+      FRAMED_IP_ADDRESS
+      SESSION_ID
+      RAD_PAIRS          - Use custom radius pairs form disconnect
+      COA                - Change request type to CoA
+      DEBUG
+
+  Radius-Disconnect messages
+    rfc2882</code></pre>
+
+<h2 id="hangup_mikrotik_telnet-NAS-attr">hangup_mikrotik_telnet($NAS, $attr)</h2>
+
+<h2 id="hangup_ipcad-NAS_IP-PORT-USER_NAME-attr">hangup_ipcad($NAS_IP, $PORT, $USER_NAME, $attr)</h2>
+
+<h2 id="hangup_cisco_isg-NAS-PORT-attr---HANGUP-Cisco-ISG">hangup_cisco_isg($NAS, $PORT, $attr) - HANGUP Cisco ISG</h2>
+
+<pre><code>   ip rcmd rcp-enable
+   ip rcmd rsh-enable
+   no ip rcmd domain-lookup
+   ! ip rcmd remote-host &#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;_cisco IP_address_&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD; &#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD; enable
+   ! &#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;
+   ip rcmd remote-host admin 192.168.0.254 root enable</code></pre>
+
+<h2 id="hangup_cisco-NAS-attr---HANGUP-Cisco">hangup_cisco($NAS, $attr) - HANGUP Cisco</h2>
+
+<pre><code> Cisco config  for rsh functions:
+   ip rcmd rcp-enable
+   ip rcmd rsh-enable
+   no ip rcmd domain-lookup
+   ! ip rcmd remote-host &#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;_cisco IP_address_&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;  &#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD; enable
+   ! &#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;
+   ip rcmd remote-host admin 192.168.0.254 root enable</code></pre>
+
+<h1 id="hangup_mpd5-NAS-PORT-USER-attr---HANGUP-MPD">hangup_mpd5($NAS, $PORT, $USER, $attr) - HANGUP MPD</h1>
+
+<h2 id="hascoa-NAS---Check-CoA-support">hascoa($NAS); - Check CoA support</h2>
+
+<h2 id="hangup_unifi-NAS-PORT-USER-attr---Hangup-unifi">hangup_unifi($NAS, $PORT, $USER, $attr) - Hangup unifi</h2>
+
+<h2 id="rsh_cmd-command-attr---rsh-cmd">rsh_cmd($command, $attr) - rsh cmd</h2>
+
+<pre><code>  Arguments:
+    $command
+    $attr
+       NAS_MNG_USER
+       NAS_MNG_IP_PORT
+
+  Results:
+    command result</code></pre>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-838">Around line 838:</dt>
+<dd>
+
+<p>Non-ASCII character seen before =encoding in &#39;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;&#xFFFD;_&#xFFFD;&#xFFFD;_cisco&#39;. Assuming UTF-8</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

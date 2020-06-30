@@ -1,43 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Base info grabber
-
-  [1mequipment_test($attr)[0m
-      Arguments:
-        $attr
-          PORT_INFO
-          PORT_ID    - Port ID (Get stats for one port)
-          TIMEOUT
-          TEST_OID   - Array of oids
-          PORT_STATUS
-
-      Returns:
-        ports_info_hash_ref
-
-  [1mget_vlans($attr) - Get VLANs[0m
-      Arguments:
-        $attr
-          SNMP_TPL
-          NAS_INFO
-          VERSION
-
-      Returns:
-        Hash of vlans
-
-  [1mequipment_fdb_grab($attr) - Show FDB table[0m
-      Arguments:
-        $attr
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#equipment_test-attr">equipment_test($attr)</a></li>
+      <li><a href="#get_vlans-attr---Get-VLANs">get_vlans($attr) - Get VLANs</a></li>
+      <li><a href="#equipment_fdb_grab-attr---Show-FDB-table">equipment_fdb_grab($attr) - Show FDB table</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Base info grabber</code></pre>
+
+<h2 id="equipment_test-attr">equipment_test($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr
+      PORT_INFO
+      PORT_ID    - Port ID (Get stats for one port)
+      TIMEOUT
+      TEST_OID   - Array of oids
+      PORT_STATUS
+
+  Returns:
+    ports_info_hash_ref</code></pre>
+
+<h2 id="get_vlans-attr---Get-VLANs">get_vlans($attr) - Get VLANs</h2>
+
+<pre><code>  Arguments:
+    $attr
+      SNMP_TPL
+      NAS_INFO
+      VERSION
+
+  Returns:
+    Hash of vlans</code></pre>
+
+<h2 id="equipment_fdb_grab-attr---Show-FDB-table">equipment_fdb_grab($attr) - Show FDB table</h2>
+
+<pre><code>  Arguments:
+    $attr</code></pre>
+
+
+</body>
+
+</html>
+
+

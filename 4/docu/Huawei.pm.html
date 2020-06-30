@@ -1,89 +1,154 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-     huawei snmp monitoring and managment
+<body>
 
-  [1m_huawei_get_ports($attr) - Get OLT ports[0m
-  [1m_huawei_onu_list($port_list, $attr) -[0m
-      Arguments:
-        $port_list
-        $attr
 
-      Results:
 
-  [1m_huawei_unregister($attr);[0m
-      Arguments:
-        $attr
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#huawei_get_ports-attr---Get-OLT-ports">_huawei_get_ports($attr) - Get OLT ports</a></li>
+      <li><a href="#huawei_onu_list-port_list-attr">_huawei_onu_list($port_list, $attr) -</a></li>
+      <li><a href="#huawei_unregister-attr">_huawei_unregister($attr);</a></li>
+      <li><a href="#huawei-attr---Snmp-recovery">_huawei($attr) - Snmp recovery</a></li>
+      <li><a href="#huawei_onu_status">_huawei_onu_status();</a></li>
+      <li><a href="#decode_port-dec---Decode-onu-int">decode_port($dec) - Decode onu int</a></li>
+      <li><a href="#huawei_set_desc_port-attr---Set-Description-to-OLT-ports">_huawei_set_desc_port($attr) - Set Description to OLT ports</a></li>
+      <li><a href="#huawei_get_service_ports-attr---Get-OLT-service-ports">_huawei_get_service_ports($attr) - Get OLT service ports</a></li>
+      <li><a href="#huawei_get_free_id-attr">_huawei_get_free_id($attr)</a></li>
+      <li><a href="#huawei_convert_power-power">_huawei_convert_power($power);</a></li>
+      <li><a href="#huawei_convert_olt_power">_huawei_convert_olt_power();</a></li>
+      <li><a href="#huawei_convert_desc">_huawei_convert_desc();</a></li>
+      <li><a href="#huawei_convert_temperature">_huawei_convert_temperature();</a></li>
+      <li><a href="#huawei_convert_voltage">_huawei_convert_voltage();</a></li>
+      <li><a href="#huawei_convert_distance">_huawei_convert_distance();</a></li>
+      <li><a href="#huawei_convert_duplex">_huawei_convert_duplex();</a></li>
+      <li><a href="#huawei_convert_speed">_huawei_convert_speed();</a></li>
+      <li><a href="#huawei_convert_admin_state">_huawei_convert_admin_state();</a></li>
+      <li><a href="#huawei_convert_state-data">_huawei_convert_state($data);</a></li>
+      <li><a href="#huawei_convert_eth_vlan">_huawei_convert_eth_vlan();</a></li>
+      <li><a href="#huawei_convert_cpu_usage">_huawei_convert_cpu_usage();</a></li>
+      <li><a href="#huawei_convert_info_temperature">_huawei_convert_info_temperature();</a></li>
+      <li><a href="#huawei_convert_info_describe">_huawei_convert_info_describe();</a></li>
+      <li><a href="#huawei_get_fdb-attr---GET-FDB-by-telnet">_huawei_get_fdb($attr) - GET FDB by telnet</a></li>
+      <li><a href="#huawei_telnet_open-attr">_huawei_telnet_open($attr);</a></li>
+      <li><a href="#huawei_telnet_cmd-cmd">_huawei_telnet_cmd($cmd);</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Returns;
-        \@unregister
+<h1 id="NAME">NAME</h1>
 
-  [1m_huawei($attr) - Snmp recovery[0m
-      Arguments:
-        $attr
-          TYPE
+<pre><code> huawei snmp monitoring and managment</code></pre>
 
-      http://pastebin.com/wjj68SUX
+<h2 id="huawei_get_ports-attr---Get-OLT-ports">_huawei_get_ports($attr) - Get OLT ports</h2>
 
-  [1m_huawei_onu_status();[0m
-  [1mdecode_port($dec) - Decode onu int[0m
-      Arguments:
-        $dec
+<h2 id="huawei_onu_list-port_list-attr">_huawei_onu_list($port_list, $attr) -</h2>
 
-      Returns:
-        deparsing string
+<pre><code>  Arguments:
+    $port_list
+    $attr
 
-  [1m_huawei_set_desc_port($attr) - Set Description to OLT ports[0m
-  [1m_huawei_get_service_ports($attr) - Get OLT service ports[0m
-      Arguments:
-        $attr
-          ONU_SNMP_ID
+  Results:</code></pre>
 
-  [1m_huawei_get_free_id($attr)[0m
-       Arguments:
-         $attr
-           OID                - oid
-           SNMP_COMMUNITY     - Port id
-           MAX_ID             - Maximal id (default 128)
+<h2 id="huawei_unregister-attr">_huawei_unregister($attr);</h2>
 
-  [1m_huawei_convert_power($power);[0m
-  [1m_huawei_convert_olt_power();[0m
-  [1m_huawei_convert_desc();[0m
-  [1m_huawei_convert_temperature();[0m
-  [1m_huawei_convert_voltage();[0m
-  [1m_huawei_convert_distance();[0m
-  [1m_huawei_convert_duplex();[0m
-  [1m_huawei_convert_speed();[0m
-  [1m_huawei_convert_admin_state();[0m
-  [1m_huawei_convert_state($data);[0m
-  [1m_huawei_convert_eth_vlan();[0m
-  [1m_huawei_convert_cpu_usage();[0m
-  [1m_huawei_convert_info_temperature();[0m
-  [1m_huawei_convert_info_describe();[0m
-  [1m_huawei_get_fdb($attr) - GET FDB by telnet[0m
-      Arguments:
-        $attr
+<pre><code>  Arguments:
+    $attr
 
-      Results:
+  Returns;
+    \@unregister</code></pre>
 
-  [1m_huawei_telnet_open($attr);[0m
-      Arguments:
-        $attr
-          NAS_INFO
+<h2 id="huawei-attr---Snmp-recovery">_huawei($attr) - Snmp recovery</h2>
 
-      Returns:
-        TRUE or FALSE
+<pre><code>  Arguments:
+    $attr
+      TYPE
 
-  [1m_huawei_telnet_cmd($cmd);[0m
+  http://pastebin.com/wjj68SUX</code></pre>
 
-	
-	</body>
-	</html>
-  
+<h2 id="huawei_onu_status">_huawei_onu_status();</h2>
+
+<h2 id="decode_port-dec---Decode-onu-int">decode_port($dec) - Decode onu int</h2>
+
+<pre><code>  Arguments:
+    $dec
+
+  Returns:
+    deparsing string</code></pre>
+
+<h2 id="huawei_set_desc_port-attr---Set-Description-to-OLT-ports">_huawei_set_desc_port($attr) - Set Description to OLT ports</h2>
+
+<h2 id="huawei_get_service_ports-attr---Get-OLT-service-ports">_huawei_get_service_ports($attr) - Get OLT service ports</h2>
+
+<pre><code>  Arguments:
+    $attr
+      ONU_SNMP_ID</code></pre>
+
+<h2 id="huawei_get_free_id-attr">_huawei_get_free_id($attr)</h2>
+
+<pre><code>   Arguments:
+     $attr
+       OID                - oid
+       SNMP_COMMUNITY     - Port id
+       MAX_ID             - Maximal id (default 128)</code></pre>
+
+<h2 id="huawei_convert_power-power">_huawei_convert_power($power);</h2>
+
+<h2 id="huawei_convert_olt_power">_huawei_convert_olt_power();</h2>
+
+<h2 id="huawei_convert_desc">_huawei_convert_desc();</h2>
+
+<h2 id="huawei_convert_temperature">_huawei_convert_temperature();</h2>
+
+<h2 id="huawei_convert_voltage">_huawei_convert_voltage();</h2>
+
+<h2 id="huawei_convert_distance">_huawei_convert_distance();</h2>
+
+<h2 id="huawei_convert_duplex">_huawei_convert_duplex();</h2>
+
+<h2 id="huawei_convert_speed">_huawei_convert_speed();</h2>
+
+<h2 id="huawei_convert_admin_state">_huawei_convert_admin_state();</h2>
+
+<h2 id="huawei_convert_state-data">_huawei_convert_state($data);</h2>
+
+<h2 id="huawei_convert_eth_vlan">_huawei_convert_eth_vlan();</h2>
+
+<h2 id="huawei_convert_cpu_usage">_huawei_convert_cpu_usage();</h2>
+
+<h2 id="huawei_convert_info_temperature">_huawei_convert_info_temperature();</h2>
+
+<h2 id="huawei_convert_info_describe">_huawei_convert_info_describe();</h2>
+
+<h2 id="huawei_get_fdb-attr---GET-FDB-by-telnet">_huawei_get_fdb($attr) - GET FDB by telnet</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Results:</code></pre>
+
+<h2 id="huawei_telnet_open-attr">_huawei_telnet_open($attr);</h2>
+
+<pre><code>  Arguments:
+    $attr
+      NAS_INFO
+
+  Returns:
+    TRUE or FALSE</code></pre>
+
+<h2 id="huawei_telnet_cmd-cmd">_huawei_telnet_cmd($cmd);</h2>
+
+
+</body>
+
+</html>
+
+

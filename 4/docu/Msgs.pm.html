@@ -1,183 +1,298 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-     Message system
-     Help Desk SQL
+<body>
 
-[1mmessages_new($attr) - Show new message[0m
-  [1mmessages_list($attr) -  Show message[0m
-      Arguments:
 
-      Returns:
-         array_hash_ref
 
-  [1mmessage_add($attr)[0m
-  [1mmessage_del($attr)[0m
-      Arguments:
-        $attr
-          UID
-          ID
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#messages_new-attr---Show-new-message">messages_new($attr) - Show new message</a>
+    <ul>
+      <li><a href="#messages_list-attr---Show-message">messages_list($attr) - Show message</a></li>
+      <li><a href="#message_add-attr">message_add($attr)</a></li>
+      <li><a href="#message_del-attr">message_del($attr)</a></li>
+      <li><a href="#message_info">message_info()</a></li>
+      <li><a href="#message_change-attr">message_change($attr)</a></li>
+      <li><a href="#chapters_list-attr">chapters_list($attr)</a></li>
+      <li><a href="#chapter_add-attr">chapter_add($attr)</a></li>
+      <li><a href="#chapter_del-attr">chapter_del($attr)</a></li>
+      <li><a href="#chapter_info-id-attr">chapter_info($id, $attr)</a></li>
+      <li><a href="#chapter_change-attr">chapter_change($attr)</a></li>
+      <li><a href="#admin_change-attr">admin_change($attr)</a></li>
+      <li><a href="#chapter_del-attr1">chapter_del($attr)</a></li>
+      <li><a href="#message_reply_del-attr">message_reply_del($attr)</a></li>
+      <li><a href="#messages_list-attr">messages_list($attr)</a></li>
+      <li><a href="#attachment_add-attr-Add-attachments">attachment_add($attr) Add attachments</a></li>
+      <li><a href="#attachment_info-attr">attachment_info($attr)</a></li>
+      <li><a href="#messages_reports-attr">messages_reports($attr)</a></li>
+      <li><a href="#dispatch_list-attr">dispatch_list($attr)</a></li>
+      <li><a href="#chapter_add-attr1">chapter_add($attr)</a></li>
+      <li><a href="#chapter_del">chapter_del</a></li>
+      <li><a href="#dispatch_info">dispatch_info()</a></li>
+      <li><a href="#dispatch_change">dispatch_change()</a></li>
+      <li><a href="#dispatch_admins_change">dispatch_admins_change</a></li>
+      <li><a href="#dispatch_admins_list-attr">dispatch_admins_list($attr)</a></li>
+      <li><a href="#unreg_requests_count-attr---Count-unreg-message">unreg_requests_count($attr) - Count unreg message</a></li>
+      <li><a href="#unreg_requests_list-attr---Unreg-request-list">unreg_requests_list($attr) - Unreg request list</a></li>
+      <li><a href="#unreg_requests_add-attr---add-admin-message">unreg_requests_add($attr) - add admin message</a></li>
+      <li><a href="#unreg_requests_info-id-attr">unreg_requests_info($id, $attr)</a></li>
+      <li><a href="#unreg_requests_change-attr">unreg_requests_change($attr)</a></li>
+      <li><a href="#survey_subjects_list-attr">survey_subjects_list($attr)</a></li>
+      <li><a href="#survey_subjects_add-attr">survey_subjects_add($attr)</a></li>
+      <li><a href="#survey_subject_del">survey_subject_del()</a></li>
+      <li><a href="#survey_subjects_info-id">survey_subjects_info($id)</a></li>
+      <li><a href="#survey_answer_show-attr">survey_answer_show($attr)</a></li>
+      <li><a href="#survey_answer_add-attr">survey_answer_add($attr)</a></li>
+      <li><a href="#msg_watch_del-attr">msg_watch_del($attr)</a></li>
+      <li><a href="#msg_watch_list-attr">msg_watch_list($attr)</a></li>
+      <li><a href="#status_add-attr">status_add($attr) -</a></li>
+      <li><a href="#status_list-attr">status_list($attr) -</a></li>
+      <li><a href="#status_del">status_del() -</a></li>
+      <li><a href="#status_info">status_info() -</a></li>
+      <li><a href="#status_change">status_change() -</a></li>
+      <li><a href="#msgs_delivery_add-attr">msgs_delivery_add($attr) -</a></li>
+      <li><a href="#msgs_delivery_list-attr">msgs_delivery_list($attr) -</a></li>
+      <li><a href="#msgs_delivery_del-attr">msgs_delivery_del($attr) -</a></li>
+      <li><a href="#msgs_delivery_info-id">msgs_delivery_info($id) -</a></li>
+      <li><a href="#msgs_delivery_change-attr">msgs_delivery_change($attr) -</a></li>
+      <li><a href="#delivery_user_list_add-attr">delivery_user_list_add($attr)</a></li>
+      <li><a href="#delivery_user_list-attr">delivery_user_list($attr)</a></li>
+      <li><a href="#delivery_user_list_del-attr">delivery_user_list_del($attr)</a></li>
+      <li><a href="#delivery_user_list_change-attr">delivery_user_list_change($attr)</a></li>
+      <li><a href="#msgs_report_actions-attr">msgs_report_actions($attr)</a></li>
+      <li><a href="#messages_reports-attr-Arguments:-attr-attr--FROM_DATE---create-date-attr--TO_DATE---create-date-Returns:-list">messages_reports($attr) Arguments: $attr $attr-&gt;{FROM_DATE} - create date $attr-&gt;{TO_DATE} - create date Returns: $list</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Results:
-        $self
+<h1 id="NAME">NAME</h1>
 
-  [1mmessage_info()[0m
-  [1mmessage_change($attr)[0m
-  [1mchapters_list($attr)[0m
-  [1mchapter_add($attr)[0m
-  [1mchapter_del($attr)[0m
-  [1mchapter_info($id, $attr)[0m
-  [1mchapter_change($attr)[0m
-  [1madmin_change($attr)[0m
-  [1mchapter_del($attr)[0m
-  [1mmessage_reply_del($attr)[0m
-  [1mmessages_list($attr)[0m
-  [1mattachment_add($attr) Add attachments[0m
-  [1mattachment_info($attr)[0m
-  [1mmessages_reports($attr)[0m
-  [1mdispatch_list($attr)[0m
-  [1mchapter_add($attr)[0m
-  [1mchapter_del[0m
-  [1mdispatch_info()[0m
-  [1mdispatch_change()[0m
-  [1mdispatch_admins_change[0m
-  [1mdispatch_admins_list($attr)[0m
-  [1munreg_requests_count($attr) - Count unreg message[0m
-  [1munreg_requests_list($attr) - Unreg request list[0m
-  [1munreg_requests_add($attr) - add admin message[0m
-  [1munreg_requests_info($id, $attr)[0m
-  [1munreg_requests_change($attr)[0m
-  [1msurvey_subjects_list($attr)[0m
-  [1msurvey_subjects_add($attr)[0m
-  [1msurvey_subject_del()[0m
-  [1msurvey_subjects_info($id)[0m
-  [1msurvey_answer_show($attr)[0m
-      Arguments:
-        REPLY_ID
-        SURVEY_ID
-        UID
+<pre><code> Message system
+ Help Desk SQL</code></pre>
 
-      Results:
+<h1 id="messages_new-attr---Show-new-message">messages_new($attr) - Show new message</h1>
 
-  [1msurvey_answer_add($attr)[0m
-  [1mmsg_watch_del($attr)[0m
-  [1mmsg_watch_list($attr)[0m
-  [1mstatus_add($attr) -[0m
-      Arguments:
-        $attr -
+<h2 id="messages_list-attr---Show-message">messages_list($attr) - Show message</h2>
 
-      Returns:
+<pre><code>  Arguments:
 
-      Examples:
-
-  [1mstatus_list($attr) -[0m
-      Arguments:
-        $attr -
-      Returns:
-
-      Examples:
-
-  [1mstatus_del() -[0m
-      Arguments:
-        $attr -
-      Returns:
-
-      Examples:
-
-  [1mstatus_info() -[0m
-      Arguments:
-    urns:
-
-      Examples:
-
-  [1mstatus_change() -[0m
-      Arguments:
-         -
-      Returns:
-
-      Examples:
-
-  [1mmsgs_delivery_add($attr) -[0m
-      Arguments:
-        $attr -
-
-      Returns:
-
-      Examples:
-
-  [1mmsgs_delivery_list($attr) -[0m
-      Arguments:
-        $attr -
-      Returns:
-
-      Examples:
-
-  [1mmsgs_delivery_del($attr) -[0m
-      Arguments:
-        $attr -
-      Returns:
-
-      Examples:
-
-  [1mmsgs_delivery_info($id) -[0m
-      Arguments:
-      $id
-
-      Returns:
-
-  [1mmsgs_delivery_change($attr) -[0m
-      Arguments:
-         $attr
-      Returns:
-
-      Examples:
-
-  [1mdelivery_user_list_add($attr)[0m
-      Arguments:
-        $attr
-      Returns:
-
-      Examples:
-
-  [1mdelivery_user_list($attr)[0m
-      Arguments:
-         $attr
-      Returns:
-
-      Examples:
-
-  [1mdelivery_user_list_del($attr)[0m
-      Arguments:
-         $attr
-      Returns:
-
-      Examples:
-
-  [1mdelivery_user_list_change($attr)[0m
-  [1mmsgs_report_actions($attr)[0m
-      Arguments:
-         $attr
-           $attr->{MSG_ID} - messege id
-      Returns:
-
-      Examples:
-
-  [1mmessages_reports($attr)
-  Arguments:
-     $attr
-       $attr->{FROM_DATE} - create date
-       $attr->{TO_DATE}  - create date
   Returns:
-      $list[0m
+     array_hash_ref</code></pre>
 
-	
-	</body>
-	</html>
-  
+<h2 id="message_add-attr">message_add($attr)</h2>
+
+<h2 id="message_del-attr">message_del($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr
+      UID
+      ID
+
+  Results:
+    $self</code></pre>
+
+<h2 id="message_info">message_info()</h2>
+
+<h2 id="message_change-attr">message_change($attr)</h2>
+
+<h2 id="chapters_list-attr">chapters_list($attr)</h2>
+
+<h2 id="chapter_add-attr">chapter_add($attr)</h2>
+
+<h2 id="chapter_del-attr">chapter_del($attr)</h2>
+
+<h2 id="chapter_info-id-attr">chapter_info($id, $attr)</h2>
+
+<h2 id="chapter_change-attr">chapter_change($attr)</h2>
+
+<h2 id="admin_change-attr">admin_change($attr)</h2>
+
+<h2 id="chapter_del-attr1">chapter_del($attr)</h2>
+
+<h2 id="message_reply_del-attr">message_reply_del($attr)</h2>
+
+<h2 id="messages_list-attr">messages_list($attr)</h2>
+
+<h2 id="attachment_add-attr-Add-attachments">attachment_add($attr) Add attachments</h2>
+
+<h2 id="attachment_info-attr">attachment_info($attr)</h2>
+
+<h2 id="messages_reports-attr">messages_reports($attr)</h2>
+
+<h2 id="dispatch_list-attr">dispatch_list($attr)</h2>
+
+<h2 id="chapter_add-attr1">chapter_add($attr)</h2>
+
+<h2 id="chapter_del">chapter_del</h2>
+
+<h2 id="dispatch_info">dispatch_info()</h2>
+
+<h2 id="dispatch_change">dispatch_change()</h2>
+
+<h2 id="dispatch_admins_change">dispatch_admins_change</h2>
+
+<h2 id="dispatch_admins_list-attr">dispatch_admins_list($attr)</h2>
+
+<h2 id="unreg_requests_count-attr---Count-unreg-message">unreg_requests_count($attr) - Count unreg message</h2>
+
+<h2 id="unreg_requests_list-attr---Unreg-request-list">unreg_requests_list($attr) - Unreg request list</h2>
+
+<h2 id="unreg_requests_add-attr---add-admin-message">unreg_requests_add($attr) - add admin message</h2>
+
+<h2 id="unreg_requests_info-id-attr">unreg_requests_info($id, $attr)</h2>
+
+<h2 id="unreg_requests_change-attr">unreg_requests_change($attr)</h2>
+
+<h2 id="survey_subjects_list-attr">survey_subjects_list($attr)</h2>
+
+<h2 id="survey_subjects_add-attr">survey_subjects_add($attr)</h2>
+
+<h2 id="survey_subject_del">survey_subject_del()</h2>
+
+<h2 id="survey_subjects_info-id">survey_subjects_info($id)</h2>
+
+<h2 id="survey_answer_show-attr">survey_answer_show($attr)</h2>
+
+<pre><code>  Arguments:
+    REPLY_ID
+    SURVEY_ID
+    UID
+
+  Results:</code></pre>
+
+<h2 id="survey_answer_add-attr">survey_answer_add($attr)</h2>
+
+<h2 id="msg_watch_del-attr">msg_watch_del($attr)</h2>
+
+<h2 id="msg_watch_list-attr">msg_watch_list($attr)</h2>
+
+<h2 id="status_add-attr">status_add($attr) -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="status_list-attr">status_list($attr) -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="status_del">status_del() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="status_info">status_info() -</h2>
+
+<pre><code>  Arguments:
+urns:
+
+  Examples:</code></pre>
+
+<h2 id="status_change">status_change() -</h2>
+
+<pre><code>  Arguments:
+     -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="msgs_delivery_add-attr">msgs_delivery_add($attr) -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="msgs_delivery_list-attr">msgs_delivery_list($attr) -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="msgs_delivery_del-attr">msgs_delivery_del($attr) -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="msgs_delivery_info-id">msgs_delivery_info($id) -</h2>
+
+<pre><code>  Arguments:
+  $id
+
+  Returns:</code></pre>
+
+<h2 id="msgs_delivery_change-attr">msgs_delivery_change($attr) -</h2>
+
+<pre><code>  Arguments:
+     $attr
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="delivery_user_list_add-attr">delivery_user_list_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="delivery_user_list-attr">delivery_user_list($attr)</h2>
+
+<pre><code>  Arguments:
+     $attr
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="delivery_user_list_del-attr">delivery_user_list_del($attr)</h2>
+
+<pre><code>  Arguments:
+     $attr
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="delivery_user_list_change-attr">delivery_user_list_change($attr)</h2>
+
+<h2 id="msgs_report_actions-attr">msgs_report_actions($attr)</h2>
+
+<pre><code>  Arguments:
+     $attr
+       $attr-&gt;{MSG_ID} - messege id
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="messages_reports-attr-Arguments:-attr-attr--FROM_DATE---create-date-attr--TO_DATE---create-date-Returns:-list">messages_reports($attr) Arguments: $attr $attr-&gt;{FROM_DATE} - create date $attr-&gt;{TO_DATE} - create date Returns: $list</h2>
+
+
+</body>
+
+</html>
+
+

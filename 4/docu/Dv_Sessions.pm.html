@@ -1,98 +1,156 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Dv Stats functions
-        time
-        traffic
-
-  [1mdel($uid, $session_id, $nas_id, $session_start, $attr) - Del user statistic[0m
-  [1monline_update($attr) - Update online sessions[0m
-  [1monline_count($attr) - Count online sessions[0m
-  [1monline_add($attr) - Add online session[0m
-  [1monline($attr) - Make online (active sessions) list[0m
-      Arguments:
-        $attr
-          COUNT        - Count sessions
-          ZAPPED       - Show zapped count
-          STATUS_COUNT - Show status count
-          STATUS       - Show sessions with status
-          NAS_ERROR_SESSIONS - Show NAS error sessions
-          FILTER       - Filter fields
-          ALL          - SHow all sessions
-
-      Result:
-        hash_ref_array
-        OBJECT
-          dub_ports    - Duplicate ports
-          dub_logins   - Duplicate logins
-          dub_ips      - Duplicate ips
-          nas_sorted   - NAS sorted hash_ref_array
-
-  [1monline_del() - Del online session[0m
-  [1monline_info($attr) - Online session information[0m
-  [1mzap($nas_id, $nas_port_id, $acct_session_id, $attr) - Session zap[0m
-  [1msession_detail($attr) - Session detail information[0m
-  [1mdetail_list($attr)[0m
-  [1mdetail_sum($attr)[0m
-  [1mperiods_totals($attr) - Periods totals[0m
-      Arguments:
-        $attr
-          UID
-          UIDS
-
-      Results:
-        OBJECT
-
-  [1mprepaid_rest($attr) - Prepaid traffic rest[0m
-      Arguments:
-        $attr
-          UID
-          UIDS
-          INFO_ONLY - User information
-          FROM_DATE - From date
-          TO_DATE   - To date
-      Returns
-        List object
-
-  [1mlist($attr) - Show completed sessin list[0m
-      Arguments:
-        $attr
-          INTERVAL  - Show session for intervals
-          PERIOD    - Show sessions for period
-
-      Result:
-        hash_ref_array
-
-  [1mcalculation($attr) -  session calculation[0m
-      min max average
-
-      Arguments:
-        $attr
-
-      Returns:
-        $list
-
-  [1mlist_log_intervals($attr)[0m
-  [1mlog_rotate($attr) - Rotate dv logs[0m
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 1191:
-        Unknown directive: =head
-
-    Around line 1434:
-        Unknown directive: =head
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#del-uid-session_id-nas_id-session_start-attr---Del-user-statistic">del($uid, $session_id, $nas_id, $session_start, $attr) - Del user statistic</a></li>
+      <li><a href="#online_update-attr---Update-online-sessions">online_update($attr) - Update online sessions</a></li>
+      <li><a href="#online_count-attr---Count-online-sessions">online_count($attr) - Count online sessions</a></li>
+      <li><a href="#online_add-attr---Add-online-session">online_add($attr) - Add online session</a></li>
+      <li><a href="#online-attr---Make-online-active-sessions-list">online($attr) - Make online (active sessions) list</a></li>
+      <li><a href="#online_del---Del-online-session">online_del() - Del online session</a></li>
+      <li><a href="#online_info-attr---Online-session-information">online_info($attr) - Online session information</a></li>
+      <li><a href="#zap-nas_id-nas_port_id-acct_session_id-attr---Session-zap">zap($nas_id, $nas_port_id, $acct_session_id, $attr) - Session zap</a></li>
+      <li><a href="#session_detail-attr---Session-detail-information">session_detail($attr) - Session detail information</a></li>
+      <li><a href="#detail_list-attr">detail_list($attr)</a></li>
+      <li><a href="#detail_sum-attr">detail_sum($attr)</a></li>
+      <li><a href="#periods_totals-attr---Periods-totals">periods_totals($attr) - Periods totals</a></li>
+      <li><a href="#prepaid_rest-attr---Prepaid-traffic-rest">prepaid_rest($attr) - Prepaid traffic rest</a></li>
+      <li><a href="#list-attr---Show-completed-sessin-list">list($attr) - Show completed sessin list</a></li>
+      <li><a href="#calculation-attr---session-calculation">calculation($attr) - session calculation</a></li>
+      <li><a href="#list_log_intervals-attr">list_log_intervals($attr)</a></li>
+      <li><a href="#log_rotate-attr---Rotate-dv-logs">log_rotate($attr) - Rotate dv logs</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  Dv Stats functions
+    time
+    traffic</code></pre>
+
+<h2 id="del-uid-session_id-nas_id-session_start-attr---Del-user-statistic">del($uid, $session_id, $nas_id, $session_start, $attr) - Del user statistic</h2>
+
+<h2 id="online_update-attr---Update-online-sessions">online_update($attr) - Update online sessions</h2>
+
+<h2 id="online_count-attr---Count-online-sessions">online_count($attr) - Count online sessions</h2>
+
+<h2 id="online_add-attr---Add-online-session">online_add($attr) - Add online session</h2>
+
+<h2 id="online-attr---Make-online-active-sessions-list">online($attr) - Make online (active sessions) list</h2>
+
+<pre><code>  Arguments:
+    $attr
+      COUNT        - Count sessions
+      ZAPPED       - Show zapped count
+      STATUS_COUNT - Show status count
+      STATUS       - Show sessions with status
+      NAS_ERROR_SESSIONS - Show NAS error sessions
+      FILTER       - Filter fields
+      ALL          - SHow all sessions
+
+  Result:
+    hash_ref_array
+    OBJECT
+      dub_ports    - Duplicate ports
+      dub_logins   - Duplicate logins
+      dub_ips      - Duplicate ips
+      nas_sorted   - NAS sorted hash_ref_array</code></pre>
+
+<h2 id="online_del---Del-online-session">online_del() - Del online session</h2>
+
+<h2 id="online_info-attr---Online-session-information">online_info($attr) - Online session information</h2>
+
+<h2 id="zap-nas_id-nas_port_id-acct_session_id-attr---Session-zap">zap($nas_id, $nas_port_id, $acct_session_id, $attr) - Session zap</h2>
+
+<h2 id="session_detail-attr---Session-detail-information">session_detail($attr) - Session detail information</h2>
+
+<h2 id="detail_list-attr">detail_list($attr)</h2>
+
+<h2 id="detail_sum-attr">detail_sum($attr)</h2>
+
+<h2 id="periods_totals-attr---Periods-totals">periods_totals($attr) - Periods totals</h2>
+
+<pre><code>  Arguments:
+    $attr
+      UID
+      UIDS
+
+  Results:
+    OBJECT</code></pre>
+
+<h2 id="prepaid_rest-attr---Prepaid-traffic-rest">prepaid_rest($attr) - Prepaid traffic rest</h2>
+
+<pre><code>  Arguments:
+    $attr
+      UID
+      UIDS
+      INFO_ONLY - User information
+      FROM_DATE - From date
+      TO_DATE   - To date
+  Returns
+    List object</code></pre>
+
+<h2 id="list-attr---Show-completed-sessin-list">list($attr) - Show completed sessin list</h2>
+
+<pre><code>  Arguments:
+    $attr
+      INTERVAL  - Show session for intervals
+      PERIOD    - Show sessions for period
+
+  Result:
+    hash_ref_array</code></pre>
+
+<h2 id="calculation-attr---session-calculation">calculation($attr) - session calculation</h2>
+
+<pre><code>  min max average</code></pre>
+
+<pre><code>  Arguments:
+    $attr
+
+  Returns:
+    $list</code></pre>
+
+<h2 id="list_log_intervals-attr">list_log_intervals($attr)</h2>
+
+<h2 id="log_rotate-attr---Rotate-dv-logs">log_rotate($attr) - Rotate dv logs</h2>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-1191">Around line 1191:</dt>
+<dd>
+
+<p>Unknown directive: =head</p>
+
+</dd>
+<dt id="Around-line-1434">Around line 1434:</dt>
+<dd>
+
+<p>Unknown directive: =head</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

@@ -1,62 +1,86 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mnew($db, $admin, $CONF)[0m
-      Arguments:
-        $db    - ref to DB
-        $admin - current Web session admin
-        $CONF  - ref to %conf
-
-      Returns:
-        object
-
-  [1mset_nmap_location($filename) - sets nmap location[0m
-      Arguments:
-        $filename - filename for nmap
-
-      Returns:
-        1
-
-  [1mset_target($target) - Sets target for this scan[0m
-      Arguments:
-        $target - corect ip range in CIDR notation
-
-      Returns:
-        boolean - 1
-
-  [1mset_timeout($ms) - sets timeout[0m
-      Arguments:
-        $ms - milliseconds
-
-      Returns:
-        1
-
-  [1mscan() - start_scan[0m
-      Runs nmap scan, parses results using Nmap::Parser, and returns parsed results
-
-      Returns:
-        hash_ref -
-          %IP_ADDRESS%
-            STATUS
-            ...
-
-  [1m_prepare_results($parser) - Collects results from Nmap::Parser to pure parl hash[0m
-      Arguments:
-        $parser - Nmap::Parser containing results
-
-      Returns:
-        hash_ref - 'up' hosts state with gathered information
-          IP_ADDRESS
-            hash_ref
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new-db-admin-CONF">new($db, $admin, $CONF)</a></li>
+      <li><a href="#set_nmap_location-filename---sets-nmap-location">set_nmap_location($filename) - sets nmap location</a></li>
+      <li><a href="#set_target-target---Sets-target-for-this-scan">set_target($target) - Sets target for this scan</a></li>
+      <li><a href="#set_timeout-ms---sets-timeout">set_timeout($ms) - sets timeout</a></li>
+      <li><a href="#scan---start_scan">scan() - start_scan</a></li>
+      <li><a href="#prepare_results-parser---Collects-results-from-Nmap::Parser-to-pure-parl-hash">_prepare_results($parser) - Collects results from Nmap::Parser to pure parl hash</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="new-db-admin-CONF">new($db, $admin, $CONF)</h2>
+
+<pre><code>  Arguments:
+    $db    - ref to DB
+    $admin - current Web session admin
+    $CONF  - ref to %conf
+
+  Returns:
+    object</code></pre>
+
+<h2 id="set_nmap_location-filename---sets-nmap-location">set_nmap_location($filename) - sets nmap location</h2>
+
+<pre><code>  Arguments:
+    $filename - filename for nmap
+
+  Returns:
+    1</code></pre>
+
+<h2 id="set_target-target---Sets-target-for-this-scan">set_target($target) - Sets target for this scan</h2>
+
+<pre><code>  Arguments:
+    $target - corect ip range in CIDR notation
+
+  Returns:
+    boolean - 1</code></pre>
+
+<h2 id="set_timeout-ms---sets-timeout">set_timeout($ms) - sets timeout</h2>
+
+<pre><code>  Arguments:
+    $ms - milliseconds
+
+  Returns:
+    1</code></pre>
+
+<h2 id="scan---start_scan">scan() - start_scan</h2>
+
+<pre><code>  Runs nmap scan, parses results using Nmap::Parser, and returns parsed results
+
+  Returns:
+    hash_ref -
+      %IP_ADDRESS%
+        STATUS
+        ...</code></pre>
+
+<h2 id="prepare_results-parser---Collects-results-from-Nmap::Parser-to-pure-parl-hash">_prepare_results($parser) - Collects results from Nmap::Parser to pure parl hash</h2>
+
+<pre><code>  Arguments:
+    $parser - Nmap::Parser containing results
+
+  Returns:
+    hash_ref - &#39;up&#39; hosts state with gathered information
+      IP_ADDRESS
+        hash_ref</code></pre>
+
+
+</body>
+
+</html>
+
+

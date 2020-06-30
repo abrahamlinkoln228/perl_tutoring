@@ -1,82 +1,116 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mNAME[0m
-      Notepad
-
-  [1mnew($db, $admin, \%conf) - constructor[0m
-  [1mnotes_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        list
-
-  [1mnotes_info($id)[0m
-      Arguments:
-        $id - id for notes
-
-      Returns:
-        hash_ref
-
-  [1mnotes_add($attr)  - Add note[0m
-  [1mnotepad_note_change($attr) - Change note[0m
-  [1mnote_del($attr) -  Del Note[0m
-  [1mnotepad_new($attr)[0m
-  [1mactive_periodic_reminders_list($attr) - returns list of periodic reminders[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        list
-
-  [1m_date_is($time, $attr) - checks given epoch timestamp[0m
-      checks given epoch timestamp
-
-      Arguments:
-        $time - epoch time to check
-        $attr - hash_ref with params to check. params are checked one by one
-          MONTH_DAY
-          WEEK_DAY
-          MONTH
-          YEAR
-          HOUR
-          MINUTE
-          WORKDAY - boolean
-          HOLIDAY - boolean
-
-      Returns:
-        true or false
-
-      Examples:
-        my $is_holiday             = notepad_date_is( time, { HOLIDAY => 1 } );
-        my $is_workday             = notepad_date_is( time, { WORKDAY => 1 } );
-        my $is_weekday             = notepad_date_is( time, { WEEK_DAY => 3 } );
-        my $is_not_weekday         = notepad_date_is( time, { WEEK_DAY => 1 } );
-        my $is_second_month_day    = notepad_date_is( time, { MONTH_DAY => 2 } );
-        my $is_second_day_of_march = notepad_date_is( time, { MONTH_DAY => 2, MONTH => 3 } );
-        my $is_third_day_of_march  = notepad_date_is( time, { MONTH_DAY => 3, MONTH => 3 } );
-        my $is_2016_year           = notepad_date_is( time, { YEAR => '2016' } );
-        my $is_2017_year           = notepad_date_is( time, { YEAR => '2017' } );
-        my $is_11_hour             = notepad_date_is( time, { HOUR => 11 } );
-
-  [1mnotepad_now_is($attr)[0m
-      translates now to notepad_date_is(). See notepad_date_is() for comments
-
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        true or false
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#NAME">NAME</a></li>
+      <li><a href="#new-db-admin-conf---constructor">new($db, $admin, \%conf) - constructor</a></li>
+      <li><a href="#notes_list-attr">notes_list($attr)</a></li>
+      <li><a href="#notes_info-id">notes_info($id)</a></li>
+      <li><a href="#notes_add-attr---Add-note">notes_add($attr) - Add note</a></li>
+      <li><a href="#notepad_note_change-attr---Change-note">notepad_note_change($attr) - Change note</a></li>
+      <li><a href="#note_del-attr---Del-Note">note_del($attr) - Del Note</a></li>
+      <li><a href="#notepad_new-attr">notepad_new($attr)</a></li>
+      <li><a href="#active_periodic_reminders_list-attr---returns-list-of-periodic-reminders">active_periodic_reminders_list($attr) - returns list of periodic reminders</a></li>
+      <li><a href="#date_is-time-attr---checks-given-epoch-timestamp">_date_is($time, $attr) - checks given epoch timestamp</a></li>
+      <li><a href="#notepad_now_is-attr">notepad_now_is($attr)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="NAME">NAME</h2>
+
+<pre><code>  Notepad</code></pre>
+
+<h2 id="new-db-admin-conf---constructor">new($db, $admin, \%conf) - constructor</h2>
+
+<h2 id="notes_list-attr">notes_list($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
+
+<h2 id="notes_info-id">notes_info($id)</h2>
+
+<pre><code>  Arguments:
+    $id - id for notes
+
+  Returns:
+    hash_ref</code></pre>
+
+<h2 id="notes_add-attr---Add-note">notes_add($attr) - Add note</h2>
+
+<h2 id="notepad_note_change-attr---Change-note">notepad_note_change($attr) - Change note</h2>
+
+<h2 id="note_del-attr---Del-Note">note_del($attr) - Del Note</h2>
+
+<h2 id="notepad_new-attr">notepad_new($attr)</h2>
+
+<h2 id="active_periodic_reminders_list-attr---returns-list-of-periodic-reminders">active_periodic_reminders_list($attr) - returns list of periodic reminders</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
+
+<h2 id="date_is-time-attr---checks-given-epoch-timestamp">_date_is($time, $attr) - checks given epoch timestamp</h2>
+
+<pre><code>  checks given epoch timestamp
+
+  Arguments:
+    $time - epoch time to check
+    $attr - hash_ref with params to check. params are checked one by one
+      MONTH_DAY
+      WEEK_DAY
+      MONTH
+      YEAR
+      HOUR
+      MINUTE
+      WORKDAY - boolean
+      HOLIDAY - boolean
+
+  Returns:
+    true or false
+
+  Examples:
+    my $is_holiday             = notepad_date_is( time, { HOLIDAY =&gt; 1 } );
+    my $is_workday             = notepad_date_is( time, { WORKDAY =&gt; 1 } );
+    my $is_weekday             = notepad_date_is( time, { WEEK_DAY =&gt; 3 } );
+    my $is_not_weekday         = notepad_date_is( time, { WEEK_DAY =&gt; 1 } );
+    my $is_second_month_day    = notepad_date_is( time, { MONTH_DAY =&gt; 2 } );
+    my $is_second_day_of_march = notepad_date_is( time, { MONTH_DAY =&gt; 2, MONTH =&gt; 3 } );
+    my $is_third_day_of_march  = notepad_date_is( time, { MONTH_DAY =&gt; 3, MONTH =&gt; 3 } );
+    my $is_2016_year           = notepad_date_is( time, { YEAR =&gt; &#39;2016&#39; } );
+    my $is_2017_year           = notepad_date_is( time, { YEAR =&gt; &#39;2017&#39; } );
+    my $is_11_hour             = notepad_date_is( time, { HOUR =&gt; 11 } );</code></pre>
+
+<h2 id="notepad_now_is-attr">notepad_now_is($attr)</h2>
+
+<pre><code>  translates now to notepad_date_is(). See notepad_date_is() for comments
+
+  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    true or false</code></pre>
+
+
+</body>
+
+</html>
+
+

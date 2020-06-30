@@ -1,64 +1,121 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-     DHCP server managment and user control
+<body>
 
-  [1mroutes_list($attr)[0m
-  [1mnetwork_add($attr)[0m
-  [1mnetwork_del($id)[0m
-  [1mnetwork_change($attr)[0m
-  [1mnetwork_info($id)[0m
-  [1mnetworks_list($attr)[0m
-  [1mhosts_list($attr) - List of active DHCP hosts[0m
-  [1mhost_add($attr)[0m
-  [1mhost_del($attr)[0m
-  [1mhost_check($attr) - Get host network and dubling parameters[0m
-      Arguments:
-        $attr
-          NETWORK
-          MAC
-          IP
-          UID
 
-      Returns:
-        $self
 
-  [1mhost_info($id, $attr) - Host full info[0m
-  [1mhost_change($attr)[0m
-  [1mroute_add($attr)[0m
-  [1mroute_del()[0m
-  [1mroute_change($attr)[0m
-  [1mroute_info($id)[0m
-  [1mleases_update($attr)[0m
-  [1mleases_list($attr)[0m
-  [1mleases_update($attr) - Delete from leases[0m
-      Arguments:
-        $attr
-          ENDED
-          NAS_ID
-          UID
-          MAC
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#routes_list-attr">routes_list($attr)</a></li>
+      <li><a href="#network_add-attr">network_add($attr)</a></li>
+      <li><a href="#network_del-id">network_del($id)</a></li>
+      <li><a href="#network_change-attr">network_change($attr)</a></li>
+      <li><a href="#network_info-id">network_info($id)</a></li>
+      <li><a href="#networks_list-attr">networks_list($attr)</a></li>
+      <li><a href="#hosts_list-attr---List-of-active-DHCP-hosts">hosts_list($attr) - List of active DHCP hosts</a></li>
+      <li><a href="#host_add-attr">host_add($attr)</a></li>
+      <li><a href="#host_del-attr">host_del($attr)</a></li>
+      <li><a href="#host_check-attr---Get-host-network-and-dubling-parameters">host_check($attr) - Get host network and dubling parameters</a></li>
+      <li><a href="#host_info-id-attr---Host-full-info">host_info($id, $attr) - Host full info</a></li>
+      <li><a href="#host_change-attr">host_change($attr)</a></li>
+      <li><a href="#route_add-attr">route_add($attr)</a></li>
+      <li><a href="#route_del">route_del()</a></li>
+      <li><a href="#route_change-attr">route_change($attr)</a></li>
+      <li><a href="#route_info-id">route_info($id)</a></li>
+      <li><a href="#leases_update-attr">leases_update($attr)</a></li>
+      <li><a href="#leases_list-attr">leases_list($attr)</a></li>
+      <li><a href="#leases_update-attr---Delete-from-leases">leases_update($attr) - Delete from leases</a></li>
+      <li><a href="#log_add-attr---Add-log-info-to-db">log_add($attr) - Add log info to db</a></li>
+      <li><a href="#log_del-attr">log_del($attr)</a></li>
+      <li><a href="#log_list-attr">log_list($attr)</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Results:
-        Object
+<h1 id="NAME">NAME</h1>
 
-  [1mlog_add($attr) - Add log info to db[0m
-      Arguments:
+<pre><code> DHCP server managment and user control</code></pre>
 
-      Result:
-        Object
+<h2 id="routes_list-attr">routes_list($attr)</h2>
 
-  [1mlog_del($attr)[0m
-  [1mlog_list($attr)[0m
+<h2 id="network_add-attr">network_add($attr)</h2>
 
-	
-	</body>
-	</html>
-  
+<h2 id="network_del-id">network_del($id)</h2>
+
+<h2 id="network_change-attr">network_change($attr)</h2>
+
+<h2 id="network_info-id">network_info($id)</h2>
+
+<h2 id="networks_list-attr">networks_list($attr)</h2>
+
+<h2 id="hosts_list-attr---List-of-active-DHCP-hosts">hosts_list($attr) - List of active DHCP hosts</h2>
+
+<h2 id="host_add-attr">host_add($attr)</h2>
+
+<h2 id="host_del-attr">host_del($attr)</h2>
+
+<h2 id="host_check-attr---Get-host-network-and-dubling-parameters">host_check($attr) - Get host network and dubling parameters</h2>
+
+<pre><code>  Arguments:
+    $attr
+      NETWORK
+      MAC
+      IP
+      UID
+
+  Returns:
+    $self</code></pre>
+
+<h2 id="host_info-id-attr---Host-full-info">host_info($id, $attr) - Host full info</h2>
+
+<h2 id="host_change-attr">host_change($attr)</h2>
+
+<h2 id="route_add-attr">route_add($attr)</h2>
+
+<h2 id="route_del">route_del()</h2>
+
+<h2 id="route_change-attr">route_change($attr)</h2>
+
+<h2 id="route_info-id">route_info($id)</h2>
+
+<h2 id="leases_update-attr">leases_update($attr)</h2>
+
+<h2 id="leases_list-attr">leases_list($attr)</h2>
+
+<h2 id="leases_update-attr---Delete-from-leases">leases_update($attr) - Delete from leases</h2>
+
+<pre><code>  Arguments:
+    $attr
+      ENDED
+      NAS_ID
+      UID
+      MAC
+
+  Results:
+    Object</code></pre>
+
+<h2 id="log_add-attr---Add-log-info-to-db">log_add($attr) - Add log info to db</h2>
+
+<pre><code>  Arguments:
+
+  Result:
+    Object</code></pre>
+
+<h2 id="log_del-attr">log_del($attr)</h2>
+
+<h2 id="log_list-attr">log_list($attr)</h2>
+
+
+</body>
+
+</html>
+
+

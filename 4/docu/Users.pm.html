@@ -1,133 +1,203 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Users manage functions
+<body>
 
-  [1mnew($db, $admin, $conf)[0m
-  [1minfo($uid, $attr) - Account general information[0m
-      Argumenst:
-        $uid
-        $attr
 
-      Returns:
-        Object
 
-  [1mpi_add($attr)[0m
-  [1mpi($attr) Personal inforamtion[0m
-      Arguments:
-        $attr
-          UID
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#new-db-admin-conf">new($db, $admin, $conf)</a></li>
+      <li><a href="#info-uid-attr---Account-general-information">info($uid, $attr) - Account general information</a></li>
+      <li><a href="#pi_add-attr">pi_add($attr)</a></li>
+      <li><a href="#pi-attr-Personal-inforamtion">pi($attr) Personal inforamtion</a></li>
+      <li><a href="#pi_change-attr---Personal-Info-change">pi_change($attr) - Personal Info change</a></li>
+      <li><a href="#groups_list-attr---List-of-groups">groups_list($attr) - List of groups</a></li>
+      <li><a href="#group_info-gid">group_info($gid)</a></li>
+      <li><a href="#group_change-gid-attr">group_change($gid, $attr)</a></li>
+      <li><a href="#group_add-attr">group_add($attr)</a></li>
+      <li><a href="#group_add-id">group_add($id)</a></li>
+      <li><a href="#list-attr---List-users">list($attr) - List users</a></li>
+      <li><a href="#add-attr---Add-user-function">add($attr) - Add user function</a></li>
+      <li><a href="#change-uid-attr">change($uid, $attr)</a></li>
+      <li><a href="#del-attr---Delete-user-info-from-all-tables">del(attr) - Delete user info from all tables</a></li>
+      <li><a href="#nas_list---list_allow-nass">nas_list() - list_allow nass</a></li>
+      <li><a href="#bruteforce_add-attr">bruteforce_add($attr)</a></li>
+      <li><a href="#bruteforce_list-attr">bruteforce_list($attr)</a></li>
+      <li><a href="#bruteforce_del---clear-bruterforce-listing">bruteforce_del() - clear bruterforce listing</a></li>
+      <li><a href="#web_session_update-attr-Attributes:-attr-SID">web_session_update($attr) Attributes: $attr SID</a></li>
+      <li><a href="#web_session_add-attr---Add-web-sessions-user-info">web_session_add($attr) - Add web sessions user info</a></li>
+      <li><a href="#web_session_info-attr---User-information">web_session_info($attr) - User information</a></li>
+      <li><a href="#web_sessions_list---List-of-users-web-sessions">web_sessions_list() - List of users web sessions</a></li>
+      <li><a href="#web_session_del-attr---Del-user-web-sessions">web_session_del($attr) - Del user web sessions</a></li>
+      <li><a href="#info_field_attach_add-attr---Info-fields-attach-add">info_field_attach_add($attr) - Info fields attach add</a></li>
+      <li><a href="#info_field_add-attr---Infofields-add-Arguments:-attr-FIELD_ID-FIELD_TYPE-COMPANY_ADD-CAN_BE_CHANGED_BY_USER-USERS_PORTAL">info_field_add($attr) - Infofields add Arguments: $attr FIELD_ID FIELD_TYPE COMPANY_ADD CAN_BE_CHANGED_BY_USER USERS_PORTAL</a></li>
+      <li><a href="#info_field_del-attr">info_field_del($attr)</a></li>
+      <li><a href="#info_list_add-attr">info_list_add($attr)</a></li>
+      <li><a href="#info_list_del-attr---Info-list-del-value">info_list_del($attr) - Info list del value</a></li>
+      <li><a href="#info_lists_list-attr">info_lists_list($attr)</a></li>
+      <li><a href="#info_list_info-id-attr">info_list_info($id, $attr)</a></li>
+      <li><a href="#info_list_change-id-attr">info_list_change($id, $attr)</a></li>
+      <li><a href="#report_users_summary-attr">report_users_summary($attr)</a></li>
+      <li><a href="#contacts_migrate---migrates-contacts-from-old-to-new-model">contacts_migrate() - migrates contacts from old to new model</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Returns:
-        $self
+<h1 id="NAME">NAME</h1>
 
-  [1mpi_change($attr) - Personal Info change[0m
-      Arguments:
-        $attr
-          UID   - Main id
+<pre><code>  Users manage functions</code></pre>
 
-      Resturns:
-        $self
+<h2 id="new-db-admin-conf">new($db, $admin, $conf)</h2>
 
-  [1mgroups_list($attr) - List of groups[0m
-  [1mgroup_info($gid)[0m
-  [1mgroup_change($gid, $attr)[0m
-  [1mgroup_add($attr)[0m
-  [1mgroup_add($id)[0m
-  [1mlist($attr) - List users[0m
-      Arguments:
-        $attr
+<h2 id="info-uid-attr---Account-general-information">info($uid, $attr) - Account general information</h2>
 
-      Returns
-        array_of_hash
-
-  [1madd($attr) - Add user function[0m
-  [1mchange($uid, $attr)[0m
-  [1mdel(attr) - Delete user info from all tables[0m
-  [1mnas_list() - list_allow nass[0m
-  [1mbruteforce_add($attr)[0m
-  [1mbruteforce_list($attr)[0m
-  [1mbruteforce_del() - clear bruterforce listing[0m
-  [1mweb_session_update($attr)
-  Attributes:
+<pre><code>  Argumenst:
+    $uid
     $attr
-      SID[0m
-  [1mweb_session_add($attr)  - Add web sessions user info[0m
-      Arguments:
-        $attr
-          UID
-          LOGIN
-          REMOTE_ADDR
-          SID
-          EXT_INFO
 
-      Returns:
-        Object
+  Returns:
+    Object</code></pre>
 
-  [1mweb_session_info($attr) - User information[0m
-      Argumnets:
-        $attr
-          SID
-          UID
+<h2 id="pi_add-attr">pi_add($attr)</h2>
 
-      Returns:
-        Object
+<h2 id="pi-attr-Personal-inforamtion">pi($attr) Personal inforamtion</h2>
 
-  [1mweb_sessions_list() - List of users web sessions[0m
-  [1mweb_session_del($attr) - Del user web sessions[0m
-      Arguments:
-        $attr
-          SID
-          ALL
+<pre><code>  Arguments:
+    $attr
+      UID
 
-      Returns:
-        Object
+  Returns:
+    $self</code></pre>
 
-  [1minfo_field_attach_add($attr) - Info fields attach add[0m
-      Arguments:
-        $attr
-          COMPANY_PREFIX
-      Returns:
-        Object
+<h2 id="pi_change-attr---Personal-Info-change">pi_change($attr) - Personal Info change</h2>
 
-  [1minfo_field_add($attr) - Infofields add
-  Arguments:
+<pre><code>  Arguments:
+    $attr
+      UID   - Main id
+
+  Resturns:
+    $self</code></pre>
+
+<h2 id="groups_list-attr---List-of-groups">groups_list($attr) - List of groups</h2>
+
+<h2 id="group_info-gid">group_info($gid)</h2>
+
+<h2 id="group_change-gid-attr">group_change($gid, $attr)</h2>
+
+<h2 id="group_add-attr">group_add($attr)</h2>
+
+<h2 id="group_add-id">group_add($id)</h2>
+
+<h2 id="list-attr---List-users">list($attr) - List users</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Returns
+    array_of_hash</code></pre>
+
+<h2 id="add-attr---Add-user-function">add($attr) - Add user function</h2>
+
+<h2 id="change-uid-attr">change($uid, $attr)</h2>
+
+<h2 id="del-attr---Delete-user-info-from-all-tables">del(attr) - Delete user info from all tables</h2>
+
+<h2 id="nas_list---list_allow-nass">nas_list() - list_allow nass</h2>
+
+<h2 id="bruteforce_add-attr">bruteforce_add($attr)</h2>
+
+<h2 id="bruteforce_list-attr">bruteforce_list($attr)</h2>
+
+<h2 id="bruteforce_del---clear-bruterforce-listing">bruteforce_del() - clear bruterforce listing</h2>
+
+<h2 id="web_session_update-attr-Attributes:-attr-SID">web_session_update($attr) Attributes: $attr SID</h2>
+
+<h2 id="web_session_add-attr---Add-web-sessions-user-info">web_session_add($attr) - Add web sessions user info</h2>
+
+<pre><code>  Arguments:
+    $attr
+      UID
+      LOGIN
+      REMOTE_ADDR
+      SID
+      EXT_INFO
+
+  Returns:
+    Object</code></pre>
+
+<h2 id="web_session_info-attr---User-information">web_session_info($attr) - User information</h2>
+
+<pre><code>  Argumnets:
+    $attr
+      SID
+      UID
+
+  Returns:
+    Object</code></pre>
+
+<h2 id="web_sessions_list---List-of-users-web-sessions">web_sessions_list() - List of users web sessions</h2>
+
+<h2 id="web_session_del-attr---Del-user-web-sessions">web_session_del($attr) - Del user web sessions</h2>
+
+<pre><code>  Arguments:
+    $attr
+      SID
+      ALL
+
+  Returns:
+    Object</code></pre>
+
+<h2 id="info_field_attach_add-attr---Info-fields-attach-add">info_field_attach_add($attr) - Info fields attach add</h2>
+
+<pre><code>  Arguments:
+    $attr
+      COMPANY_PREFIX
+  Returns:
+    Object</code></pre>
+
+<h2 id="info_field_add-attr---Infofields-add-Arguments:-attr-FIELD_ID-FIELD_TYPE-COMPANY_ADD-CAN_BE_CHANGED_BY_USER-USERS_PORTAL">info_field_add($attr) - Infofields add Arguments: $attr FIELD_ID FIELD_TYPE COMPANY_ADD CAN_BE_CHANGED_BY_USER USERS_PORTAL</h2>
+
+<pre><code>  Returns:
+    $self</code></pre>
+
+<h2 id="info_field_del-attr">info_field_del($attr)</h2>
+
+<pre><code>  Arguments:
     $attr
       FIELD_ID
-      FIELD_TYPE
-      COMPANY_ADD
-      CAN_BE_CHANGED_BY_USER
-      USERS_PORTAL[0m
-      Returns:
-        $self
+      SECTION
+  Returns:
+    Object</code></pre>
 
-  [1minfo_field_del($attr)[0m
-      Arguments:
-        $attr
-          FIELD_ID
-          SECTION
-      Returns:
-        Object
+<h2 id="info_list_add-attr">info_list_add($attr)</h2>
 
-  [1minfo_list_add($attr)[0m
-  [1minfo_list_del($attr) - Info list del value[0m
-  [1minfo_lists_list($attr)[0m
-  [1minfo_list_info($id, $attr)[0m
-  [1minfo_list_change($id, $attr)[0m
-  [1mreport_users_summary($attr)[0m
-  [1mcontacts_migrate() - migrates contacts from old to new model[0m
-      Returns:
-        boolean - success flag
+<h2 id="info_list_del-attr---Info-list-del-value">info_list_del($attr) - Info list del value</h2>
+
+<h2 id="info_lists_list-attr">info_lists_list($attr)</h2>
+
+<h2 id="info_list_info-id-attr">info_list_info($id, $attr)</h2>
+
+<h2 id="info_list_change-id-attr">info_list_change($id, $attr)</h2>
+
+<h2 id="report_users_summary-attr">report_users_summary($attr)</h2>
+
+<h2 id="contacts_migrate---migrates-contacts-from-old-to-new-model">contacts_migrate() - migrates contacts from old to new model</h2>
+
+<pre><code>  Returns:
+    boolean - success flag
+    </code></pre>
 
 
-	
-	</body>
-	</html>
-  
+</body>
+
+</html>
+
+

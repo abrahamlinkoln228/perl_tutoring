@@ -1,142 +1,197 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-        Cams
-
-      VERSION = 0.01
-
-  [1mnew($db, $admin, $CONF)[0m
-      Arguments:
-        $db    - ref to DB
-        $admin - current Web session admin
-        $CONF  - ref to %conf
-
-      Returns:
-        object
-
-  [1musers_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        list
-
-  [1muser_info($id)[0m
-      Arguments:
-        $id - id for cams_users
-
-      Returns:
-        hash_ref
-
-  [1muser_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        1
-
-  [1musers_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-       1
-
-  [1muser_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        1
-
-  [1mtp_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        list
-
-  [1mtp_info($id)[0m
-      Arguments:
-        $id - id for tp
-
-      Returns:
-        hash_ref
-
-  [1mtp_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        1
-
-  [1mtp_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-       1
-
-  [1mtp_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        1
-
-  [1mstreams_list($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        list
-
-  [1mstream_info($id)[0m
-      Arguments:
-        $id - id for streams
-
-      Returns:
-        hash_ref
-
-  [1mstream_add($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        1
-
-  [1mstream_del($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-       1
-
-  [1mstream_change($attr)[0m
-      Arguments:
-        $attr - hash_ref
-
-      Returns:
-        1
-
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 3:
-        Unknown directive: =name2
-
-    Around line 7:
-        Unknown directive: =VERSION
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new-db-admin-CONF">new($db, $admin, $CONF)</a></li>
+      <li><a href="#users_list-attr">users_list($attr)</a></li>
+      <li><a href="#user_info-id">user_info($id)</a></li>
+      <li><a href="#user_add-attr">user_add($attr)</a></li>
+      <li><a href="#users_del-attr">users_del($attr)</a></li>
+      <li><a href="#user_change-attr">user_change($attr)</a></li>
+      <li><a href="#tp_list-attr">tp_list($attr)</a></li>
+      <li><a href="#tp_info-id">tp_info($id)</a></li>
+      <li><a href="#tp_add-attr">tp_add($attr)</a></li>
+      <li><a href="#tp_del-attr">tp_del($attr)</a></li>
+      <li><a href="#tp_change-attr">tp_change($attr)</a></li>
+      <li><a href="#streams_list-attr">streams_list($attr)</a></li>
+      <li><a href="#stream_info-id">stream_info($id)</a></li>
+      <li><a href="#stream_add-attr">stream_add($attr)</a></li>
+      <li><a href="#stream_del-attr">stream_del($attr)</a></li>
+      <li><a href="#stream_change-attr">stream_change($attr)</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
+
+<pre><code>  Cams</code></pre>
+
+<pre><code>  VERSION = 0.01</code></pre>
+
+<h2 id="new-db-admin-CONF">new($db, $admin, $CONF)</h2>
+
+<pre><code>  Arguments:
+    $db    - ref to DB
+    $admin - current Web session admin
+    $CONF  - ref to %conf
+
+  Returns:
+    object</code></pre>
+
+<h2 id="users_list-attr">users_list($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
+
+<h2 id="user_info-id">user_info($id)</h2>
+
+<pre><code>  Arguments:
+    $id - id for cams_users
+
+  Returns:
+    hash_ref</code></pre>
+
+<h2 id="user_add-attr">user_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="users_del-attr">users_del($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+   1</code></pre>
+
+<h2 id="user_change-attr">user_change($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="tp_list-attr">tp_list($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
+
+<h2 id="tp_info-id">tp_info($id)</h2>
+
+<pre><code>  Arguments:
+    $id - id for tp
+
+  Returns:
+    hash_ref</code></pre>
+
+<h2 id="tp_add-attr">tp_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="tp_del-attr">tp_del($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+   1</code></pre>
+
+<h2 id="tp_change-attr">tp_change($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="streams_list-attr">streams_list($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    list</code></pre>
+
+<h2 id="stream_info-id">stream_info($id)</h2>
+
+<pre><code>  Arguments:
+    $id - id for streams
+
+  Returns:
+    hash_ref</code></pre>
+
+<h2 id="stream_add-attr">stream_add($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h2 id="stream_del-attr">stream_del($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+   1</code></pre>
+
+<h2 id="stream_change-attr">stream_change($attr)</h2>
+
+<pre><code>  Arguments:
+    $attr - hash_ref
+
+  Returns:
+    1</code></pre>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-3">Around line 3:</dt>
+<dd>
+
+<p>Unknown directive: =name2</p>
+
+</dd>
+<dt id="Around-line-7">Around line 7:</dt>
+<dd>
+
+<p>Unknown directive: =VERSION</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

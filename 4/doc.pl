@@ -37,7 +37,7 @@ sub pod2html {
     make_path $dir or die "Failed to create path: $directories";
   }
 
-  my $perldoc_out = `perldoc $src`;
+  my $perldoc_out = `pod2html $src`;
 
 #  open(SRC,'<',$src) or die $!;
   open(DES,'>',$des) or die $!;
@@ -45,17 +45,38 @@ sub pod2html {
   print("copying content from $src to $des\n");
   print("\n");
 #  print DES "Content-Type: text/html\n\n";
-  print DES $htm_s;
+#  print DES $htm_s;
 #  while(<SRC>){
 #    print DES $_;
 #    print DES "<br>";	
 #  }
   print DES $perldoc_out; 
-  print DES $htm_e;
+#  print DES $htm_e;
 
-  # always close the filehandles
-  close(SRC);
+
+  #close(SRC);
   close(DES);
+
+#      open my $in, "<:encoding(utf8)", $des or die "$file: $!";
+#    my @lines = <$in>;
+#    close $in;
+     
+#    chomp @lines;
+#    for my $line (@lines) {
+      #print $line;
+      #print "\n";
+#      if($line =~ /\^\[\[1m.*\^\[\[0m/){
+#	  print $line;
+#	} else {
+#		print "hello";
+#	}
+
+#      if($line =~ //)
+#    }
+
+#         print scalar @lines;
+
+
 
 }
 

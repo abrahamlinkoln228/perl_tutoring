@@ -1,99 +1,169 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      System web functions
-
-  [1m_color_show($text) - Marc text colot[0m
-      Arguments:
-        $text
-
-      Returns:
-        $text
-
-  [1mform_status() - service status listing[0m
-  [1mform_build() - build plugin organizer[0m
-  [1mform_templates()
-  Create templates and manage template[0m
-  [1mget_tpl_describe($file, $path) Get teblate describe[0m
-  [1mtpl_describe($tpl_name, $path, $attr) -  Get template describe. Variables and other[0m
-      tpl describe file format
-      TPL_VARIABLE:TPL_VARIABLE_DESCRIBE:DESCRIBE_LANG:PARAMS
-
-  [1mform_dictionary() - Dictionary mangment[0m
-  [1mform_exchange_rate() - System currensy and exchange rate[0m
-  [1mform_hollidays() - Hollidays list[0m
-      Hollidays gratulations and design
-
-  [1mtable_for_calendar() -[0m
-      Arguments:
-        $attr:
-          MONTH_DAYS - count of days in month
-          CUR_WDAY   - when 1 day of month start in week
-          MONTH      - month number
-
-      Returns:
-        $week_row - rows for table
-
-      Examples:
-        $table_rows = table_for_calendar({
-                    MONTH_DAYS => 30,
-                    CUR_WDAY   => 4,
-                    MONTH      => 4
-                    });
-
-  [1mholiday_array($month) Return holiday array for month[0m
-  [1mholiday_files_list($attr)[0m
-  [1mform_info_fields() - User extra fields add[0m
-      Information fields for users and companies
-
-  [1mform_info_lists() - Information lists[0m
-  [1mform config() - Show system config[0m
-  [1mform_fees_types($attr)[0m
-  [1mget_checksum();[0m
-  [1mform_tp_groups() - Tarif plans groups[0m
-  [1mform_intervals($attr) - Time intervals[0m
-  [1mform_prog_pathes() -[0m
-  [1madmin_menu($attr) - show admin menu functions list[0m
-      Arguments:
-        attr      -
-
-      Returns:
-
-  [1mclient_menu($attr) - show client menu functions[0m
-      Arguments:
-        attr      -
-
-      Returns:
-
-  [1m[0m
-      Arguments:
-        attr      -
-
-      Returns:
-
-  [1mform_payment_types[0m
-      Arguments:
-        attr      -
-
-      Returns:
-
-  [1mform_feedback()[0m
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 961:
-        Unknown directive: =head
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#color_show-text---Marc-text-colot">_color_show($text) - Marc text colot</a></li>
+      <li><a href="#form_status---service-status-listing">form_status() - service status listing</a></li>
+      <li><a href="#form_build---build-plugin-organizer">form_build() - build plugin organizer</a></li>
+      <li><a href="#form_templates-Create-templates-and-manage-template">form_templates() Create templates and manage template</a></li>
+      <li><a href="#get_tpl_describe-file-path-Get-teblate-describe">get_tpl_describe($file, $path) Get teblate describe</a></li>
+      <li><a href="#tpl_describe-tpl_name-path-attr---Get-template-describe.-Variables-and-other">tpl_describe($tpl_name, $path, $attr) - Get template describe. Variables and other</a></li>
+      <li><a href="#form_dictionary---Dictionary-mangment">form_dictionary() - Dictionary mangment</a></li>
+      <li><a href="#form_exchange_rate---System-currensy-and-exchange-rate">form_exchange_rate() - System currensy and exchange rate</a></li>
+      <li><a href="#form_hollidays---Hollidays-list">form_hollidays() - Hollidays list</a></li>
+      <li><a href="#table_for_calendar">table_for_calendar() -</a></li>
+      <li><a href="#holiday_array-month-Return-holiday-array-for-month">holiday_array($month) Return holiday array for month</a></li>
+      <li><a href="#holiday_files_list-attr">holiday_files_list($attr)</a></li>
+      <li><a href="#form_info_fields---User-extra-fields-add">form_info_fields() - User extra fields add</a></li>
+      <li><a href="#form_info_lists---Information-lists">form_info_lists() - Information lists</a></li>
+      <li><a href="#form-config---Show-system-config">form config() - Show system config</a></li>
+      <li><a href="#form_fees_types-attr">form_fees_types($attr)</a></li>
+      <li><a href="#get_checksum">get_checksum();</a></li>
+      <li><a href="#form_tp_groups---Tarif-plans-groups">form_tp_groups() - Tarif plans groups</a></li>
+      <li><a href="#form_intervals-attr---Time-intervals">form_intervals($attr) - Time intervals</a></li>
+      <li><a href="#form_prog_pathes">form_prog_pathes() -</a></li>
+      <li><a href="#admin_menu-attr---show-admin-menu-functions-list">admin_menu($attr) - show admin menu functions list</a></li>
+      <li><a href="#client_menu-attr---show-client-menu-functions">client_menu($attr) - show client menu functions</a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#form_payment_types">form_payment_types</a></li>
+      <li><a href="#form_feedback">form_feedback()</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<pre><code>  System web functions</code></pre>
+
+<h2 id="color_show-text---Marc-text-colot">_color_show($text) - Marc text colot</h2>
+
+<pre><code>  Arguments:
+    $text
+
+  Returns:
+    $text</code></pre>
+
+<h2 id="form_status---service-status-listing">form_status() - service status listing</h2>
+
+<h2 id="form_build---build-plugin-organizer">form_build() - build plugin organizer</h2>
+
+<h2 id="form_templates-Create-templates-and-manage-template">form_templates() Create templates and manage template</h2>
+
+<h2 id="get_tpl_describe-file-path-Get-teblate-describe">get_tpl_describe($file, $path) Get teblate describe</h2>
+
+<h2 id="tpl_describe-tpl_name-path-attr---Get-template-describe.-Variables-and-other">tpl_describe($tpl_name, $path, $attr) - Get template describe. Variables and other</h2>
+
+<pre><code>  tpl describe file format
+  TPL_VARIABLE:TPL_VARIABLE_DESCRIBE:DESCRIBE_LANG:PARAMS</code></pre>
+
+<h2 id="form_dictionary---Dictionary-mangment">form_dictionary() - Dictionary mangment</h2>
+
+<h2 id="form_exchange_rate---System-currensy-and-exchange-rate">form_exchange_rate() - System currensy and exchange rate</h2>
+
+<h2 id="form_hollidays---Hollidays-list">form_hollidays() - Hollidays list</h2>
+
+<pre><code>  Hollidays gratulations and design</code></pre>
+
+<h2 id="table_for_calendar">table_for_calendar() -</h2>
+
+<pre><code>  Arguments:
+    $attr:
+      MONTH_DAYS - count of days in month
+      CUR_WDAY   - when 1 day of month start in week
+      MONTH      - month number
+
+  Returns:
+    $week_row - rows for table
+
+  Examples:
+    $table_rows = table_for_calendar({
+                MONTH_DAYS =&gt; 30,
+                CUR_WDAY   =&gt; 4,
+                MONTH      =&gt; 4
+                });</code></pre>
+
+<h2 id="holiday_array-month-Return-holiday-array-for-month">holiday_array($month) Return holiday array for month</h2>
+
+<h2 id="holiday_files_list-attr">holiday_files_list($attr)</h2>
+
+<h2 id="form_info_fields---User-extra-fields-add">form_info_fields() - User extra fields add</h2>
+
+<pre><code>  Information fields for users and companies</code></pre>
+
+<h2 id="form_info_lists---Information-lists">form_info_lists() - Information lists</h2>
+
+<h2 id="form-config---Show-system-config">form config() - Show system config</h2>
+
+<h2 id="form_fees_types-attr">form_fees_types($attr)</h2>
+
+<h2 id="get_checksum">get_checksum();</h2>
+
+<h2 id="form_tp_groups---Tarif-plans-groups">form_tp_groups() - Tarif plans groups</h2>
+
+<h2 id="form_intervals-attr---Time-intervals">form_intervals($attr) - Time intervals</h2>
+
+<h2 id="form_prog_pathes">form_prog_pathes() -</h2>
+
+<h2 id="admin_menu-attr---show-admin-menu-functions-list">admin_menu($attr) - show admin menu functions list</h2>
+
+<pre><code>  Arguments:
+    attr      -
+
+  Returns:</code></pre>
+
+<h2 id="client_menu-attr---show-client-menu-functions">client_menu($attr) - show client menu functions</h2>
+
+<pre><code>  Arguments:
+    attr      -
+
+  Returns:</code></pre>
+
+<h2 id=""></h2>
+
+<pre><code>  Arguments:
+    attr      -
+
+  Returns:</code></pre>
+
+<h2 id="form_payment_types">form_payment_types</h2>
+
+<pre><code>  Arguments:
+    attr      -
+
+  Returns:</code></pre>
+
+<h2 id="form_feedback">form_feedback()</h2>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-961">Around line 961:</dt>
+<dd>
+
+<p>Unknown directive: =head</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

@@ -1,80 +1,111 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Discounts - module for discounts
+<body>
 
-[1mSYNOPSIS[0m
-      use Discounts;
-      my $Discounts = Discounts->new($db, $admin, \%conf);
 
-  [1mfunction new()[0m
-  [1madd_discount() -[0m
-      Arguments:
-        $attr -
-      Returns:
 
-      Examples:
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a>
+    <ul>
+      <li><a href="#function-new">function new()</a></li>
+      <li><a href="#add_discount">add_discount() -</a></li>
+      <li><a href="#function-list_discount---get-list-of-all-discounts">function list_discount() - get list of all discounts</a></li>
+      <li><a href="#function-info_discount---get-information-about-discount">function info_discount() - get information about discount</a></li>
+      <li><a href="#function-change_discount---change-discounts-information-in-datebase">function change_discount() - change discount&#39;s information in datebase</a></li>
+      <li><a href="#function-delete_discount---delete-discount">function delete_discount() - delete discount</a></li>
+      <li><a href="#user_discounts">user_discounts() -</a></li>
+      <li><a href="#discount_user_change-attr">discount_user_change($attr)</a></li>
+    </ul>
+  </li>
+</ul>
 
-  [1mfunction list_discount() - get list of all discounts[0m
-      Arguments:
-        $attr
+<h1 id="NAME">NAME</h1>
 
-      Returns:
-        @list
+<pre><code>  Discounts - module for discounts</code></pre>
 
-      Examples:
-        my @list = $Discounts->list_discount({ COLS_NAME => 1});
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
 
-  [1mfunction info_discount() - get information about discount[0m
-      Arguments:
-        $attr
+<pre><code>  use Discounts;
+  my $Discounts = Discounts-&gt;new($db, $admin, \%conf);</code></pre>
 
-      Returns:
-        $self object
+<h2 id="function-new">function new()</h2>
 
-      Examples:
-        my $disc_info = $Discounts->info_discount({ ID => 1 });
+<h2 id="add_discount">add_discount() -</h2>
 
-  [1mfunction change_discount() - change discount's information in datebase[0m
-      Arguments:
-        $attr
+<pre><code>  Arguments:
+    $attr -
+  Returns:
 
-      Returns:
-        $self object
+  Examples:</code></pre>
 
-      Examples:
-        $Discounts->change_discount({
-          ID     => 1,
-          SIZE   => 10,
-          NAME   => 'TEST'
-        });
+<h2 id="function-list_discount---get-list-of-all-discounts">function list_discount() - get list of all discounts</h2>
 
-  [1mfunction delete_discount() - delete discount[0m
-      Arguments:
-        $attr
+<pre><code>  Arguments:
+    $attr
 
-      Returns:
+  Returns:
+    @list
 
-      Examples:
-        $Discounts->delete_discount( {ID => 1} );
+  Examples:
+    my @list = $Discounts-&gt;list_discount({ COLS_NAME =&gt; 1});</code></pre>
 
-  [1muser_discounts() -[0m
-      Arguments:
-        $attr -
-      Returns:
+<h2 id="function-info_discount---get-information-about-discount">function info_discount() - get information about discount</h2>
 
-      Examples:
+<pre><code>  Arguments:
+    $attr
 
-  [1mdiscount_user_change($attr)[0m
+  Returns:
+    $self object
 
-	
-	</body>
-	</html>
-  
+  Examples:
+    my $disc_info = $Discounts-&gt;info_discount({ ID =&gt; 1 });</code></pre>
+
+<h2 id="function-change_discount---change-discounts-information-in-datebase">function change_discount() - change discount&#39;s information in datebase</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Returns:
+    $self object
+
+  Examples:
+    $Discounts-&gt;change_discount({
+      ID     =&gt; 1,
+      SIZE   =&gt; 10,
+      NAME   =&gt; &#39;TEST&#39;
+    });</code></pre>
+
+<h2 id="function-delete_discount---delete-discount">function delete_discount() - delete discount</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Returns:
+
+  Examples:
+    $Discounts-&gt;delete_discount( {ID =&gt; 1} );</code></pre>
+
+<h2 id="user_discounts">user_discounts() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="discount_user_change-attr">discount_user_change($attr)</h2>
+
+
+</body>
+
+</html>
+
+

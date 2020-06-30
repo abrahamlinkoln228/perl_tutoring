@@ -1,99 +1,139 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-        Wordpress API v4
-
-  [1mnew($db, $admin, $CONF)[0m
-      Arguments:
-        $db    - ref to DB
-        $admin - current Web session admin
-        $CONF  - ref to %conf
-
-      Returns:
-        object
-
-  [1mposts_list(\%filters)[0m
-      Arguments:
-         \%filters - to look for (Optional)
-          string   post_type
-          string   post_status
-          int      number
-          int      offset
-          string   orderby
-          string   order
-
-      Returns:
-        array_ref
-
-  [1musers_list($filters)[0m
-      Arguments:
-         \%filters - to look for (Optional)
-           string role: Restrict results to only users of a particular role.
-           string who: If 'authors', then will return all non-subscriber users.
-           int number
-           int offset
-           string orderby
-           string order
-
-      Returns:
-        array_ref
-
-  [1mauthors_list()[0m
-      Arguments:
-        see users($filters)
-
-      Returns:
-        array_ref
-
-  [1moptions_list($filter)[0m
-      Arguments:
-        $filter -
-          array options: List of option names to retrieve. If omitted, all options will be retrieved.
-
-      Returns:
-        list - string desc
-               string value
-               bool   readonly
-
-  [1mset_options() -[0m
-      Arguments:
-        $attr -
-      Returns:
-
-      Examples:
-
-  [1mget_themes() - get list of present colors[0m
-      Returns:
-        array_ref
-
-  [1mget_current_theme() - get current Bootswitch theme[0m
-  [1mget_custom_options($new_options) - updates custom options on Wordpress[0m
-      Returns:
-        hash_ref - all custom options
-
-  [1mupdate_custom_options($new_options) - updates custom options on Wordpress[0m
-      Arguments:
-        $new_options - hash_ref
-          option_name => option_value
-
-      Returns:
-        1
-
-[1mPOD ERRORS[0m
-    Hey! [1mThe above document had some coding errors, which are explained
-    below:[0m
-
-    Around line 3:
-        Unknown directive: =head
+<body>
 
 
-	
-	</body>
-	</html>
-  
+
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#new-db-admin-CONF">new($db, $admin, $CONF)</a></li>
+      <li><a href="#posts_list-filters">posts_list(\%filters)</a></li>
+      <li><a href="#users_list-filters">users_list($filters)</a></li>
+      <li><a href="#authors_list">authors_list()</a></li>
+      <li><a href="#options_list-filter">options_list($filter)</a></li>
+      <li><a href="#set_options">set_options() -</a></li>
+      <li><a href="#get_themes---get-list-of-present-colors">get_themes() - get list of present colors</a></li>
+      <li><a href="#get_current_theme---get-current-Bootswitch-theme">get_current_theme() - get current Bootswitch theme</a></li>
+      <li><a href="#get_custom_options-new_options---updates-custom-options-on-Wordpress">get_custom_options($new_options) - updates custom options on Wordpress</a></li>
+      <li><a href="#update_custom_options-new_options---updates-custom-options-on-Wordpress">update_custom_options($new_options) - updates custom options on Wordpress</a></li>
+    </ul>
+  </li>
+  <li><a href="#POD-ERRORS">POD ERRORS</a></li>
+</ul>
+
+<pre><code>  Wordpress API v4</code></pre>
+
+<h2 id="new-db-admin-CONF">new($db, $admin, $CONF)</h2>
+
+<pre><code>  Arguments:
+    $db    - ref to DB
+    $admin - current Web session admin
+    $CONF  - ref to %conf
+
+  Returns:
+    object</code></pre>
+
+<h2 id="posts_list-filters">posts_list(\%filters)</h2>
+
+<pre><code>  Arguments:
+     \%filters - to look for (Optional)
+      string   post_type
+      string   post_status
+      int      number
+      int      offset
+      string   orderby
+      string   order
+
+  Returns:
+    array_ref</code></pre>
+
+<h2 id="users_list-filters">users_list($filters)</h2>
+
+<pre><code>  Arguments:
+     \%filters - to look for (Optional)
+       string role: Restrict results to only users of a particular role.
+       string who: If &#39;authors&#39;, then will return all non-subscriber users.
+       int number
+       int offset
+       string orderby
+       string order
+
+  Returns:
+    array_ref</code></pre>
+
+<h2 id="authors_list">authors_list()</h2>
+
+<pre><code>  Arguments:
+    see users($filters)
+
+  Returns:
+    array_ref</code></pre>
+
+<h2 id="options_list-filter">options_list($filter)</h2>
+
+<pre><code>  Arguments:
+    $filter -
+      array options: List of option names to retrieve. If omitted, all options will be retrieved.
+
+  Returns:
+    list - string desc
+           string value
+           bool   readonly</code></pre>
+
+<h2 id="set_options">set_options() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="get_themes---get-list-of-present-colors">get_themes() - get list of present colors</h2>
+
+<pre><code>  Returns:
+    array_ref</code></pre>
+
+<h2 id="get_current_theme---get-current-Bootswitch-theme">get_current_theme() - get current Bootswitch theme</h2>
+
+<h2 id="get_custom_options-new_options---updates-custom-options-on-Wordpress">get_custom_options($new_options) - updates custom options on Wordpress</h2>
+
+<pre><code>  Returns:
+    hash_ref - all custom options</code></pre>
+
+<h2 id="update_custom_options-new_options---updates-custom-options-on-Wordpress">update_custom_options($new_options) - updates custom options on Wordpress</h2>
+
+<pre><code>  Arguments:
+    $new_options - hash_ref
+      option_name =&gt; option_value
+
+  Returns:
+    1</code></pre>
+
+<h1 id="POD-ERRORS">POD ERRORS</h1>
+
+<p>Hey! <b>The above document had some coding errors, which are explained below:</b></p>
+
+<dl>
+
+<dt id="Around-line-3">Around line 3:</dt>
+<dd>
+
+<p>Unknown directive: =head</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

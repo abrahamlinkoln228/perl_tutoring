@@ -1,190 +1,246 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-    Info - module for extra information about DB Objects
+<body>
 
-    Supports * Comments (1.1) * Images (1.1) * Geolocation (1.2) * Documents
-    (1.3)
 
-[1mVERSION[0m
-      VERSION = 1.3
 
-[1mSYNOPSIS
-  By simply calling info_show_comments('table_name', object_id),
-  you will get a comments block with dynamic available adding and removing comments[0m
-[1mEXAMPLES[0m
-      Look in modules/Info/webinterface
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#VERSION">VERSION</a></li>
+  <li><a href="#SYNOPSIS-By-simply-calling-info_show_comments-table_name-object_id-you-will-get-a-comments-block-with-dynamic-available-adding-and-removing-comments">SYNOPSIS By simply calling info_show_comments(&#39;table_name&#39;, object_id), you will get a comments block with dynamic available adding and removing comments</a></li>
+  <li><a href="#EXAMPLES">EXAMPLES</a>
+    <ul>
+      <li><a href="#new">new</a></li>
+      <li><a href="#get_comments-type-id">get_comments ($type, $id)</a></li>
+      <li><a href="#EXAMPLES-Get-comments-for-Administrator-with-aid-2-my-comments-Info-get_comments-admins-2-COLS_NAME-1">EXAMPLES Get comments for Administrator with aid = 2 my $comments = $Info-&gt;get_comments(&#39;admins&#39;, 2, { COLS_NAME =&gt; 1 });</a></li>
+      <li><a href="#add_comment">add_comment</a></li>
+      <li><a href="#del_comment">del_comment</a></li>
+      <li><a href="#get_comments-type-id1">get_comments ($type, $id)</a></li>
+      <li><a href="#EXAMPLES-Get-comments-for-Administrator-with-aid-2-my-comments-Info-get_comments-admins-2-COLS_NAME-11">EXAMPLES Get comments for Administrator with aid = 2 my $comments = $Info-&gt;get_comments(&#39;admins&#39;, 2, { COLS_NAME =&gt; 1 });</a></li>
+      <li><a href="#get_image_info-image_id-attr">get_image_info($image_id, $attr)</a></li>
+      <li><a href="#add_comment1">add_comment</a></li>
+      <li><a href="#del_image">del_image</a></li>
+      <li><a href="#get_locations-type-id">get_locations ($type, $id)</a></li>
+      <li><a href="#EXAMPLES-Get-locations-for-Administrator-with-aid-2-my-locations-Info-get_locations-admins-2-COLS_NAME-1">EXAMPLES Get locations for Administrator with aid = 2 my $locations = $Info-&gt;get_locations(&#39;admins&#39;, 2, { COLS_NAME =&gt; 1 });</a></li>
+      <li><a href="#add_location-obj_type-obj_id-attr">add_location($obj_type, $obj_id, $attr)</a></li>
+      <li><a href="#del_location">del_location</a></li>
+      <li><a href="#get_documents-type-id">get_documents ($type, $id)</a></li>
+      <li><a href="#EXAMPLES-Get-documents-for-Administrator-with-aid-2-my-documents-Info-get_documents-admins-2-COLS_NAME-1">EXAMPLES Get documents for Administrator with aid = 2 my $documents = $Info-&gt;get_documents(&#39;admins&#39;, 2, { COLS_NAME =&gt; 1 });</a></li>
+      <li><a href="#get_document_info-document_id-attr">get_document_info($document_id, $attr)</a></li>
+      <li><a href="#add_document-obj_type-obj_id-attr">add_document($obj_type, $obj_id, $attr)</a></li>
+      <li><a href="#del_document">del_document</a></li>
+      <li><a href="#del_info-abstraction-of-deleting-Info-module-related-information">del_info abstraction of deleting Info module related information</a></li>
+      <li><a href="#get_info_info-table-type_id-attr---generalization-for-DB-Select">_get_info_info($table, $type_id, $attr) - generalization for DB Select</a></li>
+      <li><a href="#get_info_list-obj_type-id-table-attr">_get_info_list($obj_type, $id, $table, $attr)</a></li>
+      <li><a href="#add_info-obj_type-obj_id-table-attr">_add_info($obj_type, $obj_id, $table, $attr)</a></li>
+      <li><a href="#get_error-errno-errstr">get_error($errno, $errstr)</a></li>
+    </ul>
+  </li>
+</ul>
 
-  [1mnew[0m
-    Instantiation of singleton db object
+<h1 id="NAME">NAME</h1>
 
-  [1mget_comments ($type, $id)[0m
-     Main function to get comments for $type, $id
-       $type - The table name for object you want get comments for
-       $id   - id of object you want get comments for
-       $attr - hash reference of extra arguments
+<p>Info - module for extra information about DB Objects</p>
 
-     if $attr contains {COLS_NAME}
-      returns array of hashes representing comments for an object
-     else
-      returns array of arrays
+<p>Supports * Comments (1.1) * Images (1.1) * Geolocation (1.2) * Documents (1.3)</p>
 
-  [1mEXAMPLES
-  Get comments for Administrator with aid = 2
-    my $comments = $Info->get_comments('admins', 2, { COLS_NAME => 1 });[0m
-      Will return:
-        [
-          {
-            'id'         => 2,                        # Id of comment in `comments` table
-            'text'       => 'This guy is awesome',    # Text of comment
-            'date'       => '01.01.2016 01:02:59',    # DateTime when comment was leaved
-            'name'       => 'John'                    # Name of administrator who leaved comment
-          }
-        ]
+<h1 id="VERSION">VERSION</h1>
 
-  [1madd_comment[0m
-     Main function to add comment for $type, $id
-       $attr - hash reference of extra arguments
-         OBJ_TYPE - The table name for object you want add comments for
-         ID   - id of object you want add comments for
-         TEXT - text of comment
+<pre><code>  VERSION = 1.3</code></pre>
 
-     Comment will always be added with current system datetime, and aid of current administrator
+<h1 id="SYNOPSIS-By-simply-calling-info_show_comments-table_name-object_id-you-will-get-a-comments-block-with-dynamic-available-adding-and-removing-comments">SYNOPSIS By simply calling info_show_comments(&#39;table_name&#39;, object_id), you will get a comments block with dynamic available adding and removing comments</h1>
 
-  [1mdel_comment[0m
-     Main function to delete comment by $id
-       $attr - hash reference of extra arguments
-          -> COMMENT_ID   - id of comment you want to delete
+<h1 id="EXAMPLES">EXAMPLES</h1>
 
-     Removes comment row with specified comment_id from `comments` and `info_info` tables
+<pre><code>  Look in modules/Info/webinterface</code></pre>
 
-  [1mget_comments ($type, $id)[0m
-     Main function to get comments for $type, $id
-       $type - The table name for object you want get comments for
-       $id   - id of object you want get comments for
-       $attr - hash reference of extra arguments
+<h2 id="new">new</h2>
 
-     if $attr contains {COLS_NAME}
-      returns array of hashes representing comments for an object
-     else
-      returns array of arrays
+<p>Instantiation of singleton db object</p>
 
-  [1mEXAMPLES
-  Get comments for Administrator with aid = 2
-    my $comments = $Info->get_comments('admins', 2, { COLS_NAME => 1 });[0m
-      Will return:
-        [
-          {
-            'id'         => 2,                        # Id of comment in `comments` table
-            'text'       => 'This guy is awesome',    # Text of comment
-            'date'       => '01.01.2016 01:02:59',    # DateTime when comment was leaved
-            'name'       => 'John'                    # Name of administrator who leaved comment
-          }
-        ]
+<h2 id="get_comments-type-id">get_comments ($type, $id)</h2>
 
-  [1mget_image_info($image_id, $attr)[0m
-  [1madd_comment[0m
-     Main function to add comment for $type, $id
-       $attr - hash reference of extra arguments
-          -> TYPE - The table name for object you want add comments for
-          -> ID   - id of object you want add comments for
-          -> TEXT - text of comment
+<pre><code> Main function to get comments for $type, $id
+   $type - The table name for object you want get comments for
+   $id   - id of object you want get comments for
+   $attr - hash reference of extra arguments
 
-     Comment will always be added with current system datetime, and aid of current administrator
+ if $attr contains {COLS_NAME}
+  returns array of hashes representing comments for an object
+ else
+  returns array of arrays</code></pre>
 
-  [1mdel_image[0m
-     Main function to delete image by $id
-       $attr - hash reference of extra arguments
-          IMAGE_ID   - id of image you want to delete
+<h2 id="EXAMPLES-Get-comments-for-Administrator-with-aid-2-my-comments-Info-get_comments-admins-2-COLS_NAME-1">EXAMPLES Get comments for Administrator with aid = 2 my $comments = $Info-&gt;get_comments(&#39;admins&#39;, 2, { COLS_NAME =&gt; 1 });</h2>
 
-     Removes image row with specified image_id from `info_media` and `info_info` tables
+<pre><code>  Will return:
+    [
+      {
+        &#39;id&#39;         =&gt; 2,                        # Id of comment in `comments` table
+        &#39;text&#39;       =&gt; &#39;This guy is awesome&#39;,    # Text of comment
+        &#39;date&#39;       =&gt; &#39;01.01.2016 01:02:59&#39;,    # DateTime when comment was leaved
+        &#39;name&#39;       =&gt; &#39;John&#39;                    # Name of administrator who leaved comment
+      }
+    ]</code></pre>
 
-  [1mget_locations ($type, $id)[0m
-     Main function to get locations for $type, $id
-       $type - The table name for object you want get locations for
-       $id   - id of object you want get locations for
-       $attr - hash reference of extra arguments
+<h2 id="add_comment">add_comment</h2>
 
-     if $attr contains {COLS_NAME}
-      returns array of hashes representing locations for an object
-     else
-      returns array of arrays
+<pre><code> Main function to add comment for $type, $id
+   $attr - hash reference of extra arguments
+     OBJ_TYPE - The table name for object you want add comments for
+     ID   - id of object you want add comments for
+     TEXT - text of comment
 
-  [1mEXAMPLES
-  Get locations for Administrator with aid = 2
-    my $locations = $Info->get_locations('admins', 2, { COLS_NAME => 1 });[0m
-      Will return:
-        [
-          {
-            'id'         => 2,                        # Id of location in `locations` table
-            'text'       => 'This guy is awesome',    # Text of comment
-            'date'       => '01.01.2016 01:02:59',    # DateTime when location was leaved
-            'name'       => 'John'                    # Name of administrator who pinned location
-          }
-        ]
+ Comment will always be added with current system datetime, and aid of current administrator</code></pre>
 
-  [1madd_location($obj_type, $obj_id, $attr)[0m
-  [1mdel_location[0m
-     Main function to delete location by $id
-       $attr - hash reference of extra arguments
-          LOCATION_ID   - id of location you want to delete
+<h2 id="del_comment">del_comment</h2>
 
-     Removes location row with specified location_id from `info_locations` and `info_info` tables
+<pre><code> Main function to delete comment by $id
+   $attr - hash reference of extra arguments
+      -&gt; COMMENT_ID   - id of comment you want to delete
 
-  [1mget_documents ($type, $id)[0m
-     Main function to get documents for $type, $id
-       $type - The table name for object you want get documents for
-       $id   - id of object you want get documents for
-       $attr - hash reference of extra arguments
+ Removes comment row with specified comment_id from `comments` and `info_info` tables</code></pre>
 
-     if $attr contains {COLS_NAME}
-      returns array of hashes representing documents for an object
-     else
-      returns array of arrays
+<h2 id="get_comments-type-id1">get_comments ($type, $id)</h2>
 
-  [1mEXAMPLES
-  Get documents for Administrator with aid = 2
-    my $documents = $Info->get_documents('admins', 2, { COLS_NAME => 1 });[0m
-      Will return:
-        [
-          {
-            'id'         => 2,                        # Id of comment in `documents` table
-            'text'       => 'This guy is awesome',    # Text of comment
-            'date'       => '01.01.2016 01:02:59',    # DateTime when comment was leaved
-            'name'       => 'John'                    # Name of administrator who leaved comment
-          }
-        ]
+<pre><code> Main function to get comments for $type, $id
+   $type - The table name for object you want get comments for
+   $id   - id of object you want get comments for
+   $attr - hash reference of extra arguments
 
-  [1mget_document_info($document_id, $attr)[0m
-  [1madd_document($obj_type, $obj_id, $attr)[0m
-  [1mdel_document[0m
-     Main function to delete document by $id
-       $attr - hash reference of extra arguments
-          DOCUMENT_ID   - id of document you want to delete
+ if $attr contains {COLS_NAME}
+  returns array of hashes representing comments for an object
+ else
+  returns array of arrays</code></pre>
 
-     Removes document row with specified document_id from `info_documents` and `info_info` tables
+<h2 id="EXAMPLES-Get-comments-for-Administrator-with-aid-2-my-comments-Info-get_comments-admins-2-COLS_NAME-11">EXAMPLES Get comments for Administrator with aid = 2 my $comments = $Info-&gt;get_comments(&#39;admins&#39;, 2, { COLS_NAME =&gt; 1 });</h2>
 
-  [1mdel_info abstraction of deleting Info module related information[0m
-     Main function to delete info entity by $id
-       $table - hash_ref with `info_*` table info
-       $attr - hash reference of extra arguments
-          OBJ_ID   - id of document you want to delete
+<pre><code>  Will return:
+    [
+      {
+        &#39;id&#39;         =&gt; 2,                        # Id of comment in `comments` table
+        &#39;text&#39;       =&gt; &#39;This guy is awesome&#39;,    # Text of comment
+        &#39;date&#39;       =&gt; &#39;01.01.2016 01:02:59&#39;,    # DateTime when comment was leaved
+        &#39;name&#39;       =&gt; &#39;John&#39;                    # Name of administrator who leaved comment
+      }
+    ]</code></pre>
 
-     Removes object row with specified object_id from `info_*` and `info_info` tables
+<h2 id="get_image_info-image_id-attr">get_image_info($image_id, $attr)</h2>
 
-  [1m_get_info_info($table, $type_id, $attr) - generalization for DB Select[0m
-  [1m_get_info_list($obj_type, $id, $table, $attr)[0m
-  [1m_add_info($obj_type, $obj_id, $table, $attr)[0m
-  [1mget_error($errno, $errstr)[0m
+<h2 id="add_comment1">add_comment</h2>
 
-	
-	</body>
-	</html>
-  
+<pre><code> Main function to add comment for $type, $id
+   $attr - hash reference of extra arguments
+      -&gt; TYPE - The table name for object you want add comments for
+      -&gt; ID   - id of object you want add comments for
+      -&gt; TEXT - text of comment
+
+ Comment will always be added with current system datetime, and aid of current administrator</code></pre>
+
+<h2 id="del_image">del_image</h2>
+
+<pre><code> Main function to delete image by $id
+   $attr - hash reference of extra arguments
+      IMAGE_ID   - id of image you want to delete
+
+ Removes image row with specified image_id from `info_media` and `info_info` tables</code></pre>
+
+<h2 id="get_locations-type-id">get_locations ($type, $id)</h2>
+
+<pre><code> Main function to get locations for $type, $id
+   $type - The table name for object you want get locations for
+   $id   - id of object you want get locations for
+   $attr - hash reference of extra arguments
+
+ if $attr contains {COLS_NAME}
+  returns array of hashes representing locations for an object
+ else
+  returns array of arrays</code></pre>
+
+<h2 id="EXAMPLES-Get-locations-for-Administrator-with-aid-2-my-locations-Info-get_locations-admins-2-COLS_NAME-1">EXAMPLES Get locations for Administrator with aid = 2 my $locations = $Info-&gt;get_locations(&#39;admins&#39;, 2, { COLS_NAME =&gt; 1 });</h2>
+
+<pre><code>  Will return:
+    [
+      {
+        &#39;id&#39;         =&gt; 2,                        # Id of location in `locations` table
+        &#39;text&#39;       =&gt; &#39;This guy is awesome&#39;,    # Text of comment
+        &#39;date&#39;       =&gt; &#39;01.01.2016 01:02:59&#39;,    # DateTime when location was leaved
+        &#39;name&#39;       =&gt; &#39;John&#39;                    # Name of administrator who pinned location
+      }
+    ]</code></pre>
+
+<h2 id="add_location-obj_type-obj_id-attr">add_location($obj_type, $obj_id, $attr)</h2>
+
+<h2 id="del_location">del_location</h2>
+
+<pre><code> Main function to delete location by $id
+   $attr - hash reference of extra arguments
+      LOCATION_ID   - id of location you want to delete
+
+ Removes location row with specified location_id from `info_locations` and `info_info` tables</code></pre>
+
+<h2 id="get_documents-type-id">get_documents ($type, $id)</h2>
+
+<pre><code> Main function to get documents for $type, $id
+   $type - The table name for object you want get documents for
+   $id   - id of object you want get documents for
+   $attr - hash reference of extra arguments
+
+ if $attr contains {COLS_NAME}
+  returns array of hashes representing documents for an object
+ else
+  returns array of arrays</code></pre>
+
+<h2 id="EXAMPLES-Get-documents-for-Administrator-with-aid-2-my-documents-Info-get_documents-admins-2-COLS_NAME-1">EXAMPLES Get documents for Administrator with aid = 2 my $documents = $Info-&gt;get_documents(&#39;admins&#39;, 2, { COLS_NAME =&gt; 1 });</h2>
+
+<pre><code>  Will return:
+    [
+      {
+        &#39;id&#39;         =&gt; 2,                        # Id of comment in `documents` table
+        &#39;text&#39;       =&gt; &#39;This guy is awesome&#39;,    # Text of comment
+        &#39;date&#39;       =&gt; &#39;01.01.2016 01:02:59&#39;,    # DateTime when comment was leaved
+        &#39;name&#39;       =&gt; &#39;John&#39;                    # Name of administrator who leaved comment
+      }
+    ]</code></pre>
+
+<h2 id="get_document_info-document_id-attr">get_document_info($document_id, $attr)</h2>
+
+<h2 id="add_document-obj_type-obj_id-attr">add_document($obj_type, $obj_id, $attr)</h2>
+
+<h2 id="del_document">del_document</h2>
+
+<pre><code> Main function to delete document by $id
+   $attr - hash reference of extra arguments
+      DOCUMENT_ID   - id of document you want to delete
+
+ Removes document row with specified document_id from `info_documents` and `info_info` tables</code></pre>
+
+<h2 id="del_info-abstraction-of-deleting-Info-module-related-information">del_info abstraction of deleting Info module related information</h2>
+
+<pre><code> Main function to delete info entity by $id
+   $table - hash_ref with `info_*` table info
+   $attr - hash reference of extra arguments
+      OBJ_ID   - id of document you want to delete
+
+ Removes object row with specified object_id from `info_*` and `info_info` tables</code></pre>
+
+<h2 id="get_info_info-table-type_id-attr---generalization-for-DB-Select">_get_info_info($table, $type_id, $attr) - generalization for DB Select</h2>
+
+<h2 id="get_info_list-obj_type-id-table-attr">_get_info_list($obj_type, $id, $table, $attr)</h2>
+
+<h2 id="add_info-obj_type-obj_id-table-attr">_add_info($obj_type, $obj_id, $table, $attr)</h2>
+
+<h2 id="get_error-errno-errstr">get_error($errno, $errstr)</h2>
+
+
+</body>
+
+</html>
+
+

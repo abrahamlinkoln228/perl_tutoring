@@ -1,45 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-    [1mNAME[0m
-      PDF outputs former
+<body>
 
-  [1mpdf_header($attr)[0m
-      Arguments:
-        $attr
-          NAME - Filename
 
-      Returns:
 
-  [1mheader($attr) - header off main page[0m
-  [1mtable_title_plain($caption)[0m
-  [1mmessage($self, $type, $caption, $message) - Show message box
-   $type - info, err[0m
-  [1m2($base_name)[0m
-  [1mtpl_show($filename, $variables_ref, $attr)[0m
-      Argumets:
-        $filename
-        $variables_ref
-        $attr [EX_VARIABLES]
+<ul id="index">
+  <li>
+    <ul>
+      <li><a href="#NAME">NAME</a></li>
+      <li><a href="#pdf_header-attr">pdf_header($attr)</a></li>
+      <li><a href="#header-attr---header-off-main-page">header($attr) - header off main page</a></li>
+      <li><a href="#table_title_plain-caption">table_title_plain($caption)</a></li>
+      <li><a href="#message-self-type-caption-message---Show-message-box-type---info-err">message($self, $type, $caption, $message) - Show message box $type - info, err</a></li>
+      <li><a href="#base_name">2($base_name)</a></li>
+      <li><a href="#tpl_show-filename-variables_ref-attr">tpl_show($filename, $variables_ref, $attr)</a></li>
+      <li><a href="#tpl_describe-tpl_name-attr">tpl_describe($tpl_name, $attr)</a></li>
+      <li><a href="#fetch---Fetch-cache-data">fetch() - Fetch cache data</a></li>
+      <li><a href="#AUTOLOAD-Autoload-secondary-funtions">AUTOLOAD Autoload secondary funtions</a></li>
+    </ul>
+  </li>
+</ul>
 
-      Returns:
-        $content
+<h2 id="NAME">NAME</h2>
 
-  [1mtpl_describe($tpl_name, $attr)[0m
-       Get template describe. Variables and other
-       tpl describe file format
-       TPL_VARIABLE:TPL_VARIABLE_DESCRIBE:DESCRIBE_LANG:PARAMS
+<pre><code>  PDF outputs former</code></pre>
 
-  [1mfetch() - Fetch cache data[0m
-  [1mAUTOLOAD Autoload secondary funtions[0m
+<h2 id="pdf_header-attr">pdf_header($attr)</h2>
 
-	
-	</body>
-	</html>
-  
+<pre><code>  Arguments:
+    $attr
+      NAME - Filename
+
+  Returns:</code></pre>
+
+<h2 id="header-attr---header-off-main-page">header($attr) - header off main page</h2>
+
+<h2 id="table_title_plain-caption">table_title_plain($caption)</h2>
+
+<h2 id="message-self-type-caption-message---Show-message-box-type---info-err">message($self, $type, $caption, $message) - Show message box $type - info, err</h2>
+
+<h2 id="base_name">2($base_name)</h2>
+
+<h2 id="tpl_show-filename-variables_ref-attr">tpl_show($filename, $variables_ref, $attr)</h2>
+
+<pre><code>  Argumets:
+    $filename
+    $variables_ref
+    $attr [EX_VARIABLES]
+
+  Returns:
+    $content</code></pre>
+
+<h2 id="tpl_describe-tpl_name-attr">tpl_describe($tpl_name, $attr)</h2>
+
+<pre><code>   Get template describe. Variables and other
+   tpl describe file format
+   TPL_VARIABLE:TPL_VARIABLE_DESCRIBE:DESCRIBE_LANG:PARAMS</code></pre>
+
+<h2 id="fetch---Fetch-cache-data">fetch() - Fetch cache data</h2>
+
+<h2 id="AUTOLOAD-Autoload-secondary-funtions">AUTOLOAD Autoload secondary funtions</h2>
+
+
+</body>
+
+</html>
+
+

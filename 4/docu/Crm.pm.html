@@ -1,320 +1,409 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a>
+    <ul>
+      <li><a href="#new">new()</a></li>
+      <li><a href="#add_cashbox---add-new-cashbox">add_cashbox() - add new cashbox</a></li>
+      <li><a href="#function-list_cashbox---get-list-of-all-cashboxes">function list_cashbox() - get list of all cashboxes</a></li>
+      <li><a href="#function-delete_cashbox---delete-cashbox">function delete_cashbox() - delete cashbox</a></li>
+      <li><a href="#function-info_cashbox---get-information-about-cashbox">function info_cashbox() - get information about cashbox</a></li>
+      <li><a href="#function-change_cashbox---change-cashboxs-information-in-datebase">function change_cashbox() - change cashbox&#39;s information in datebase</a></li>
+      <li><a href="#add_type---add-type-coming-or-spending">add_type() - add type, coming or spending</a></li>
+      <li><a href="#function-list_spending_types---get-list-spending-types">function list_spending_types() - get list spending types</a></li>
+      <li><a href="#function-delete_type---delete-type-spending-or-coming">function delete_type() - delete type, spending or coming</a></li>
+      <li><a href="#function-info_type---get-information-type-spending-or-coming">function info_type() - get information type, spending or coming</a></li>
+      <li><a href="#function-change_type---change-type-coming-or-spending">function change_type() - change type, coming or spending</a></li>
+      <li><a href="#function-list_coming_type---get-list-of-coming-types">function list_coming_type() - get list of coming types</a></li>
+      <li><a href="#add_spending---add-spending">add_spending() - add spending</a></li>
+      <li><a href="#function-delete_spending---delete-spending">function delete_spending() - delete spending</a></li>
+      <li><a href="#function-info_spending---get-information-about-spending">function info_spending() - get information about spending</a></li>
+      <li><a href="#function-change_spending---change-spending">function change_spending() - change spending</a></li>
+      <li><a href="#function-list_spending---get-list-of-spendings">function list_spending() - get list of spendings</a></li>
+      <li><a href="#add_coming---add-coming">add_coming() - add coming</a></li>
+      <li><a href="#function-delete_coming---delete-cashbox">function delete_coming() - delete cashbox</a></li>
+      <li><a href="#function-info_coming---get-information-about-coming">function info_coming() - get information about coming</a></li>
+      <li><a href="#function-change_coming---change">function change_coming() - change</a></li>
+      <li><a href="#function-list_coming---get-list-of-all-comings">function list_coming() - get list of all comings</a></li>
+      <li><a href="#add_bet">add_bet() -</a></li>
+      <li><a href="#function-info_aid_schedule">function info_aid_schedule() -</a></li>
+      <li><a href="#function-change_schedule---change">function change_schedule() - change</a></li>
+      <li><a href="#add_payed_salary">add_payed_salary() -</a></li>
+      <li><a href="#info_payed_salary">info_payed_salary() -</a></li>
+      <li><a href="#add_reference_works">add_reference_works() -</a></li>
+      <li><a href="#change_reference_works">change_reference_works() -</a></li>
+      <li><a href="#info_reference_works">info_reference_works() -</a></li>
+      <li><a href="#delete_reference_works">delete_reference_works() -</a></li>
+      <li><a href="#list_reference_works">list_reference_works() -</a></li>
+      <li><a href="#works_list-attr---list-of-tp-services">works_list($attr) - list of tp services</a></li>
+      <li><a href="#works_add-attr">works_add($attr)</a></li>
+      <li><a href="#warks_change-attr">warks_change($attr)</a></li>
+      <li><a href="#works_del-id-attr">works_del($id, $attr)</a></li>
+      <li><a href="#works_info-id-attr">works_info($id, $attr)</a></li>
+    </ul>
+  </li>
+</ul>
 
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-	</head>
-	<body>	
-  [1mNAME[0m
-      Cashbox - module for CRM
+<h1 id="NAME">NAME</h1>
 
-[1mSYNOPSIS[0m
-      use Cashbox;
-      my $Cashbox = Cashbox->new($db, $admin, \%conf);
+<pre><code>  Cashbox - module for CRM</code></pre>
 
-  [1mnew()[0m
-  [1madd_cashbox() - add new cashbox[0m
-      Arguments:
-        $attr -
-      Returns:
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
 
-      Examples:
+<pre><code>  use Cashbox;
+  my $Cashbox = Cashbox-&gt;new($db, $admin, \%conf);</code></pre>
 
-  [1mfunction list_cashbox() - get list of all cashboxes[0m
-      Arguments:
-        $attr
+<h2 id="new">new()</h2>
 
-      Returns:
-        @list
+<h2 id="add_cashbox---add-new-cashbox">add_cashbox() - add new cashbox</h2>
 
-      Examples:
-        my @list = $Cashbox->list_cashbox({ COLS_NAME => 1});
+<pre><code>  Arguments:
+    $attr -
+  Returns:
 
-  [1mfunction delete_cashbox() - delete cashbox[0m
-      Arguments:
-        $attr
+  Examples:</code></pre>
 
-      Returns:
+<h2 id="function-list_cashbox---get-list-of-all-cashboxes">function list_cashbox() - get list of all cashboxes</h2>
 
-      Examples:
-        $Cashbox->delete_cashbox( {ID => 1} );
+<pre><code>  Arguments:
+    $attr
 
-  [1mfunction info_cashbox() - get information about cashbox[0m
-      Arguments:
-        $attr
+  Returns:
+    @list
 
-      Returns:
-        $self object
+  Examples:
+    my @list = $Cashbox-&gt;list_cashbox({ COLS_NAME =&gt; 1});</code></pre>
 
-      Examples:
-        my $cashbox_info = $Cashbox->info_cashbox({ ID => 1 });
+<h2 id="function-delete_cashbox---delete-cashbox">function delete_cashbox() - delete cashbox</h2>
 
-  [1mfunction change_cashbox() - change cashbox's information in datebase[0m
-      Arguments:
-        $attr
+<pre><code>  Arguments:
+    $attr
 
-      Returns:
-        $self object
+  Returns:
 
-      Examples:
-        $Cashbox->change_cashbox({
-          ID     => 1,
-          NAME   => 'TEST'
-        });
+  Examples:
+    $Cashbox-&gt;delete_cashbox( {ID =&gt; 1} );</code></pre>
 
-  [1madd_type() - add type, coming or spending[0m
-      Arguments:
-        $attr -
-          spending - if it is spending type
-          coming   - if it is coming type
-      Returns:
+<h2 id="function-info_cashbox---get-information-about-cashbox">function info_cashbox() - get information about cashbox</h2>
 
-      Examples:
-        $Cashbox->add_type({ %FORM, SPENDING => 1 });
-        $Cashbox->add_type({ %FORM, COMING   => 1 });
+<pre><code>  Arguments:
+    $attr
 
-  [1mfunction list_spending_types() - get list spending types[0m
-      Arguments:
-        $attr
+  Returns:
+    $self object
 
-      Returns:
-        @list
+  Examples:
+    my $cashbox_info = $Cashbox-&gt;info_cashbox({ ID =&gt; 1 });</code></pre>
 
-      Examples:
-        my @list = $Cashbox->list_spending_types({ COLS_NAME => 1});
+<h2 id="function-change_cashbox---change-cashboxs-information-in-datebase">function change_cashbox() - change cashbox&#39;s information in datebase</h2>
 
-  [1mfunction delete_type() - delete type, spending or coming[0m
-      Arguments:
-        $attr
+<pre><code>  Arguments:
+    $attr
 
-      Returns:
+  Returns:
+    $self object
 
-      Examples:
-        $Cashbox->delete_type( {ID => 1, SPENDING => 1} );
-        $Cashbox->delete_type( {ID => 1, SPENDING => 1} );
+  Examples:
+    $Cashbox-&gt;change_cashbox({
+      ID     =&gt; 1,
+      NAME   =&gt; &#39;TEST&#39;
+    });</code></pre>
 
-  [1mfunction info_type() - get information type, spending or coming[0m
-      Arguments:
-        $attr
+<h2 id="add_type---add-type-coming-or-spending">add_type() - add type, coming or spending</h2>
 
-      Returns:
-        $self object
+<pre><code>  Arguments:
+    $attr -
+      spending - if it is spending type
+      coming   - if it is coming type
+  Returns:
 
-      Examples:
-        my $spend_type_info  = $Cashbox->info_type({ ID => 1, SPENDING => 1 });
-        my $coming_type_info = $Cashbox->info_type({ ID => 1, COMING   => 1 });
+  Examples:
+    $Cashbox-&gt;add_type({ %FORM, SPENDING =&gt; 1 });
+    $Cashbox-&gt;add_type({ %FORM, COMING   =&gt; 1 });</code></pre>
 
-  [1mfunction change_type() - change type, coming or spending[0m
-      Arguments:
-        $attr
+<h2 id="function-list_spending_types---get-list-spending-types">function list_spending_types() - get list spending types</h2>
 
-      Returns:
-        $self object
+<pre><code>  Arguments:
+    $attr
 
-      Examples:
-        $Cashbox->change_type({ COMING   => 1, %FORM });
-        $Cashbox->change_type({ SPENDING => 1, %FORM });
+  Returns:
+    @list
 
-  [1mfunction list_coming_type() - get list of coming types[0m
-      Arguments:
-        $attr
+  Examples:
+    my @list = $Cashbox-&gt;list_spending_types({ COLS_NAME =&gt; 1});</code></pre>
 
-      Returns:
-        @list
+<h2 id="function-delete_type---delete-type-spending-or-coming">function delete_type() - delete type, spending or coming</h2>
 
-      Examples:
-        my @list = $Cashbox->list_coming_type({ COLS_NAME => 1});
+<pre><code>  Arguments:
+    $attr
 
-  [1madd_spending() - add spending[0m
-      Arguments:
-        $attr -
-      Returns:
+  Returns:
 
-      Examples:
-        $Cashbox->add_spending({%FORM});
+  Examples:
+    $Cashbox-&gt;delete_type( {ID =&gt; 1, SPENDING =&gt; 1} );
+    $Cashbox-&gt;delete_type( {ID =&gt; 1, SPENDING =&gt; 1} );</code></pre>
 
-  [1mfunction delete_spending() - delete spending[0m
-      Arguments:
-        $attr
+<h2 id="function-info_type---get-information-type-spending-or-coming">function info_type() - get information type, spending or coming</h2>
 
-      Returns:
+<pre><code>  Arguments:
+    $attr
 
-      Examples:
-        $Cashbox->delete_spending( {ID => 1} );
+  Returns:
+    $self object
 
-  [1mfunction info_spending() - get information about spending[0m
-      Arguments:
-        $attr
+  Examples:
+    my $spend_type_info  = $Cashbox-&gt;info_type({ ID =&gt; 1, SPENDING =&gt; 1 });
+    my $coming_type_info = $Cashbox-&gt;info_type({ ID =&gt; 1, COMING   =&gt; 1 });</code></pre>
 
-      Returns:
-        $self object
+<h2 id="function-change_type---change-type-coming-or-spending">function change_type() - change type, coming or spending</h2>
 
-      Examples:
-        my $info_spending = $Cashbox->info_spending({ ID => 1 });
+<pre><code>  Arguments:
+    $attr
 
-  [1mfunction change_spending() - change spending[0m
-      Arguments:
-        $attr
+  Returns:
+    $self object
 
-      Returns:
-        $self object
+  Examples:
+    $Cashbox-&gt;change_type({ COMING   =&gt; 1, %FORM });
+    $Cashbox-&gt;change_type({ SPENDING =&gt; 1, %FORM });</code></pre>
 
-      Examples:
-        $Cashbox->change_spending({
-          ID       => 1,
-          AMOUNT   => 100
-        });
+<h2 id="function-list_coming_type---get-list-of-coming-types">function list_coming_type() - get list of coming types</h2>
 
-  [1mfunction list_spending() - get list of spendings[0m
-      Arguments:
-        $attr
+<pre><code>  Arguments:
+    $attr
 
-      Returns:
-        @list
+  Returns:
+    @list
 
-      Examples:
-        my @list = $Cashbox->list_spending({ COLS_NAME => 1});
+  Examples:
+    my @list = $Cashbox-&gt;list_coming_type({ COLS_NAME =&gt; 1});</code></pre>
 
-  [1madd_coming() - add coming[0m
-      Arguments:
-        $attr -
-      Returns:
+<h2 id="add_spending---add-spending">add_spending() - add spending</h2>
 
-      Examples:
+<pre><code>  Arguments:
+    $attr -
+  Returns:
 
-  [1mfunction delete_coming() - delete cashbox[0m
-      Arguments:
-        $attr
+  Examples:
+    $Cashbox-&gt;add_spending({%FORM});</code></pre>
 
-      Returns:
+<h2 id="function-delete_spending---delete-spending">function delete_spending() - delete spending</h2>
 
-      Examples:
-        $Cashbox->delete_coming( {ID => 1} );
+<pre><code>  Arguments:
+    $attr
 
-  [1mfunction info_coming() - get information about coming[0m
-      Arguments:
-        $attr
+  Returns:
 
-      Returns:
-        $self object
+  Examples:
+    $Cashbox-&gt;delete_spending( {ID =&gt; 1} );</code></pre>
 
-      Examples:
-        my $info_coming = $Cashbox->info_coming({ ID => 1 });
+<h2 id="function-info_spending---get-information-about-spending">function info_spending() - get information about spending</h2>
 
-  [1mfunction change_coming() - change[0m
-      Arguments:
-        $attr
+<pre><code>  Arguments:
+    $attr
 
-      Returns:
-        $self object
+  Returns:
+    $self object
 
-      Examples:
-        $Cashbox->change_coming({
-          ID     => 1,
-          AMOUNT   => 100
-        });
+  Examples:
+    my $info_spending = $Cashbox-&gt;info_spending({ ID =&gt; 1 });</code></pre>
 
-  [1mfunction list_coming() - get list of all comings[0m
-      Arguments:
-        $attr
+<h2 id="function-change_spending---change-spending">function change_spending() - change spending</h2>
 
-      Returns:
-        @list
+<pre><code>  Arguments:
+    $attr
 
-      Examples:
-        my @list = $Cashbox->list_coming({ COLS_NAME => 1});
+  Returns:
+    $self object
 
-  [1madd_bet() -[0m
-      Arguments:
-        $attr -
-      Returns:
+  Examples:
+    $Cashbox-&gt;change_spending({
+      ID       =&gt; 1,
+      AMOUNT   =&gt; 100
+    });</code></pre>
 
-      Examples:
+<h2 id="function-list_spending---get-list-of-spendings">function list_spending() - get list of spendings</h2>
 
-  [1mfunction info_aid_schedule() -[0m
-      Arguments:
-        $attr
+<pre><code>  Arguments:
+    $attr
 
-      Returns:
-        $self object
+  Returns:
+    @list
 
-      Examples:
-        my $info_coming = $Crm->info_coming({ ID => 1 });
+  Examples:
+    my @list = $Cashbox-&gt;list_spending({ COLS_NAME =&gt; 1});</code></pre>
 
-  [1mfunction change_schedule() - change[0m
-      Arguments:
-        $attr
+<h2 id="add_coming---add-coming">add_coming() - add coming</h2>
 
-      Returns:
-        $self object
+<pre><code>  Arguments:
+    $attr -
+  Returns:
 
-      Examples:
-        $Cashbox->change_schedule({
-          AID     => 1,
-          AMOUNT   => 100
-        });
+  Examples:</code></pre>
 
-  [1madd_payed_salary() -[0m
-      Arguments:
-        $attr -
-      Returns:
+<h2 id="function-delete_coming---delete-cashbox">function delete_coming() - delete cashbox</h2>
 
-      Examples:
+<pre><code>  Arguments:
+    $attr
 
-  [1minfo_payed_salary() -[0m
-      Arguments:
-        $attr -
-      Returns:
+  Returns:
 
-      Examples:
+  Examples:
+    $Cashbox-&gt;delete_coming( {ID =&gt; 1} );</code></pre>
 
-  [1madd_reference_works() -[0m
-      Arguments:
-        $attr -
-      Returns:
+<h2 id="function-info_coming---get-information-about-coming">function info_coming() - get information about coming</h2>
 
-      Examples:
+<pre><code>  Arguments:
+    $attr
 
-  [1mchange_reference_works() -[0m
-      Arguments:
-        $attr -
-      Returns:
+  Returns:
+    $self object
 
-      Examples:
+  Examples:
+    my $info_coming = $Cashbox-&gt;info_coming({ ID =&gt; 1 });</code></pre>
 
-  [1minfo_reference_works() -[0m
-      Arguments:
-        $attr -
-      Returns:
+<h2 id="function-change_coming---change">function change_coming() - change</h2>
 
-      Examples:
+<pre><code>  Arguments:
+    $attr
 
-  [1mdelete_reference_works() -[0m
-      Arguments:
-        $attr -
-      Returns:
+  Returns:
+    $self object
 
-      Examples:
+  Examples:
+    $Cashbox-&gt;change_coming({
+      ID     =&gt; 1,
+      AMOUNT   =&gt; 100
+    });</code></pre>
 
-  [1mlist_reference_works() -[0m
-      Arguments:
-        $attr -
-      Returns:
+<h2 id="function-list_coming---get-list-of-all-comings">function list_coming() - get list of all comings</h2>
 
-      Examples:
+<pre><code>  Arguments:
+    $attr
 
-  [1mworks_list($attr) - list of tp services[0m
-      Arguments:
-        $attr
+  Returns:
+    @list
 
-  [1mworks_add($attr)[0m
-  [1mwarks_change($attr)[0m
-  [1mworks_del($id, $attr)[0m
-  [1mworks_info($id, $attr)[0m
+  Examples:
+    my @list = $Cashbox-&gt;list_coming({ COLS_NAME =&gt; 1});</code></pre>
 
-	
-	</body>
-	</html>
-  
+<h2 id="add_bet">add_bet() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="function-info_aid_schedule">function info_aid_schedule() -</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Returns:
+    $self object
+
+  Examples:
+    my $info_coming = $Crm-&gt;info_coming({ ID =&gt; 1 });</code></pre>
+
+<h2 id="function-change_schedule---change">function change_schedule() - change</h2>
+
+<pre><code>  Arguments:
+    $attr
+
+  Returns:
+    $self object
+
+  Examples:
+    $Cashbox-&gt;change_schedule({
+      AID     =&gt; 1,
+      AMOUNT   =&gt; 100
+    });</code></pre>
+
+<h2 id="add_payed_salary">add_payed_salary() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="info_payed_salary">info_payed_salary() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="add_reference_works">add_reference_works() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="change_reference_works">change_reference_works() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="info_reference_works">info_reference_works() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="delete_reference_works">delete_reference_works() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="list_reference_works">list_reference_works() -</h2>
+
+<pre><code>  Arguments:
+    $attr -
+  Returns:
+
+  Examples:</code></pre>
+
+<h2 id="works_list-attr---list-of-tp-services">works_list($attr) - list of tp services</h2>
+
+<pre><code>  Arguments:
+    $attr</code></pre>
+
+<h2 id="works_add-attr">works_add($attr)</h2>
+
+<h2 id="warks_change-attr">warks_change($attr)</h2>
+
+<h2 id="works_del-id-attr">works_del($id, $attr)</h2>
+
+<h2 id="works_info-id-attr">works_info($id, $attr)</h2>
+
+
+</body>
+
+</html>
+
+
