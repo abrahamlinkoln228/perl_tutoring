@@ -1,5 +1,11 @@
 #!/usr/local/bin/perl
 
+=head1 NAME
+
+  This file perform connection to mysql database and returns all results from abonents table  
+
+=cut
+
 use CGI qw(:standard);
 use DBI;
 
@@ -13,7 +19,6 @@ my $request = param("n1");
 
 $dbh = DBI->connect("DBI:mysql:$db:$host:$port",$user,$pass);
 $sth = $dbh->prepare("SELECT * FROM abonents");
-print "Content-Type: text/html\n\n";
 
 $sth->execute; # исполняем запрос
 while ($ref = $sth->fetchrow_arrayref) {
@@ -28,6 +33,7 @@ while ($ref = $sth->fetchrow_arrayref) {
 } 
 print "|end";
 
-#sleep(2);
 $rc = $sth->finish;
 $rc = $dbh->disconnect; 
+
+1;
