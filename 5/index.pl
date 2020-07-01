@@ -27,8 +27,8 @@ print <<EOF;
   </div>
   <button id="callback" class="btn btn-primary">додати</button>
 	<div class="popup">
-           <form>
-    		<input type="file" id="file" name="file">
+           <form action="file.pl" method="POST">
+    		<input type="file" id="file" name="photo">
     		<input type="submit">
 	   </form>
 	</div>
@@ -67,18 +67,19 @@ print <<EOF;
     \$(".popup").show();
 
     \$( 'form' ).submit(function ( e ) {
-    var data, xhr;
+  //  var data, xhr;
 
-    data = new FormData();
-    data.append( 'file', \$( '#file' )[0].files[0] );
-    console.log("hello");
-    xhr = new XMLHttpRequest();
+//    data = new FormData();
+//    data.append( 'file', \$( '#file' )[0].files[0] );
+//    console.log("hello");
+  //  xhr = new XMLHttpRequest();
 
-    xhr.open( 'POST', 'add.pl', true );
-    xhr.onreadystatechange = function ( response ) {};
-    xhr.send( data );
+  //  xhr.open( 'POST', 'file.pl', true );
+  //  xhr.onreadystatechange = function ( response ) {};
 
-    e.preventDefault();
+   // xhr.send( data );
+//	console.log(response)
+//    e.preventDefault();
   });
 
 
