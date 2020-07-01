@@ -29,6 +29,7 @@ print <<EOF;
 	<div class="popup">
            <form action="file.pl" method="POST">
     		<input type="file" id="file" name="photo">
+		<input type="hidden" id="custId" name="id" value="">
     		<input type="submit">
 	   </form>
 	</div>
@@ -64,7 +65,9 @@ print <<EOF;
 \$(document).on('click', '.buttons', function () {
     console.log(this.value);
     let img = \$(this).parent().children()[1];
+	    
     \$(".popup").show();
+    document.getElementById("custId").value = this.value;
 
     \$( 'form' ).submit(function ( e ) {
   //  var data, xhr;
