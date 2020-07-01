@@ -19,13 +19,19 @@ print <<EOF;
   <body>
 
   <div class="form-group" id="add11">
-    <label for="exampleInputEmail1">Номер договору або назва. залиште пустим, щоб вивисти все</label>
-    <input type="number" class="form-control" id="add1">
+    <label for="exampleInputEmail1">залиште пустим, щоб вивисти все</label>
+    <input type="number" class="form-control" id="add1"> 
   </div>
   <div class="form-group">
     <!--<input type="number" class="form-control" id="add2">-->
   </div>
   <button id="callback" class="btn btn-primary">додати</button>
+	<div class="popup">
+           <form>
+    		<input type="file" id="file" name="file">
+    		<input type="submit">
+	   </form>
+	</div>
 
 
 	<div class="border border-dark custom">
@@ -47,11 +53,40 @@ print <<EOF;
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS--> 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 	<script>
+\$(".popup").hide();
+
+
+\$(document).on('click', '.buttons', function () {
+    console.log(this.value);
+    let img = \$(this).parent().children()[1];
+    \$(".popup").show();
+
+    \$( 'form' ).submit(function ( e ) {
+    var data, xhr;
+
+    data = new FormData();
+    data.append( 'file', \$( '#file' )[0].files[0] );
+    console.log("hello");
+    xhr = new XMLHttpRequest();
+
+    xhr.open( 'POST', 'add.pl', true );
+    xhr.onreadystatechange = function ( response ) {};
+    xhr.send( data );
+
+    e.preventDefault();
+  });
+
+
+	
+//	\$(img).attr("src","./0.jpg");
+});
+
+
 
 function sorting(str){
 	
@@ -110,7 +145,7 @@ for(let i = 0; i<data.length; i--){
 	//console.log(i);
 	//construct html and pass it here. Think about fog computing in order to give more job to the browser
 
-	document.getElementsByClassName("col")[Math.abs(i)].innerHTML += '<p>'+id+'</p> <img src="'+img+'" alt=""> <p class="text-center"><p>'+name+'</p>';
+	document.getElementsByClassName("col")[Math.abs(i)].innerHTML += '<p>'+id+'</p> <img src="'+img+'" alt=""> <p class="text-center"><p>'+name+'</p> <button class="buttons" value='+id+'>change img</button>';
 }
 
 console.log(data);
@@ -123,9 +158,11 @@ function callback(n1, n2) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      sorting(this.responseText);
-    }
+    } else {
+	console.log("hello");
+	}
   };
-	xhttp.open("POST", "add.pl", true);
+	xhttp.open("POST", "./add.pl", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("n1="+n1); 
 }
@@ -140,6 +177,12 @@ document.getElementById("callback").addEventListener("click", displayDate);
 
 		
 	</script>
+
+
+<script>
+
+
+</script>
   </body>
 </html>
 
