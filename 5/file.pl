@@ -1,13 +1,22 @@
-#!/usr/bin/perl -wT
+#!/usr/bin/perl -w
 
 use strict;
 use CGI;
 use CGI::Carp qw ( fatalsToBrowser );
 use File::Basename;
+use CGI qw(:standard);
+use DBI;
+
+my $host = "localhost";
+my $port = "3306";
+my $user = "phpmyadmin";
+my $pass = "phpmyadmin";
+my $db = "abonents";
+
 
 $CGI::POST_MAX = 1024 * 5000;
 my $safe_filename_characters = "a-zA-Z0-9_.-";
-my $upload_dir = "/home/upload";
+my $upload_dir = "/var/www/html/work/structred/5/img";
 
 my $query = new CGI;
 my $filename = $query->param("photo");
@@ -45,6 +54,14 @@ print UPLOADFILE;
 }
 
 close UPLOADFILE;
+
+my $dbh = DBI->connect("DBI:mysql:$db:$host:$port",$user,$pass);
+my $sth = $dbh->prepare("UPDATE `abonents` SET `img_abonent` = './img/".$filename."' WHERE `abonents`.`id_abonent` = ".$id.";");
+ $sth->execute; # исполняем запрос
+
+
+$sth->finish;
+$dbh->disconnect; 
 
 print $query->header ( );
 print <<END_HTML;
